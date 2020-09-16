@@ -34,7 +34,6 @@ target 'VLog' do
   pod 'Toast'
   # 照片
   pod 'TZImagePickerController'
-  pod 'HXPhotoPicker/SDWebImage', '~> 3.0'
 
   # TabBar
   pod 'CYLTabBarController', '~> 1.29.0'

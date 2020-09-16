@@ -18,8 +18,6 @@ PODS:
     - CYLTabBarController/Core (= 1.29.0)
   - CYLTabBarController/Core (1.29.0)
   - FDFullscreenPopGesture (1.1)
-  - HXPhotoPicker/SDWebImage (3.0.8):
-    - SDWebImage (~> 5.0)
   - IQKeyboardManager (6.5.6)
   - JKCategories (1.9.1):
     - JKCategories/CoreData (= 1.9.1)
@@ -184,7 +182,6 @@ DEPENDENCIES:
   - AFNetworking
   - CYLTabBarController (~> 1.29.0)
   - FDFullscreenPopGesture
-  - HXPhotoPicker/SDWebImage (~> 3.0)
   - IQKeyboardManager
   - JKCategories
   - JXCategoryView
@@ -207,7 +204,6 @@ SPEC REPOS:
     - AFNetworking
     - CYLTabBarController
     - FDFullscreenPopGesture
-    - HXPhotoPicker
     - IQKeyboardManager
     - JKCategories
     - JXCategoryView
@@ -229,7 +225,6 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   CYLTabBarController: f5460b8446f82d016945d4d53895a1ef185b79e3
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  HXPhotoPicker: 0c14abb1c3b36fb35f1b38def32491299dd95bff
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   JKCategories: 5bd36ff325c80652cc2e47b689bfc0e81c563d76
   JXCategoryView: 603ccd8277a89b1a73e9cedb9d8ed4b294576008
@@ -247,6 +242,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 042a739266fd644151c26c55df17986fc141a3b0
+PODFILE CHECKSUM: 2b169faff1e46c7b16feaf08b15ac1c522232eae
 
 COCOAPODS: 1.9.1
