@@ -131,6 +131,9 @@
 		519ECF2F25120E5B0008A436 /* d87.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEBC25120E5B0008A436 /* d87.jpeg */; };
 		519ECF3025120E5B0008A436 /* HXPhotoEditTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEBD25120E5B0008A436 /* HXPhotoEditTextView.xib */; };
 		519ECF3125120E5B0008A436 /* HX_PhotoEditBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEBE25120E5B0008A436 /* HX_PhotoEditBottomView.xib */; };
+		519ECF34251212500008A436 /* YSCTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519ECF33251212500008A436 /* YSCTagViewController.m */; };
+		51A9B6E3251311A200E9B8EE /* YISTagBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A9B6E2251311A200E9B8EE /* YISTagBgView.m */; };
+		51A9B6F425133F7D00E9B8EE /* yuandian.png in Resources */ = {isa = PBXBuildFile; fileRef = 51A9B6F325133F7D00E9B8EE /* yuandian.png */; };
 		51AC9911250F03CC0023D5EA /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9905250F03CB0023D5EA /* UIView+Frame.m */; };
 		51AC9912250F03CC0023D5EA /* YISVlogTabBarController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */; };
 		51AC9914250F03CC0023D5EA /* YISPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9909250F03CB0023D5EA /* YISPlusButton.m */; };
@@ -412,6 +415,11 @@
 		519ECEBD25120E5B0008A436 /* HXPhotoEditTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXPhotoEditTextView.xib; sourceTree = "<group>"; };
 		519ECEBE25120E5B0008A436 /* HX_PhotoEditBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HX_PhotoEditBottomView.xib; sourceTree = "<group>"; };
 		519ECEBF25120E5B0008A436 /* HXPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXPhotoManager.h; sourceTree = "<group>"; };
+		519ECF32251212500008A436 /* YSCTagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCTagViewController.h; sourceTree = "<group>"; };
+		519ECF33251212500008A436 /* YSCTagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCTagViewController.m; sourceTree = "<group>"; };
+		51A9B6E1251311A200E9B8EE /* YISTagBgView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YISTagBgView.h; sourceTree = "<group>"; };
+		51A9B6E2251311A200E9B8EE /* YISTagBgView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YISTagBgView.m; sourceTree = "<group>"; };
+		51A9B6F325133F7D00E9B8EE /* yuandian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yuandian.png; sourceTree = "<group>"; };
 		51AC9903250F03CB0023D5EA /* YISPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISPlusButton.h; sourceTree = "<group>"; };
 		51AC9905250F03CB0023D5EA /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISVlogTabBarController1.m; sourceTree = "<group>"; };
@@ -547,6 +555,8 @@
 			children = (
 				512B035825109AC000447945 /* Demo2ViewController.h */,
 				512B035725109AC000447945 /* Demo2ViewController.m */,
+				519ECF32251212500008A436 /* YSCTagViewController.h */,
+				519ECF33251212500008A436 /* YSCTagViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -619,12 +629,15 @@
 		519ECDE425120E590008A436 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				51A9B6F325133F7D00E9B8EE /* yuandian.png */,
 				519ECDE925120E590008A436 /* YBCenterView.h */,
 				519ECDE625120E590008A436 /* YBCenterView.m */,
 				519ECDE725120E590008A436 /* YBTagLabel.h */,
 				519ECDEA25120E590008A436 /* YBTagLabel.m */,
 				519ECDE525120E590008A436 /* YBTagView.h */,
 				519ECDE825120E590008A436 /* YBTagView.m */,
+				51A9B6E1251311A200E9B8EE /* YISTagBgView.h */,
+				51A9B6E2251311A200E9B8EE /* YISTagBgView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -632,7 +645,7 @@
 		519ECDEB25120E590008A436 /* HXPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				519ECEA525120E5A0008A436 /* assets */,
+				519ECEA525120E5A0008A436 /* Assets */,
 				519ECE6225120E5A0008A436 /* HXPhotoEdit */,
 				519ECDF825120E590008A436 /* Category */,
 				519ECE1825120E590008A436 /* Controller */,
@@ -886,7 +899,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		519ECEA525120E5A0008A436 /* assets */ = {
+		519ECEA525120E5A0008A436 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				519ECEAC25120E5A0008A436 /* 0AA996F1-6566-4CA3-845F-5698DD9726A0.jpg */,
@@ -910,7 +923,7 @@
 				519ECEA625120E5A0008A436 /* Localizable.strings */,
 				519ECEAE25120E5A0008A436 /* LocalSampleVideo.mp4 */,
 			);
-			path = assets;
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		51AC9900250F03CB0023D5EA /* Commons */ = {
@@ -1179,6 +1192,7 @@
 				519ECF2625120E5B0008A436 /* 9f2f070828381f30ed5bacf8ab014c086e06f024.jpg in Resources */,
 				519ECF2525120E5B0008A436 /* HXPhotoEditStickerTrashView.xib in Resources */,
 				518968D3250CA65C00897448 /* Main.storyboard in Resources */,
+				51A9B6F425133F7D00E9B8EE /* yuandian.png in Resources */,
 				519ECF2E25120E5B0008A436 /* c81.mp4 in Resources */,
 				51AC995D250F5FA00023D5EA /* 13.jpg in Resources */,
 				51AC9960250F5FA00023D5EA /* 4.jpg in Resources */,
@@ -1259,6 +1273,7 @@
 				519ECEDB25120E5B0008A436 /* HXPhotoCommon.m in Sources */,
 				51AC9958250F5FA00023D5EA /* WaterFallListLogic.m in Sources */,
 				51AC9929250F160E0023D5EA /* ContentBaseViewController.m in Sources */,
+				519ECF34251212500008A436 /* YSCTagViewController.m in Sources */,
 				519ECEE125120E5B0008A436 /* HXPhotoPreviewViewController.m in Sources */,
 				519ECED925120E5B0008A436 /* UIButton+HXExtension.m in Sources */,
 				519ECED625120E5B0008A436 /* NSDate+HXExtension.m in Sources */,
@@ -1297,6 +1312,7 @@
 				519ECEC925120E5B0008A436 /* HXPhotoEditTransition.m in Sources */,
 				519ECEEF25120E5B0008A436 /* HXPhotoCustomNavigationBar.m in Sources */,
 				519ECF1B25120E5B0008A436 /* HXPhotoEditGridLayer.m in Sources */,
+				51A9B6E3251311A200E9B8EE /* YISTagBgView.m in Sources */,
 				519ECEF925120E5B0008A436 /* HXAlbumlistView.m in Sources */,
 				519ECED525120E5B0008A436 /* UIImage+HXExtension.m in Sources */,
 				519ECEE825120E5B0008A436 /* HXCustomAssetModel.m in Sources */,

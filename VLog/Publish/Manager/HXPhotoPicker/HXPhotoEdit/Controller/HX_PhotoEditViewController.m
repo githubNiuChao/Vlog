@@ -41,7 +41,6 @@
 @property (strong, nonatomic) HXPhotoEditGraffitiColorView *graffitiColorView;
 @property (strong, nonatomic) HXPhotoEditMosaicView *mosaicView;
 @property (strong, nonatomic) UIButton *backBtn;
-@property (strong, nonatomic) UILabel *tagLabel;
 @property (strong, nonatomic) HXPhotoEditingView *editingView;
 @property (weak, nonatomic) UITapGestureRecognizer *tap;
 @property (strong, nonatomic) HXPhotoEditClippingToolBar *clippingToolBar;
@@ -167,7 +166,6 @@
         self.onlyCliping = self.configuration.onlyCliping;
     }
     self.backBtn.alpha = 0;
-    self.tagLabel.alpha = 0;
     self.clippingToolBar.alpha = 0;
     self.toolsView.alpha = 0;
     self.topMaskView.alpha = 0;
@@ -191,7 +189,6 @@
     }else {
         [self.view addSubview:self.topMaskView];
         [self.topMaskView addSubview:self.backBtn];
-        [self.topMaskView addSubview:self.tagLabel];
         [self.view addSubview:self.toolsView];
         [self.view addSubview:self.clippingToolBar];
         [self.view addSubview:self.brushLineWidthPromptView];
@@ -453,7 +450,6 @@
 - (void)showTopBottomView {
     [self changeSubviewFrame];
     self.backBtn.alpha = 1;
-    self.tagLabel.alpha = 1;
     if (self.onlyCliping) {
         self.clippingToolBar.alpha = 1;
     }
@@ -496,7 +492,6 @@
 }
 - (void)didBgViewClick {
     [UIView cancelPreviousPerformRequestsWithTarget:self];
-    
     if (self.toolsView.alpha != 1) {
         [self showBgViews];
     }else {
@@ -569,19 +564,6 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
-
-- (UILabel *)tagLabel{
-    if (!_tagLabel) {
-        _tagLabel = [[UILabel alloc] init];
-        _tagLabel.text = @"点击图片添加标签";
-        _tagLabel.textColor = [UIColor whiteColor];
-        _tagLabel.font = [UIFont boldSystemFontOfSize:20];
-        _tagLabel.hx_centerX = _topMaskView.hx_centerX;
-        _tagLabel.hx_centerY = _topMaskView.hx_centerY;
-    }
-    return _tagLabel;
-}
-
 - (HX_PhotoEditBottomView *)toolsView {
     if (!_toolsView) {
         _toolsView = [HX_PhotoEditBottomView initView];

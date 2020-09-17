@@ -81,11 +81,16 @@ static const CGFloat kPhotoViewMargin = 12.0;
         _manager = [[HXPhotoManager alloc] initWithType:HXPhotoManagerSelectedTypePhotoAndVideo];
 //        _manager.configuration.openCamera = NO;
         _manager.configuration.type = HXConfigurationTypeWXChat;
+        _manager.configuration.useWxPhotoEdit = YES;//是否仿微信编辑
+        _manager.configuration.cameraPhotoJumpEdit = NO;
+        _manager.configuration.selectTogether = NO;
+        _manager.configuration.supportRotation = NO;
 //        _manager.configuration.lookLivePhoto = YES;
 //        _manager.configuration.photoEditConfigur.onlyCliping = YES;
 //        _manager.configuration.navBarBackgroundImage = [UIImage imageNamed:@"APPCityPlayer_bannerGame"];
         HXWeakSelf
-//        _manager.configuration.showOriginalBytes = YES;
+        _manager.configuration.showOriginalBytes = YES;
+        _manager.configuration.showOriginalBytesLoading = YES;
 //        _manager.configuration.photoEditConfigur.aspectRatio = HXPhotoEditAspectRatioType_Original;
 //        _manager.configuration.photoEditConfigur.customAspectRatio = CGSizeMake(1, 1);
         _manager.configuration.photoListBottomView = ^(HXPhotoBottomView *bottomView) {

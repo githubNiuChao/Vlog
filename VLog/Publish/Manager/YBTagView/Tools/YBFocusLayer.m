@@ -30,7 +30,7 @@
 
 - (void)setup {
     _fromValueForRadius = 0.0;
-    _fromValueForAlpha = 0.45;
+    _fromValueForAlpha = 0.6;
     _keyTimeForHalfOpacity = 0.2;
     _animationDuration = 1.5;
     

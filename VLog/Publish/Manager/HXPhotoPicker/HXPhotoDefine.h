@@ -27,7 +27,7 @@
 /// 并且实现HXPhotoView的代理
 /// - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath isAddItem:(BOOL)isAddItem photoView:(HXPhotoView *)photoView
 /// 如果不实现此代理，item的小大将默认 (100, 100)
-#define HXPhotoViewCustomItemSize 1
+#define HXPhotoViewCustomItemSize 0
 
 #define HXRound(x) (round(x*100000)/100000)
 #define HXRoundHundreds(x) (round(x*100)/100)

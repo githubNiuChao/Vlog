@@ -3147,10 +3147,10 @@ HX_PhotoEditViewControllerDelegate
 }
 - (void)setupUI {
     [self addSubview:self.bgView];
-//    [self addSubview:self.previewBtn];
+    [self addSubview:self.previewBtn];
     [self addSubview:self.originalBtn];
     [self addSubview:self.doneBtn];
-//    [self addSubview:self.editBtn];
+    [self addSubview:self.editBtn];
     [self changeDoneBtnFrame];
 }
 - (void)setManager:(HXPhotoManager *)manager {
@@ -3226,7 +3226,7 @@ HX_PhotoEditViewControllerDelegate
     if (selectCount <= 0) {
         self.previewBtn.enabled = NO;
         self.doneBtn.enabled = NO;
-        [self.doneBtn setTitle:[NSBundle hx_localizedStringForKey:@"下一步"] forState:UIControlStateNormal];
+        [self.doneBtn setTitle:[NSBundle hx_localizedStringForKey:@"完成"] forState:UIControlStateNormal];
     }else {
         self.previewBtn.enabled = YES;
         self.doneBtn.enabled = YES;
@@ -3234,16 +3234,16 @@ HX_PhotoEditViewControllerDelegate
             if (!self.manager.configuration.selectTogether) {
                 if (self.manager.selectedPhotoCount > 0) {
                     NSInteger maxCount = self.manager.configuration.photoMaxNum > 0 ? self.manager.configuration.photoMaxNum : self.manager.configuration.maxNum;
-                    [self.doneBtn setTitle:[NSString stringWithFormat:@"%@(%ld/%ld)",[NSBundle hx_localizedStringForKey:@"下一步"],(long)selectCount,(long)maxCount] forState:UIControlStateNormal];
+                    [self.doneBtn setTitle:[NSString stringWithFormat:@"%@(%ld/%ld)",[NSBundle hx_localizedStringForKey:@"完成"],(long)selectCount,(long)maxCount] forState:UIControlStateNormal];
                 }else {
                     NSInteger maxCount = self.manager.configuration.videoMaxNum > 0 ? self.manager.configuration.videoMaxNum : self.manager.configuration.maxNum;
-                    [self.doneBtn setTitle:[NSString stringWithFormat:@"%@(%ld/%ld)",[NSBundle hx_localizedStringForKey:@"下一步"],(long)selectCount,(long)maxCount] forState:UIControlStateNormal];
+                    [self.doneBtn setTitle:[NSString stringWithFormat:@"%@(%ld/%ld)",[NSBundle hx_localizedStringForKey:@"完成"],(long)selectCount,(long)maxCount] forState:UIControlStateNormal];
                 }
             }else {
-                [self.doneBtn setTitle:[NSString stringWithFormat:@"%@(%ld/%lu)",[NSBundle hx_localizedStringForKey:@"下一步"],(long)selectCount,(unsigned long)self.manager.configuration.maxNum] forState:UIControlStateNormal];
+                [self.doneBtn setTitle:[NSString stringWithFormat:@"%@(%ld/%lu)",[NSBundle hx_localizedStringForKey:@"完成"],(long)selectCount,(unsigned long)self.manager.configuration.maxNum] forState:UIControlStateNormal];
             }
         }else {
-            [self.doneBtn setTitle:[NSString stringWithFormat:@"%@(%ld)",[NSBundle hx_localizedStringForKey:@"下一步"],(long)selectCount] forState:UIControlStateNormal];
+            [self.doneBtn setTitle:[NSString stringWithFormat:@"%@(%ld)",[NSBundle hx_localizedStringForKey:@"完成"],(long)selectCount] forState:UIControlStateNormal];
         }
     }
     UIColor *themeColor = self.manager.configuration.bottomDoneBtnBgColor ?: self.manager.configuration.themeColor;
@@ -3404,14 +3404,13 @@ HX_PhotoEditViewControllerDelegate
 - (UIButton *)doneBtn {
     if (!_doneBtn) {
         _doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_doneBtn setTitle:[NSBundle hx_localizedStringForKey:@"下一步"] forState:UIControlStateNormal];
+        [_doneBtn setTitle:[NSBundle hx_localizedStringForKey:@"完成"] forState:UIControlStateNormal];
         _doneBtn.titleLabel.font = [UIFont hx_mediumPingFangOfSize:16];
         [_doneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_doneBtn setTitleColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5] forState:UIControlStateDisabled];
         _doneBtn.layer.cornerRadius = 3;
         _doneBtn.enabled = NO;
-//        [_doneBtn addTarget:self action:@selector(didDoneBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        [_doneBtn addTarget:self action:@selector(didPreviewClick) forControlEvents:UIControlEventTouchUpInside];
+        [_doneBtn addTarget:self action:@selector(didDoneBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _doneBtn;
 }
