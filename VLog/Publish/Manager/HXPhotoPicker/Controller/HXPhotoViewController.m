@@ -90,6 +90,9 @@ HX_PhotoEditViewControllerDelegate
 @property (strong, nonatomic) NSMutableArray *panSelectIndexPaths;
 @property (assign, nonatomic) NSInteger currentPanSelectType;
 @property (strong, nonatomic) HXHUD *imagePromptView;
+
+@property (strong, nonatomic) UIButton *nextBtn;
+
 @end
 
 @implementation HXPhotoViewController
@@ -240,6 +243,8 @@ HX_PhotoEditViewControllerDelegate
     if (self.manager.configuration.albumShowMode == HXPhotoAlbumShowModePopup) {
         if (self.manager.configuration.photoListCancelLocation == HXPhotoListCancelButtonLocationTypeLeft) {
             self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSBundle hx_localizedStringForKey:@"取消"] style:UIBarButtonItemStylePlain target:self action:@selector(didCancelClick)];
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.nextBtn];
+            
         }else if (self.manager.configuration.photoListCancelLocation == HXPhotoListCancelButtonLocationTypeRight) {
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSBundle hx_localizedStringForKey:@"取消"] style:UIBarButtonItemStylePlain target:self action:@selector(didCancelClick)];
         }
@@ -299,7 +304,9 @@ HX_PhotoEditViewControllerDelegate
     }
     
     _albumBgView.backgroundColor = [albumBgColor colorWithAlphaComponent:0.5f];
-    
+    UIColor *doneBtnDarkBgColor = self.manager.configuration.bottomDoneBtnDarkBgColor ?: [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
+    UIColor *doneBgColor = self.manager.configuration.bottomDoneBtnBgColor ?: themeColor;
+    self.nextBtn.backgroundColor = [HXPhotoCommon photoCommon].isDark ? doneBtnDarkBgColor : doneBgColor;
 }
 - (void)deviceOrientationChanged:(NSNotification *)notify {
     self.beforeOrientationIndexPath = [self.collectionView indexPathsForVisibleItems].firstObject;
@@ -2028,6 +2035,19 @@ HX_PhotoEditViewControllerDelegate
     }
     return _flowLayout;
 }
+    
+- (UIButton *)nextBtn{
+    if (!_nextBtn) {
+        _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_nextBtn setTitle:[NSBundle hx_localizedStringForKey:@"下一步"] forState:UIControlStateNormal];
+        _nextBtn.titleLabel.font = [UIFont hx_mediumPingFangOfSize:15];
+        _nextBtn.hx_size = CGSizeMake(65, 18);
+        _nextBtn.layer.cornerRadius = 3;
+        [_nextBtn addTarget:self action:@selector(photoBottomViewDidPreviewBtn) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _nextBtn;
+}
+
 @end
 @interface HXPhotoCameraViewCell ()
 @property (strong, nonatomic) UIButton *cameraBtn;
@@ -3149,7 +3169,7 @@ HX_PhotoEditViewControllerDelegate
     [self addSubview:self.bgView];
     [self addSubview:self.previewBtn];
     [self addSubview:self.originalBtn];
-    [self addSubview:self.doneBtn];
+//    [self addSubview:self.doneBtn];
     [self addSubview:self.editBtn];
     [self changeDoneBtnFrame];
 }
@@ -3374,12 +3394,17 @@ HX_PhotoEditViewControllerDelegate
     self.previewBtn.frame = CGRectMake(12, 0, 0, 50);
     self.previewBtn.hx_w = self.previewBtn.titleLabel.hx_getTextWidth;
     self.previewBtn.center = CGPointMake(self.previewBtn.center.x, 25);
-    
+    //隐藏预览
+    self.previewBtn.frame = CGRectMake(12, 0, 0, 0);
+
     self.editBtn.frame = CGRectMake(CGRectGetMaxX(self.previewBtn.frame) + 10, 0, 0, 50);
     self.editBtn.hx_w = self.editBtn.titleLabel.hx_getTextWidth;
+    //隐藏编辑
+    self.editBtn.frame = CGRectMake(CGRectGetMaxX(self.previewBtn.frame) + 10, 0, 0, 0);
     
     self.doneBtn.frame = CGRectMake(0, 0, 60, 30);
     self.doneBtn.center = CGPointMake(self.doneBtn.center.x, 25);
+    
     [self changeDoneBtnFrame];
     
     [self updateOriginalBtnFrame];

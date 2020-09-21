@@ -20,6 +20,19 @@
 
 typedef void(^myBlock)(NSString *str);
 
+
+@class YBTagView;
+
+@protocol YBTagViewDelegate <NSObject>
+
+/// 点击标签
+- (void)tagView:(YBTagView *)tagvView tagInfoString:(NSString *)string;
+
+/// 拖动标签
+- (void)tagView:(YBTagView *)tagvView panGesture:(UIPanGestureRecognizer *)panGestureRecognizer tagCenter:(CGPoint )center;
+
+@end
+
 @interface YBTagView : UIView
 
 /**按住拖动手势*/
@@ -28,34 +41,24 @@ typedef void(^myBlock)(NSString *str);
 @property (nonatomic, assign) BOOL isPanGestureOnTagViewed;
 /**tag的数组*/
 @property (nonatomic, strong) NSArray *tagArray;
-
 @property (nonatomic, assign) CGPoint tagViewCenterPoint;
-
 @property (nonatomic, assign) CGPoint selfCenter;
+@property (nonatomic, weak) id<YBTagViewDelegate> tagViewDelegate;
 
 @property (nonatomic, copy) myBlock block;
-
-
 
 /**
  *  根据点来确定加上的标签页
  *
  *  @param point 触摸屏幕时点中的点
- *
- *  @return
  */
 - (instancetype)initWithPoint:(CGPoint)point;
-
-
-
 /**
  *  在图片上添加标签,添加完不可修改
  *
  *  @param point    触摸屏幕时点中的点
  *  @param array    有标签名字的数组
  *  @param tagStyle 标签的风格，传入的是枚举值
- *
- *  @return
  */
 - (instancetype)initWithPoint:(CGPoint)point array:(NSArray *)array tagStyle:(NSInteger)tagStyle;
 

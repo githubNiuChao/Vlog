@@ -30,13 +30,13 @@
 
 - (void)setup {
     _fromValueForRadius = 0.0;
-    _fromValueForAlpha = 0.6;
+    _fromValueForAlpha = 0.65;
     _keyTimeForHalfOpacity = 0.2;
-    _animationDuration = 1.5;
+    _animationDuration = 2.0;
     
     self.repeatCount = INFINITY;
-    self.radius = 15;
-    self.focusLayerNumber = 1;
+    self.radius = 18;
+    self.focusLayerNumber = 3;
     self.instanceDelay = 1;
     self.backgroundColor = [[UIColor blackColor] CGColor];
     
@@ -69,7 +69,7 @@
             
             CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
             opacityAnimation.duration = self.animationDuration;
-            opacityAnimation.values = @[@(self.fromValueForAlpha), @0.45, @0];
+            opacityAnimation.values = @[@(self.fromValueForAlpha), @0.4, @0];
             opacityAnimation.keyTimes = @[@0, @(self.keyTimeForHalfOpacity), @1];
             opacityAnimation.removedOnCompletion = NO;
             

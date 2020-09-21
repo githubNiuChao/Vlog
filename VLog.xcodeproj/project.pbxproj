@@ -167,6 +167,7 @@
 		51AC996E250F5FA10023D5EA /* PersonListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9955250F5FA00023D5EA /* PersonListCollectionViewCell.m */; };
 		51AC996F250F5FA10023D5EA /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9956250F5FA00023D5EA /* WaterFlowLayout.m */; };
 		51AC9974250F725A0023D5EA /* BaseRequestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9973250F725A0023D5EA /* BaseRequestAPI.m */; };
+		51E3ABD62514611A0033080F /* YSCTagCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E3ABD52514611A0033080F /* YSCTagCollectionViewCell.m */; };
 		6E4E8D1EA337B0C1F1904A83 /* libPods-VLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */; };
 /* End PBXBuildFile section */
 
@@ -473,6 +474,8 @@
 		51AC9970250F60D60023D5EA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		51AC9972250F725A0023D5EA /* BaseRequestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequestAPI.h; sourceTree = "<group>"; };
 		51AC9973250F725A0023D5EA /* BaseRequestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequestAPI.m; sourceTree = "<group>"; };
+		51E3ABD42514611A0033080F /* YSCTagCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCTagCollectionViewCell.h; sourceTree = "<group>"; };
+		51E3ABD52514611A0033080F /* YSCTagCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCTagCollectionViewCell.m; sourceTree = "<group>"; };
 		6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -530,6 +533,8 @@
 		512B03532510901100447945 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51E3ABD42514611A0033080F /* YSCTagCollectionViewCell.h */,
+				51E3ABD52514611A0033080F /* YSCTagCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1316,6 +1321,7 @@
 				519ECEF925120E5B0008A436 /* HXAlbumlistView.m in Sources */,
 				519ECED525120E5B0008A436 /* UIImage+HXExtension.m in Sources */,
 				519ECEE825120E5B0008A436 /* HXCustomAssetModel.m in Sources */,
+				51E3ABD62514611A0033080F /* YSCTagCollectionViewCell.m in Sources */,
 				519ECF0D25120E5B0008A436 /* HXPhotoEditGraffitiColorSizeView.m in Sources */,
 				519ECECC25120E5B0008A436 /* HXPhotoPersentInteractiveTransition.m in Sources */,
 				519ECF1A25120E5B0008A436 /* HXPhotoEditGraffitiColorView.m in Sources */,

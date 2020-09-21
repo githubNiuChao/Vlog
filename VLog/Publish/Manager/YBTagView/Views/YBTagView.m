@@ -158,7 +158,6 @@
     [self addTag];//默认启动的顺序
 }
 
-
 /**
  *  检查在添加tag的时候是否超出了显示范围，如果超出，移动进显示范围内
  */
@@ -297,6 +296,10 @@
     if (self.block) {
         self.block(string);
     }
+    
+    if ([self.tagViewDelegate respondsToSelector:@selector(tagView:tagInfoString:)]) {
+        [self.tagViewDelegate tagView:self tagInfoString:string];
+    }
 }
 
 
@@ -330,7 +333,7 @@
         _tagCenterView = centerView;
         
         YBTagLabel *label = [[YBTagLabel alloc]initWithFrame:CGRectMake(self.width- tagW, 0, tagW, TagLabelH) withString:tagString];
-        [self addSubview:label];
+//        [self addSubview:label];
         label.leftPoint = CGPointMake(label.x, TagLabelH);
         label.rightPoint = CGPointMake(label.x + tagW, TagLabelH);
         YBBranchLayer *branch = [[YBBranchLayer alloc]init];
@@ -340,6 +343,7 @@
             });
         }];
         [self.layer addSublayer:branch];
+        [self addSubview:label];
         _tagBranchOne = branch;
         _tagOne = label;
         
@@ -1554,7 +1558,6 @@
     self.tagFour.delegate = self;
 }
 
-
 /**
  *  四个tag的时候改变标签状态
  */
@@ -1599,13 +1602,9 @@
     [_tagBranchTwo removeFromSuperlayer];
     [_tagBranchThree removeFromSuperlayer];
     [_tagBranchFour removeFromSuperlayer];
-    
     [_tagCenterView removeFromSuperview];
-    
-    
+        
 }
-
-
 
 #pragma mark -- 按住拖动的手势
 - (void)setIsPanGestureOnTagViewed:(BOOL)isPanGestureOnTagViewed {
@@ -1636,12 +1635,15 @@
     CGPoint point = [panGestureRecognizer translationInView:panGestureRecognizer.view];
     
     self.center = CGPointMake(self.center.x + point.x, self.center.y + point.y);
-//    NSLog(@"拖动后的位置：%@",NSStringFromCGPoint(self.center));
     _selfCenter = self.center;
-    
+
     //检查是否拖动出界
     [self checkIsOut];
     
+    if ([self.tagViewDelegate respondsToSelector:@selector(tagView:panGesture:tagCenter:)]) {
+        [self.tagViewDelegate tagView:self panGesture:panGestureRecognizer tagCenter:self.center];
+    }
+
     [panGestureRecognizer setTranslation:CGPointZero inView:panGestureRecognizer.view];
 }
 

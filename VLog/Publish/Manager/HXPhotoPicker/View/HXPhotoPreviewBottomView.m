@@ -53,7 +53,7 @@
     [self addSubview:self.bgView];
     [self addSubview:self.collectionView];
     [self addSubview:self.doneBtn];
-    [self addSubview:self.editBtn];
+//    [self addSubview:self.editBtn];
     [self addSubview:self.tipView];
     [self changeDoneBtnFrame];
     [self changeColor];
@@ -138,7 +138,7 @@
     NSString *text;
     if (selectCount <= 0) {
         text = @"";
-        [self.doneBtn setTitle:[NSBundle hx_localizedStringForKey:@"完成"] forState:UIControlStateNormal];
+        [self.doneBtn setTitle:[NSBundle hx_localizedStringForKey:@"编辑"] forState:UIControlStateNormal];
     }else {
         if (self.manager.configuration.doneBtnShowDetail) {
             if (!self.manager.configuration.selectTogether) {
@@ -156,7 +156,7 @@
             text = [NSString stringWithFormat:@"(%ld)", selectCount];
         }
     }
-    [self.doneBtn setTitle:[NSString stringWithFormat:@"%@%@",[NSBundle hx_localizedStringForKey:@"完成"], text] forState:UIControlStateNormal];
+    [self.doneBtn setTitle:[NSString stringWithFormat:@"%@%@",[NSBundle hx_localizedStringForKey:@"编辑"], text] forState:UIControlStateNormal];
     [self changeDoneBtnFrame];
 }
 #pragma mark - < UICollectionViewDataSource >
@@ -347,10 +347,11 @@
 - (UIButton *)doneBtn {
     if (!_doneBtn) {
         _doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_doneBtn setTitle:[NSBundle hx_localizedStringForKey:@"完成"] forState:UIControlStateNormal];
+        [_doneBtn setTitle:[NSBundle hx_localizedStringForKey:@"编辑"] forState:UIControlStateNormal];
         _doneBtn.titleLabel.font = [UIFont hx_mediumPingFangOfSize:16];
         _doneBtn.layer.cornerRadius = 3;
-        [_doneBtn addTarget:self action:@selector(didDoneBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//        [_doneBtn addTarget:self action:@selector(didDoneBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [_doneBtn addTarget:self action:@selector(didEditBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _doneBtn;
 }
@@ -360,7 +361,7 @@
         [_editBtn setTitle:[NSBundle hx_localizedStringForKey:@"编辑"] forState:UIControlStateNormal];
         _editBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         [_editBtn addTarget:self action:@selector(didEditBtnClick) forControlEvents:UIControlEventTouchUpInside];
-        _editBtn.hx_size = CGSizeMake(50, 50);
+        _editBtn.hx_size = CGSizeMake(0, 0);
     }
     return _editBtn;
 }

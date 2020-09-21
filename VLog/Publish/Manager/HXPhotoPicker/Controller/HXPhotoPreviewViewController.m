@@ -24,6 +24,9 @@
 #import "UIImageView+HXExtension.h"
 #import "UIColor+HXExtension.h"
 
+#import "YSCTagViewController.h"
+
+
 @interface HXPhotoPreviewViewController ()
 <
 UICollectionViewDataSource,
@@ -39,7 +42,6 @@ HX_PhotoEditViewControllerDelegate
 @property (strong, nonatomic) UILabel *titleLb;
 @property (strong, nonatomic) UILabel *subTitleLb;
 @property (strong, nonatomic) HXPhotoPreviewViewCell *tempCell;
-@property (strong, nonatomic) UIButton *selectBtn;
 @property (assign, nonatomic) BOOL orientationDidChange;
 @property (assign, nonatomic) BOOL firstChangeFrame;
 @property (assign, nonatomic) NSInteger beforeOrientationIndex;
@@ -48,6 +50,8 @@ HX_PhotoEditViewControllerDelegate
 
 @property (strong, nonatomic) HXPhotoCustomNavigationBar *navBar;
 @property (strong, nonatomic) UINavigationItem *navItem;
+@property (strong, nonatomic) UIButton *selectBtn;//选择
+@property (strong, nonatomic) UIButton *nextBtn;//下一步
 @property (assign, nonatomic) BOOL isAddInteractiveTransition;
 @property (strong, nonatomic) UIView *dismissTempTopView;
 @property (strong, nonatomic) UIPageControl *bottomPageControl;
@@ -426,6 +430,9 @@ HX_PhotoEditViewControllerDelegate
             }
         }
         self.selectBtn.backgroundColor = self.selectBtn.selected ? selectBtnBgColor : nil;
+        UIColor *doneBtnDarkBgColor = self.manager.configuration.bottomDoneBtnDarkBgColor ?: [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
+        UIColor *doneBgColor = self.manager.configuration.bottomDoneBtnBgColor ?: themeColor;
+        self.nextBtn.backgroundColor = [HXPhotoCommon photoCommon].isDark ? doneBtnDarkBgColor : doneBgColor;
     }else {
         if (self.exteriorPreviewStyle == HXPhotoViewPreViewShowStyleDefault) {
             [self.navBar setTintColor:themeColor];
@@ -493,7 +500,7 @@ HX_PhotoEditViewControllerDelegate
             self.bottomView.enabled = self.manager.configuration.photoCanEdit;
         }
         self.bottomView.selectCount = [self.manager selectedCount];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.selectBtn];
+        self.navigationItem.rightBarButtonItems =@[[[UIBarButtonItem alloc] initWithCustomView:self.nextBtn],[[UIBarButtonItem alloc] initWithCustomView:self.selectBtn]];
         self.selectBtn.selected = model.selected;
         [self.selectBtn setTitle:model.selectIndexStr forState:UIControlStateSelected];
         CGFloat selectTextWidth = [self.selectBtn.titleLabel hx_getTextWidth];
@@ -596,6 +603,21 @@ HX_PhotoEditViewControllerDelegate
         [self.bottomView deleteModel:model];
     }
 }
+
+- (void)didNextBtnClick:(UIButton *)button{
+//    [self photoPreviewBottomViewDidDone:self.bottomView];
+
+    YSCTagViewController *vc = [[YSCTagViewController alloc] init];
+//    vc.model = [self.modelArray objectAtIndex:self.currentModelIndex];
+//    vc.avAsset = cell.previewContentView.avAsset;
+//    vc.delegate = self;
+    vc.modelArray = self.modelArray;
+    vc.manager = self.manager;
+//    vc.outside = self.outside;
+    self.navigationController.delegate = vc;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)cancelDismissClick {
     self.manager.selectPhotoing = NO;
     if ([self.delegate respondsToSelector:@selector(photoPreviewControllerDidCancel:model:)]) {
@@ -1477,6 +1499,19 @@ HX_PhotoEditViewControllerDelegate
     }
     return _selectBtn;
 }
+
+- (UIButton *)nextBtn{
+    if (!_nextBtn) {
+        _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_nextBtn setTitle:[NSBundle hx_localizedStringForKey:@"下一步"] forState:UIControlStateNormal];
+        _nextBtn.titleLabel.font = [UIFont hx_mediumPingFangOfSize:15];
+        _nextBtn.hx_size = CGSizeMake(65, 18);
+        _nextBtn.layer.cornerRadius = 3;
+        [_nextBtn addTarget:self action:@selector(didNextBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _nextBtn;
+}
+
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(-10, 0,self.view.hx_w + 20, [UIScreen mainScreen].bounds.size.height) collectionViewLayout:self.flowLayout];

@@ -24,5 +24,6 @@
 #import "UtilsMacros.h"
 #import "CommonMacros.h"
 #import "FontAndColorMacros.h"
+#import "HXPhotoPicker.h"
 
 #endif /* PrefixHeader_pch */

@@ -44,12 +44,21 @@
     [path addLineToPoint:midPoint];
     [path addLineToPoint:endPoint];
 
+
     CGPoint topPoint = CGPointMake(endPoint.x, endPoint.y-25);
     CGPoint leftPoint = CGPointMake(midPoint.x, endPoint.y-25);
     [path addLineToPoint:topPoint];
     [path addLineToPoint:leftPoint];
     [path addLineToPoint:startPoint];
-//
+
+//    UIBezierPath *roundedPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(110, 100, 150, 100) cornerRadius:50];
+//    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
+//    layer.path = path.CGPath;
+//    layer.fillColor = UIColor.clearColor.CGColor; // 空心
+//    layer.strokeColor = UIColor.blackColor.CGColor; // 黑边
+//    [self addSublayer:layer];
+    
+    
 //    [path closePath];
     self.path = path.CGPath;
     

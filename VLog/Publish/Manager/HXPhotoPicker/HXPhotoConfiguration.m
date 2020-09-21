@@ -250,7 +250,7 @@
     self.originalSelectedImageName = @"hx_original_selected_wx";
 
     // 颜色设置
-    UIColor *wxColor = [UIColor hx_colorWithHexStr:@"#07C160"];
+    UIColor *wxColor = [UIColor hx_colorWithHexStr:@"#E7414D"];
     self.statusBarStyle = UIStatusBarStyleLightContent;
     self.themeColor = [UIColor whiteColor];
     self.photoEditConfigur.themeColor = wxColor;

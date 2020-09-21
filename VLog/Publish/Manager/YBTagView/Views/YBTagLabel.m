@@ -36,10 +36,8 @@
 
 - (void)tagGesture:(YBTagGestureRecognizer *)gesture
 {
-    NSLog(@"........手势方法");
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(tagLabelDelegateMethod:)]) {
-        
         [self.delegate tagLabelDelegateMethod:gesture.gestureString];
     }
     
@@ -83,7 +81,7 @@
 - (void)delay
 {
     [UIView animateWithDuration:1.0 animations:^{
-        self.text = _selfStr;
+        self.text = self->_selfStr;
         self.alpha = 1.0;
     } completion:^(BOOL finished) {
         

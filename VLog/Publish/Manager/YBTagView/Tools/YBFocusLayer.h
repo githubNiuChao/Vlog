@@ -21,7 +21,7 @@
 /**
  *  透明动画开始的透明度值
  *
- *	默认值 0.45
+ *	默认值 0.65
  */
 @property (nonatomic, assign) CGFloat fromValueForAlpha;
 
@@ -42,7 +42,7 @@
 /**
  *  圆形脉冲的半径
  *
- *	默认值 15pt.
+ *	默认值 18pt.
  */
 @property (nonatomic, assign) CGFloat radius;
 

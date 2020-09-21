@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HXPhotoPicker.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YSCTagViewController : UIViewController
+@interface YSCTagViewController : UIViewController<HXCustomNavigationControllerDelegate>
+
+@property (strong, nonatomic) HXPhotoManager *manager;
+@property (assign, nonatomic) NSInteger currentModelIndex;
+@property (strong, nonatomic) NSMutableArray *modelArray;
+@property (strong, nonatomic) UICollectionView *collectionView;
+
+@property (assign, nonatomic) BOOL outside;
 
 @end
 

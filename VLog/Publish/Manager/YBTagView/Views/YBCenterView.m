@@ -64,8 +64,6 @@
     self.alpha = 1.0;
 }
 
-
-
 - (void)dismiss
 {
     self.alpha = 0.0;
@@ -76,14 +74,10 @@
     [self.focusLayer startAnimation];
 }
 
-
-
 - (void)stopAnimation
 {
     [self.focusLayer stopAnimation];
 }
-
-
 
 - (YBFocusLayer *)focusLayer
 {
@@ -94,8 +88,6 @@
     }
     return _focusLayer;
 }
-
-
 
 - (UIButton *)button
 {
