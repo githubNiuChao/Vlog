@@ -19,9 +19,7 @@ static const CGFloat kPhotoViewMargin = 12.0;
 @property (strong, nonatomic) UIScrollView *scrollView;
 
 @property (strong, nonatomic) UIButton *bottomView;
-
 @property (assign, nonatomic) BOOL needDeleteItem;
-
 @property (assign, nonatomic) BOOL showHud;
 
 @end
@@ -79,56 +77,56 @@ static const CGFloat kPhotoViewMargin = 12.0;
 - (HXPhotoManager *)manager {
     if (!_manager) {
         _manager = [[HXPhotoManager alloc] initWithType:HXPhotoManagerSelectedTypePhotoAndVideo];
-//        _manager.configuration.openCamera = NO;
+        //        _manager.configuration.openCamera = NO;
         _manager.configuration.type = HXConfigurationTypeWXChat;
         _manager.configuration.useWxPhotoEdit = YES;//是否仿微信编辑
         _manager.configuration.cameraPhotoJumpEdit = NO;
         _manager.configuration.selectTogether = NO;
         _manager.configuration.supportRotation = NO;
-//        _manager.configuration.lookLivePhoto = YES;
-//        _manager.configuration.photoEditConfigur.onlyCliping = YES;
-//        _manager.configuration.navBarBackgroundImage = [UIImage imageNamed:@"APPCityPlayer_bannerGame"];
+        //        _manager.configuration.lookLivePhoto = YES;
+        //        _manager.configuration.photoEditConfigur.onlyCliping = YES;
+        //        _manager.configuration.navBarBackgroundImage = [UIImage imageNamed:@"APPCityPlayer_bannerGame"];
         HXWeakSelf
         _manager.configuration.showOriginalBytes = YES;
         _manager.configuration.showOriginalBytesLoading = YES;
-//        _manager.configuration.photoEditConfigur.aspectRatio = HXPhotoEditAspectRatioType_Original;
-//        _manager.configuration.photoEditConfigur.customAspectRatio = CGSizeMake(1, 1);
+        //        _manager.configuration.photoEditConfigur.aspectRatio = HXPhotoEditAspectRatioType_Original;
+        //        _manager.configuration.photoEditConfigur.customAspectRatio = CGSizeMake(1, 1);
         _manager.configuration.photoListBottomView = ^(HXPhotoBottomView *bottomView) {
-//            bottomView.bgView.translucent = NO;
-//            if ([HXPhotoCommon photoCommon].isDark) {
-//                bottomView.bgView.barTintColor = [UIColor blackColor];
-//            }else {
-//                bottomView.bgView.barTintColor = [UIColor colorWithRed:60.f / 255.f green:131.f / 255.f blue:238.f / 255.f alpha:1];
-//            }
+            //            bottomView.bgView.translucent = NO;
+            //            if ([HXPhotoCommon photoCommon].isDark) {
+            //                bottomView.bgView.barTintColor = [UIColor blackColor];
+            //            }else {
+            //                bottomView.bgView.barTintColor = [UIColor colorWithRed:60.f / 255.f green:131.f / 255.f blue:238.f / 255.f alpha:1];
+            //            }
         };
         _manager.configuration.previewBottomView = ^(HXPhotoPreviewBottomView *bottomView) {
-//            bottomView.bgView.translucent = NO;
-//            bottomView.tipView.translucent = NO;
-//            if ([HXPhotoCommon photoCommon].isDark) {
-//                bottomView.bgView.barTintColor = [UIColor blackColor];
-//                bottomView.tipView.barTintColor = [UIColor blackColor];
-//            }else {
-//                bottomView.bgView.barTintColor = [UIColor colorWithRed:60.f / 255.f green:131.f / 255.f blue:238.f / 255.f alpha:1];
-//                bottomView.tipView.barTintColor = [UIColor colorWithRed:60.f / 255.f green:131.f / 255.f blue:238.f / 255.f alpha:1];
-//            }
+            //            bottomView.bgView.translucent = NO;
+            //            bottomView.tipView.translucent = NO;
+            //            if ([HXPhotoCommon photoCommon].isDark) {
+            //                bottomView.bgView.barTintColor = [UIColor blackColor];
+            //                bottomView.tipView.barTintColor = [UIColor blackColor];
+            //            }else {
+            //                bottomView.bgView.barTintColor = [UIColor colorWithRed:60.f / 255.f green:131.f / 255.f blue:238.f / 255.f alpha:1];
+            //                bottomView.tipView.barTintColor = [UIColor colorWithRed:60.f / 255.f green:131.f / 255.f blue:238.f / 255.f alpha:1];
+            //            }
         };
         
-//        _manager.configuration.photoEditConfigur.requestChartletModels = ^(void (^ _Nonnull chartletModels)(NSArray<HXPhotoEditChartletTitleModel *> * _Nonnull)) {
-//            // 模仿网络请求获取贴图资源
-//            HXPhotoEditChartletTitleModel *netModel = [HXPhotoEditChartletTitleModel modelWithNetworkNURL:[NSURL URLWithString:@"http://tsnrhapp.oss-cn-hangzhou.aliyuncs.com/chartle/xxy_s_highlighted.png"]];
-//            NSString *prefix = @"http://tsnrhapp.oss-cn-hangzhou.aliyuncs.com/chartle/xxy%d.png";
-//            NSMutableArray *netModels = @[].mutableCopy;
-//            for (int i = 1; i <= 40; i++) {
-//                [netModels addObject:[HXPhotoEditChartletModel modelWithNetworkNURL:[NSURL URLWithString:[NSString stringWithFormat:prefix ,i]]]];
-//            }
-//            netModel.models = netModels.copy;
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                // 这里没有模仿做缓存处理，需要自己做缓存处理
-//                if (chartletModels) {
-//                    chartletModels(@[netModel]);
-//                }
-//            });
-//        };
+        //        _manager.configuration.photoEditConfigur.requestChartletModels = ^(void (^ _Nonnull chartletModels)(NSArray<HXPhotoEditChartletTitleModel *> * _Nonnull)) {
+        //            // 模仿网络请求获取贴图资源
+        //            HXPhotoEditChartletTitleModel *netModel = [HXPhotoEditChartletTitleModel modelWithNetworkNURL:[NSURL URLWithString:@"http://tsnrhapp.oss-cn-hangzhou.aliyuncs.com/chartle/xxy_s_highlighted.png"]];
+        //            NSString *prefix = @"http://tsnrhapp.oss-cn-hangzhou.aliyuncs.com/chartle/xxy%d.png";
+        //            NSMutableArray *netModels = @[].mutableCopy;
+        //            for (int i = 1; i <= 40; i++) {
+        //                [netModels addObject:[HXPhotoEditChartletModel modelWithNetworkNURL:[NSURL URLWithString:[NSString stringWithFormat:prefix ,i]]]];
+        //            }
+        //            netModel.models = netModels.copy;
+        //            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //                // 这里没有模仿做缓存处理，需要自己做缓存处理
+        //                if (chartletModels) {
+        //                    chartletModels(@[netModel]);
+        //                }
+        //            });
+        //        };
         _manager.configuration.shouldUseCamera = ^(UIViewController *viewController, HXPhotoConfigurationCameraType cameraType, HXPhotoManager *manager) {
             
             // 这里拿使用系统相机做例子
@@ -230,25 +228,25 @@ static const CGFloat kPhotoViewMargin = 12.0;
     HXPhotoView *photoView = [HXPhotoView photoManager:self.manager scrollDirection:UICollectionViewScrollDirectionVertical];
     photoView.frame = CGRectMake(0, kPhotoViewMargin, width, 0);
     photoView.collectionView.contentInset = UIEdgeInsetsMake(0, kPhotoViewMargin, 0, kPhotoViewMargin);
-//    photoView.spacing = kPhotoViewMargin;
+    //        photoView.spacing = kPhotoViewMargin;
     photoView.delegate = self;
     photoView.cellCustomProtocol = self;
     photoView.outerCamera = YES;
-//    photoView.previewStyle = HXPhotoViewPreViewShowStyleDark;
-    photoView.previewShowDeleteButton = YES; 
+//        photoView.previewStyle = HXPhotoViewPreViewShowStyleDark;
+    photoView.previewShowDeleteButton = YES;
     photoView.showAddCell = YES;
-//    photoView.showDeleteNetworkPhotoAlert = YES;
-//    photoView.adaptiveDarkness = NO;
+//        photoView.showDeleteNetworkPhotoAlert = YES;
+//        photoView.adaptiveDarkness = NO;
     [photoView.collectionView reloadData];
     [scrollView addSubview:photoView];
     self.photoView = photoView;
     
-//    UIBarButtonItem *cameraItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(didNavBtnClick)];
-//
-//    self.navigationItem.rightBarButtonItems = @[cameraItem];
-//
+    //    UIBarButtonItem *cameraItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(didNavBtnClick)];
+    //
+    //    self.navigationItem.rightBarButtonItems = @[cameraItem];
+    //
     [self.view addSubview:self.bottomView];
-//    [UINavigationBar appearance].translucent = NO;
+    //    [UINavigationBar appearance].translucent = NO;
 }
 - (void)dealloc {
     NSSLog(@"dealloc");
@@ -272,15 +270,15 @@ static const CGFloat kPhotoViewMargin = 12.0;
 //}
 
 - (void)photoView:(HXPhotoView *)photoView changeComplete:(NSArray<HXPhotoModel *> *)allList photos:(NSArray<HXPhotoModel *> *)photos videos:(NSArray<HXPhotoModel *> *)videos original:(BOOL)isOriginal {
-//    [self changeStatus];
-//    NSSLog(@"%@",[videos.firstObject videoURL]);
-//    HXPhotoModel *photoModel = allList.firstObject;
+    //    [self changeStatus];
+    //    NSSLog(@"%@",[videos.firstObject videoURL]);
+    //    HXPhotoModel *photoModel = allList.firstObject;
     
-//    [allList hx_requestImageWithOriginal:isOriginal completion:^(NSArray<UIImage *> * _Nullable imageArray, NSArray<HXPhotoModel *> * _Nullable errorArray) {
-//        // imageArray 获取成功的image数组
-//        // errorArray 获取失败的model数组
-//        NSSLog(@"\nimage: %@\nerror: %@",imageArray,errorArray);
-//    }];
+    //    [allList hx_requestImageWithOriginal:isOriginal completion:^(NSArray<UIImage *> * _Nullable imageArray, NSArray<HXPhotoModel *> * _Nullable errorArray) {
+    //        // imageArray 获取成功的image数组
+    //        // errorArray 获取失败的model数组
+    //        NSSLog(@"\nimage: %@\nerror: %@",imageArray,errorArray);
+    //    }];
 }
 - (void)photoViewCurrentSelected:(NSArray<HXPhotoModel *> *)allList photos:(NSArray<HXPhotoModel *> *)photos videos:(NSArray<HXPhotoModel *> *)videos original:(BOOL)isOriginal {
     for (HXPhotoModel *photoModel in allList) {
@@ -300,10 +298,10 @@ static const CGFloat kPhotoViewMargin = 12.0;
     
 }
 - (void)photoViewPreviewDismiss:(HXPhotoView *)photoView {
-//    [self changeStatus];
+    //    [self changeStatus];
 }
 - (void)photoViewDidCancel:(HXPhotoView *)photoView {
-//    [self changeStatus];
+    //    [self changeStatus];
 }
 - (void)photoView:(HXPhotoView *)photoView currentDeleteModel:(HXPhotoModel *)model currentIndex:(NSInteger)index {
     NSSLog(@"%@ --> index - %ld",model,index);
@@ -338,7 +336,7 @@ static const CGFloat kPhotoViewMargin = 12.0;
     CGPoint point = [longPgr locationInView:self.view];
     if (point.y >= self.bottomView.hx_y) {
         self.needDeleteItem = YES;
-        [self.photoView deleteModelWithIndex:indexPath.item]; 
+        [self.photoView deleteModelWithIndex:indexPath.item];
     }else {
         self.needDeleteItem = NO;
     }

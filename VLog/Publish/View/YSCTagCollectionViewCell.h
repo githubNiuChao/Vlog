@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "YSCTagModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YSCTagCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) HXPhotoModel *model;
+
+//@property (strong, nonatomic) NSMutableArray<YSCTagModel *> *tagMuArrays;
 
 
 @end

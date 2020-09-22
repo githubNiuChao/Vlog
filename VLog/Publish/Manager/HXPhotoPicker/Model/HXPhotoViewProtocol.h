@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class HXPhotoView, HXPhotoModel, HXPhotoSubViewCell;
 
-
 /**
  照片/视频发生改变时调用 - 选择、移动顺序、删除
 

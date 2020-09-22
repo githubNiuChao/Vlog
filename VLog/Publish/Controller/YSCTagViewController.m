@@ -124,7 +124,7 @@
     }
     return _collectionView;
 }
-    
+
 - (HXPhotoCustomNavigationBar *)navBar {
     if (!_navBar) {
         CGFloat width = [UIScreen mainScreen].bounds.size.width;

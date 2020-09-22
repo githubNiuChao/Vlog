@@ -614,7 +614,7 @@ HX_PhotoEditViewControllerDelegate
     vc.modelArray = self.modelArray;
     vc.manager = self.manager;
 //    vc.outside = self.outside;
-    self.navigationController.delegate = vc;
+//    self.navigationController.delegate = vc;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

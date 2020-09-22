@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YSCTagModel.h"
 
 #define TagViewW  150 //标签底部view的宽
 #define TagViewH  100 //标签底部view的高
@@ -26,10 +27,10 @@ typedef void(^myBlock)(NSString *str);
 @protocol YBTagViewDelegate <NSObject>
 
 /// 点击标签
-- (void)tagView:(YBTagView *)tagvView tagInfoString:(NSString *)string;
+- (void)tagView:(YBTagView *)tagView tagInfoString:(NSString *)string;
 
 /// 拖动标签
-- (void)tagView:(YBTagView *)tagvView panGesture:(UIPanGestureRecognizer *)panGestureRecognizer tagCenter:(CGPoint )center;
+- (void)tagView:(YBTagView *)tagView panGesture:(UIPanGestureRecognizer *)panGestureRecognizer tagCenter:(CGPoint )center;
 
 @end
 
@@ -46,6 +47,8 @@ typedef void(^myBlock)(NSString *str);
 @property (nonatomic, weak) id<YBTagViewDelegate> tagViewDelegate;
 
 @property (nonatomic, copy) myBlock block;
+
+@property (nonatomic, strong) YSCTagModel *tagModel;
 
 /**
  *  根据点来确定加上的标签页

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "HXPhotoTypes.h"
 
+#import "YSCTagModel.h"
+
 @class HXPhotoManager;
 @class HXPhotoEdit;
 
@@ -334,6 +336,10 @@
                                   failed:(HXModelFailedBlock _Nullable)failed;
 
 @property (assign, nonatomic) CGFloat previewContentOffsetX;
+
+
+/// 标签数组
+@property (strong, nonatomic) NSMutableArray<YSCTagModel *> *tagMuArrays;
 
 @end
 

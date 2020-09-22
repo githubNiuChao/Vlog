@@ -12,6 +12,7 @@
 		512B034F2510611200447945 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B034D2510611200447945 /* ProfileViewController.m */; };
 		512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B0350251065B300447945 /* UICollectionView+IndexPath.m */; };
 		512B035925109AC000447945 /* Demo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B035725109AC000447945 /* Demo2ViewController.m */; };
+		5138F8A6251899D400326885 /* YSCTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5138F8A5251899D400326885 /* YSCTagModel.m */; };
 		518968CA250CA65C00897448 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 518968C9250CA65C00897448 /* AppDelegate.m */; };
 		518968D3250CA65C00897448 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 518968D1250CA65C00897448 /* Main.storyboard */; };
 		518968D5250CA66100897448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518968D4250CA66100897448 /* Assets.xcassets */; };
@@ -190,6 +191,8 @@
 		512B0351251065B300447945 /* UICollectionView+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+IndexPath.h"; sourceTree = "<group>"; };
 		512B035725109AC000447945 /* Demo2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo2ViewController.m; sourceTree = "<group>"; };
 		512B035825109AC000447945 /* Demo2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo2ViewController.h; sourceTree = "<group>"; };
+		5138F8A4251899D400326885 /* YSCTagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCTagModel.h; sourceTree = "<group>"; };
+		5138F8A5251899D400326885 /* YSCTagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCTagModel.m; sourceTree = "<group>"; };
 		518968C5250CA65C00897448 /* VLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		518968C8250CA65C00897448 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		518968C9250CA65C00897448 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -542,6 +545,8 @@
 		512B03542510901100447945 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5138F8A4251899D400326885 /* YSCTagModel.h */,
+				5138F8A5251899D400326885 /* YSCTagModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1315,6 +1320,7 @@
 				519ECF1825120E5B0008A436 /* HXPhotoEditGraffitiColorViewCell.m in Sources */,
 				519ECF1325120E5B0008A436 /* HXPhotoEditDrawView.m in Sources */,
 				519ECEC925120E5B0008A436 /* HXPhotoEditTransition.m in Sources */,
+				5138F8A6251899D400326885 /* YSCTagModel.m in Sources */,
 				519ECEEF25120E5B0008A436 /* HXPhotoCustomNavigationBar.m in Sources */,
 				519ECF1B25120E5B0008A436 /* HXPhotoEditGridLayer.m in Sources */,
 				51A9B6E3251311A200E9B8EE /* YISTagBgView.m in Sources */,
