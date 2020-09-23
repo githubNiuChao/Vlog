@@ -168,7 +168,6 @@ PODS:
   - SDWebImage (5.9.1):
     - SDWebImage/Core (= 5.9.1)
   - SDWebImage/Core (5.9.1)
-  - Toast (4.0.0)
   - TZImagePickerController (3.4.2)
   - YTKNetwork (3.0.4):
     - AFNetworking/NSURLSession (~> 4.0)
@@ -192,7 +191,6 @@ DEPENDENCIES:
   - MJRefresh
   - SDCycleScrollView
   - SDWebImage
-  - Toast
   - TZImagePickerController
   - YTKNetwork
   - YYAsyncLayer
@@ -214,7 +212,6 @@ SPEC REPOS:
     - MJRefresh
     - SDCycleScrollView
     - SDWebImage
-    - Toast
     - TZImagePickerController
     - YTKNetwork
     - YYAsyncLayer
@@ -235,13 +232,12 @@ SPEC CHECKSUMS:
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
-  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TZImagePickerController: cc0b74d5f01ab4cddcc24dcdfc3c7d68e6261056
   YTKNetwork: a096f80c18c7e7cc0e623a0fbea0a1bfd3f5bcf2
   YYAsyncLayer: df6b01ebc695c5f6b4c15dd5c23fa3e081eb25c0
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 2b169faff1e46c7b16feaf08b15ac1c522232eae
+PODFILE CHECKSUM: 3e65425d54df94d5bb462aa8e2b005ffe6047a4f
 
 COCOAPODS: 1.9.1

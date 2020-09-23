@@ -30,8 +30,6 @@ target 'VLog' do
   pod 'IQKeyboardManager'
   # 全局滑动
   pod 'FDFullscreenPopGesture'
-  # Toast
-  pod 'Toast'
   # 照片
   pod 'TZImagePickerController'
 
