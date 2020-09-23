@@ -81,9 +81,10 @@
 
 #pragma mark - Action
 - (void)didDoneClick:(UIButton *)button{
-    
-    
-    
+
+    if ([self.tagVcDelegate respondsToSelector:@selector(tagViewController:didDoneModeArray:)]) {
+        [self.tagVcDelegate tagViewController:self didDoneModeArray:self.modelArray];
+    }
 }
 
 - (UIButton *)nextBtn{
@@ -135,12 +136,12 @@
 }
 
 
-- (NSMutableArray *)modelArray {
-    if (!_modelArray) {
-        _modelArray = [NSMutableArray array];
-    }
-    return _modelArray;
-}
+//- (NSMutableArray *)modelArray {
+//    if (!_modelArray) {
+//        _modelArray = [NSMutableArray array];
+//    }
+//    return _modelArray;
+//}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     if ([HXPhotoCommon photoCommon].isDark) {
@@ -148,12 +149,8 @@
     }
     return self.manager.configuration.statusBarStyle;
 }
-//- (BOOL)prefersStatusBarHidden {
-//    if (!self) {
-//        return [super prefersStatusBarHidden];
-//    }
-//    return self.statusBarShouldBeHidden;
-//}
+
+
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
     return UIStatusBarAnimationFade;
 }

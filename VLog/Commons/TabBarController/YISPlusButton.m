@@ -7,9 +7,9 @@
 //
 
 #import "YISPlusButton.h"
-#import "Demo2ViewController.h"
 #import "CYLTabBarController.h"
 #import "UIViewController+CYLTabBarControllerExtention.h"
+#import "YSCVlogPublishViewController.h"
 
 //#import "SINPublishViewController.h"
 //#import "PresentAnimator.h"
@@ -94,8 +94,10 @@
 //        }];
 //    }];
     
-    Demo2ViewController *demo2ViewController = [[Demo2ViewController alloc] init];
-    [viewController presentViewController:demo2ViewController animated:YES completion:nil];
+    YSCVlogPublishViewController *publishViewController = [[YSCVlogPublishViewController alloc] init];
+//    publishViewController.modalPresentationStyle = UIModalPresentationAutomatic;
+    publishViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [viewController presentViewController:publishViewController animated:YES completion:nil];
 //    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
 //    [self.navigationController pushViewController:viewController animated:YES];
 //    

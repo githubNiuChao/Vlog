@@ -55,6 +55,7 @@
     if (!_imageView) {
         _imageView = [[UIImageView alloc] init];
         _imageView.clipsToBounds = YES;
+        _imageView.layer.cornerRadius = 6.0;
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _imageView;
@@ -386,8 +387,8 @@
     CGFloat width = self.frame.size.width;
     CGFloat height = self.frame.size.height;
     if (![self.customProtocol respondsToSelector:@selector(customDeleteButtonFrame:indexPath:)]) {
-        CGFloat deleteBtnW = self.deleteBtn.currentImage.size.width;
-        CGFloat deleteBtnH = self.deleteBtn.currentImage.size.height;
+        CGFloat deleteBtnW = self.deleteBtn.currentImage.size.width-5;
+        CGFloat deleteBtnH = self.deleteBtn.currentImage.size.height-5;
         self.deleteBtn.frame = CGRectMake(width - deleteBtnW, 0, deleteBtnW, deleteBtnH);
     }
     

@@ -11,8 +11,9 @@
 		512B03462510549B00447945 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B03442510549B00447945 /* XYTransition.m */; };
 		512B034F2510611200447945 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B034D2510611200447945 /* ProfileViewController.m */; };
 		512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B0350251065B300447945 /* UICollectionView+IndexPath.m */; };
-		512B035925109AC000447945 /* Demo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B035725109AC000447945 /* Demo2ViewController.m */; };
 		5138F8A6251899D400326885 /* YSCTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5138F8A5251899D400326885 /* YSCTagModel.m */; };
+		517D44CE251995DA0090DBE7 /* YSCVlogPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D44CD251995DA0090DBE7 /* YSCVlogPublishViewController.m */; };
+		517D44D12519AD860090DBE7 /* YSCVlogPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 517D44D02519AD860090DBE7 /* YSCVlogPublishView.m */; };
 		518968CA250CA65C00897448 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 518968C9250CA65C00897448 /* AppDelegate.m */; };
 		518968D3250CA65C00897448 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 518968D1250CA65C00897448 /* Main.storyboard */; };
 		518968D5250CA66100897448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518968D4250CA66100897448 /* Assets.xcassets */; };
@@ -115,12 +116,10 @@
 		519ECF1E25120E5B0008A436 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEA625120E5A0008A436 /* Localizable.strings */; };
 		519ECF1F25120E5B0008A436 /* HXPhotoEditChartletPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEA925120E5A0008A436 /* HXPhotoEditChartletPreviewView.xib */; };
 		519ECF2025120E5B0008A436 /* HXPhotoEditGraffitiColorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEAB25120E5A0008A436 /* HXPhotoEditGraffitiColorView.xib */; };
-		519ECF2125120E5B0008A436 /* 0AA996F1-6566-4CA3-845F-5698DD9726A0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEAC25120E5A0008A436 /* 0AA996F1-6566-4CA3-845F-5698DD9726A0.jpg */; };
 		519ECF2225120E5B0008A436 /* HXPhotoEditGraffitiColorSizeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEAD25120E5A0008A436 /* HXPhotoEditGraffitiColorSizeView.xib */; };
 		519ECF2325120E5B0008A436 /* LocalSampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEAE25120E5A0008A436 /* LocalSampleVideo.mp4 */; };
 		519ECF2425120E5B0008A436 /* IMG_0168.GIF in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEAF25120E5A0008A436 /* IMG_0168.GIF */; };
 		519ECF2525120E5B0008A436 /* HXPhotoEditStickerTrashView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEB025120E5A0008A436 /* HXPhotoEditStickerTrashView.xib */; };
-		519ECF2625120E5B0008A436 /* 9f2f070828381f30ed5bacf8ab014c086e06f024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEB125120E5A0008A436 /* 9f2f070828381f30ed5bacf8ab014c086e06f024.jpg */; };
 		519ECF2725120E5B0008A436 /* HXCameraBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEB225120E5A0008A436 /* HXCameraBottomView.xib */; };
 		519ECF2825120E5B0008A436 /* HXPhotoEditChartletListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEB325120E5A0008A436 /* HXPhotoEditChartletListView.xib */; };
 		519ECF2925120E5B0008A436 /* HXPhotoEditChartletContentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEB425120E5A0008A436 /* HXPhotoEditChartletContentViewCell.xib */; };
@@ -128,8 +127,6 @@
 		519ECF2B25120E5B0008A436 /* HXPhotoEditGraffitiColorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEB825120E5A0008A436 /* HXPhotoEditGraffitiColorViewCell.xib */; };
 		519ECF2C25120E5B0008A436 /* HXPhotoEditMosaicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEB925120E5B0008A436 /* HXPhotoEditMosaicView.xib */; };
 		519ECF2D25120E5B0008A436 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEBA25120E5B0008A436 /* images.xcassets */; };
-		519ECF2E25120E5B0008A436 /* c81.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEBB25120E5B0008A436 /* c81.mp4 */; };
-		519ECF2F25120E5B0008A436 /* d87.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEBC25120E5B0008A436 /* d87.jpeg */; };
 		519ECF3025120E5B0008A436 /* HXPhotoEditTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEBD25120E5B0008A436 /* HXPhotoEditTextView.xib */; };
 		519ECF3125120E5B0008A436 /* HX_PhotoEditBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519ECEBE25120E5B0008A436 /* HX_PhotoEditBottomView.xib */; };
 		519ECF34251212500008A436 /* YSCTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 519ECF33251212500008A436 /* YSCTagViewController.m */; };
@@ -168,6 +165,7 @@
 		51AC996E250F5FA10023D5EA /* PersonListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9955250F5FA00023D5EA /* PersonListCollectionViewCell.m */; };
 		51AC996F250F5FA10023D5EA /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9956250F5FA00023D5EA /* WaterFlowLayout.m */; };
 		51AC9974250F725A0023D5EA /* BaseRequestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9973250F725A0023D5EA /* BaseRequestAPI.m */; };
+		51B924A2251AED96003289D3 /* NCThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B924A1251AED96003289D3 /* NCThemeManager.m */; };
 		51E3ABD62514611A0033080F /* YSCTagCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E3ABD52514611A0033080F /* YSCTagCollectionViewCell.m */; };
 		6E4E8D1EA337B0C1F1904A83 /* libPods-VLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */; };
 /* End PBXBuildFile section */
@@ -189,10 +187,12 @@
 		512B034E2510611200447945 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		512B0350251065B300447945 /* UICollectionView+IndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+IndexPath.m"; sourceTree = "<group>"; };
 		512B0351251065B300447945 /* UICollectionView+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+IndexPath.h"; sourceTree = "<group>"; };
-		512B035725109AC000447945 /* Demo2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo2ViewController.m; sourceTree = "<group>"; };
-		512B035825109AC000447945 /* Demo2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo2ViewController.h; sourceTree = "<group>"; };
 		5138F8A4251899D400326885 /* YSCTagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCTagModel.h; sourceTree = "<group>"; };
 		5138F8A5251899D400326885 /* YSCTagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCTagModel.m; sourceTree = "<group>"; };
+		517D44CC251995DA0090DBE7 /* YSCVlogPublishViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCVlogPublishViewController.h; sourceTree = "<group>"; };
+		517D44CD251995DA0090DBE7 /* YSCVlogPublishViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCVlogPublishViewController.m; sourceTree = "<group>"; };
+		517D44CF2519AD860090DBE7 /* YSCVlogPublishView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCVlogPublishView.h; sourceTree = "<group>"; };
+		517D44D02519AD860090DBE7 /* YSCVlogPublishView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCVlogPublishView.m; sourceTree = "<group>"; };
 		518968C5250CA65C00897448 /* VLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		518968C8250CA65C00897448 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		518968C9250CA65C00897448 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -399,12 +399,10 @@
 		519ECEA925120E5A0008A436 /* HXPhotoEditChartletPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXPhotoEditChartletPreviewView.xib; sourceTree = "<group>"; };
 		519ECEAA25120E5A0008A436 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		519ECEAB25120E5A0008A436 /* HXPhotoEditGraffitiColorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXPhotoEditGraffitiColorView.xib; sourceTree = "<group>"; };
-		519ECEAC25120E5A0008A436 /* 0AA996F1-6566-4CA3-845F-5698DD9726A0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "0AA996F1-6566-4CA3-845F-5698DD9726A0.jpg"; sourceTree = "<group>"; };
 		519ECEAD25120E5A0008A436 /* HXPhotoEditGraffitiColorSizeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXPhotoEditGraffitiColorSizeView.xib; sourceTree = "<group>"; };
 		519ECEAE25120E5A0008A436 /* LocalSampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = LocalSampleVideo.mp4; sourceTree = "<group>"; };
 		519ECEAF25120E5A0008A436 /* IMG_0168.GIF */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = IMG_0168.GIF; sourceTree = "<group>"; };
 		519ECEB025120E5A0008A436 /* HXPhotoEditStickerTrashView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXPhotoEditStickerTrashView.xib; sourceTree = "<group>"; };
-		519ECEB125120E5A0008A436 /* 9f2f070828381f30ed5bacf8ab014c086e06f024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9f2f070828381f30ed5bacf8ab014c086e06f024.jpg; sourceTree = "<group>"; };
 		519ECEB225120E5A0008A436 /* HXCameraBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXCameraBottomView.xib; sourceTree = "<group>"; };
 		519ECEB325120E5A0008A436 /* HXPhotoEditChartletListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXPhotoEditChartletListView.xib; sourceTree = "<group>"; };
 		519ECEB425120E5A0008A436 /* HXPhotoEditChartletContentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXPhotoEditChartletContentViewCell.xib; sourceTree = "<group>"; };
@@ -414,8 +412,6 @@
 		519ECEB825120E5A0008A436 /* HXPhotoEditGraffitiColorViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXPhotoEditGraffitiColorViewCell.xib; sourceTree = "<group>"; };
 		519ECEB925120E5B0008A436 /* HXPhotoEditMosaicView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXPhotoEditMosaicView.xib; sourceTree = "<group>"; };
 		519ECEBA25120E5B0008A436 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
-		519ECEBB25120E5B0008A436 /* c81.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = c81.mp4; sourceTree = "<group>"; };
-		519ECEBC25120E5B0008A436 /* d87.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d87.jpeg; sourceTree = "<group>"; };
 		519ECEBD25120E5B0008A436 /* HXPhotoEditTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HXPhotoEditTextView.xib; sourceTree = "<group>"; };
 		519ECEBE25120E5B0008A436 /* HX_PhotoEditBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HX_PhotoEditBottomView.xib; sourceTree = "<group>"; };
 		519ECEBF25120E5B0008A436 /* HXPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXPhotoManager.h; sourceTree = "<group>"; };
@@ -477,6 +473,8 @@
 		51AC9970250F60D60023D5EA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		51AC9972250F725A0023D5EA /* BaseRequestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequestAPI.h; sourceTree = "<group>"; };
 		51AC9973250F725A0023D5EA /* BaseRequestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequestAPI.m; sourceTree = "<group>"; };
+		51B924A0251AED96003289D3 /* NCThemeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCThemeManager.h; sourceTree = "<group>"; };
+		51B924A1251AED96003289D3 /* NCThemeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCThemeManager.m; sourceTree = "<group>"; };
 		51E3ABD42514611A0033080F /* YSCTagCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCTagCollectionViewCell.h; sourceTree = "<group>"; };
 		51E3ABD52514611A0033080F /* YSCTagCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YSCTagCollectionViewCell.m; sourceTree = "<group>"; };
 		6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -538,6 +536,8 @@
 			children = (
 				51E3ABD42514611A0033080F /* YSCTagCollectionViewCell.h */,
 				51E3ABD52514611A0033080F /* YSCTagCollectionViewCell.m */,
+				517D44CF2519AD860090DBE7 /* YSCVlogPublishView.h */,
+				517D44D02519AD860090DBE7 /* YSCVlogPublishView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -563,10 +563,10 @@
 		512B03562510901100447945 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				512B035825109AC000447945 /* Demo2ViewController.h */,
-				512B035725109AC000447945 /* Demo2ViewController.m */,
 				519ECF32251212500008A436 /* YSCTagViewController.h */,
 				519ECF33251212500008A436 /* YSCTagViewController.m */,
+				517D44CC251995DA0090DBE7 /* YSCVlogPublishViewController.h */,
+				517D44CD251995DA0090DBE7 /* YSCVlogPublishViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -600,6 +600,8 @@
 				518968C8250CA65C00897448 /* AppDelegate.h */,
 				518968C9250CA65C00897448 /* AppDelegate.m */,
 				51AC9970250F60D60023D5EA /* PrefixHeader.pch */,
+				51B924A0251AED96003289D3 /* NCThemeManager.h */,
+				51B924A1251AED96003289D3 /* NCThemeManager.m */,
 				518968D1250CA65C00897448 /* Main.storyboard */,
 				518968D4250CA66100897448 /* Assets.xcassets */,
 				518968D6250CA66100897448 /* LaunchScreen.storyboard */,
@@ -912,10 +914,6 @@
 		519ECEA525120E5A0008A436 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				519ECEAC25120E5A0008A436 /* 0AA996F1-6566-4CA3-845F-5698DD9726A0.jpg */,
-				519ECEB125120E5A0008A436 /* 9f2f070828381f30ed5bacf8ab014c086e06f024.jpg */,
-				519ECEBB25120E5B0008A436 /* c81.mp4 */,
-				519ECEBC25120E5B0008A436 /* d87.jpeg */,
 				519ECEBE25120E5B0008A436 /* HX_PhotoEditBottomView.xib */,
 				519ECEB225120E5A0008A436 /* HXCameraBottomView.xib */,
 				519ECEB425120E5A0008A436 /* HXPhotoEditChartletContentViewCell.xib */,
@@ -1177,7 +1175,6 @@
 				519ECF2425120E5B0008A436 /* IMG_0168.GIF in Resources */,
 				51AC9967250F5FA00023D5EA /* 0.jpg in Resources */,
 				51AC9964250F5FA00023D5EA /* 2.jpg in Resources */,
-				519ECF2125120E5B0008A436 /* 0AA996F1-6566-4CA3-845F-5698DD9726A0.jpg in Resources */,
 				519ECF2B25120E5B0008A436 /* HXPhotoEditGraffitiColorViewCell.xib in Resources */,
 				519ECF1F25120E5B0008A436 /* HXPhotoEditChartletPreviewView.xib in Resources */,
 				51AC9963250F5FA00023D5EA /* 6.jpg in Resources */,
@@ -1185,7 +1182,6 @@
 				51AC9966250F5FA00023D5EA /* 1.jpg in Resources */,
 				518968D8250CA66100897448 /* LaunchScreen.storyboard in Resources */,
 				519ECF2225120E5B0008A436 /* HXPhotoEditGraffitiColorSizeView.xib in Resources */,
-				519ECF2F25120E5B0008A436 /* d87.jpeg in Resources */,
 				519ECF2925120E5B0008A436 /* HXPhotoEditChartletContentViewCell.xib in Resources */,
 				51AC9962250F5FA00023D5EA /* 7.jpg in Resources */,
 				519ECF2C25120E5B0008A436 /* HXPhotoEditMosaicView.xib in Resources */,
@@ -1199,11 +1195,9 @@
 				519ECF2025120E5B0008A436 /* HXPhotoEditGraffitiColorView.xib in Resources */,
 				519ECF1E25120E5B0008A436 /* Localizable.strings in Resources */,
 				519ECF3025120E5B0008A436 /* HXPhotoEditTextView.xib in Resources */,
-				519ECF2625120E5B0008A436 /* 9f2f070828381f30ed5bacf8ab014c086e06f024.jpg in Resources */,
 				519ECF2525120E5B0008A436 /* HXPhotoEditStickerTrashView.xib in Resources */,
 				518968D3250CA65C00897448 /* Main.storyboard in Resources */,
 				51A9B6F425133F7D00E9B8EE /* yuandian.png in Resources */,
-				519ECF2E25120E5B0008A436 /* c81.mp4 in Resources */,
 				51AC995D250F5FA00023D5EA /* 13.jpg in Resources */,
 				51AC9960250F5FA00023D5EA /* 4.jpg in Resources */,
 				51AC995E250F5FA00023D5EA /* 11.jpg in Resources */,
@@ -1260,6 +1254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				517D44D12519AD860090DBE7 /* YSCVlogPublishView.m in Sources */,
 				519ECEC525120E5B0008A436 /* YBCenterView.m in Sources */,
 				519ECEC325120E5B0008A436 /* UIView+Extension.m in Sources */,
 				519ECF0F25120E5B0008A436 /* HXPhotoEditChartletContentViewCell.m in Sources */,
@@ -1306,6 +1301,7 @@
 				519ECF0B25120E5B0008A436 /* HXPhotoEditGridMaskLayer.m in Sources */,
 				519ECEE025120E5B0008A436 /* HXAlbumListViewController.m in Sources */,
 				519ECED425120E5B0008A436 /* UIView+HXExtension.m in Sources */,
+				517D44CE251995DA0090DBE7 /* YSCVlogPublishViewController.m in Sources */,
 				519ECF1725120E5B0008A436 /* HXPhotoEditMosaicView.m in Sources */,
 				519ECF0425120E5B0008A436 /* HXPhotoEditResizeControl.m in Sources */,
 				519ECEE625120E5B0008A436 /* HXVideoEditViewController.m in Sources */,
@@ -1343,7 +1339,6 @@
 				519ECECD25120E5B0008A436 /* HXPhotoViewTransition.m in Sources */,
 				519ECEFC25120E5B0008A436 /* HXCircleProgressView.m in Sources */,
 				519ECECF25120E5B0008A436 /* UIViewController+HXExtension.m in Sources */,
-				512B035925109AC000447945 /* Demo2ViewController.m in Sources */,
 				519ECEC725120E5B0008A436 /* YBTagLabel.m in Sources */,
 				519ECEFA25120E5B0008A436 /* HXCustomPreviewView.m in Sources */,
 				519ECEDA25120E5B0008A436 /* UILabel+HXExtension.m in Sources */,
@@ -1362,6 +1357,7 @@
 				519ECEED25120E5B0008A436 /* HXCameraBottomView.m in Sources */,
 				519ECED225120E5B0008A436 /* UIImageView+HXExtension.m in Sources */,
 				519ECF1125120E5B0008A436 /* HXPhotoEditSplashMaskLayer.m in Sources */,
+				51B924A2251AED96003289D3 /* NCThemeManager.m in Sources */,
 				51AC9920250F0AE80023D5EA /* YISNavigationController.m in Sources */,
 				51AC9959250F5FA00023D5EA /* PersonListLogic.m in Sources */,
 				519ECF0625120E5B0008A436 /* HXPhotoEditStickerTrashView.m in Sources */,

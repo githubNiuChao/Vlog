@@ -34,7 +34,8 @@ UICollectionViewDelegate,
 HXPhotoPreviewBottomViewDelegate,
 HXPhotoEditViewControllerDelegate,
 HXVideoEditViewControllerDelegate,
-HX_PhotoEditViewControllerDelegate
+HX_PhotoEditViewControllerDelegate,
+YSCTagViewControllerDelegate
 >
 @property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
 @property (strong, nonatomic) HXPhotoModel *currentModel;
@@ -613,9 +614,17 @@ HX_PhotoEditViewControllerDelegate
 //    vc.delegate = self;
     vc.modelArray = self.modelArray;
     vc.manager = self.manager;
+    vc.tagVcDelegate = self;
 //    vc.outside = self.outside;
 //    self.navigationController.delegate = vc;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark -<YSCTagViewControllerDelegate>
+
+-(void)tagViewController:(YSCTagViewController *)tagVc didDoneModeArray:(NSMutableArray *)modelArray{
+    self.modelArray = modelArray;
+    [self photoPreviewBottomViewDidDone:self.bottomView];
 }
 
 - (void)cancelDismissClick {
