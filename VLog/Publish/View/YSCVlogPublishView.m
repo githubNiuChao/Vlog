@@ -51,13 +51,13 @@
     [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.titleField);
         make.top.equalTo(self.titleField.mas_bottom);
-        make.height.equalTo(@0.5);
+        make.height.equalTo(@0.6);
     }];
     
     [self.bodyText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.titleField);
         make.top.equalTo(line1.mas_bottom).offset(5);
-        make.height.equalTo(@200);
+        make.height.equalTo(@150);
     }];
     
     UIView *line2 = [[UIView alloc] initWithFrame:CGRectZero];
@@ -66,11 +66,11 @@
     [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.titleField);
         make.top.equalTo(self.bodyText.mas_bottom).offset(5);
-        make.height.equalTo(@0.5);
+        make.height.equalTo(@0.6);
     }];
     
         UIView *topic = [[UIView alloc] initWithFrame:CGRectZero];
-        topic.backgroundColor = [UIColor systemGroupedBackgroundColor];
+//        topic.backgroundColor = [UIColor systemGroupedBackgroundColor];
         [self addSubview:topic];
         
         [topic mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -83,7 +83,7 @@
         [leftButton setImage:[UIImage imageNamed:@"hx_original_selected_wx"] forState:UIControlStateNormal];
         [leftButton setTitle:@"参与话题" forState:UIControlStateNormal];
         [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        leftButton.titleLabel.font = [UIFont boldSystemFontOfSize:19];
+        leftButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         [leftButton jk_setImagePosition:LXMImagePositionLeft spacing:5];
         leftButton.userInteractionEnabled = NO;
         [topic addSubview:leftButton];
@@ -96,9 +96,9 @@
         
         UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectZero];
         [rightButton setImage:[UIImage imageNamed:@"hx_original_selected_wx"] forState:UIControlStateNormal];
-        [rightButton setTitle:@"选择适当的话题会用更多的赞" forState:UIControlStateNormal];
+        [rightButton setTitle:@"选择适当的话题会有更多的赞" forState:UIControlStateNormal];
         [rightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-        rightButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+        rightButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         rightButton.titleLabel.textAlignment = NSTextAlignmentRight;
         [rightButton jk_setImagePosition:LXMImagePositionRight spacing:10];
         [rightButton addTarget:self action:@selector(actionTopicButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -116,13 +116,13 @@
         [line3 mas_makeConstraints:^(MASConstraintMaker *make) {
           make.left.right.equalTo(self.titleField);
           make.top.equalTo(topic.mas_bottom).offset(5);
-          make.height.equalTo(@0.5);
+          make.height.equalTo(@0.6);
         }];
     }
     
     
         UIView *location = [[UIView alloc] initWithFrame:CGRectZero];
-        location.backgroundColor = [UIColor systemGroupedBackgroundColor];
+//        location.backgroundColor = [UIColor systemGroupedBackgroundColor];
         [self addSubview:location];
         
         [location mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -135,7 +135,7 @@
         [leftButton setImage:[UIImage imageNamed:@"hx_original_selected_wx"] forState:UIControlStateNormal];
         [leftButton setTitle:@"添加地点" forState:UIControlStateNormal];
         [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        leftButton.titleLabel.font = [UIFont boldSystemFontOfSize:19];
+        leftButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         [leftButton jk_setImagePosition:LXMImagePositionLeft spacing:5];
         leftButton.userInteractionEnabled = NO;
         [location addSubview:leftButton];
@@ -150,7 +150,7 @@
         [rightButton setImage:[UIImage imageNamed:@"hx_original_selected_wx"] forState:UIControlStateNormal];
         [rightButton setTitle:@"选择准确的地址会用更多的赞" forState:UIControlStateNormal];
         [rightButton setTitleColor:location.backgroundColor forState:UIControlStateNormal];
-        rightButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+        rightButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         rightButton.titleLabel.textAlignment = NSTextAlignmentRight;
         [rightButton jk_setImagePosition:LXMImagePositionRight spacing:10];
         [rightButton addTarget:self action:@selector(actionLocationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -168,7 +168,7 @@
         [line4 mas_makeConstraints:^(MASConstraintMaker *make) {
           make.left.right.equalTo(self.titleField);
           make.top.equalTo(location.mas_bottom).offset(5);
-          make.height.equalTo(@0.5);
+          make.height.equalTo(@0.6);
         }];
     }
 }
@@ -189,10 +189,12 @@
 - (YYTextView *)bodyText{
     if (!_bodyText) {
         _bodyText = [[YYTextView alloc] initWithFrame:CGRectZero];
+        _bodyText.returnKeyType = UIReturnKeyDone;
         _bodyText.placeholderText = @"添加正文";
-        _bodyText.placeholderFont = [UIFont boldSystemFontOfSize:17];
-        _bodyText.font = [UIFont systemFontOfSize:17];
-        _bodyText.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
+        _bodyText.placeholderFont = [UIFont boldSystemFontOfSize:15];
+        _bodyText.font = [UIFont systemFontOfSize:15];
+        _bodyText.backgroundColor = [UIColor colorWithWhite:0.98 alpha:1.0];
+        _bodyText.layer.cornerRadius = 5.0;
 //
 //        NSMutableAttributedString *text = [NSMutableAttributedString new];
 //        NSArray *tags = @[@"◉red", @"◉orange", @"◉yellow", @"◉green", @"◉blue", @"◉purple", @"◉gray"];
@@ -273,7 +275,7 @@
         _titleField = [[UITextField alloc] initWithFrame:CGRectZero];
         _titleField.placeholder = @"填写标题会有更多赞哦";
         _titleField.textColor = [UIColor blackColor];
-        _titleField.font = [UIFont boldSystemFontOfSize:20];
+        _titleField.font = [UIFont boldSystemFontOfSize:18];
     }
     return _titleField;
 }

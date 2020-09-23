@@ -15,6 +15,7 @@
 #import "NCThemeManager.h"
 
 #import <AFNetworking/AFNetworking.h>
+#import "IQKeyboardManager.h"
 #import <JKCategories/JKCategories.h>
 #import <Masonry/Masonry.h>
 #import <MBProgressHUD/MBProgressHUD.h>

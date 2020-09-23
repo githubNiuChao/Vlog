@@ -99,6 +99,8 @@ HXPhotoPreviewViewCell;
 @property (strong, nonatomic) HXPhotoView *photoView;
 @property (assign, nonatomic) BOOL previewShowDeleteButton;
 @property (assign, nonatomic) BOOL stopCancel;
+
+@property (assign, nonatomic) BOOL isSingleVideo;//是否是单选视频
 /**  预览大图时是否禁用手势返回  */
 @property (assign, nonatomic) BOOL disableaPersentInteractiveTransition;
 /**  使用HXPhotoView预览大图时的风格样式  */

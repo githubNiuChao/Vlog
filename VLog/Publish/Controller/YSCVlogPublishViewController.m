@@ -13,6 +13,7 @@
 //#import "SettingViewController.h"
 
 static const CGFloat kPhotoViewMargin = 12.0;
+static const CGFloat kPublishViewHeight = 400.0;
 
 @interface YSCVlogPublishViewController ()
 <HXPhotoViewDelegate,
@@ -21,7 +22,7 @@ HXPhotoViewCellCustomProtocol,
 YSCVlogPublishViewDelegate
 >
 
-@property (weak, nonatomic) HXPhotoView *photoView;
+@property (strong, nonatomic) HXPhotoView *photoView;
 @property (strong, nonatomic) UIScrollView *mainScrollView;
 @property (strong, nonatomic) HXPhotoManager *manager;
 @property (strong, nonatomic) YSCVlogPublishView *publishView;
@@ -66,7 +67,7 @@ YSCVlogPublishViewDelegate
     //
     //    self.navigationItem.rightBarButtonItems = @[cameraItem];
     //
-    [self.view addSubview:self.publishView];
+    [self.mainScrollView addSubview:self.publishView];
     [self.view addSubview:self.publishButton];
     [self.view addSubview:self.bottomView];
     
@@ -177,6 +178,7 @@ YSCVlogPublishViewDelegate
 //}
 - (void)photoView:(HXPhotoView *)photoView updateFrame:(CGRect)frame {
     NSSLog(@"%@",NSStringFromCGRect(frame));
+    self.publishView.frame = CGRectMake(0, CGRectGetMaxY(self.photoView.frame)+kPhotoViewMargin, self.view.hx_w, kPublishViewHeight);
     self.mainScrollView.contentSize = CGSizeMake(self.mainScrollView.frame.size.width, CGRectGetMaxY(frame) + kPhotoViewMargin);
     
 }
@@ -298,7 +300,7 @@ YSCVlogPublishViewDelegate
         _manager.configuration.cameraPhotoJumpEdit = NO;
         _manager.configuration.selectTogether = NO;
         _manager.configuration.supportRotation = NO;
-        _manager.configuration.rowCount = 3;
+//        _manager.configuration.rowCount = 3;
         _manager.configuration.photoMaxNum = 9;
         _manager.configuration.videoMaxNum = 1;
         _manager.configuration.showOriginalBytes = YES;
@@ -377,14 +379,13 @@ YSCVlogPublishViewDelegate
 
 - (YSCVlogPublishView *)publishView{
     if (!_publishView) {
-        _publishView = [[YSCVlogPublishView alloc] initWithFrame:CGRectMake(0, self.photoView.hx_h+20, self.view.hx_w, 400)];
+        
+        _publishView = [[YSCVlogPublishView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.photoView.frame)+20, self.view.hx_w, kPublishViewHeight)];
         _publishView.backgroundColor = [UIColor whiteColor];
         _publishView.delegate = self;
     }
     return _publishView;
 }
-
-
 
 - (UIButton *)publishButton{
     
@@ -392,7 +393,6 @@ YSCVlogPublishViewDelegate
         CGSize selfSize = self.view.jk_size;
         _publishButton = [[UIButton alloc] initWithFrame:CGRectMake(0, selfSize.height-150, 300, 50)];
         _publishButton.jk_centerX = self.view.jk_centerX;
-//        [_publishButton jk_cornerRadius:30 strokeSize:0 color:nil];
         _publishButton.layer.cornerRadius = 25;
         [_publishButton setTitle:@"发布笔记" forState:UIControlStateNormal];
         [_publishButton setBackgroundColor:[NCThemeManager defaultThemeManage].themeColor];

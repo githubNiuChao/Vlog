@@ -1215,9 +1215,15 @@ HX_PhotoEditViewControllerDelegate
             }
             NSInteger currentIndex = [self.previewArray indexOfObject:cell.model];
             previewVC.delegate = self;
-            previewVC.modelArray = self.previewArray;
+            if (cell.model.type == HXPhotoModelMediaTypeVideo) {
+                previewVC.modelArray = [[NSMutableArray alloc]initWithObjects:cell.model, nil];
+                previewVC.currentModelIndex = 0;
+                previewVC.isSingleVideo = YES;
+            }else{
+                previewVC.modelArray = self.previewArray;
+                previewVC.currentModelIndex = currentIndex;
+            }
             previewVC.manager = self.manager;
-            previewVC.currentModelIndex = currentIndex;
             self.navigationController.delegate = previewVC;
             [self.navigationController pushViewController:previewVC animated:YES];
         }else {

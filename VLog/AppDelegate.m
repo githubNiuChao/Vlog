@@ -24,6 +24,9 @@
     self.window.rootViewController = [[YISVlogTabBarController1 alloc]initWithContext:@""];
     [self.window makeKeyAndVisible];
     
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    
     return YES;
 }
 

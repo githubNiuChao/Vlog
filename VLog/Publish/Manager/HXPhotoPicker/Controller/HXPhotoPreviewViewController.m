@@ -607,23 +607,23 @@ YSCTagViewControllerDelegate
 
 - (void)didNextBtnClick:(UIButton *)button{
 //    [self photoPreviewBottomViewDidDone:self.bottomView];
-
     YSCTagViewController *vc = [[YSCTagViewController alloc] init];
+    vc.modelArray = [self.manager.selectedArray mutableCopy];
+    vc.manager = self.manager;
+    vc.tagVcDelegate = self;
+    
 //    vc.model = [self.modelArray objectAtIndex:self.currentModelIndex];
 //    vc.avAsset = cell.previewContentView.avAsset;
 //    vc.delegate = self;
-    vc.modelArray = self.modelArray;
-    vc.manager = self.manager;
-    vc.tagVcDelegate = self;
 //    vc.outside = self.outside;
 //    self.navigationController.delegate = vc;
     [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 #pragma mark -<YSCTagViewControllerDelegate>
 
 -(void)tagViewController:(YSCTagViewController *)tagVc didDoneModeArray:(NSMutableArray *)modelArray{
-    self.modelArray = modelArray;
     [self photoPreviewBottomViewDidDone:self.bottomView];
 }
 
