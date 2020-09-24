@@ -74,8 +74,8 @@
 //    SINPublishViewController *publishVc = [[SINPublishViewController alloc] init];
 //
 //// 封装好了, 直接在 block 里边写动画
-////    LMJWeak(self);
-//    [PresentAnimator viewController:viewController presentViewController:[[LMJNavigationController alloc] initWithRootViewController:publishVc] presentViewFrame:[UIScreen mainScreen].bounds animated:YES completion:nil animatedDuration:0.5 presentAnimation:^(UIView *presentedView, UIView *containerView, void (^completionHandler)(BOOL finished)) {
+////    NCHWeakSelf(self);
+//    [PresentAnimator viewController:viewController presentViewController:[[NCHNavigationController alloc] initWithRootViewController:publishVc] presentViewFrame:[UIScreen mainScreen].bounds animated:YES completion:nil animatedDuration:0.5 presentAnimation:^(UIView *presentedView, UIView *containerView, void (^completionHandler)(BOOL finished)) {
 //
 //        containerView.transform = CGAffineTransformMakeTranslation(0, -kScreenHeight);
 //        [UIView animateWithDuration:0.5 animations:^{

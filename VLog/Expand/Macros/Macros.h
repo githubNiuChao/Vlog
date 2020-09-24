@@ -46,6 +46,8 @@
 #define SYSTEMFONT(FONTSIZE)    [UIFont systemFontOfSize:FONTSIZE]
 #define FONT(NAME, FONTSIZE)    [UIFont fontWithName:(NAME) size:(FONTSIZE)]
 
+//主题色
+#define COLOR_THEME HEXCOLOR(0xE7414D)
 //字体色彩
 #define COLOR_WORD_BLACK HEXCOLOR(0x333333)
 #define COLOR_WORD_GRAY_1 HEXCOLOR(0x666666)
@@ -107,6 +109,10 @@
 #define kPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
 
+/**
+ *  属性转字符串
+ */
+#define NCHKeyPath(obj, key) @(((void)obj.key, #key))
 
 //字符串是否为空
 #define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO )
@@ -153,8 +159,8 @@
 
 
 //弱引用/强引用  可配对引用在外面用MPWeakSelf(self)，block用MPStrongSelf(self)  也可以单独引用在外面用MPWeakSelf(self) block里面用weakself
-#define MPWeakSelf(type)  __weak typeof(type) weak##type = type;
-#define MPStrongSelf(type)  __strong typeof(type) type = weak##type;
+#define NCHWeakSelf(type)  __weak typeof(type) weak##type = type
+#define NCHStrongSelf(type)  __strong typeof(type) type = weak##type
 
 #define weakify(...) \
 ext_keywordify \
