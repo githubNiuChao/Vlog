@@ -17,9 +17,7 @@
 @property (strong, nonatomic) UITextField *titleField;
 @property (strong, nonatomic) YYTextView *bodyText;
 
-
 @end
-
 
 @implementation YSCVlogPublishView
 

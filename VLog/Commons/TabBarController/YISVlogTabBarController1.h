@@ -3,7 +3,7 @@
 //  iOSProject
 //
 //  Created by szy on 2020/9/1.
-//  Copyright © 2020 github.com/njhu. All rights reserved.
+//  Copyright © 2020 github.com/NCH. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

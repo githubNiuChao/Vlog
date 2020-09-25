@@ -3,16 +3,14 @@
 //  iOSProject
 //
 //  Created by szy on 2020/9/2.
-//  Copyright © 2020 github.com/njhu. All rights reserved.
+//  Copyright © 2020 github.com/NCH. All rights reserved.
 //
 
 #import "YISPlusButton.h"
 #import "CYLTabBarController.h"
-#import "UIViewController+CYLTabBarControllerExtention.h"
 #import "YSCVlogPublishViewController.h"
+#import "UIViewController+CYLTabBarControllerExtention.h"
 
-//#import "SINPublishViewController.h"
-//#import "PresentAnimator.h"
 
 @interface YISPlusButton () {
     CGFloat _buttonImageHeight;
@@ -46,18 +44,17 @@
  */
 + (id)plusButton {
     YISPlusButton *button = [[YISPlusButton alloc] init];
-    UIImage *normalButtonImage = [UIImage imageNamed:@"tabbar_compose_icon_add"];
-    UIImage *hlightButtonImage = [UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"];
-    [button setImage:normalButtonImage forState:UIControlStateNormal];
-    [button setImage:[hlightButtonImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateHighlighted];
-    [button setImage:[hlightButtonImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
+//    UIImage *normalButtonImage = [UIImage imageNamed:@"publish_add"];
+//    UIImage *hlightButtonImage = [UIImage imageNamed:@"publish_add"];
+//    [button setImage:normalButtonImage forState:UIControlStateNormal];
+//    [button setImage:[hlightButtonImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateHighlighted];
+//    [button setImage:[hlightButtonImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
 //    [button setTintColor:  [UIColor colorWithRed:0/255.0f green:255/255.0f blue:189/255.0f alpha:1]];
-//
-    UIImage *normalButtonBackImage = [UIImage imageNamed:@"tabbar_compose_button"];
+    UIImage *normalButtonBackImage = [UIImage imageNamed:@"publish_add"];
     [button setBackgroundImage:normalButtonBackImage forState:UIControlStateNormal];
     [button setBackgroundImage:normalButtonBackImage forState:UIControlStateSelected];
     [button sizeToFit]; // or set frame in this way `button.frame = CGRectMake(0.0, 0.0, 250, 100);`
-    button.frame = CGRectMake(0.0, 20.0, 60, 40);
+    button.frame = CGRectMake(0.0, 20.0, 60, 60);
     
     // if you use `+plusChildViewController` , do not addTarget to plusButton.
     [button addTarget:button action:@selector(clickPublish) forControlEvents:UIControlEventTouchUpInside];

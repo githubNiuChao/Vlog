@@ -29,7 +29,6 @@
     [self.collectionView.mj_header beginRefreshing];
 }
 
-
 // 内部方法
 - (void)loadIsMore:(BOOL)isMore
 {
@@ -41,8 +40,7 @@
         }
         self.collectionView.mj_header.hidden = YES;
         self.collectionView.mj_footer.hidden = NO;
-    }else
-    {
+    }else{
         if ([self.collectionView.mj_footer isRefreshing]) {
             [self.collectionView.mj_header endRefreshing];
             return;

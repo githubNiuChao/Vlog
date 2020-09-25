@@ -1,18 +1,18 @@
 //
-//  BaseViewController.h
-//  JXCategoryView
+//  VLBaseContentViewController.h
+//  VLog
 //
-//  Created by jiaxin on 2018/8/9.
-//  Copyright © 2018年 jiaxin. All rights reserved.
+//  Created by szy on 2020/9/25.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
 
-#define WindowsSize [UIScreen mainScreen].bounds.size
+NS_ASSUME_NONNULL_BEGIN
 
-@interface ContentBaseViewController : UIViewController<JXCategoryListContainerViewDelegate>
+@interface VLBaseContentViewController : UIViewController<JXCategoryListContainerViewDelegate>
 
 @property (nonatomic, strong) NSArray *titles;
 
@@ -26,4 +26,7 @@
 
 - (CGFloat)preferredCategoryViewHeight;
 
+
 @end
+
+NS_ASSUME_NONNULL_END

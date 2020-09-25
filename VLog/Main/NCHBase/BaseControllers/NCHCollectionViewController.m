@@ -19,7 +19,6 @@
     [super viewDidLoad];
     
     [self setupBaseNCHCollectionViewControllerUI];
-    
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
 }
 
@@ -33,12 +32,12 @@
     
     UICollectionViewLayout *myLayout = [self collectionViewController:self layoutForCollectionView:self.collectionView];
     self.collectionView.collectionViewLayout = myLayout;
-    self.collectionView.backgroundColor = self.view.backgroundColor;
+    self.collectionView.backgroundColor = [UIColor systemGroupedBackgroundColor];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
 }
 
-#pragma mark - delegate
+#pragma mark - <UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 100;
 }
@@ -78,12 +77,10 @@
 #pragma mark - getter
 - (UICollectionView *)collectionView
 {
-    if(_collectionView == nil)
-    {
-        UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
-        [self.view addSubview:collectionView];
-        _collectionView = collectionView;
-        collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    if(_collectionView == nil){
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[UICollectionViewFlowLayout new]];
+        [self.view addSubview:_collectionView];
+        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
     return _collectionView;
 }

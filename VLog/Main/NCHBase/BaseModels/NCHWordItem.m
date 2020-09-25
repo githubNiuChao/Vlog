@@ -2,8 +2,8 @@
 //  NCHWordItem.m
 //  GoMeYWLC
 //
-//  Created by NJHu on 2016/10/21.
-//  Copyright © 2016年 NJHu. All rights reserved.
+//  Created by NCH on 2016/10/21.
+//  Copyright © 2016年 NCH. All rights reserved.
 //
 
 #import "NCHWordItem.h"

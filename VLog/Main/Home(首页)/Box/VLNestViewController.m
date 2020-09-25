@@ -1,21 +1,22 @@
 //
-//  NestViewController.m
-//  JXCategoryView
+//  VLNestViewController.m
+//  VLog
 //
-//  Created by jiaxin on 2018/8/20.
-//  Copyright © 2018年 jiaxin. All rights reserved.
+//  Created by szy on 2020/9/25.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "NestViewController.h"
+#import "VLNestViewController.h"
 #import "JXCategoryTitleView.h"
-#import "NestSubjectViewController.h"
+#import "VLNestSubjectViewController.h"
+#import "VLIndexViewController.h"
 
-@interface NestViewController ()
+@interface VLNestViewController ()
 @property (nonatomic, strong) JXCategoryTitleView *myCategoryView;
 @property (nonatomic, assign) NSInteger currentIndex;
 @end
 
-@implementation NestViewController
+@implementation VLNestViewController
 
 - (void)viewDidLoad {
     self.titles = @[@"关注", @"发现", @"同城"];
@@ -63,21 +64,17 @@
 #pragma mark - JXCategoryListContainerViewDelegate
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    NestSubjectViewController *list = [[NestSubjectViewController alloc] init];
+    VLNestSubjectViewController *list = [[VLNestSubjectViewController alloc] init];
     if (index == 0) {
-//        list.titles = @[@"香蕉", @"苹果", @"荔枝"];
     }else if(index == 1) {
         list.titles = @[@"全部", @"男士",@"女士穿搭",@"全部", @"男士",@"女士穿搭"];
     }else if (index == 2) {
-//        list.titles = @[@"火锅", @"砂锅", @"干锅"];
     }
     return list;
 }
 
-#pragma mark - JXCategoryListContainerViewDelegate
-
 - (void)listContainerViewDidScroll:(UIScrollView *)scrollView{
-    if ([self isKindOfClass:[NestViewController class]]) {
+    if ([self isKindOfClass:[VLNestViewController class]]) {
         CGFloat index = scrollView.contentOffset.x/scrollView.bounds.size.width;
         CGFloat absIndex = fabs(index - self.currentIndex);
         if (absIndex >= 1) {

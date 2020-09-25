@@ -28,6 +28,8 @@
 - (void)setupUIOnce
 {
     self.automaticallyChangeAlpha = YES;
+    self.lastUpdatedTimeLabel.hidden = YES;
+    self.stateLabel.hidden = YES;
 }
 
 // MJBug fix

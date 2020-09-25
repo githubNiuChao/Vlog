@@ -43,7 +43,7 @@
         for (int i = 0; i < 10; i++) {
             
             PersonModel *model = [PersonModel new];
-            model.picture = self->_imgArray[arc4random()%self->_imgArray.count];
+            model.picture = self.imgArray[arc4random()%self->_imgArray.count];
             model.headImg = self->_imgArray[arc4random()%self->_imgArray.count];
             model.nickName = self->_nickNameArray[arc4random()%self->_nickNameArray.count];
             model.hobbys = self->_hobbysArray[arc4random()%self->_hobbysArray.count];

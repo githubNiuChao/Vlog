@@ -3,11 +3,11 @@
 //  iOSProject
 //
 //  Created by szy on 2020/9/1.
-//  Copyright © 2020 github.com/njhu. All rights reserved.
+//  Copyright © 2020 github.com/NCH. All rights reserved.
 //
 
 #import "YISVlogTabBarController1.h"
-#import "NestViewController.h"
+#import "VLNestViewController.h"
 #import "YISIndexViewController.h"
 #import "YISNavigationController.h"
 #import "YISPlusButton.h"
@@ -46,11 +46,11 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
     [super viewDidLoad];
     [[UIApplication sharedApplication] setApplicationSupportsShakeToEdit:YES];
     [self becomeFirstResponder];
-    [self customizeInterface];
+//    [self customizeInterface];
 }
 
 - (NSArray *)viewControllersForTabBar {
-     YISNavigationController *one = [[YISNavigationController alloc] initWithRootViewController:[[NestViewController alloc] init]];
+     YISNavigationController *one = [[YISNavigationController alloc] initWithRootViewController:[[VLNestViewController alloc] init]];
       
       YISNavigationController *two = [[YISNavigationController alloc] initWithRootViewController:[[YISIndexViewController alloc] init]];
       

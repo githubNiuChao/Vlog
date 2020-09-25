@@ -12,6 +12,8 @@
 
 @interface NCHRefreshCollectionViewController : NCHCollectionViewController
 
+/// isMore=NO:HeaderisRefreshing
+/// isMore=YES:FooterisRefreshing
 - (void)loadMore:(BOOL)isMore;
 
 // 结束刷新, 子类请求报文完毕调用

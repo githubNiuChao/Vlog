@@ -23,7 +23,7 @@
 
 @interface NCHCollectionViewController : NCHBaseViewController <UICollectionViewDelegate, UICollectionViewDataSource, NCHCollectionViewControllerDataSource>
 
-/** <#digest#> */
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+/**  */
+@property (strong, nonatomic) UICollectionView *collectionView;
 
 @end

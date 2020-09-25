@@ -1,22 +1,21 @@
 //
-//  BaseViewController.m
-//  JXCategoryView
+//  VLBaseContentViewController.m
+//  VLog
 //
-//  Created by jiaxin on 2018/8/9.
-//  Copyright © 2018年 jiaxin. All rights reserved.
+//  Created by szy on 2020/9/25.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "ContentBaseViewController.h"
-#import "ListViewController.h"
+#import "VLBaseContentViewController.h"
+#import "VLBaseListViewController.h"
 #import "YISIndexViewController.h"
-#import "PersonListViewController.h"
-@interface ContentBaseViewController () <JXCategoryViewDelegate>
+#import "VLIndexViewController.h"
 
-//@property (nonatomic, strong) YISIndexViewController *indexViewController;
+@interface VLBaseContentViewController () <JXCategoryViewDelegate>
 
 @end
 
-@implementation ContentBaseViewController
+@implementation VLBaseContentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -105,8 +104,8 @@
 #pragma mark - JXCategoryListContainerViewDelegate
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    PersonListViewController * indexViewController = [[PersonListViewController alloc] init];
-    return indexViewController;
+    VLBaseListViewController *vc = [[VLBaseListViewController alloc] init];
+    return vc;
 }
 
 - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {

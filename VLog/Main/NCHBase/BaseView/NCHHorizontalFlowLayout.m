@@ -3,7 +3,7 @@
 //  瀑布流完善接口
 //
 //  Created by apple on 16/7/31.
-//  Copyright © 2016年 NJHu. All rights reserved.
+//  Copyright © 2016年 NCH. All rights reserved.
 //
 
 #import "NCHHorizontalFlowLayout.h"
@@ -11,18 +11,18 @@
 #define NCHXX(x) floorf(x)
 #define NCHXS(s) ceilf(s)
 
-static const NSInteger jk_Lines_ = 3;
-static const CGFloat jk_XMargin_ = 10;
-static const CGFloat jk_YMargin_ = 10;
-static const UIEdgeInsets jk_EdgeInsets_ = {10, 10, 10, 10};
+static const NSInteger nch_Lines_ = 3;
+static const CGFloat nch_XMargin_ = 10;
+static const CGFloat nch_YMargin_ = 10;
+static const UIEdgeInsets nch_EdgeInsets_ = {10, 10, 10, 10};
 
 @interface NCHHorizontalFlowLayout()
 
 /** 所有的cell的attrbts */
-@property (nonatomic, strong) NSMutableArray<UICollectionViewLayoutAttributes *> *jk_AtrbsArray;
+@property (nonatomic, strong) NSMutableArray<UICollectionViewLayoutAttributes *> *nch_AtrbsArray;
 
 /** 每一列的最后的高度 */
-@property (nonatomic, strong) NSMutableArray<NSNumber *> *jk_LinesWidthArray;
+@property (nonatomic, strong) NSMutableArray<NSNumber *> *nch_LinesWidthArray;
 
 - (NSInteger)lines;
 
@@ -46,20 +46,20 @@ static const UIEdgeInsets jk_EdgeInsets_ = {10, 10, 10, 10};
     [super prepareLayout];
     
     //如果重新刷新就需要移除之前存储的高度
-    [self.jk_LinesWidthArray removeAllObjects];
+    [self.nch_LinesWidthArray removeAllObjects];
     
     //复赋值以顶部的高度, 并且根据行数
     for (NSInteger i = 0; i < self.lines; i++) {
-        [self.jk_LinesWidthArray addObject:@(self.edgeInsets.left)];
+        [self.nch_LinesWidthArray addObject:@(self.edgeInsets.left)];
     }
     
     // 移除以前计算的cells的attrbs
-    [self.jk_AtrbsArray removeAllObjects];
+    [self.nch_AtrbsArray removeAllObjects];
     
     // 并且重新计算, 每个cell对应的atrbs, 保存到数组
     for (NSInteger i = 0; i < [self.collectionView numberOfItemsInSection:0]; i++)
     {
-        [self.jk_AtrbsArray addObject:[self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]]];
+        [self.nch_AtrbsArray addObject:[self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]]];
     }
 }
 
@@ -80,9 +80,9 @@ static const UIEdgeInsets jk_EdgeInsets_ = {10, 10, 10, 10};
     
     // 拿到最后的高度最小的那一列, 假设第0列最小
    __block NSInteger indexLine = 0;
-   __block CGFloat minLineW = [self.jk_LinesWidthArray[indexLine] doubleValue];
+   __block CGFloat minLineW = [self.nch_LinesWidthArray[indexLine] doubleValue];
     
-    [self.jk_LinesWidthArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.nch_LinesWidthArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         CGFloat lineW = obj.doubleValue;
         if(minLineW > lineW)
         {
@@ -104,7 +104,7 @@ static const UIEdgeInsets jk_EdgeInsets_ = {10, 10, 10, 10};
     atrbs.frame = CGRectMake(x, y, w, h);
     
     // 覆盖添加完后那一列;的最新宽度
-    self.jk_LinesWidthArray[indexLine] = @(CGRectGetMaxX(atrbs.frame));
+    self.nch_LinesWidthArray[indexLine] = @(CGRectGetMaxX(atrbs.frame));
     
     return atrbs;
 }
@@ -112,15 +112,15 @@ static const UIEdgeInsets jk_EdgeInsets_ = {10, 10, 10, 10};
 
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    return self.jk_AtrbsArray;
+    return self.nch_AtrbsArray;
 }
 
 
 - (CGSize)collectionViewContentSize
 {
-   __block CGFloat maxColW = [self.jk_LinesWidthArray[0] doubleValue];
+   __block CGFloat maxColW = [self.nch_LinesWidthArray[0] doubleValue];
 
-    [self.jk_LinesWidthArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.nch_LinesWidthArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         if (maxColW < [obj doubleValue]) {
             maxColW = [obj doubleValue];
@@ -132,22 +132,22 @@ static const UIEdgeInsets jk_EdgeInsets_ = {10, 10, 10, 10};
 }
 
 
-- (NSMutableArray *)jk_AtrbsArray
+- (NSMutableArray *)nch_AtrbsArray
 {
-    if(_jk_AtrbsArray == nil)
+    if(_nch_AtrbsArray == nil)
     {
-        _jk_AtrbsArray = [NSMutableArray array];
+        _nch_AtrbsArray = [NSMutableArray array];
     }
-    return _jk_AtrbsArray;
+    return _nch_AtrbsArray;
 }
 
-- (NSMutableArray *)jk_LinesWidthArray
+- (NSMutableArray *)nch_LinesWidthArray
 {
-    if(_jk_LinesWidthArray == nil)
+    if(_nch_LinesWidthArray == nil)
     {
-        _jk_LinesWidthArray = [NSMutableArray array];
+        _nch_LinesWidthArray = [NSMutableArray array];
     }
-    return _jk_LinesWidthArray;
+    return _nch_LinesWidthArray;
 }
 
 - (NSInteger)lines
@@ -158,7 +158,7 @@ static const UIEdgeInsets jk_EdgeInsets_ = {10, 10, 10, 10};
     }
     else
     {
-        return jk_Lines_;
+        return nch_Lines_;
     }
 }
 
@@ -170,7 +170,7 @@ static const UIEdgeInsets jk_EdgeInsets_ = {10, 10, 10, 10};
     }
     else
     {
-        return jk_XMargin_;
+        return nch_XMargin_;
     }
 }
 
@@ -181,7 +181,7 @@ static const UIEdgeInsets jk_EdgeInsets_ = {10, 10, 10, 10};
         return [self.delegate waterflowLayout:self linesMarginInCollectionView:self.collectionView];
     }else
     {
-        return jk_YMargin_;
+        return nch_YMargin_;
     }
 }
 
@@ -193,7 +193,7 @@ static const UIEdgeInsets jk_EdgeInsets_ = {10, 10, 10, 10};
     }
     else
     {
-        return jk_EdgeInsets_;
+        return nch_EdgeInsets_;
     }
 }
 

@@ -24,9 +24,7 @@
 
 @property(nonatomic,weak)id<PersonListLogicDelegate> delegagte;
 
-/**
- 拉取数据
- */
+/**拉取数据*/
 -(void)loadData;
 
 @end

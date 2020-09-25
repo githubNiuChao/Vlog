@@ -2,7 +2,7 @@
 //  NCHBaseViewController.m
 //  PLMMPRJK
 //
-//  Created by NJHu on 2017/3/29.
+//  Created by NCH on 2017/3/29.
 //  Copyright © 2017年 GoMePrjk. All rights reserved.
 //
 

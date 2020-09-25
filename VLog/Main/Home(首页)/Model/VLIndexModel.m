@@ -11,3 +11,7 @@
 @implementation VLIndexModel
 
 @end
+
+@implementation VLIndexPicturesModel
+
+@end

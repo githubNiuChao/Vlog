@@ -1,20 +1,21 @@
 //
-//  NestSubjectViewController.m
-//  JXCategoryView
+//  VLNestSubjectViewController.m
+//  VLog
 //
-//  Created by jiaxin on 2019/9/11.
-//  Copyright © 2019 jiaxin. All rights reserved.
+//  Created by szy on 2020/9/25.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "NestSubjectViewController.h"
+#import "VLNestSubjectViewController.h"
 #import "JXCategoryTitleView.h"
+#import "VLIndexViewController.h"
 
-@interface NestSubjectViewController ()
+@interface VLNestSubjectViewController ()
 
 @property (nonatomic, strong) JXCategoryTitleView *myCategoryView;
 @end
 
-@implementation NestSubjectViewController
+@implementation VLNestSubjectViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,6 +55,18 @@
 
 - (UIView *)listView {
     return self.view;
+}
+
+#pragma mark - JXCategoryListContainerViewDelegate
+
+- (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
+//    PersonListViewController * indexViewController = [[PersonListViewController alloc] init];
+    VLIndexViewController * indexViewController = [[VLIndexViewController alloc] init];
+    return indexViewController;
+}
+
+- (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
+    return self.titles.count;
 }
 
 @end

@@ -3,7 +3,7 @@
 //  瀑布流完善接口
 //
 //  Created by apple on 16/7/31.
-//  Copyright © 2016年 NJHu. All rights reserved.
+//  Copyright © 2016年 NCH. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -28,7 +28,7 @@
 @optional
 
 /**
- *  需要显示的列数, 默认3
+ *  需要显示的列数, 默认2
  */
 - (NSInteger)waterflowLayout:(NCHVerticalFlowLayout *)waterflowLayout columnsInCollectionView:(UICollectionView *)collectionView;
 /**
@@ -41,7 +41,7 @@
 - (CGFloat)waterflowLayout:(NCHVerticalFlowLayout *)waterflowLayout collectionView:(UICollectionView *)collectionView linesMarginForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
- *  距离collectionView四周的间距, 默认{20, 10, 10, 10}
+ *  距离collectionView四周的间距, 默认{10, 10, 10, 10}
  */
 - (UIEdgeInsets)waterflowLayout:(NCHVerticalFlowLayout *)waterflowLayout edgeInsetsInCollectionView:(UICollectionView *)collectionView;
 

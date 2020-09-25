@@ -1,9 +1,9 @@
 //
 //  BaseRequestAPI.h
-//  MiAiApp
+//  Vlog
 //
-//  Created by 徐阳 on 2017/6/28.
-//  Copyright © 2017年 徐阳. All rights reserved.
+//  Created by szy on 2020/9/24.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
 #import "YTKNetwork.h"

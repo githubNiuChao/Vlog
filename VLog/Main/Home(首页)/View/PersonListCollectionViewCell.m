@@ -78,12 +78,16 @@
     }
     return self;
 }
--(void)setPersonModel:(PersonModel *)personModel{
+-(void)setPersonModel:(VLIndexModel *)personModel{
     _personModel=personModel;
     _imgView.backgroundColor=KWhiteColor;
-    [_imgView sd_setImageWithURL:[NSURL URLWithString:personModel.picture] placeholderImage:[UIImage jk_imageWithColor:KGrayColor]];
+//    [_imgView sd_setImageWithURL:[NSURL URLWithString:personModel.picture] placeholderImage:[UIImage jk_imageWithColor:KGrayColor]];
+//    [_imgHead sd_setImageWithURL:[NSURL URLWithString:personModel.headImg] placeholderImage:[UIImage jk_imageWithColor:KGrayColor]];
+    
     _lblHobby.text=personModel.hobbys;
-    [_imgHead sd_setImageWithURL:[NSURL URLWithString:personModel.headImg] placeholderImage:[UIImage jk_imageWithColor:KGrayColor]];
+    [_imgHead setImage:[UIImage imageNamed:personModel.picture]];
+    [_imgView setImage:[UIImage imageNamed:personModel.picture]];
+
     _lblNickName.text=personModel.nickName;
     _lblAge.text=personModel.age;
     _lblFrom.text=personModel.city;
