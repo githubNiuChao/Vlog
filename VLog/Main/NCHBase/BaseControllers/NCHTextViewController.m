@@ -81,8 +81,8 @@
     }
     NSString *current = [textField.text stringByReplacingCharactersInRange:range withString:string.jk_trimmingWhitespace].jk_trimmingWhitespace;
     
-    if (textField.isEmptyAutoEnable && (kObjectIsEmpty(textField.text.jk_trimmingWhitespace) || kObjectIsEmpty(current))) {
-        if (kObjectIsEmpty(current)) {
+    if (textField.isEmptyAutoEnable && (kObjcIsEmpty(textField.text.jk_trimmingWhitespace) || kObjcIsEmpty(current))) {
+        if (kObjcIsEmpty(current)) {
             [self checkIsEmpty:YES textField:textField];
         }else
         {
@@ -103,12 +103,12 @@
 
 #pragma mark - 设置 btn的 enable
 - (void)checkIsEmpty:(BOOL)isEmpty textField:(UITextField *)textField {
-    if (kObjectIsEmpty(self.requiredTextFields)) {
+    if (kObjcIsEmpty(self.requiredTextFields)) {
         return;
     }
     
     if ([self respondsToSelector:@selector(textViewControllerRelationButtons:)]) {
-        if (kObjectIsEmpty([self textViewControllerRelationButtons:self])) {
+        if (kObjcIsEmpty([self textViewControllerRelationButtons:self])) {
             return;
         }
     }else
@@ -120,7 +120,7 @@
     
     if (!isEmpty) {
         [self.requiredTextFields enumerateObjectsUsingBlock:^(UITextField *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (obj != textField && kObjectIsEmpty(obj.text.jk_trimmingWhitespace)) {
+            if (obj != textField && kObjcIsEmpty(obj.text.jk_trimmingWhitespace)) {
                 isButtonEnabled = NO;
                 *stop = YES;
             }

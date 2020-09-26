@@ -16,8 +16,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NCHWeakSelf(self);
-    [self.navigationItem addObserverBlockForKeyPath:NCHKeyPath(self.navigationItem, title) block:^(id  _Nonnull obj, id  _Nonnull oldVal, NSString  *_Nonnull newVal) {
+    NCWeakSelf(self);
+    [self.navigationItem addObserverBlockForKeyPath:NCKEY_PATH(self.navigationItem, title) block:^(id  _Nonnull obj, id  _Nonnull oldVal, NSString  *_Nonnull newVal) {
         if (newVal.length > 0 && ![newVal isEqualToString:oldVal]) {
             weakself.title = newVal;
         }
@@ -46,7 +46,7 @@
 }
 
 - (void)dealloc {
-    [self.navigationItem removeObserverBlocksForKeyPath:NCHKeyPath(self.navigationItem, title)];
+    [self.navigationItem removeObserverBlocksForKeyPath:NCKEY_PATH(self.navigationItem, title)];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

@@ -107,7 +107,7 @@ const UIEdgeInsets tableViewDefaultLayoutMargins = {8, 8, 8, 8};
 
 - (NCHStaticTableViewController *(^)(NCHWordItem *))addItem {
     
-    NCHWeakSelf(self);
+    NCWeakSelf(self);
     if (!self.sections.firstObject) {
         [self.sections addObject:[NCHItemSection sectionWithItems:@[] andHeaderTitle:nil footerTitle:nil]];
     }

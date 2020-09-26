@@ -42,19 +42,19 @@
 #pragma mark -  初始化UI
 -(void)initUI{
     
-    _parentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+    _parentView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,SCREEN_HEIGHT)];
     [self.view addSubview:_parentView];
-    _parentView.contentSize = CGSizeMake(KScreenWidth, KScreenHeight+100);
+    _parentView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT+100);
     
     
     _headerImageView = [SDAnimatedImageView new];
-    _headerImageView.frame = CGRectMake(0, 0, self.view.jk_width , KScreenWidth/_headerImage.size.width * _headerImage.size.height);
+    _headerImageView.frame = CGRectMake(0, 0, self.view.jk_width , SCREEN_WIDTH/_headerImage.size.width * _headerImage.size.height);
     [_parentView addSubview:_headerImageView];
     [_headerImageView setImage:_headerImage];
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBtn.frame = CGRectMake(12, kStatusBarHeight+12, 20, 20);
-    [backBtn setImage:IMAGE_NAMED(@"back_icon") forState:UIControlStateNormal];
+    backBtn.frame = CGRectMake(12, SCREEN_HEIGHT+12, 20, 20);
+    [backBtn setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"back_icon" ofType:nil]] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(backBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backBtn];
     
@@ -65,19 +65,19 @@
     if (_detailsView) {
         return;
     }
-    _detailsView = [[UIView alloc] initWithFrame:CGRectMake(0, _headerImageView.jk_width, KScreenWidth, 1000)];
+    _detailsView = [[UIView alloc] initWithFrame:CGRectMake(0, _headerImageView.jk_width, SCREEN_WIDTH, 1000)];
     [_parentView addSubview:_detailsView];
-    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, KScreenWidth-30, 230)];
+    UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(15, 20, SCREEN_WIDTH-30, 230)];
     lbl.numberOfLines = 0;
     lbl.text = @"个人信息\n\n\n昵称：萌萌哒小萌新\n\n性别：女\n\n个人爱好：琴棋书画我样样不会，只会打王者荣耀😜";
     //    [lbl sizeToFit];
-    lbl.font = SYSTEMFONT(20);
-    lbl.textColor = KBlackColor;
+    lbl.font = kAdaptedFontSize(20);
+    lbl.textColor = kBlackColor;
     [_detailsView addSubview:lbl];
     
     _detailsView.alpha = 0;
     _detailsView.transform = CGAffineTransformMakeTranslation(0, 50);
-    kWeakSelf(self)
+    NCWeakSelf(self);
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^{
         weakself.detailsView.alpha = 1;
         weakself.detailsView.transform = CGAffineTransformIdentity;

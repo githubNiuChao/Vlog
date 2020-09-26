@@ -52,9 +52,9 @@
     layout.delegate = self;
     
 
-    self.collectionView.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight - kTopHeight - kTabBarHeight);
+    self.collectionView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT  - kTabbarH);
     [self.collectionView setCollectionViewLayout:layout];
-    self.collectionView.backgroundColor = CViewBgColor;
+    
     [self.collectionView registerClass:[PersonListCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([PersonListCollectionViewCell class])];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -106,7 +106,7 @@
     PersonModel *personModel = _logic.dataArray[indexPath.row];
     if (personModel.hobbys && personModel.hobbysHeight == 0) {
         //计算hobby的高度 并缓存
-        CGFloat hobbyH=[personModel.hobbys jk_heightWithFont:FFont1 constrainedToWidth:(KScreenWidth-30)/2-20];
+        CGFloat hobbyH=[personModel.hobbys jk_heightWithFont:kAdaptedFontSize(14) constrainedToWidth:(SCREEN_WIDTH-30)/2-20];
         if (hobbyH>43) {
             hobbyH=43;
         }

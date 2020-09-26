@@ -395,7 +395,7 @@ YSCVlogPublishViewDelegate
         _publishButton.jk_centerX = self.view.jk_centerX;
         _publishButton.layer.cornerRadius = 25;
         [_publishButton setTitle:@"发布笔记" forState:UIControlStateNormal];
-        [_publishButton setBackgroundColor:COLOR_THEME];
+        [_publishButton setBackgroundColor:kCOLOR_THEME];
         [_publishButton addTarget:self action:@selector(actionPublish:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _publishButton;

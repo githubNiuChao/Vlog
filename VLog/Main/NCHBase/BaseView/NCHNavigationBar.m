@@ -239,11 +239,11 @@
     
     if ([self.dataSource respondsToSelector:@selector(NCHNavigationHeight:)]) {
         
-        self.jk_size = CGSizeMake(Main_Screen_Width, [self.dataSource NCHNavigationHeight:self]);
+        self.jk_size = CGSizeMake(SCREEN_WIDTH, [self.dataSource NCHNavigationHeight:self]);
         
     }else
     {
-        self.jk_size = CGSizeMake(Main_Screen_Width, kDefaultNavBarHeight);
+        self.jk_size = CGSizeMake(SCREEN_WIDTH, kDefaultNavBarHeight);
     }
     
     /** 是否显示底部黑线 */

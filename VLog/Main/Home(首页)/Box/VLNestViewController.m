@@ -19,20 +19,20 @@
 @implementation VLNestViewController
 
 - (void)viewDidLoad {
-    self.titles = @[@"关注", @"发现", @"同城"];
-
     [super viewDidLoad];
-
+    self.titles = @[@"关注", @"发现", @"同城"];
+    
     self.myCategoryView.titles = self.titles;
+    self.myCategoryView.defaultSelectedIndex = 1;
+    self.myCategoryView.cellSpacing = 30;
+    self.myCategoryView.titleColor = [UIColor grayColor];
+    self.myCategoryView.titleSelectedColor = [UIColor blackColor];
+    self.myCategoryView.titleFont = [UIFont boldSystemFontOfSize:20];
 //    self.myCategoryView.frame = CGRectMake(0, 0, 400, 20);
 //    self.myCategoryView.layer.cornerRadius = 15;
 //    self.myCategoryView.layer.masksToBounds = YES;
 //    self.myCategoryView.layer.borderColor = [UIColor redColor].CGColor;
 //    self.myCategoryView.layer.borderWidth = 1/[UIScreen mainScreen].scale;
-    self.myCategoryView.cellSpacing = 30;
-    self.myCategoryView.titleColor = [UIColor grayColor];
-    self.myCategoryView.titleSelectedColor = [UIColor blackColor];
-    self.myCategoryView.titleFont = [UIFont boldSystemFontOfSize:20];
 //    self.myCategoryView.titleSelectedFont = [UIFont boldSystemFontOfSize:22];
 //    self.myCategoryView.titleLabelMaskEnabled = YES;
     self.myCategoryView.titleLabelZoomEnabled = YES;

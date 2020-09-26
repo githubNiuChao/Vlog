@@ -24,15 +24,14 @@
 #import <YYText/YYText.h>
 #import <SDWebImage/SDWebImage.h>
 #import <MJRefresh/MJRefresh.h>
-#import "UtilsMacros.h"
-#import "CommonMacros.h"
-#import "FontAndColorMacros.h"
+
 #import "HXPhotoPicker.h"
 #import <JKCategories/JKUIKit.h>
 #import <JKCategories/JKFoundation.h>
 
 
-#import "Macros.h"
+#import "NCHMacros.h"
+#import "NCHMacroTools.h"
 #import "MBConstants.h"
 
 //#import "NSString+YYAdd.h"

@@ -45,22 +45,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class]) forIndexPath:indexPath];
-    
     cell.contentView.backgroundColor = [UIColor yellowColor];
-    
     cell.contentView.clipsToBounds = YES;
-    if (![cell.contentView viewWithTag:100]) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        label.tag = 100;
-        label.textColor = [UIColor redColor];
-        label.font = [UIFont boldSystemFontOfSize:17];
-        [cell.contentView addSubview:label];
-    }
-    
-    UILabel *label = [cell.contentView viewWithTag:100];
-    
-    label.text = [NSString stringWithFormat:@"%zd", indexPath.item];
-    
     return cell;
 }
 

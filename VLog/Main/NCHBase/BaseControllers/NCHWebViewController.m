@@ -47,7 +47,7 @@
         self.webView.scrollView.scrollIndicatorInsets = self.webView.scrollView.contentInset;
     }
     /*
-    NCHWeakSelf(self);
+    NCWeakSelf(self);
     [self.webView addObserverBlockForKeyPath:NCHKeyPath(weakself.webView, estimatedProgress) block:^(id  _Nonnull obj, id  _Nullable oldVal, id  _Nullable newVal) {
         
         weakself.progressView.progress = weakself.webView.estimatedProgress;
@@ -82,7 +82,7 @@
     
     if (self.gotoURL.length > 0) {
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.gotoURL]]];
-    }else if (!kObjectIsEmpty(self.contentHTML)) {
+    }else if (!kObjcIsEmpty(self.contentHTML)) {
         [self.webView loadHTMLString:self.contentHTML baseURL:nil];
     }
 }
@@ -293,7 +293,7 @@
         
         progressView.jk_height = 1;
         
-        progressView.jk_width = Main_Screen_Width;
+        progressView.jk_width = SCREEN_WIDTH;
         
         progressView.jk_centerY = self.jk_navgationBar.jk_height;
         progressView.tintColor = [UIColor greenColor];

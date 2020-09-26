@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NCHWeakSelf(self);
+    NCWeakSelf(self);
     self.tableView.mj_header = [NCHNormalRefreshHeader headerWithRefreshingBlock:^{
         
         [weakself loadIsMore:NO];

@@ -10,6 +10,7 @@
 		512B0341251053DE00447945 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B033F251053DE00447945 /* RootViewController.m */; };
 		512B03462510549B00447945 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B03442510549B00447945 /* XYTransition.m */; };
 		512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B0350251065B300447945 /* UICollectionView+IndexPath.m */; };
+		514875D9251F1416003B7F11 /* NCHMacroTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 514875D8251F1416003B7F11 /* NCHMacroTools.m */; };
 		51606925251DCB0B0070B9D9 /* VLNestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51606924251DCB0B0070B9D9 /* VLNestViewController.m */; };
 		51606928251DCC990070B9D9 /* VLNestSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51606927251DCC990070B9D9 /* VLNestSubjectViewController.m */; };
 		5160692B251DD0580070B9D9 /* VLBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160692A251DD0580070B9D9 /* VLBaseListViewController.m */; };
@@ -226,18 +227,16 @@
 /* Begin PBXFileReference section */
 		1DBC088DDB5B05DAF9266763 /* Pods-VLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLog.release.xcconfig"; path = "Target Support Files/Pods-VLog/Pods-VLog.release.xcconfig"; sourceTree = "<group>"; };
 		38B77A7DBA94D170E173CE2D /* Pods-VLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLog.debug.xcconfig"; path = "Target Support Files/Pods-VLog/Pods-VLog.debug.xcconfig"; sourceTree = "<group>"; };
+		512A715E251EEDB100064EB0 /* NCHMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHMacros.h; sourceTree = "<group>"; };
 		512B033F251053DE00447945 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		512B0340251053DE00447945 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		512B03432510549B00447945 /* XYTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransition.h; sourceTree = "<group>"; };
 		512B03442510549B00447945 /* XYTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTransition.m; sourceTree = "<group>"; };
 		512B03452510549B00447945 /* XYTransitionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransitionProtocol.h; sourceTree = "<group>"; };
-		512B034825105B9800447945 /* UtilsMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilsMacros.h; sourceTree = "<group>"; };
-		512B034925105B9800447945 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacros.h; sourceTree = "<group>"; };
-		512B034A25105B9800447945 /* ThirdMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdMacros.h; sourceTree = "<group>"; };
-		512B034B25105B9800447945 /* FontAndColorMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontAndColorMacros.h; sourceTree = "<group>"; };
-		512B034C25105B9800447945 /* URLMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLMacros.h; sourceTree = "<group>"; };
 		512B0350251065B300447945 /* UICollectionView+IndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+IndexPath.m"; sourceTree = "<group>"; };
 		512B0351251065B300447945 /* UICollectionView+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+IndexPath.h"; sourceTree = "<group>"; };
+		514875D7251F1416003B7F11 /* NCHMacroTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHMacroTools.h; sourceTree = "<group>"; };
+		514875D8251F1416003B7F11 /* NCHMacroTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHMacroTools.m; sourceTree = "<group>"; };
 		51606923251DCB0B0070B9D9 /* VLNestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLNestViewController.h; sourceTree = "<group>"; };
 		51606924251DCB0B0070B9D9 /* VLNestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLNestViewController.m; sourceTree = "<group>"; };
 		51606926251DCC990070B9D9 /* VLNestSubjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLNestSubjectViewController.h; sourceTree = "<group>"; };
@@ -262,7 +261,6 @@
 		51805821251B91C900FBC12D /* MBTargetConfigContants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTargetConfigContants.h; sourceTree = "<group>"; };
 		51805822251B91C900FBC12D /* MPEnumerateHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEnumerateHeader.h; sourceTree = "<group>"; };
 		51805823251B91C900FBC12D /* NotificationContants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationContants.h; sourceTree = "<group>"; };
-		51805825251B91C900FBC12D /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		51805826251B91C900FBC12D /* ThirdMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdMacros.h; sourceTree = "<group>"; };
 		51805827251B91C900FBC12D /* MPTargetConfigMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTargetConfigMacros.h; sourceTree = "<group>"; };
 		51805834251B91C900FBC12D /* CLLocation+MPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+MPLocation.h"; sourceTree = "<group>"; };
@@ -683,18 +681,6 @@
 			path = XYTransition;
 			sourceTree = "<group>";
 		};
-		512B034725105B9800447945 /* Define */ = {
-			isa = PBXGroup;
-			children = (
-				512B034925105B9800447945 /* CommonMacros.h */,
-				512B034B25105B9800447945 /* FontAndColorMacros.h */,
-				512B034A25105B9800447945 /* ThirdMacros.h */,
-				512B034C25105B9800447945 /* URLMacros.h */,
-				512B034825105B9800447945 /* UtilsMacros.h */,
-			);
-			path = Define;
-			sourceTree = "<group>";
-		};
 		518055CA251B91C700FBC12D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -807,9 +793,11 @@
 		51805824251B91C900FBC12D /* Macros */ = {
 			isa = PBXGroup;
 			children = (
-				51805825251B91C900FBC12D /* Macros.h */,
+				514875D7251F1416003B7F11 /* NCHMacroTools.h */,
+				514875D8251F1416003B7F11 /* NCHMacroTools.m */,
 				51805826251B91C900FBC12D /* ThirdMacros.h */,
 				51805827251B91C900FBC12D /* MPTargetConfigMacros.h */,
+				512A715E251EEDB100064EB0 /* NCHMacros.h */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -1683,7 +1671,6 @@
 			isa = PBXGroup;
 			children = (
 				512B033E251053DE00447945 /* Base */,
-				512B034725105B9800447945 /* Define */,
 				51AC991D250F0AC20023D5EA /* NavigationController */,
 				51AC9901250F03CB0023D5EA /* TabBarController */,
 				512B0351251065B300447945 /* UICollectionView+IndexPath.h */,
@@ -2031,6 +2018,7 @@
 				51805B7A251B91CC00FBC12D /* HXPhotoPreviewImageViewCell.m in Sources */,
 				51805B12251B91CB00FBC12D /* GCDGroup.m in Sources */,
 				51805AFE251B91CB00FBC12D /* imageCompressHelper.m in Sources */,
+				514875D9251F1416003B7F11 /* NCHMacroTools.m in Sources */,
 				51805B5F251B91CC00FBC12D /* HXCustomCameraController.m in Sources */,
 				51805B13251B91CB00FBC12D /* GCDSemaphore.m in Sources */,
 				51805B2A251B91CC00FBC12D /* PersonListViewController.m in Sources */,

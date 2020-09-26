@@ -41,7 +41,7 @@
     if(_reachHost == nil)
     {
         _reachHost = [Reachability reachabilityWithHostName:kURL_Reachability__Address];
-        NCHWeakSelf(self);
+        NCWeakSelf(self);
         [_reachHost setUnreachableBlock:^(Reachability * reachability){
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakself networkStatus:reachability.currentReachabilityStatus inViewController:weakself];

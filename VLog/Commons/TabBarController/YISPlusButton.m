@@ -71,10 +71,10 @@
 //    SINPublishViewController *publishVc = [[SINPublishViewController alloc] init];
 //
 //// 封装好了, 直接在 block 里边写动画
-////    NCHWeakSelf(self);
+////    NCWeakSelf(self);
 //    [PresentAnimator viewController:viewController presentViewController:[[NCHNavigationController alloc] initWithRootViewController:publishVc] presentViewFrame:[UIScreen mainScreen].bounds animated:YES completion:nil animatedDuration:0.5 presentAnimation:^(UIView *presentedView, UIView *containerView, void (^completionHandler)(BOOL finished)) {
 //
-//        containerView.transform = CGAffineTransformMakeTranslation(0, -kScreenHeight);
+//        containerView.transform = CGAffineTransformMakeTranslation(0, -SCREEN_HEIGHT);
 //        [UIView animateWithDuration:0.5 animations:^{
 //            containerView.transform = CGAffineTransformIdentity;
 //        } completion:^(BOOL finished) {

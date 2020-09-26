@@ -32,7 +32,7 @@ NCHVerticalFlowLayoutDelegate
 
 #pragma mark - Super
 -(void)loadMore:(BOOL)isMore{
-    if (isMore) self.manager.page+=1;
+    self.manager.page = isMore? self.manager.page+=1:0;
     [self.manager loadData];
 }
 
@@ -71,7 +71,7 @@ NCHVerticalFlowLayoutDelegate
 {
     VLIndexModel *personModel = self.manager.dataArray[indexPath.row];
       if (personModel.height && personModel.hobbysHeight == 0) {
-          CGFloat hobbyH=[personModel.hobbys jk_heightWithFont:FFont1 constrainedToWidth:itemWidth];
+          CGFloat hobbyH=[personModel.hobbys jk_heightWithFont:[UIFont systemFontOfSize:12] constrainedToWidth:itemWidth];
           personModel.hobbysHeight = hobbyH;
       }
       CGFloat imgH = personModel.height * itemWidth / personModel.width;

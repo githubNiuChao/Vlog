@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NCHWeakSelf(self);
+    NCWeakSelf(self);
     self.collectionView.mj_header = [NCHNormalRefreshHeader headerWithRefreshingBlock:^{
         [weakself loadIsMore:NO];
     }];
