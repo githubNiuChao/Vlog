@@ -26,10 +26,12 @@ NCHVerticalFlowLayoutDelegate
     
     self.manager = [[VLIndexListManager alloc] init];
     self.manager.delegagte = self;
-    
     [self.collectionView registerClass:[PersonListCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([PersonListCollectionViewCell class])];
 }
 
+- (void)viewDidLayoutSubviews{
+    [self.collectionView setFrame:CGRectMake(0, 0, self.view.jk_width, self.view.jk_height-kTabbarH)];
+}
 #pragma mark - Super
 -(void)loadMore:(BOOL)isMore{
     self.manager.page = isMore? self.manager.page+=1:0;

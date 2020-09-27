@@ -10,10 +10,12 @@ target 'VLog' do
   pod 'YTKNetwork'
   #字典转模型
   pod 'MJExtension'
+  pod 'JSONModel'
   # 下拉刷新
   pod 'MJRefresh'
   # 图片加载
   pod 'SDWebImage'
+  pod 'libwebp'
   #用于适配
   pod 'Masonry'
   # YYKit
@@ -39,4 +41,6 @@ target 'VLog' do
   pod 'JXCategoryView'
   #
   pod 'JKCategories'
+  
+  
   end

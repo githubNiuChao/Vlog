@@ -29,7 +29,7 @@
         contentInset.top += self.jk_navgationBar.jk_height;
         self.collectionView.contentInset = contentInset;
     }
-    
+
     UICollectionViewLayout *myLayout = [self collectionViewController:self layoutForCollectionView:self.collectionView];
     self.collectionView.collectionViewLayout = myLayout;
     self.collectionView.backgroundColor = [UIColor systemGroupedBackgroundColor];

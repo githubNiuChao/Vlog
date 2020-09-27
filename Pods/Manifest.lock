@@ -157,7 +157,17 @@ PODS:
   - JKCategories/UIKit/UIView (1.9.1)
   - JKCategories/UIKit/UIViewController (1.9.1)
   - JKCategories/UIKit/UIWindow (1.9.1)
+  - JSONModel (1.8.0)
   - JXCategoryView (1.5.6)
+  - libwebp (1.1.0):
+    - libwebp/demux (= 1.1.0)
+    - libwebp/mux (= 1.1.0)
+    - libwebp/webp (= 1.1.0)
+  - libwebp/demux (1.1.0):
+    - libwebp/webp
+  - libwebp/mux (1.1.0):
+    - libwebp/demux
+  - libwebp/webp (1.1.0)
   - M13ProgressSuite (1.2.9)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
@@ -183,7 +193,9 @@ DEPENDENCIES:
   - FDFullscreenPopGesture
   - IQKeyboardManager
   - JKCategories
+  - JSONModel
   - JXCategoryView
+  - libwebp
   - M13ProgressSuite
   - Masonry
   - MBProgressHUD
@@ -204,7 +216,9 @@ SPEC REPOS:
     - FDFullscreenPopGesture
     - IQKeyboardManager
     - JKCategories
+    - JSONModel
     - JXCategoryView
+    - libwebp
     - M13ProgressSuite
     - Masonry
     - MBProgressHUD
@@ -224,7 +238,9 @@ SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   JKCategories: 5bd36ff325c80652cc2e47b689bfc0e81c563d76
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   JXCategoryView: 603ccd8277a89b1a73e9cedb9d8ed4b294576008
+  libwebp: 04242ef451672185c1fe41b285a034d2fbda483c
   M13ProgressSuite: ea9f7263e73e9215e6849dfa54e29ee0ad6a145c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
@@ -238,6 +254,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 3e65425d54df94d5bb462aa8e2b005ffe6047a4f
+PODFILE CHECKSUM: 8ae54f7e4c2bc62befaa62cb78085a11aab90f4a
 
 COCOAPODS: 1.9.1

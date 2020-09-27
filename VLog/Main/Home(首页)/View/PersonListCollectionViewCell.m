@@ -67,13 +67,13 @@
         [self addSubview:_line2];
 
         _lblFrom=[[UILabel alloc]initWithFrame:CGRectMake(10, 0, frame.size.width-80, 15)];
-        _lblFrom.textColor=kGreyColorN;
+        _lblFrom.textColor=kBlackColor;
         _lblFrom.font=kFontSmall;
         [self addSubview:_lblFrom];
 
         _juli=[[UILabel alloc]initWithFrame:CGRectMake(self.jk_width - 80, 0, 70, 15)];
         _juli.textAlignment = NSTextAlignmentRight;
-        _juli.textColor=kGreyColorN;
+        _juli.textColor=kBlackColor;
         _juli.font=kFontSmall;
         [self addSubview:_juli];
     }
