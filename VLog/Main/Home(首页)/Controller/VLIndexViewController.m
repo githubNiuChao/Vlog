@@ -8,7 +8,10 @@
 
 #import "VLIndexViewController.h"
 #import "VLIndexListManager.h"
-#import "PersonListCollectionViewCell.h"
+//#import "PersonListCollectionViewCell.h"
+#import "VLIndexListCollectionViewCell.h"
+#import "ProfileViewController.h"
+#import "VLPhotoDetailViewController.h"
 
 @interface VLIndexViewController ()
 <
@@ -26,7 +29,7 @@ NCHVerticalFlowLayoutDelegate
     
     self.manager = [[VLIndexListManager alloc] init];
     self.manager.delegagte = self;
-    [self.collectionView registerClass:[PersonListCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([PersonListCollectionViewCell class])];
+    [self.collectionView registerClass:[VLIndexListCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([VLIndexListCollectionViewCell class])];
 }
 
 - (void)viewDidLayoutSubviews{
@@ -44,7 +47,7 @@ NCHVerticalFlowLayoutDelegate
     [self endHeaderFooterRefreshing];
 }
 
-#pragma mark ————— collection代理方法 —————
+#pragma mark — UICollectionViewDelegate
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
@@ -54,11 +57,22 @@ NCHVerticalFlowLayoutDelegate
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    PersonListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([PersonListCollectionViewCell class]) forIndexPath:indexPath];
+    VLIndexListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([VLIndexListCollectionViewCell class]) forIndexPath:indexPath];
     cell.personModel = self.manager.dataArray[indexPath.row];
     
     return cell;
 }
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    VLIndexListCollectionViewCell *cell =(VLIndexListCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
+//    profileVC.headerImage = cell.imgView.image;
+//    profileVC.isTransition = YES;
+    photoDetaiVC.imageArray = cell.personModel.imageArray;
+    [self.navigationController pushViewController:photoDetaiVC animated:YES];
+}
+
 
 #pragma mark - NCHCollectionViewControllerDataSource
 - (UICollectionViewLayout *)collectionViewController:(NCHCollectionViewController *)collectionViewController layoutForCollectionView:(UICollectionView *)collectionView
@@ -72,13 +86,11 @@ NCHVerticalFlowLayoutDelegate
 - (CGFloat)waterflowLayout:(NCHVerticalFlowLayout *)waterflowLayout collectionView:(UICollectionView *)collectionView heightForItemAtIndexPath:(NSIndexPath *)indexPath itemWidth:(CGFloat)itemWidth
 {
     VLIndexModel *personModel = self.manager.dataArray[indexPath.row];
-      if (personModel.height && personModel.hobbysHeight == 0) {
-          CGFloat hobbyH=[personModel.hobbys jk_heightWithFont:[UIFont systemFontOfSize:12] constrainedToWidth:itemWidth];
-          personModel.hobbysHeight = hobbyH;
+      if (personModel.imageCacheHeight == 0 || personModel.hobbysCacheHeight == 0) {
+        personModel.hobbysCacheHeight = [personModel.hobbys jk_heightWithFont:kFontSmall constrainedToWidth:itemWidth];
+        personModel.imageCacheHeight = personModel.imageHeight * itemWidth / personModel.imageWidth;
       }
-      CGFloat imgH = personModel.height * itemWidth / personModel.width;
-      
-      return imgH + 110 + personModel.hobbysHeight;
+    return personModel.imageCacheHeight + personModel.hobbysCacheHeight + 70;
 }
 
 #pragma mark - <JXCategoryListContentViewDelegate>

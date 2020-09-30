@@ -72,6 +72,9 @@ NSString * const kAwemeCollectionCell  = @"AwemeCollectionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [NetworkHelper startListening];
+    
     [self initCollectionView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNetworkStatusChange:) name:NetworkStatesChangeNotification object:nil];
     
@@ -186,7 +189,7 @@ NSString * const kAwemeCollectionCell  = @"AwemeCollectionCell";
     }
     controller.transitioningDelegate = self;
     
-    controller.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    controller.modalPresentationStyle = UIModalPresentationOverFullScreen;
     self.modalPresentationStyle = UIModalPresentationCurrentContext;
     [_swipeLeftInteractiveTransition wireToViewController:controller];
     [self presentViewController:controller animated:YES completion:nil];

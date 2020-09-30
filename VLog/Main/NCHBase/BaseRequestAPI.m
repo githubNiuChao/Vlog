@@ -66,7 +66,7 @@
 -(YTKRequestMethod)requestMethod{
     return YTKRequestMethodPOST;
 }
-//#pragma mark ————— 默认请求体是自身转json —————
+#pragma mark ————— 默认请求体是自身转json —————
 //-(id)requestArgument{
 //    return [self modelToJSONObject];
 //}

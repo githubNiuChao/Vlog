@@ -60,7 +60,6 @@
 #pragma mark - JXCategoryListContainerViewDelegate
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-//    PersonListViewController * indexViewController = [[PersonListViewController alloc] init];
     VLIndexViewController * indexViewController = [[VLIndexViewController alloc] init];
     return indexViewController;
 }

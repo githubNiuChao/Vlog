@@ -37,8 +37,8 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    self.jk_navgationBar.jk_width = self.view.jk_width;
-    [self.view bringSubviewToFront:self.jk_navgationBar];
+//    self.jk_navgationBar.jk_width = self.view.jk_width;
+//    [self.view bringSubviewToFront:self.jk_navgationBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -116,8 +116,6 @@
 //
 //}
 
-
-
 #pragma mark - Delegate
 /** 左边的按钮的点击 */
 -(void)leftButtonEvent:(UIButton *)sender navigationBar:(NCHNavigationBar *)navigationBar {
@@ -146,28 +144,28 @@
     return title;
 }
 
-
-- (NCHNavigationBar *)jk_navgationBar {
-    // 父类控制器必须是导航控制器
-    if(!_jk_navgationBar && [self.parentViewController isKindOfClass:[UINavigationController class]])
-    {
-        NCHNavigationBar *navigationBar = [[NCHNavigationBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0)];
-        [self.view addSubview:navigationBar];
-        _jk_navgationBar = navigationBar;
-        
-        navigationBar.dataSource = self;
-        navigationBar.NCHDelegate = self;
-        navigationBar.hidden = ![self navUIBaseViewControllerIsNeedNavBar:self];
-    }
-    return _jk_navgationBar;
-}
+//
+//- (NCHNavigationBar *)jk_navgationBar {
+//    // 父类控制器必须是导航控制器
+//    if(!_jk_navgationBar && [self.parentViewController isKindOfClass:[UINavigationController class]])
+//    {
+//        NCHNavigationBar *navigationBar = [[NCHNavigationBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0)];
+//        [self.view addSubview:navigationBar];
+//        _jk_navgationBar = navigationBar;
+//
+//        navigationBar.dataSource = self;
+//        navigationBar.NCHDelegate = self;
+//        navigationBar.hidden = ![self navUIBaseViewControllerIsNeedNavBar:self];
+//    }
+//    return _jk_navgationBar;
+//}
 
 
 
 
 - (void)setTitle:(NSString *)title {
     [super setTitle:title];
-    self.jk_navgationBar.title = [self changeTitle:title];
+//    self.jk_navgationBar.title = [self changeTitle:title];
 }
 
 @end

@@ -64,13 +64,19 @@
 #pragma mark - JXCategoryListContainerViewDelegate
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    VLNestSubjectViewController *list = [[VLNestSubjectViewController alloc] init];
+
     if (index == 0) {
+        VLIndexViewController *vc = [[VLIndexViewController alloc] init];
+        return vc;
     }else if(index == 1) {
-        list.titles = @[@"全部", @"男士",@"女士穿搭",@"全部", @"男士",@"女士穿搭"];
+        VLNestSubjectViewController *nestVc = [[VLNestSubjectViewController alloc] init];
+        nestVc.titles = @[@"全部", @"男士",@"女士穿搭",@"全部", @"男士",@"女士穿搭"];
+        return nestVc;
     }else if (index == 2) {
+        VLIndexViewController *vc = [[VLIndexViewController alloc] init];
+        return vc;
     }
-    return list;
+    return [[VLBaseListViewController alloc] init];//空类
 }
 
 - (void)listContainerViewDidScroll:(UIScrollView *)scrollView{

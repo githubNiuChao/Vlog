@@ -48,7 +48,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     _bottomBackground.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:_bottomBackground];
     
-    UIBlurEffect *blurEffect =[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIBlurEffect *blurEffect =[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
     visualEffectView.frame = _bottomBackground.bounds;
     visualEffectView.alpha = 1;
@@ -297,7 +297,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
         make.height.mas_equalTo(40);
         make.left.right.bottom.equalTo(self);
     }];
-    [_slideTabBar setLabels:@[@"作品0",@"喜欢0"] tabIndex:0];
+    [_slideTabBar setLabels:@[@"笔记0",@"点赞0"] tabIndex:0];
 }
 
 - (void)initData:(User *)user {
@@ -307,9 +307,9 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
         [wself.avatar setImage:[image drawCircleImage]];
     }];
     //新增的背景数据写为指定路径
-    [_topBackground setImageWithURL:[NSURL URLWithString:@"http://pb3.pstatp.com/obj/dbc1001cd29ccc479f7f"]];
+    [_topBackground setImageWithURL:[NSURL URLWithString:user.avatar_medium.url_list.firstObject]];
     [_nickName setText:user.nickname];
-    [_douyinNum setText:[NSString stringWithFormat:@"抖音号:%@", user.short_id]];
+    [_douyinNum setText:[NSString stringWithFormat:@"ID:%@", user.short_id]];
     if(![user.signature isEqual: @""]) {
         [_brief setText:user.signature];
     }
@@ -318,7 +318,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     [_followNum setText:[NSString stringWithFormat:@"%ld%@",(long)user.following_count,@"关注"]];
     [_followedNum setText:[NSString stringWithFormat:@"%ld%@",(long)user.follower_count,@"粉丝"]];
     
-    [_slideTabBar setLabels:@[[@"作品" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)user.aweme_count]],[@"喜欢" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)user.favoriting_count]]] tabIndex:0];
+    [_slideTabBar setLabels:@[[@"笔记" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)user.aweme_count]],[@"点赞" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)user.favoriting_count]]] tabIndex:0];
 }
 
 - (void)onTapAction:(UITapGestureRecognizer *)sender {

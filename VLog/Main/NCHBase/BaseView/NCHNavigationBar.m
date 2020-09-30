@@ -79,26 +79,17 @@
     [titleView.gestureRecognizers enumerateObjectsUsingBlock:^(__kindof UIGestureRecognizer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         if ([obj isKindOfClass:[UITapGestureRecognizer class]]) {
-            
             isHaveTapGes = YES;
-            
             *stop = YES;
         }
     }];
     
     if (!isHaveTapGes) {
-        
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(titleClick:)];
-        
         [titleView addGestureRecognizer:tap];
     }
-    
-    
     [self layoutIfNeeded];
 }
-
-
-
 
 - (void)setTitle:(NSMutableAttributedString *)title
 {
@@ -160,21 +151,15 @@
     _rightView = rightView;
     
     if ([rightView isKindOfClass:[UIButton class]]) {
-        
         UIButton *btn = (UIButton *)rightView;
-        
         [btn addTarget:self action:@selector(rightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
-    
     [self layoutIfNeeded];
 }
-
-
 
 - (void)setDataSource:(id<NCHNavigationBarDataSource>)dataSource
 {
     _dataSource = dataSource;
-    
     [self setupDataSourceUI];
 }
 
@@ -201,20 +186,15 @@
     if ([self.NCHDelegate respondsToSelector:@selector(leftButtonEvent:navigationBar:)]) {
         
         [self.NCHDelegate leftButtonEvent:btn navigationBar:self];
-        
     }
-    
 }
 
 
 - (void)rightBtnClick:(UIButton *)btn
 {
     if ([self.NCHDelegate respondsToSelector:@selector(rightButtonEvent:navigationBar:)]) {
-        
         [self.NCHDelegate rightButtonEvent:btn navigationBar:self];
-        
     }
-    
 }
 
 
@@ -228,8 +208,6 @@
     }
 }
 
-
-
 #pragma mark - custom
 
 - (void)setupDataSourceUI
@@ -238,9 +216,7 @@
     /** 导航条的高度 */
     
     if ([self.dataSource respondsToSelector:@selector(NCHNavigationHeight:)]) {
-        
         self.jk_size = CGSizeMake(SCREEN_WIDTH, [self.dataSource NCHNavigationHeight:self]);
-        
     }else
     {
         self.jk_size = CGSizeMake(SCREEN_WIDTH, kDefaultNavBarHeight);

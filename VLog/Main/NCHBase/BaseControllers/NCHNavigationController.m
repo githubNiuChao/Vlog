@@ -20,10 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationBar.hidden = YES;
+//    self.navigationBar.hidden = YES;
 
     // 不让自控制器控制系统导航条
-    self.fd_viewControllerBasedNavigationBarAppearanceEnabled = NO;
+//    self.fd_viewControllerBasedNavigationBarAppearanceEnabled = NO;
+    self.navigationBar.translucent = NO;
 }
 /*
 #pragma mark - 全局侧滑代码------------BEGIN----
@@ -37,10 +38,8 @@
     panGes.delegate = self;
     
     // 禁止之前的手势
-    self.interactivePopGestureRecognizer.enabled = NO;
-    
+    self.interactivePopGestureRecognizer.enabled = NO;    
 }
-
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {

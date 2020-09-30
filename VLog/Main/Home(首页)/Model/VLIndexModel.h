@@ -17,15 +17,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger channel;
 @property (nonatomic, assign) NSInteger sex;
 @property (nonatomic, copy) NSString *weixin;
+
 @property (nonatomic, strong) NSArray<VLIndexPicturesModel *> *pictures;
+@property (nonatomic, strong) NSArray *imageArray;
+
+
 @property (nonatomic, copy) NSString *picture;
 @property (nonatomic, copy) NSString *headImg;
 @property (nonatomic, copy) NSString *requires;
 @property (nonatomic, copy) NSString *city;
-@property (nonatomic, assign) float height;
-@property (nonatomic, assign) float width;
+@property (nonatomic, assign) float imageHeight;
+@property (nonatomic, assign) float imageWidth;
 @property (nonatomic, copy) NSString *hobbys;
-@property (nonatomic,assign) float hobbysHeight;
+
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, copy) NSString *objectId;
 @property (nonatomic, copy) NSString *job;
@@ -33,6 +37,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger status;
 @property (nonatomic, copy) NSString *imageAve;
 @property (nonatomic, copy) NSString *juli;
+
+@property (nonatomic,assign) float imageCacheHeight;//适配瀑布流缓存的图片高度
+@property (nonatomic,assign) float hobbysCacheHeight;//适配瀑布流缓存文本高度
+
+KProBool(islike);
+KProBool(isvideo);
 
 @end
 

@@ -9,6 +9,7 @@
 #ifndef NCHMacros_h
 #define NCHMacros_h
 #import "NCHMacroTools.h"
+#import <JKCategories/JKUIKit.h>
 
 #pragma mark - 常用
 #define NCWeakSelf(type)  __weak typeof(type) weak##type = type
@@ -93,10 +94,14 @@
 #define kFontMedium [UIFont systemFontOfSize:14.0f]
 #define kFontBig [UIFont systemFontOfSize:16.0f]
 
+#define kFontBSmall [UIFont boldSystemFontOfSize:12.0f]
+#define kFontBMedium [UIFont boldSystemFontOfSize:14.0f]
+#define kFontBBig [UIFont boldSystemFontOfSize:16.0f]
+
 // 颜色
 #pragma mark - ------------颜色---------------
 //主题色
-#define kCOLOR_THEME kHexColor(0xE7414D)
+#define kCOLOR_THEME kHexColor(@"E7414D")
 // rgba颜色
 #define kRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define kRGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
@@ -237,9 +242,9 @@ View.layer.mask = maskLayer;
 
 #pragma mark - ----------------------图片----------------------------
 //读取本地图片
-#define kFileImage(file) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:nil]]
+#define kFileImage(file) [UIImage jk_imageWithFileName:file]
 #define kFileImageType(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:ext]]
-#define kNameImage(_pointer) [UIImage imageNamed:[UIUtil imageName:_pointer]]
+#define kNameImage(_pointer) [UIImage imageNamed:_pointer]
 
 //----------------------图片----------------------------
 

@@ -22,7 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"个人信息";
+//    self.title = @"个人信息";
+    self.view.backgroundColor = kWhiteColor;
     [self initUI];
     self.isHidenNaviBar = YES;
     self.StatusBarStyle = UIStatusBarStyleLightContent;
@@ -31,7 +32,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -46,7 +46,6 @@
     [self.view addSubview:_parentView];
     _parentView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT+100);
     
-    
     _headerImageView = [SDAnimatedImageView new];
     _headerImageView.frame = CGRectMake(0, 0, self.view.jk_width , SCREEN_WIDTH/_headerImage.size.width * _headerImage.size.height);
     [_parentView addSubview:_headerImageView];
@@ -57,7 +56,6 @@
     [backBtn setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"back_icon" ofType:nil]] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(backBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backBtn];
-    
 }
 
 #pragma mark -  信息详情

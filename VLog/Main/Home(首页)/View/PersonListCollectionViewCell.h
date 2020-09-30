@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "PersonModel.h"
 #import "VLIndexModel.h"
 
 @interface PersonListCollectionViewCell : UICollectionViewCell
 
-@property (strong, nonatomic) UIImageView *imgView;
 @property(nonatomic,strong) VLIndexModel *personModel;
+@property (strong, nonatomic) UIImageView *imgView;
 
 @end

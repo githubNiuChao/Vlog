@@ -7,10 +7,11 @@
 //
 
 #import "YISVlogTabBarController1.h"
+#import "YISNavigationController.h"
+#import "NCHNavigationController.h"
 #import "VLNestViewController.h"
 #import "UserHomePageController.h"
 #import "YISIndexViewController.h"
-#import "YISNavigationController.h"
 #import "YISPlusButton.h"
 
 
@@ -52,13 +53,13 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
 }
 
 - (NSArray *)viewControllersForTabBar {
-     YISNavigationController *one = [[YISNavigationController alloc] initWithRootViewController:[[VLNestViewController alloc] init]];
+    NCHNavigationController *one = [[NCHNavigationController alloc] initWithRootViewController:[[VLNestViewController alloc] init]];
       
-      YISNavigationController *two = [[YISNavigationController alloc] initWithRootViewController:[[YISIndexViewController alloc] init]];
+    NCHNavigationController *two = [[NCHNavigationController alloc] initWithRootViewController:[[YISIndexViewController alloc] init]];
       
-      YISNavigationController *four = [[YISNavigationController alloc] initWithRootViewController:[[YISIndexViewController alloc] init]];
+    NCHNavigationController *four = [[NCHNavigationController alloc] initWithRootViewController:[[YISIndexViewController alloc] init]];
       
-      YISNavigationController *five = [[YISNavigationController alloc] initWithRootViewController:[[UserHomePageController alloc] init]];
+    YISNavigationController *five = [[YISNavigationController alloc] initWithRootViewController:[[UserHomePageController alloc] init]];
     
     return @[one, two, four, five];
 }

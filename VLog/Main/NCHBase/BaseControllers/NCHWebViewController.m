@@ -41,10 +41,10 @@
         if (@available(iOS 11.0, *)){
             self.webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         }
-        UIEdgeInsets contentInset = self.webView.scrollView.contentInset;
-        contentInset.top += self.jk_navgationBar.jk_height;
-        self.webView.scrollView.contentInset = contentInset;
-        self.webView.scrollView.scrollIndicatorInsets = self.webView.scrollView.contentInset;
+//        UIEdgeInsets contentInset = self.webView.scrollView.contentInset;
+//        contentInset.top += self.jk_navgationBar.jk_height;
+//        self.webView.scrollView.contentInset = contentInset;
+//        self.webView.scrollView.scrollIndicatorInsets = self.webView.scrollView.contentInset;
     }
     /*
     NCWeakSelf(self);
@@ -295,7 +295,7 @@
         
         progressView.jk_width = SCREEN_WIDTH;
         
-        progressView.jk_centerY = self.jk_navgationBar.jk_height;
+//        progressView.jk_centerY = self.jk_navgationBar.jk_height;
         progressView.tintColor = [UIColor greenColor];
         
         if ([self respondsToSelector:@selector(webViewController:webViewIsNeedProgressIndicator:)]) {

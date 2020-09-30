@@ -10,8 +10,6 @@
 
 @interface NCHBaseViewController ()
 
-
-
 @end
 
 @implementation NCHBaseViewController

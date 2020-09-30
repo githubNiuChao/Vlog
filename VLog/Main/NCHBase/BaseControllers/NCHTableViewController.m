@@ -24,11 +24,11 @@
 - (void)setupBaseTableViewUI
 {
     self.tableView.backgroundColor = self.view.backgroundColor;
-    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
-        UIEdgeInsets contentInset = self.tableView.contentInset;
-        contentInset.top += self.jk_navgationBar.jk_height;
-        self.tableView.contentInset = contentInset;
-    }
+//    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
+//        UIEdgeInsets contentInset = self.tableView.contentInset;
+//        contentInset.top += self.jk_navgationBar.jk_height;
+//        self.tableView.contentInset = contentInset;
+//    }
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

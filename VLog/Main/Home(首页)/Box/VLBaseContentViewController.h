@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JXCategoryView.h"
 #import "JXCategoryListContainerView.h"
+#import "VLBaseListViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

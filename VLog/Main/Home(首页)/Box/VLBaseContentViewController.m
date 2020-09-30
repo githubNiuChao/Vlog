@@ -7,7 +7,6 @@
 //
 
 #import "VLBaseContentViewController.h"
-#import "VLBaseListViewController.h"
 #import "YISIndexViewController.h"
 #import "VLIndexViewController.h"
 

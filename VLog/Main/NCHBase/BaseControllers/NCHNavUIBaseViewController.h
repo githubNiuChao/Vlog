@@ -21,5 +21,5 @@
 /*默认的导航栏字体*/
 - (NSMutableAttributedString *)changeTitle:(NSString *)curTitle;
 /**  */
-@property (weak, nonatomic) NCHNavigationBar *jk_navgationBar;
+//@property (weak, nonatomic) NCHNavigationBar *jk_navgationBar;
 @end

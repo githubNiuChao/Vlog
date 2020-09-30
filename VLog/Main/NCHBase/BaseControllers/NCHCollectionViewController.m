@@ -24,11 +24,11 @@
 
 - (void)setupBaseNCHCollectionViewControllerUI
 {
-    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
-        UIEdgeInsets contentInset = self.collectionView.contentInset;
-        contentInset.top += self.jk_navgationBar.jk_height;
-        self.collectionView.contentInset = contentInset;
-    }
+//    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
+//        UIEdgeInsets contentInset = self.collectionView.contentInset;
+//        contentInset.top += self.jk_navgationBar.jk_height;
+//        self.collectionView.contentInset = contentInset;
+//    }
 
     UICollectionViewLayout *myLayout = [self collectionViewController:self layoutForCollectionView:self.collectionView];
     self.collectionView.collectionViewLayout = myLayout;

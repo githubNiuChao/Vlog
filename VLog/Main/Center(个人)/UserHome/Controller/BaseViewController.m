@@ -28,7 +28,7 @@
     [self setStatusBarStyle:UIStatusBarStyleLightContent];
     [self setNavigationBarShadowImage:[UIImage new]];
     [self initLeftBarButton:@"icon_titlebar_whiteback"];
-    [self setBackgroundColor:ColorThemeBackground];
+    [self setBackgroundColor:ColorWhite];
 }
 
 

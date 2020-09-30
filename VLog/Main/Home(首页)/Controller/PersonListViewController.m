@@ -146,10 +146,8 @@
 
 #pragma mark -  上下滑动隐藏/显示导航栏
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

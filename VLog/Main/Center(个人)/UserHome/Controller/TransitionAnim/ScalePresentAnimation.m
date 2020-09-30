@@ -19,8 +19,9 @@
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext{
     AwemeListController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UINavigationController *fromVC = (UINavigationController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UserHomePageController *userHomePageController = fromVC.viewControllers.firstObject;
+    UITabBarController *fromVC = (UITabBarController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UINavigationController *fromNVC = (UINavigationController *)[fromVC.viewControllers objectAtIndex:fromVC.selectedIndex];
+    UserHomePageController *userHomePageController = [[fromNVC viewControllers] firstObject];
     UIView *selectCell = (AwemeCollectionCell *)[userHomePageController.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:userHomePageController.selectIndex inSection:1]];
     
     UIView *containerView = [transitionContext containerView];

@@ -26,8 +26,6 @@
 
 @end
 
-
-
 @interface NCHRequestBaseViewController : NCHTextViewController<NCHRequestBaseViewControllerDelegate>
 #pragma mark - 加载框
 

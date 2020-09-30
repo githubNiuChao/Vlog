@@ -20,7 +20,6 @@
     
     NCWeakSelf(self);
     self.tableView.mj_header = [NCHNormalRefreshHeader headerWithRefreshingBlock:^{
-        
         [weakself loadIsMore:NO];
     }];
     self.tableView.mj_footer = [NCHAutoRefreshFooter footerWithRefreshingBlock:^{

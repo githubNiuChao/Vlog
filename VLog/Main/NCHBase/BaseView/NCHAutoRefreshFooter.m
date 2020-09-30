@@ -27,12 +27,14 @@
 - (void)setupUIOnce
 {
     self.automaticallyChangeAlpha = YES;
+    self.refreshingTitleHidden = YES;
 }
 
 // MJBug fix
 - (void)endRefreshing {
     [super endRefreshing];
     self.state = MJRefreshStateIdle;
+
 }
 
 - (void)layoutSubviews

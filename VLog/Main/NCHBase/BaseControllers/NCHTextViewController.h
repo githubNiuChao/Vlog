@@ -41,8 +41,6 @@
 @end
 
 
-
-
 #pragma mark - design UITextField
 IB_DESIGNABLE
 @interface UITextField (NCHTextViewController)

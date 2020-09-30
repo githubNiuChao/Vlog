@@ -7,11 +7,14 @@
 //
 
 #import "AppDelegate.h"
-#import "YISVlogTabBarController1.h"
 #import <Photos/Photos.h>
-#import "NetworkHelper.h"
-#import "WebSocketManager.h"
+#import "YISVlogTabBarController1.h"
+//#import "NetworkHelper.h"
+//#import "WebSocketManager.h"
 #import "AVPlayerManager.h"
+
+#import "NCHNetWorkManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -30,9 +33,11 @@
     [[IQKeyboardManager sharedManager] setEnable:YES];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
     
+    []
+//    [NetworkHelper startListening];
+//    [[WebSocketManager shareManager] connect];
     
-    [NetworkHelper startListening];
-    [[WebSocketManager shareManager] connect];
+    
     [AVPlayerManager setAudioMode];
     
     [self requestPermission];

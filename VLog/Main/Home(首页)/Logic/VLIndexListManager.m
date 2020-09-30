@@ -41,7 +41,6 @@
             [weakself.dataArray removeAllObjects];
         }
         for (int i = 0; i < 10; i++) {
-            
             VLIndexModel *model = [VLIndexModel new];
             model.picture = weakself.imgArray[arc4random()%weakself.imgArray.count];
             model.headImg = weakself.imgArray[arc4random()%weakself.imgArray.count];
@@ -50,9 +49,13 @@
             model.age = @"28岁";
             model.city = weakself.fromArray[arc4random()%weakself.fromArray.count];
             model.juli = i%2==0 ? @"0.5km" : @"1800km";
+            model.islike = (i%2==0);
+            model.isvideo = (i%2==0);
+            model.imageWidth = [UIImage imageNamed:model.picture].size.width;
+            model.imageHeight = [UIImage imageNamed:model.picture].size.height;
             
-            model.width = [UIImage imageNamed:model.picture].size.width;
-            model.height = [UIImage imageNamed:model.picture].size.height;
+            model.imageArray = weakself.imgArray;
+            
             
             [weakself.dataArray addObject:model];
         }
