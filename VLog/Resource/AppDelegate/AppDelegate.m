@@ -12,7 +12,6 @@
 //#import "NetworkHelper.h"
 //#import "WebSocketManager.h"
 #import "AVPlayerManager.h"
-
 #import "NCHNetWorkManager.h"
 
 @interface AppDelegate ()
@@ -33,7 +32,9 @@
     [[IQKeyboardManager sharedManager] setEnable:YES];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
     
-    []
+    //网络启动
+    [NCHNetWorkManager sharedInstance];
+//    [NCHNetWorkManager configureNetwork];
 //    [NetworkHelper startListening];
 //    [[WebSocketManager shareManager] connect];
     

@@ -194,21 +194,21 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
         make.width.height.mas_equalTo(12);
     }];
     
-    _github = [[UIButton alloc] init];
-    [_github setTitleEdgeInsets:UIEdgeInsetsMake(0, 3, 0, 0)];
-    [_github setTitle:@"Github主页" forState:UIControlStateNormal];
-    [_github setTitleColor:ColorWhite forState:UIControlStateNormal];
-    _github.titleLabel.font = SmallFont;
-    [_github setImage:[UIImage imageNamed:@"icon_github"] forState:UIControlStateNormal];
-    [_github setImageEdgeInsets:UIEdgeInsetsMake(0, -3, 0, 0)];
-    _github.tag = UserInfoHeaderGithubTag;
-    [_github addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAction:)]];
-    [_containerView addSubview:_github];
-    [_github mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.douyinNum);
-        make.right.equalTo(weiboArrow).inset(5);
-        make.width.mas_equalTo(92);
-    }];
+//    _github = [[UIButton alloc] init];
+//    [_github setTitleEdgeInsets:UIEdgeInsetsMake(0, 3, 0, 0)];
+//    [_github setTitle:@"Github主页" forState:UIControlStateNormal];
+//    [_github setTitleColor:ColorWhite forState:UIControlStateNormal];
+//    _github.titleLabel.font = SmallFont;
+//    [_github setImage:[UIImage imageNamed:@"icon_github"] forState:UIControlStateNormal];
+//    [_github setImageEdgeInsets:UIEdgeInsetsMake(0, -3, 0, 0)];
+//    _github.tag = UserInfoHeaderGithubTag;
+//    [_github addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAction:)]];
+//    [_containerView addSubview:_github];
+//    [_github mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(self.douyinNum);
+//        make.right.equalTo(weiboArrow).inset(5);
+//        make.width.mas_equalTo(92);
+//    }];
     
     UIView *splitView = [[UIView alloc] init];
     splitView.backgroundColor = ColorWhiteAlpha20;

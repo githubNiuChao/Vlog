@@ -26,10 +26,6 @@
 		5173E5C725231EB600E57C71 /* VLFollowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5C625231EB600E57C71 /* VLFollowListViewController.m */; };
 		5173E5CD252334F400E57C71 /* BaseRequestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5CA252334F300E57C71 /* BaseRequestAPI.m */; };
 		5173E5CE252334F400E57C71 /* BaseRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5CB252334F300E57C71 /* BaseRequestService.m */; };
-		5173E5D12523354700E57C71 /* NCHNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5D02523354700E57C71 /* NCHNetWorkManager.m */; };
-		5173E5D42523358600E57C71 /* NCHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5D32523358600E57C71 /* NCHBaseRequest.m */; };
-		5173E5D7252335E500E57C71 /* NCHBaseRequestResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5D6252335E500E57C71 /* NCHBaseRequestResponse.m */; };
-		5173E5DA2523360300E57C71 /* NCHRequestPublicArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5D92523360300E57C71 /* NCHRequestPublicArgument.m */; };
 		518059F4251B91CB00FBC12D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 518055CD251B91C700FBC12D /* AppDelegate.m */; };
 		518059F5251B91CB00FBC12D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 518055CF251B91C700FBC12D /* LaunchScreen.storyboard */; };
 		518059F6251B91CB00FBC12D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 518055D1251B91C700FBC12D /* Main.storyboard */; };
@@ -317,6 +313,11 @@
 		51AC9912250F03CC0023D5EA /* YISVlogTabBarController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */; };
 		51AC9914250F03CC0023D5EA /* YISPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9909250F03CB0023D5EA /* YISPlusButton.m */; };
 		51AC9920250F0AE80023D5EA /* YISNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC991F250F0AE80023D5EA /* YISNavigationController.m */; };
+		51E059FB2524620100FA9744 /* NCHNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E059F42524620000FA9744 /* NCHNetWorkManager.m */; };
+		51E059FC2524620100FA9744 /* NCHBaseRequestResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E059F52524620000FA9744 /* NCHBaseRequestResponse.m */; };
+		51E059FD2524620100FA9744 /* NCHRequestPublicArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E059F62524620000FA9744 /* NCHRequestPublicArgument.m */; };
+		51E059FE2524620100FA9744 /* NCHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E059FA2524620100FA9744 /* NCHBaseRequest.m */; };
+		51E05A02252462F200FA9744 /* VLIndexRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E05A01252462F200FA9744 /* VLIndexRequest.m */; };
 		6E4E8D1EA337B0C1F1904A83 /* libPods-VLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */; };
 /* End PBXBuildFile section */
 
@@ -361,14 +362,6 @@
 		5173E5CA252334F300E57C71 /* BaseRequestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequestAPI.m; sourceTree = "<group>"; };
 		5173E5CB252334F300E57C71 /* BaseRequestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequestService.m; sourceTree = "<group>"; };
 		5173E5CC252334F300E57C71 /* BaseRequestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequestService.h; sourceTree = "<group>"; };
-		5173E5CF2523354700E57C71 /* NCHNetWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHNetWorkManager.h; sourceTree = "<group>"; };
-		5173E5D02523354700E57C71 /* NCHNetWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHNetWorkManager.m; sourceTree = "<group>"; };
-		5173E5D22523358600E57C71 /* NCHBaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHBaseRequest.h; sourceTree = "<group>"; };
-		5173E5D32523358600E57C71 /* NCHBaseRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHBaseRequest.m; sourceTree = "<group>"; };
-		5173E5D5252335E500E57C71 /* NCHBaseRequestResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHBaseRequestResponse.h; sourceTree = "<group>"; };
-		5173E5D6252335E500E57C71 /* NCHBaseRequestResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHBaseRequestResponse.m; sourceTree = "<group>"; };
-		5173E5D82523360300E57C71 /* NCHRequestPublicArgument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHRequestPublicArgument.h; sourceTree = "<group>"; };
-		5173E5D92523360300E57C71 /* NCHRequestPublicArgument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHRequestPublicArgument.m; sourceTree = "<group>"; };
 		518055CC251B91C700FBC12D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		518055CD251B91C700FBC12D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		518055D0251B91C700FBC12D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -921,6 +914,16 @@
 		51AC991E250F0AE80023D5EA /* YISNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YISNavigationController.h; sourceTree = "<group>"; };
 		51AC991F250F0AE80023D5EA /* YISNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YISNavigationController.m; sourceTree = "<group>"; };
 		51E059F225245E9700FA9744 /* VLAPIMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLAPIMacros.h; sourceTree = "<group>"; };
+		51E059F32524620000FA9744 /* NCHBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCHBaseRequest.h; sourceTree = "<group>"; };
+		51E059F42524620000FA9744 /* NCHNetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCHNetWorkManager.m; sourceTree = "<group>"; };
+		51E059F52524620000FA9744 /* NCHBaseRequestResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCHBaseRequestResponse.m; sourceTree = "<group>"; };
+		51E059F62524620000FA9744 /* NCHRequestPublicArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCHRequestPublicArgument.m; sourceTree = "<group>"; };
+		51E059F72524620000FA9744 /* NCHNetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCHNetWorkManager.h; sourceTree = "<group>"; };
+		51E059F82524620000FA9744 /* NCHRequestPublicArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCHRequestPublicArgument.h; sourceTree = "<group>"; };
+		51E059F92524620000FA9744 /* NCHBaseRequestResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCHBaseRequestResponse.h; sourceTree = "<group>"; };
+		51E059FA2524620100FA9744 /* NCHBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCHBaseRequest.m; sourceTree = "<group>"; };
+		51E05A00252462F200FA9744 /* VLIndexRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLIndexRequest.h; sourceTree = "<group>"; };
+		51E05A01252462F200FA9744 /* VLIndexRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLIndexRequest.m; sourceTree = "<group>"; };
 		6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1035,14 +1038,14 @@
 		5173E5C9252334F300E57C71 /* BaseNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				5173E5CF2523354700E57C71 /* NCHNetWorkManager.h */,
-				5173E5D02523354700E57C71 /* NCHNetWorkManager.m */,
-				5173E5D22523358600E57C71 /* NCHBaseRequest.h */,
-				5173E5D32523358600E57C71 /* NCHBaseRequest.m */,
-				5173E5D5252335E500E57C71 /* NCHBaseRequestResponse.h */,
-				5173E5D6252335E500E57C71 /* NCHBaseRequestResponse.m */,
-				5173E5D82523360300E57C71 /* NCHRequestPublicArgument.h */,
-				5173E5D92523360300E57C71 /* NCHRequestPublicArgument.m */,
+				51E059F32524620000FA9744 /* NCHBaseRequest.h */,
+				51E059FA2524620100FA9744 /* NCHBaseRequest.m */,
+				51E059F92524620000FA9744 /* NCHBaseRequestResponse.h */,
+				51E059F52524620000FA9744 /* NCHBaseRequestResponse.m */,
+				51E059F72524620000FA9744 /* NCHNetWorkManager.h */,
+				51E059F42524620000FA9744 /* NCHNetWorkManager.m */,
+				51E059F82524620000FA9744 /* NCHRequestPublicArgument.h */,
+				51E059F62524620000FA9744 /* NCHRequestPublicArgument.m */,
 			);
 			path = BaseNetwork;
 			sourceTree = "<group>";
@@ -1106,6 +1109,7 @@
 		518057F0251B91C900FBC12D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				51E059FF2524628E00FA9744 /* Request */,
 				518057F1251B91C900FBC12D /* NetWorkBaseUrlConfig.h */,
 				518057FF251B91C900FBC12D /* NetWorkBaseUrlConfig.m */,
 				518057F5251B91C900FBC12D /* NetWorkEnvironment.h */,
@@ -2330,6 +2334,15 @@
 			path = NavigationController;
 			sourceTree = "<group>";
 		};
+		51E059FF2524628E00FA9744 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				51E05A00252462F200FA9744 /* VLIndexRequest.h */,
+				51E05A01252462F200FA9744 /* VLIndexRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		CA33775032A6EF61E789EDDC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2577,7 +2590,7 @@
 				5173E5B52522CB2700E57C71 /* VLPhotoDetailViewController.m in Sources */,
 				5181524B251C470C00F9CCD3 /* NCHRefreshTableViewController.m in Sources */,
 				512B0341251053DE00447945 /* RootViewController.m in Sources */,
-				5173E5D42523358600E57C71 /* NCHBaseRequest.m in Sources */,
+				51E05A02252462F200FA9744 /* VLIndexRequest.m in Sources */,
 				51805B74251B91CC00FBC12D /* HXPhotoSubViewCell.m in Sources */,
 				51A29BDA25203EC1001EF6E9 /* Visitor.m in Sources */,
 				51A29C1525203EC1001EF6E9 /* AwemeCollectionCell.m in Sources */,
@@ -2600,7 +2613,6 @@
 				51805B32251B91CC00FBC12D /* WaterFlowLayout.m in Sources */,
 				51A29BF725203EC1001EF6E9 /* LoadMoreControl.m in Sources */,
 				51805B54251B91CC00FBC12D /* NSTimer+HXExtension.m in Sources */,
-				5173E5DA2523360300E57C71 /* NCHRequestPublicArgument.m in Sources */,
 				51AC9911250F03CC0023D5EA /* UIView+Frame.m in Sources */,
 				51805B97251B91CC00FBC12D /* HXPhotoEditGridLayer.m in Sources */,
 				518059F4251B91CB00FBC12D /* AppDelegate.m in Sources */,
@@ -2622,6 +2634,7 @@
 				51805B98251B91CC00FBC12D /* HXPhotoEditTextView.m in Sources */,
 				51805B60251B91CC00FBC12D /* HXCustomNavigationController.m in Sources */,
 				51A29C0C25203EC1001EF6E9 /* CircleTextView.m in Sources */,
+				51E059FD2524620100FA9744 /* NCHRequestPublicArgument.m in Sources */,
 				51805B8F251B91CC00FBC12D /* HXPhotoEditDrawView.m in Sources */,
 				51805B44251B91CC00FBC12D /* HXPhotoConfiguration.m in Sources */,
 				51805B10251B91CB00FBC12D /* GCDQueue.m in Sources */,
@@ -2675,6 +2688,7 @@
 				51805B4E251B91CC00FBC12D /* UIImageView+HXExtension.m in Sources */,
 				51805B7E251B91CC00FBC12D /* HXMECancelBlock.m in Sources */,
 				5173E5CD252334F400E57C71 /* BaseRequestAPI.m in Sources */,
+				51E059FC2524620100FA9744 /* NCHBaseRequestResponse.m in Sources */,
 				51A29C1025203EC1001EF6E9 /* ScaleDismissAnimation.m in Sources */,
 				51A29BDD25203EC1001EF6E9 /* VisitorRequest.m in Sources */,
 				51805B49251B91CC00FBC12D /* HXPhotoViewTransition.m in Sources */,
@@ -2707,7 +2721,7 @@
 				51805B2D251B91CC00FBC12D /* YISIndexViewController.m in Sources */,
 				51A29C1325203EC1001EF6E9 /* UserHomePageController.m in Sources */,
 				51805B48251B91CC00FBC12D /* HXPhotoPersentInteractiveTransition.m in Sources */,
-				5173E5D12523354700E57C71 /* NCHNetWorkManager.m in Sources */,
+				51E059FB2524620100FA9744 /* NCHNetWorkManager.m in Sources */,
 				51815247251C470C00F9CCD3 /* NCHStaticTableViewController.m in Sources */,
 				51A29BF625203EC1001EF6E9 /* MenuPopView.m in Sources */,
 				51A29BF125203EC1001EF6E9 /* UserResponse.m in Sources */,
@@ -2715,13 +2729,13 @@
 				51815241251C470C00F9CCD3 /* NCHNavigationBar.m in Sources */,
 				51606925251DCB0B0070B9D9 /* VLNestViewController.m in Sources */,
 				51A29BE925203EC1001EF6E9 /* GroupChatResponse.m in Sources */,
-				5173E5D7252335E500E57C71 /* NCHBaseRequestResponse.m in Sources */,
 				5181524E251C470C00F9CCD3 /* NCHWebViewController.m in Sources */,
 				51805B90251B91CC00FBC12D /* HXPhotoEditStickerItemContentView.m in Sources */,
 				51805B55251B91CC00FBC12D /* UIButton+HXExtension.m in Sources */,
 				51805B61251B91CC00FBC12D /* HXPhotoEditViewController.m in Sources */,
 				51A29BCD25203EC1001EF6E9 /* CADisplayLink+Tool.m in Sources */,
 				51815259251C4CB700F9CCD3 /* NSObject+YYAddForKVO.m in Sources */,
+				51E059FE2524620100FA9744 /* NCHBaseRequest.m in Sources */,
 				51805B7C251B91CC00FBC12D /* HX_PhotoEditViewController.m in Sources */,
 				51805AFD251B91CB00FBC12D /* AddressPickerView.m in Sources */,
 				51805B77251B91CC00FBC12D /* HXPreviewVideoView.m in Sources */,
@@ -2925,6 +2939,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 5.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.niuchao.Test1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2945,6 +2960,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 5.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.niuchao.Test1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

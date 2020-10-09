@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class NCHNetWorkManager, NCHConnectPort;
 
 NS_ASSUME_NONNULL_BEGIN

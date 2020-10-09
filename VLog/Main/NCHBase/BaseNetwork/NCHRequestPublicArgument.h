@@ -10,13 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NCHRequestPublicArgument : NSObject
+extern NSString * const NCHRequestPublicArgument_UserAgent_Key;
+extern NSString * const NCHRequestPublicArgument_SzyVersion_Key;
 
-/**  当前客户端版本名称  */
-@property (nonatomic, copy) NSString *version;
-/**  时间戳 格式yyyyMMddHHmmss  */
-@property (nonatomic, copy) NSString *timestamp;
 
+@interface NCHRequestPublicArgument : NSObject<YTKUrlFilterProtocol>
+
++ (NCHRequestPublicArgument *)filterWithArguments:(NSDictionary *)arguments;
 
 @end
 

@@ -67,7 +67,7 @@
 // 子类需要调用调用
 - (void)loadMore:(BOOL)isMore
 {
-    //        NSAssert(0, @"子类必须重载%s", __FUNCTION__);
+//   NSAssert(0, @"子类必须重载%s", __FUNCTION__);
 }
 
 

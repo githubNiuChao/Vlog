@@ -320,7 +320,7 @@ NSString * const kAwemeCollectionCell  = @"AwemeCollectionCell";
     [NetworkHelper getWithUrlPath:FindUserByUidPath request:request success:^(id data) {
         UserResponse *response = [[UserResponse alloc] initWithDictionary:data error:nil];
         wself.user = response.data;
-        [wself setTitle:self.user.nickname];
+        [wself setNavigationBarTitle:self.user.nickname];
         [wself.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
     } failure:^(NSError *error) {
         [UIWindow showTips:error.description];

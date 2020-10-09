@@ -9,12 +9,12 @@
 #ifndef VLAPIMacros_h
 #define VLAPIMacros_h
 
-#define YSCAPI(path) [YSCBaseURL stringByAppendingString:path]
+//#define YSCAPI(path) [YSCBaseURL stringByAppendingString:path]
 //测试
-#define API_APP_INDEX YSCAPI(@"/index")
+#define API_APP_INDEX  @"/index"
 
 //首页
-#define API_VLOG_INDEX YSCAPI(@"/user/short-video/message.html")
+#define API_VLOG_INDEX @"/user/short-video/message.html"
 
 
 #endif /* VLAPIMacros_h */

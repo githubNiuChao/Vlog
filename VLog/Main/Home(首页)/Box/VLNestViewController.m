@@ -10,6 +10,7 @@
 #import "JXCategoryTitleView.h"
 #import "VLNestSubjectViewController.h"
 #import "VLIndexViewController.h"
+#import "VLFollowListViewController.h"
 
 @interface VLNestViewController ()
 @property (nonatomic, strong) JXCategoryTitleView *myCategoryView;
@@ -66,7 +67,7 @@
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
 
     if (index == 0) {
-        VLIndexViewController *vc = [[VLIndexViewController alloc] init];
+        VLFollowListViewController *vc = [[VLFollowListViewController alloc] init];
         return vc;
     }else if(index == 1) {
         VLNestSubjectViewController *nestVc = [[VLNestSubjectViewController alloc] init];

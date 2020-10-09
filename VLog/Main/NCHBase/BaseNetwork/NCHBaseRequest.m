@@ -12,30 +12,6 @@
 #import "NCHBaseRequestResponse.h"
 #import "NCHNetWorkManager.h"
 
-@implementation YTKBaseRequest (PostMan)
-
-- (NSString *)postManString
-{
-    if (self.requestMethod == YTKRequestMethodGET)
-    {
-        return [NSString stringWithFormat:@"<%@: %p>{ URL: %@ } { method: %@ } { arguments: %@ } { header: %@ }", NSStringFromClass([self class]), self, self.currentRequest.URL, self.currentRequest.HTTPMethod, self.requestArgument, self.requestHeaderFieldValueDictionary];
-    }
-    else
-    {
-        NSDictionary *dict = [self requestArgument];
-        __block NSMutableString *argumentsString = @"?".mutableCopy;
-        __block NSMutableArray *arguments = @[].mutableCopy;
-        [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
-            NSString *argment = [NSString stringWithFormat:@"%@=%@", key, obj];
-            [arguments addObject:argment];
-        }];
-        [argumentsString appendString:[arguments componentsJoinedByString:@"&"]];
-        NSString *urlStr = [NSString stringWithFormat:@"%@%@", self.currentRequest.URL.absoluteString, argumentsString];
-        return [NSString stringWithFormat:@"<%@: %p>{ URL: %@ } { method: %@ } { arguments: %@ }  { header: %@ }", NSStringFromClass([self class]), self, urlStr, self.currentRequest.HTTPMethod, self.requestArgument, self.requestHeaderFieldValueDictionary];
-    }
-}
-
-@end
 
 @interface NCHBaseRequest ()
 
@@ -46,14 +22,6 @@
 
 @implementation NCHBaseRequest
 
-+ (void)load
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [[YTKNetworkAgent sharedAgent] setValue:[NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json",@"text/html", nil]
-                                     forKeyPath:@"jsonResponseSerializer.acceptableContentTypes"];
-    });
-}
 
 #pragma mark - 重新父类方法
 - (instancetype)init
@@ -62,8 +30,8 @@
     if (self)
     {
         _argumentsDictionary = [[NSMutableDictionary alloc] init];
-        _shouldAddPublicArguments = YES;
-        _shouldAddMACArguments = YES;
+        _shouldAddPublicArguments = NO;
+        _shouldAddMACArguments = NO;
         _finishedHandleArgument = NO;
         _isAES = NO;
         _errorMessage = kDefaultErrorInfo;
@@ -88,11 +56,13 @@
 
 - (NSDictionary *)requestHeaderFieldValueDictionary
 {
-    NSMutableDictionary *header = [NSMutableDictionary dictionary];
-    // 这里需要获取token来赋值
-    NSString *tokenid = @"token";
-    header[@"token"] = tokenid;
-    return header;
+//    NSMutableDictionary *header = [NSMutableDictionary dictionary];
+//    // 这里需要获取token来赋值
+//    NSString *tokenid = @"token";
+//    header[@"token"] = tokenid;
+//NCHRequestPublicArgument *urlFilter = [NCHRequestPublicArgument filterWithArguments:@{NCHRequestPublicArgument_SzyVersion_Key: @"5.5",NCHRequestPublicArgument_UserAgent_Key:@"szyapp/ios"}];
+    return @{NCHRequestPublicArgument_SzyVersion_Key: @"5.5",NCHRequestPublicArgument_UserAgent_Key:@"szyapp/ios"};
+
 }
 
 /// 处理公共参数
@@ -145,7 +115,6 @@
             return success;
         }
     }
-
     return [super statusCodeValidator];
 }
 
@@ -272,6 +241,32 @@
 - (void)serverDidNotResponse
 {
     
+}
+@end
+
+
+
+@implementation YTKBaseRequest (PostMan)
+
+- (NSString *)postManString
+{
+    if (self.requestMethod == YTKRequestMethodGET)
+    {
+        return [NSString stringWithFormat:@"<%@: %p>{ URL: %@ } { method: %@ } { arguments: %@ } { header: %@ }", NSStringFromClass([self class]), self, self.currentRequest.URL, self.currentRequest.HTTPMethod, self.requestArgument, self.requestHeaderFieldValueDictionary];
+    }
+    else
+    {
+        NSDictionary *dict = [self requestArgument];
+        __block NSMutableString *argumentsString = @"?".mutableCopy;
+        __block NSMutableArray *arguments = @[].mutableCopy;
+        [dict enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+            NSString *argment = [NSString stringWithFormat:@"%@=%@", key, obj];
+            [arguments addObject:argment];
+        }];
+        [argumentsString appendString:[arguments componentsJoinedByString:@"&"]];
+        NSString *urlStr = [NSString stringWithFormat:@"%@%@", self.currentRequest.URL.absoluteString, argumentsString];
+        return [NSString stringWithFormat:@"<%@: %p>{ URL: %@ } { method: %@ } { arguments: %@ }  { header: %@ }", NSStringFromClass([self class]), self, urlStr, self.currentRequest.HTTPMethod, self.requestArgument, self.requestHeaderFieldValueDictionary];
+    }
 }
 
 @end

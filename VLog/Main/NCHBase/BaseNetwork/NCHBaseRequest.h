@@ -18,18 +18,12 @@ static NSString * _Nonnull const kDefaultErrorInfo = @"当前太多人访问,请
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YTKBaseRequest (PostMan)
-
-// 提供url字符串,方法提供给后台调试
-- (NSString *)postManString;
-
-@end
 
 @interface NCHBaseRequest : YTKBaseRequest
 
 /**  参数字典  */
 @property (nonatomic, strong) NSMutableDictionary *argumentsDictionary;
-/**  是否添加MAC,默认为YES,关于MAC可查看:https://baike.baidu.com/item/MAC/329741  */
+
 @property (nonatomic, assign) BOOL shouldAddMACArguments;
 /**  是否添加公共参数,默认为YES  */
 @property (nonatomic, assign) BOOL shouldAddPublicArguments;
@@ -54,6 +48,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tokenDidInvalid;
 /**  在 isServerNotResponse 为 YES 的情况下会调用这个方法,默认什么都不做,子类可以重写这个  */
 - (void)serverDidNotResponse;
+
+@end
+
+@interface YTKBaseRequest (PostMan)
+
+// 提供url字符串,方法提供给后台调试
+- (NSString *)postManString;
 
 @end
 

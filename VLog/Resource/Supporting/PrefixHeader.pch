@@ -32,6 +32,7 @@
 
 #import "NCHMacros.h"
 #import "NCHMacroTools.h"
+#import "VLAPIMacros.h"
 #import "CenterMacro.h"
 #import "MBConstants.h"
 

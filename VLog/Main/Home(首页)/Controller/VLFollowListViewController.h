@@ -7,10 +7,11 @@
 //
 
 #import "NCHRefreshTableViewController.h"
+#import "JXCategoryListContainerView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VLFollowListViewController : NCHRefreshTableViewController
+@interface VLFollowListViewController : NCHRefreshTableViewController<JXCategoryListContentViewDelegate>
 
 @end
 
