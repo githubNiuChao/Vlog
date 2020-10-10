@@ -8,10 +8,14 @@
 
 #import "NCHRefreshCollectionViewController.h"
 #import "JXCategoryListContainerView.h"
+#import "JXPagerView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VLIndexViewController : NCHRefreshCollectionViewController <JXCategoryListContentViewDelegate>
+@interface VLIndexViewController : NCHRefreshCollectionViewController
+<
+JXPagerViewListViewDelegate
+>
 
 @end
 

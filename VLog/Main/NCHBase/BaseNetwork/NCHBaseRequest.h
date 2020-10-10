@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableDictionary *argumentsDictionary;
 
 @property (nonatomic, assign) BOOL shouldAddMACArguments;
-/**  是否添加公共参数,默认为YES  */
+/**  是否添加公共参数,默认为NO  */
 @property (nonatomic, assign) BOOL shouldAddPublicArguments;
 
 @property (nonatomic, assign) BOOL isAES; //默认为NO

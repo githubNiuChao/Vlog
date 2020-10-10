@@ -8,10 +8,10 @@
 
 #import "VLIndexViewController.h"
 #import "VLIndexListManager.h"
-//#import "PersonListCollectionViewCell.h"
 #import "VLIndexListCollectionViewCell.h"
-#import "ProfileViewController.h"
 #import "VLPhotoDetailViewController.h"
+#import "AwemeListController.h"
+
 
 @interface VLIndexViewController ()
 <
@@ -19,6 +19,7 @@ VLIndexListManagerDelegate,
 NCHVerticalFlowLayoutDelegate
 >
 @property (strong, nonatomic) VLIndexListManager *manager;
+@property (nonatomic, copy) void(^scrollCallback)(UIScrollView *scrollView);
 
 @end
 
@@ -33,7 +34,8 @@ NCHVerticalFlowLayoutDelegate
 }
 
 - (void)viewDidLayoutSubviews{
-    [self.collectionView setFrame:CGRectMake(0, 0, self.view.jk_width, self.view.jk_height-kTabbarH)];
+//    [self.collectionView setFrame:CGRectMake(0, 0, self.view.jk_width, self.view.jk_height-kTabbarH)];
+    self.collectionView.frame = self.view.bounds;
 }
 #pragma mark - Super
 -(void)loadMore:(BOOL)isMore{
@@ -65,12 +67,30 @@ NCHVerticalFlowLayoutDelegate
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+
+    
     VLIndexListCollectionViewCell *cell =(VLIndexListCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
 //    profileVC.headerImage = cell.imgView.image;
 //    profileVC.isTransition = YES;
     photoDetaiVC.imageArray = cell.personModel.imageArray;
     [self.navigationController pushViewController:photoDetaiVC animated:YES];
+
+//    
+//    if (indexPath.row%2==0) return;
+//    AwemeListController *controller;
+//    if(_tabIndex == 0) {
+//        controller = [[AwemeListController alloc] initWithVideoData:_workAwemes currentIndex:indexPath.row pageIndex:_pageIndex pageSize:_pageSize awemeType:AwemeWork uid:_uid];
+//    }else {
+//        controller = [[AwemeListController alloc] initWithVideoData:_favoriteAwemes currentIndex:indexPath.row pageIndex:_pageIndex pageSize:_pageSize awemeType:AwemeFavorite uid:_uid];
+//    }
+//    controller.transitioningDelegate = self;
+//    
+//    controller.modalPresentationStyle = UIModalPresentationOverFullScreen;
+//    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+//    [_swipeLeftInteractiveTransition wireToViewController:controller];
+//    [self presentViewController:controller animated:YES completion:nil];
+//    
 }
 
 
@@ -95,11 +115,41 @@ NCHVerticalFlowLayoutDelegate
 
 #pragma mark - <JXCategoryListContentViewDelegate>
 - (void)listDidAppear{
+    
 }
 
 - (UIView *)listView {
     return self.view;
 }
+
+
+#pragma mark - JXPagingViewListViewDelegate
+//- (UIView *)listView {
+//    return self.view;
+//}
+- (UIScrollView *)listScrollView {
+    return self.collectionView;
+}
+- (void)listViewDidScrollCallback:(void (^)(UIScrollView *))callback {
+    self.scrollCallback = callback;
+}
+//- (void)listWillAppear {
+//    NSLog(@"%@:%@", self.title, NSStringFromSelector(_cmd));
+//}
+
+//- (void)listDidAppear {
+//    NSLog(@"%@:%@", self.title, NSStringFromSelector(_cmd));
+//}
+
+//- (void)listWillDisappear {
+//    NSLog(@"%@:%@", self.title, NSStringFromSelector(_cmd));
+//}
+
+//- (void)listDidDisappear {
+//    NSLog(@"%@:%@", self.title, NSStringFromSelector(_cmd));
+//}
+
+
 
 
 @end

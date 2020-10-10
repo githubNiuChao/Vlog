@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NCHConnectPort *connectPort;
 
 /**  网络库配置,必须调用  */
-+ (void)configureNetwork;
+- (void)converContentTypeConfig;
 /**  网络是否可用  */
 + (BOOL)isNetworkReachable;
 /**  处理无网络事件  */

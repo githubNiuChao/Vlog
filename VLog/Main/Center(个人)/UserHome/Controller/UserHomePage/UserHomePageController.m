@@ -151,7 +151,7 @@ NSString * const kAwemeCollectionCell  = @"AwemeCollectionCell";
         if(_user) {
             [header initData:_user];
             header.delegate = self;
-            header.slideTabBar.delegate = self;
+//            header.slideTabBar.delegate = self;
         }
         return header;
     }

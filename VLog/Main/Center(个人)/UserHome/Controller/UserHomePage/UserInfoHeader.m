@@ -29,9 +29,12 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
 }
 
 - (void)initSubViews {
+    self.backgroundColor = kGreyColor;
     [self initAvatarBackground];
     
+    
     _containerView = [[UIView alloc] initWithFrame:self.bounds];
+//    _containerView.backgroundColor = kWhiteColor;
     [self addSubview:_containerView];
     
     [self initAvatar];
@@ -40,12 +43,13 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
 }
 
 - (void) initAvatarBackground {
-    _topBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50 + SafeAreaTopHeight)];
-    _topBackground.contentMode = UIViewContentModeScaleAspectFill;
-    [self addSubview:_topBackground];
+//    _topBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50 + SafeAreaTopHeight)];
+//    _topBackground.contentMode = UIViewContentModeScaleAspectFill;
+//    [self addSubview:_topBackground];
     
-    _bottomBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 35 + SafeAreaTopHeight, ScreenWidth, self.bounds.size.height - (35 + SafeAreaTopHeight))];
+    _bottomBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.jk_width, self.jk_height)];
     _bottomBackground.contentMode = UIViewContentModeScaleAspectFill;
+    [_bottomBackground setImage:[UIImage imageNamed:@"5.jpg"]];
     [self addSubview:_bottomBackground];
     
     UIBlurEffect *blurEffect =[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
@@ -54,9 +58,9 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     visualEffectView.alpha = 1;
     [_bottomBackground addSubview:visualEffectView];
     
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.path = [self createBezierPath].CGPath;
-    _bottomBackground.layer.mask = maskLayer;
+//    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+//    maskLayer.path = [self createBezierPath].CGPath;
+//    _bottomBackground.layer.mask = maskLayer;
 }
 
 -(UIBezierPath *)createBezierPath {
@@ -84,7 +88,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     [_containerView addSubview:_avatar];
     
     [_avatar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(40 + SafeAreaTopHeight);
+        make.top.equalTo(self).offset(10);
         make.left.equalTo(self).offset(15);
         make.width.height.mas_equalTo(avatarRadius*2);
     }];
@@ -94,7 +98,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     _settingIcon = [[UIImageView alloc] init];
     _settingIcon.image = [UIImage imageNamed:@"icon_titlebar_whitemore"];
     _settingIcon.contentMode = UIViewContentModeCenter;
-    _settingIcon.layer.backgroundColor = ColorWhiteAlpha20.CGColor;
+    _settingIcon.layer.backgroundColor = ColorBlackAlpha20.CGColor;
     _settingIcon.layer.cornerRadius = 2;
     _settingIcon.tag = UserInfoHeaderSettingTag;
     _settingIcon.userInteractionEnabled = YES;
@@ -112,7 +116,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     _focusIcon.userInteractionEnabled = YES;
     _focusIcon.clipsToBounds = YES;
     _focusIcon.hidden = !_isFollowed;
-    _focusIcon.layer.backgroundColor = ColorWhiteAlpha20.CGColor;
+    _focusIcon.layer.backgroundColor = ColorBlackAlpha20.CGColor;
     _focusIcon.layer.cornerRadius = 2;
     _focusIcon.tag = UserInfoHeaderFocusCancelTag;
     [_focusIcon addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTapAction:)]];
@@ -125,11 +129,11 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     
     _sendMessage = [[UILabel alloc] init];
     _sendMessage.text = @"发消息";
-    _sendMessage.textColor = ColorWhiteAlpha60;
+    _sendMessage.textColor = ColorBlackAlpha60;
     _sendMessage.textAlignment = NSTextAlignmentCenter;
     _sendMessage.font = MediumFont;
     _sendMessage.hidden = !_isFollowed;
-    _sendMessage.layer.backgroundColor = ColorWhiteAlpha20.CGColor;
+    _sendMessage.layer.backgroundColor = ColorBlackAlpha20.CGColor;
     _sendMessage.layer.cornerRadius = 2;
     _sendMessage.tag = UserInfoHeaderSendTag;
     _sendMessage.userInteractionEnabled = YES;
@@ -145,7 +149,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     _focusButton = [[UIButton alloc] init];
     [_focusButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 2, 0, 0)];
     [_focusButton setTitle:@"关注" forState:UIControlStateNormal];
-    [_focusButton setTitleColor:ColorWhite forState:UIControlStateNormal];
+    [_focusButton setTitleColor:ColorBlack forState:UIControlStateNormal];
     _focusButton.titleLabel.font = MediumFont;
     _focusButton.hidden = _isFollowed;
     _focusButton.clipsToBounds = YES;
@@ -167,7 +171,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
 - (void)initInfoView {
     _nickName = [[UILabel alloc] init];
     _nickName.text = @"name";
-    _nickName.textColor = ColorWhite;
+    _nickName.textColor = ColorBlack;
     _nickName.font = SuperBigBoldFont;
     [_containerView addSubview:_nickName];
     [_nickName mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -177,8 +181,8 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     }];
     
     _douyinNum = [[UILabel alloc] init];
-    _douyinNum.text = @"抖音号：";
-    _douyinNum.textColor = ColorWhite;
+    _douyinNum.text = @"ID";
+    _douyinNum.textColor = ColorBlack;
     _douyinNum.font = SmallFont;
     [_containerView addSubview:_douyinNum];
     [_douyinNum mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -197,7 +201,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
 //    _github = [[UIButton alloc] init];
 //    [_github setTitleEdgeInsets:UIEdgeInsetsMake(0, 3, 0, 0)];
 //    [_github setTitle:@"Github主页" forState:UIControlStateNormal];
-//    [_github setTitleColor:ColorWhite forState:UIControlStateNormal];
+//    [_github setTitleColor:ColorBlack forState:UIControlStateNormal];
 //    _github.titleLabel.font = SmallFont;
 //    [_github setImage:[UIImage imageNamed:@"icon_github"] forState:UIControlStateNormal];
 //    [_github setImageEdgeInsets:UIEdgeInsetsMake(0, -3, 0, 0)];
@@ -211,7 +215,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
 //    }];
     
     UIView *splitView = [[UIView alloc] init];
-    splitView.backgroundColor = ColorWhiteAlpha20;
+    splitView.backgroundColor = ColorBlackAlpha20;
     [_containerView addSubview:splitView];
     [splitView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.douyinNum.mas_bottom).offset(10);
@@ -221,7 +225,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     
     _brief = [[UILabel alloc] init];
     _brief.text = @"本宝宝暂时还没想到个性的签名";
-    _brief.textColor = ColorWhiteAlpha60;
+    _brief.textColor = ColorBlackAlpha60;
     _brief.font = SmallFont;
     _brief.numberOfLines = 0;
     [_containerView addSubview:_brief];
@@ -232,7 +236,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     
     _genderIcon = [[UIImageView alloc] init];
     _genderIcon.image = [UIImage imageNamed:@"iconUserProfileGirl"];
-    _genderIcon.layer.backgroundColor = ColorWhiteAlpha20.CGColor;
+    _genderIcon.layer.backgroundColor = ColorBlackAlpha20.CGColor;
     _genderIcon.layer.cornerRadius = 9;
     _genderIcon.contentMode = UIViewContentModeCenter;
     [_containerView addSubview:_genderIcon];
@@ -245,14 +249,14 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     
     _city = [[UITextView alloc] init];
     _city.text = @"上海";
-    _city.textColor = ColorWhite;
+    _city.textColor = ColorBlack;
     _city.font = SuperSmallFont;
     _city.scrollEnabled = NO;
     _city.editable = NO;
     _city.textContainerInset = UIEdgeInsetsMake(3, 8, 3, 8);
     _city.textContainer.lineFragmentPadding = 0;
     
-    _city.layer.backgroundColor = ColorWhiteAlpha20.CGColor;
+    _city.layer.backgroundColor = ColorBlackAlpha20.CGColor;
     _city.layer.cornerRadius = 9;
     [_city sizeToFit];
     [_containerView addSubview:_city];
@@ -263,7 +267,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     
     _likeNum = [[UILabel alloc] init];
     _likeNum.text = @"0获赞";
-    _likeNum.textColor = ColorWhite;
+    _likeNum.textColor = ColorBlack;
     _likeNum.font = BigBoldFont;
     [_containerView addSubview:_likeNum];
     [_likeNum mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -273,7 +277,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     
     _followNum = [[UILabel alloc] init];
     _followNum.text = @"0关注";
-    _followNum.textColor = ColorWhite;
+    _followNum.textColor = ColorBlack;
     _followNum.font = BigBoldFont;
     [_containerView addSubview:_followNum];
     [_followNum mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -283,7 +287,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     
     _followedNum = [[UILabel alloc] init];
     _followedNum.text = @"0粉丝";
-    _followedNum.textColor = ColorWhite;
+    _followedNum.textColor = ColorBlack;
     _followedNum.font = BigBoldFont;
     [_containerView addSubview:_followedNum];
     [_followedNum mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -291,13 +295,13 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
         make.left.equalTo(self.followNum.mas_right).offset(30);
     }];
     
-    _slideTabBar = [SlideTabBar new];
-    [self addSubview:_slideTabBar];
-    [_slideTabBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(40);
-        make.left.right.bottom.equalTo(self);
-    }];
-    [_slideTabBar setLabels:@[@"笔记0",@"点赞0"] tabIndex:0];
+//    _slideTabBar = [SlideTabBar new];
+//    [self addSubview:_slideTabBar];
+//    [_slideTabBar mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(40);
+//        make.left.right.bottom.equalTo(self);
+//    }];
+//    [_slideTabBar setLabels:@[@"笔记0",@"点赞0"] tabIndex:0];
 }
 
 - (void)initData:(User *)user {
@@ -318,7 +322,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     [_followNum setText:[NSString stringWithFormat:@"%ld%@",(long)user.following_count,@"关注"]];
     [_followedNum setText:[NSString stringWithFormat:@"%ld%@",(long)user.follower_count,@"粉丝"]];
     
-    [_slideTabBar setLabels:@[[@"笔记" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)user.aweme_count]],[@"点赞" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)user.favoriting_count]]] tabIndex:0];
+//    [_slideTabBar setLabels:@[[@"笔记" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)user.aweme_count]],[@"点赞" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)user.favoriting_count]]] tabIndex:0];
 }
 
 - (void)onTapAction:(UITapGestureRecognizer *)sender {
@@ -340,6 +344,13 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     _containerView.alpha = 1.0f - alphaRatio;
 }
 
+
+- (void)scrollViewDidScroll:(CGFloat)contentOffsetY {
+    CGRect frame = _bottomBackground.frame;
+    frame.size.height -= contentOffsetY;
+    frame.origin.y = contentOffsetY;
+    _bottomBackground.frame = frame;
+}
 
 #pragma animation
 

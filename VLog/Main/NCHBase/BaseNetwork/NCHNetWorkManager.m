@@ -37,6 +37,73 @@ static NSInteger kDefaultNetworkType = 0;
 
 @implementation NCHNetWorkManager
 
+/**  单例  */
++ (instancetype)sharedInstance
+{
+    static dispatch_once_t onceToken;
+    static NCHNetWorkManager *instance = nil;
+    dispatch_once(&onceToken, ^{
+        instance = [[super allocWithZone:NULL] init];
+        // 网络环境设置,这里设置默认的环境类型,0:生产环境,1:测试环境
+
+    });
+    return instance;
+}
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        self.environmentType = kDefaultNetworkType;
+        [self converContentTypeConfig];
+        [NCHNetWorkManager monitorNetworkStatus];
+    }
+    return self;
+}
+
+
+- (NSArray<NCHConnectPort *> *)environmentArray{
+    
+    if (!_environmentArray) {
+        NCHConnectPort *release = [[NCHConnectPort alloc] init];
+        release.name = @"生产环境";
+        release.requestBaseURL = @"https://www.68dsw.com";
+        release.webBaseURL = @"";
+        release.resourceBaseURL = @"";
+        
+        NCHConnectPort *dev = [[NCHConnectPort alloc] init];
+        dev.name = @"开发环境";
+        dev.requestBaseURL = @"http://m.68shop.me";
+        dev.webBaseURL = @"";
+        dev.resourceBaseURL = @"";
+        
+        _environmentArray = @[
+                              //0 第一个位置（也就是下标为0的位置）必须为生产环境，不可以为其他环境！
+                              release,
+                              dev
+                              ];
+    }
+    return _environmentArray;
+}
+
+#pragma mark - setter and getter
+
+- (void)setEnvironmentType:(NSUInteger)environmentType
+{
+    _environmentType = environmentType;
+    self.connectPort = self.environmentArray[environmentType];
+}
+
+- (void)converContentTypeConfig{
+    
+    [YTKNetworkConfig sharedConfig].baseUrl = self.connectPort.requestBaseURL;
+    
+    YTKNetworkAgent *agent = [YTKNetworkAgent sharedAgent];
+    NSSet *acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/plain", @"text/html", @"text/css", nil];
+    NSString *keypath = @"jsonResponseSerializer.acceptableContentTypes";
+    [agent setValue:acceptableContentTypes forKeyPath:keypath];
+}
+
 /**  拼接URL路径  */
 + (NSString *)URL:(NSString *)urlString
 {
@@ -53,17 +120,9 @@ static NSInteger kDefaultNetworkType = 0;
 {
     return [NSURL URLWithString:urlString relativeToURL:[NSURL URLWithString:[NCHNetWorkManager sharedInstance].connectPort.resourceBaseURL]];
 }
-#pragma mark - 网络监听
-/**  网络库配置  */
-+ (void)configureNetwork
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/xml", @"text/plain", nil];
-    });
-}
 
+
+#pragma mark - 网络监听
 
 /**  网络是否可用  */
 + (BOOL)isNetworkReachable
@@ -112,69 +171,6 @@ static NSInteger kDefaultNetworkType = 0;
 + (void)handleNetWorAccessEvent
 {
     
-}
-
-/**  单例  */
-+ (instancetype)sharedInstance
-{
-    static dispatch_once_t onceToken;
-    static NCHNetWorkManager *instance = nil;
-    dispatch_once(&onceToken, ^{
-        instance = [[super allocWithZone:NULL] init];
-        // 网络环境设置,这里设置默认的环境类型,0:生产环境,1:测试环境
-
-    });
-    return instance;
-}
-
-- (instancetype)init
-{
-    if (self = [super init])
-    {
-        [NCHNetWorkManager configureNetwork];
-        [NCHNetWorkManager monitorNetworkStatus];
-        self.environmentType = kDefaultNetworkType;
-    }
-    return self;
-}
-
-- (void)setEnvironmentType:(NSUInteger)environmentType
-{
-    _environmentType = environmentType;
-    self.connectPort = self.environmentArray[environmentType];
-}
-
-- (NSArray<NCHConnectPort *> *)environmentArray{
-    
-    if (!_environmentArray) {
-        NCHConnectPort *release = [[NCHConnectPort alloc] init];
-        release.name = @"生产环境";
-        release.requestBaseURL = @"https://www.68dsw.com";
-        release.webBaseURL = @"";
-        release.resourceBaseURL = @"";
-        
-        NCHConnectPort *dev = [[NCHConnectPort alloc] init];
-        dev.name = @"开发环境";
-        dev.requestBaseURL = @"https://www.test.68mall.com";
-        dev.webBaseURL = @"";
-        dev.resourceBaseURL = @"";
-        
-        _environmentArray = @[
-                              //0 第一个位置（也就是下标为0的位置）必须为生产环境，不可以为其他环境！
-                              release,
-                              dev
-                              ];
-    }
-    return _environmentArray;
-}
-
-#pragma mark - setter and getter
-- (void)setConnectPort:(NCHConnectPort *)connectPort
-{
-    _connectPort = connectPort;
-    [YTKNetworkConfig sharedConfig].baseUrl = _connectPort.requestBaseURL;
-    NCHRequestPublicArgument *urlFilter = [NCHRequestPublicArgument filterWithArguments:@{NCHRequestPublicArgument_SzyVersion_Key: @"5.5",NCHRequestPublicArgument_UserAgent_Key:@"szyapp/ios"}];
-//    [[YTKNetworkConfig sharedConfig] addUrlFilter:urlFilter];
 }
 
 @end

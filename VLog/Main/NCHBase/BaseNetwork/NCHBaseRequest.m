@@ -12,6 +12,8 @@
 #import "NCHBaseRequestResponse.h"
 #import "NCHNetWorkManager.h"
 
+NSString * const NCHRequestHeaderField_SzyVersion_Key = @"szy_version";
+NSString * const NCHRequestHeaderField_UserAgent_Key = @"User-Agent";
 
 @interface NCHBaseRequest ()
 
@@ -39,11 +41,6 @@
     return self;
 }
 
-- (YTKRequestMethod)requestMethod
-{
-    return YTKRequestMethodPOST;
-}
-
 - (NSTimeInterval)requestTimeoutInterval
 {
     return 60.f;
@@ -54,14 +51,21 @@
     return [NCHNetWorkManager sharedInstance].connectPort.requestBaseURL;
 }
 
+- (YTKRequestMethod)requestMethod {
+    return YTKRequestMethodGET;
+}
+
+- (YTKRequestSerializerType)requestSerializerType {
+    return YTKRequestSerializerTypeHTTP;
+}
+
+- (YTKResponseSerializerType)responseSerializerType {
+    return YTKResponseSerializerTypeJSON;
+}
+
 - (NSDictionary *)requestHeaderFieldValueDictionary
 {
-//    NSMutableDictionary *header = [NSMutableDictionary dictionary];
-//    // 这里需要获取token来赋值
-//    NSString *tokenid = @"token";
-//    header[@"token"] = tokenid;
-//NCHRequestPublicArgument *urlFilter = [NCHRequestPublicArgument filterWithArguments:@{NCHRequestPublicArgument_SzyVersion_Key: @"5.5",NCHRequestPublicArgument_UserAgent_Key:@"szyapp/ios"}];
-    return @{NCHRequestPublicArgument_SzyVersion_Key: @"5.5",NCHRequestPublicArgument_UserAgent_Key:@"szyapp/ios"};
+    return @{NCHRequestHeaderField_SzyVersion_Key: @"5.5",NCHRequestHeaderField_UserAgent_Key:@"szyapp/ios"};
 
 }
 

@@ -10,6 +10,17 @@
 		512B0341251053DE00447945 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B033F251053DE00447945 /* RootViewController.m */; };
 		512B03462510549B00447945 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B03442510549B00447945 /* XYTransition.m */; };
 		512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B0350251065B300447945 /* UICollectionView+IndexPath.m */; };
+		51339CA5253053430039A025 /* SmoothListScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C8D253053430039A025 /* SmoothListScrollViewController.m */; };
+		51339CA6253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C8E253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m */; };
+		51339CA7253053430039A025 /* SmoothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C95253053430039A025 /* SmoothViewController.m */; };
+		51339CA8253053430039A025 /* SmoothCustomPagerHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C96253053430039A025 /* SmoothCustomPagerHeaderViewController.m */; };
+		51339CA9253053430039A025 /* SmoothListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C97253053430039A025 /* SmoothListViewController.m */; };
+		51339CAA253053430039A025 /* SmoothListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C99253053430039A025 /* SmoothListCollectionViewController.m */; };
+		51339CAB253053430039A025 /* JXPagerListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C9C253053430039A025 /* JXPagerListContainerView.m */; };
+		51339CAC253053430039A025 /* JXPagerMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C9D253053430039A025 /* JXPagerMainTableView.m */; };
+		51339CAD253053430039A025 /* JXPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C9E253053430039A025 /* JXPagerView.m */; };
+		51339CAE253053430039A025 /* JXPagerSmoothView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339CA0253053430039A025 /* JXPagerSmoothView.m */; };
+		51339CAF253053430039A025 /* JXPagerListRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339CA4253053430039A025 /* JXPagerListRefreshView.m */; };
 		514875D9251F1416003B7F11 /* NCHMacroTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 514875D8251F1416003B7F11 /* NCHMacroTools.m */; };
 		515E777D25218D470020F3EF /* home_like_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 515E777B25218D470020F3EF /* home_like_s.png */; };
 		515E777E25218D470020F3EF /* home_like_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 515E777C25218D470020F3EF /* home_like_n.png */; };
@@ -221,6 +232,8 @@
 		51815260251C694E00F9CCD3 /* NCThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181525F251C694E00F9CCD3 /* NCThemeManager.m */; };
 		51815263251C6F0F00F9CCD3 /* VLIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815262251C6F0F00F9CCD3 /* VLIndexViewController.m */; };
 		51815266251C79E700F9CCD3 /* VLIndexListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815265251C79E700F9CCD3 /* VLIndexListManager.m */; };
+		51873F1325315E320070264B /* PagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1025315E320070264B /* PagingViewController.m */; };
+		51873F1425315E320070264B /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1225315E320070264B /* RefreshViewController.m */; };
 		518968D5250CA66100897448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518968D4250CA66100897448 /* Assets.xcassets */; };
 		51A29BC925203EC1001EF6E9 /* NSAttributedString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B1125203EC0001EF6E9 /* NSAttributedString+Extension.m */; };
 		51A29BCA25203EC1001EF6E9 /* NSNotification+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B1525203EC0001EF6E9 /* NSNotification+Extension.m */; };
@@ -332,6 +345,29 @@
 		512B03452510549B00447945 /* XYTransitionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransitionProtocol.h; sourceTree = "<group>"; };
 		512B0350251065B300447945 /* UICollectionView+IndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+IndexPath.m"; sourceTree = "<group>"; };
 		512B0351251065B300447945 /* UICollectionView+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+IndexPath.h"; sourceTree = "<group>"; };
+		51339C8D253053430039A025 /* SmoothListScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothListScrollViewController.m; sourceTree = "<group>"; };
+		51339C8E253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerSmoothCollectionFlowLayout.m; sourceTree = "<group>"; };
+		51339C8F253053430039A025 /* SmoothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothViewController.h; sourceTree = "<group>"; };
+		51339C90253053430039A025 /* SmoothListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothListViewController.h; sourceTree = "<group>"; };
+		51339C91253053430039A025 /* SmoothCustomPagerHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothCustomPagerHeaderViewController.h; sourceTree = "<group>"; };
+		51339C92253053430039A025 /* SmoothListCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothListCollectionViewController.h; sourceTree = "<group>"; };
+		51339C93253053430039A025 /* SmoothListScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothListScrollViewController.h; sourceTree = "<group>"; };
+		51339C94253053430039A025 /* JXPagerSmoothCollectionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerSmoothCollectionFlowLayout.h; sourceTree = "<group>"; };
+		51339C95253053430039A025 /* SmoothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothViewController.m; sourceTree = "<group>"; };
+		51339C96253053430039A025 /* SmoothCustomPagerHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothCustomPagerHeaderViewController.m; sourceTree = "<group>"; };
+		51339C97253053430039A025 /* SmoothListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothListViewController.m; sourceTree = "<group>"; };
+		51339C98253053430039A025 /* SmoothViewDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothViewDefines.h; sourceTree = "<group>"; };
+		51339C99253053430039A025 /* SmoothListCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothListCollectionViewController.m; sourceTree = "<group>"; };
+		51339C9B253053430039A025 /* JXPagerSmoothView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerSmoothView.h; sourceTree = "<group>"; };
+		51339C9C253053430039A025 /* JXPagerListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListContainerView.m; sourceTree = "<group>"; };
+		51339C9D253053430039A025 /* JXPagerMainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerMainTableView.m; sourceTree = "<group>"; };
+		51339C9E253053430039A025 /* JXPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerView.m; sourceTree = "<group>"; };
+		51339C9F253053430039A025 /* JXPagerListRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerListRefreshView.h; sourceTree = "<group>"; };
+		51339CA0253053430039A025 /* JXPagerSmoothView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerSmoothView.m; sourceTree = "<group>"; };
+		51339CA1253053430039A025 /* JXPagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerView.h; sourceTree = "<group>"; };
+		51339CA2253053430039A025 /* JXPagerListContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerListContainerView.h; sourceTree = "<group>"; };
+		51339CA3253053430039A025 /* JXPagerMainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerMainTableView.h; sourceTree = "<group>"; };
+		51339CA4253053430039A025 /* JXPagerListRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListRefreshView.m; sourceTree = "<group>"; };
 		514875D7251F1416003B7F11 /* NCHMacroTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHMacroTools.h; sourceTree = "<group>"; };
 		514875D8251F1416003B7F11 /* NCHMacroTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHMacroTools.m; sourceTree = "<group>"; };
 		515E777B25218D470020F3EF /* home_like_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_like_s.png; sourceTree = "<group>"; };
@@ -734,6 +770,10 @@
 		51815262251C6F0F00F9CCD3 /* VLIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLIndexViewController.m; sourceTree = "<group>"; };
 		51815264251C79E700F9CCD3 /* VLIndexListManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLIndexListManager.h; sourceTree = "<group>"; };
 		51815265251C79E700F9CCD3 /* VLIndexListManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLIndexListManager.m; sourceTree = "<group>"; };
+		51873F0F25315E320070264B /* PagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagingViewController.h; sourceTree = "<group>"; };
+		51873F1025315E320070264B /* PagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingViewController.m; sourceTree = "<group>"; };
+		51873F1125315E320070264B /* RefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshViewController.h; sourceTree = "<group>"; };
+		51873F1225315E320070264B /* RefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
 		518968C5250CA65C00897448 /* VLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		518968D4250CA66100897448 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51A29B1125203EC0001EF6E9 /* NSAttributedString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Extension.m"; sourceTree = "<group>"; };
@@ -964,6 +1004,43 @@
 				512B03452510549B00447945 /* XYTransitionProtocol.h */,
 			);
 			path = XYTransition;
+			sourceTree = "<group>";
+		};
+		51339C8C253053430039A025 /* Smooth */ = {
+			isa = PBXGroup;
+			children = (
+				51339C94253053430039A025 /* JXPagerSmoothCollectionFlowLayout.h */,
+				51339C8E253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m */,
+				51339C91253053430039A025 /* SmoothCustomPagerHeaderViewController.h */,
+				51339C96253053430039A025 /* SmoothCustomPagerHeaderViewController.m */,
+				51339C92253053430039A025 /* SmoothListCollectionViewController.h */,
+				51339C99253053430039A025 /* SmoothListCollectionViewController.m */,
+				51339C93253053430039A025 /* SmoothListScrollViewController.h */,
+				51339C8D253053430039A025 /* SmoothListScrollViewController.m */,
+				51339C90253053430039A025 /* SmoothListViewController.h */,
+				51339C97253053430039A025 /* SmoothListViewController.m */,
+				51339C8F253053430039A025 /* SmoothViewController.h */,
+				51339C95253053430039A025 /* SmoothViewController.m */,
+				51339C98253053430039A025 /* SmoothViewDefines.h */,
+			);
+			path = Smooth;
+			sourceTree = "<group>";
+		};
+		51339C9A253053430039A025 /* JXPagerView */ = {
+			isa = PBXGroup;
+			children = (
+				51339CA2253053430039A025 /* JXPagerListContainerView.h */,
+				51339C9C253053430039A025 /* JXPagerListContainerView.m */,
+				51339C9F253053430039A025 /* JXPagerListRefreshView.h */,
+				51339CA4253053430039A025 /* JXPagerListRefreshView.m */,
+				51339CA3253053430039A025 /* JXPagerMainTableView.h */,
+				51339C9D253053430039A025 /* JXPagerMainTableView.m */,
+				51339C9B253053430039A025 /* JXPagerSmoothView.h */,
+				51339CA0253053430039A025 /* JXPagerSmoothView.m */,
+				51339CA1253053430039A025 /* JXPagerView.h */,
+				51339C9E253053430039A025 /* JXPagerView.m */,
+			);
+			path = JXPagerView;
 			sourceTree = "<group>";
 		};
 		515E777A25218D470020F3EF /* Assets */ = {
@@ -1402,6 +1479,12 @@
 		518058CE251B91C900FBC12D /* Center(个人) */ = {
 			isa = PBXGroup;
 			children = (
+				51873F0F25315E320070264B /* PagingViewController.h */,
+				51873F1025315E320070264B /* PagingViewController.m */,
+				51873F1125315E320070264B /* RefreshViewController.h */,
+				51873F1225315E320070264B /* RefreshViewController.m */,
+				51339C9A253053430039A025 /* JXPagerView */,
+				51339C8C253053430039A025 /* Smooth */,
 				51A29B0D25203EC0001EF6E9 /* UserHome */,
 			);
 			path = "Center(个人)";
@@ -2071,14 +2154,14 @@
 		51A29B3625203EC1001EF6E9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				51A29B3725203EC1001EF6E9 /* WebSocketManager.m */,
-				51A29B3825203EC1001EF6E9 /* WebCacheHelpler.h */,
-				51A29B3925203EC1001EF6E9 /* NetworkHelper.m */,
 				51A29B3A25203EC1001EF6E9 /* HttpRequest */,
-				51A29B5125203EC1001EF6E9 /* WebCacheHelpler.m */,
 				51A29B5225203EC1001EF6E9 /* HttpResponse */,
-				51A29B6525203EC1001EF6E9 /* WebSocketManager.h */,
 				51A29B6625203EC1001EF6E9 /* NetworkHelper.h */,
+				51A29B3925203EC1001EF6E9 /* NetworkHelper.m */,
+				51A29B3825203EC1001EF6E9 /* WebCacheHelpler.h */,
+				51A29B5125203EC1001EF6E9 /* WebCacheHelpler.m */,
+				51A29B6525203EC1001EF6E9 /* WebSocketManager.h */,
+				51A29B3725203EC1001EF6E9 /* WebSocketManager.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -2086,28 +2169,28 @@
 		51A29B3A25203EC1001EF6E9 /* HttpRequest */ = {
 			isa = PBXGroup;
 			children = (
-				51A29B3B25203EC1001EF6E9 /* VisitorRequest.m */,
-				51A29B3C25203EC1001EF6E9 /* PostCommentRequest.h */,
-				51A29B3D25203EC1001EF6E9 /* PostGroupChatImageRequest.m */,
-				51A29B3E25203EC1001EF6E9 /* BaseRequest.h */,
-				51A29B3F25203EC1001EF6E9 /* GroupChatListRequest.m */,
-				51A29B4025203EC1001EF6E9 /* AwemeListRequest.m */,
-				51A29B4125203EC1001EF6E9 /* DeleteGroupChatRequest.h */,
-				51A29B4225203EC1001EF6E9 /* CommentListRequest.h */,
-				51A29B4325203EC1001EF6E9 /* DeleteCommentRequest.h */,
-				51A29B4425203EC1001EF6E9 /* UserRequest.h */,
-				51A29B4525203EC1001EF6E9 /* PostGroupChatTextRequest.h */,
-				51A29B4625203EC1001EF6E9 /* PostGroupChatImageRequest.h */,
-				51A29B4725203EC1001EF6E9 /* PostCommentRequest.m */,
-				51A29B4825203EC1001EF6E9 /* VisitorRequest.h */,
-				51A29B4925203EC1001EF6E9 /* GroupChatListRequest.h */,
-				51A29B4A25203EC1001EF6E9 /* BaseRequest.m */,
-				51A29B4B25203EC1001EF6E9 /* CommentListRequest.m */,
-				51A29B4C25203EC1001EF6E9 /* DeleteGroupChatRequest.m */,
 				51A29B4D25203EC1001EF6E9 /* AwemeListRequest.h */,
-				51A29B4E25203EC1001EF6E9 /* PostGroupChatTextRequest.m */,
-				51A29B4F25203EC1001EF6E9 /* UserRequest.m */,
+				51A29B4025203EC1001EF6E9 /* AwemeListRequest.m */,
+				51A29B3E25203EC1001EF6E9 /* BaseRequest.h */,
+				51A29B4A25203EC1001EF6E9 /* BaseRequest.m */,
+				51A29B4225203EC1001EF6E9 /* CommentListRequest.h */,
+				51A29B4B25203EC1001EF6E9 /* CommentListRequest.m */,
+				51A29B4325203EC1001EF6E9 /* DeleteCommentRequest.h */,
 				51A29B5025203EC1001EF6E9 /* DeleteCommentRequest.m */,
+				51A29B4125203EC1001EF6E9 /* DeleteGroupChatRequest.h */,
+				51A29B4C25203EC1001EF6E9 /* DeleteGroupChatRequest.m */,
+				51A29B4925203EC1001EF6E9 /* GroupChatListRequest.h */,
+				51A29B3F25203EC1001EF6E9 /* GroupChatListRequest.m */,
+				51A29B3C25203EC1001EF6E9 /* PostCommentRequest.h */,
+				51A29B4725203EC1001EF6E9 /* PostCommentRequest.m */,
+				51A29B4625203EC1001EF6E9 /* PostGroupChatImageRequest.h */,
+				51A29B3D25203EC1001EF6E9 /* PostGroupChatImageRequest.m */,
+				51A29B4525203EC1001EF6E9 /* PostGroupChatTextRequest.h */,
+				51A29B4E25203EC1001EF6E9 /* PostGroupChatTextRequest.m */,
+				51A29B4425203EC1001EF6E9 /* UserRequest.h */,
+				51A29B4F25203EC1001EF6E9 /* UserRequest.m */,
+				51A29B4825203EC1001EF6E9 /* VisitorRequest.h */,
+				51A29B3B25203EC1001EF6E9 /* VisitorRequest.m */,
 			);
 			path = HttpRequest;
 			sourceTree = "<group>";
@@ -2115,24 +2198,24 @@
 		51A29B5225203EC1001EF6E9 /* HttpResponse */ = {
 			isa = PBXGroup;
 			children = (
-				51A29B5325203EC1001EF6E9 /* CommentListResponse.h */,
-				51A29B5425203EC1001EF6E9 /* GroupChatResponse.m */,
-				51A29B5525203EC1001EF6E9 /* GroupChatListResponse.m */,
-				51A29B5625203EC1001EF6E9 /* BaseResponse.m */,
-				51A29B5725203EC1001EF6E9 /* AwemeResponse.h */,
-				51A29B5825203EC1001EF6E9 /* CommentResponse.m */,
-				51A29B5925203EC1001EF6E9 /* VisitorResponse.m */,
-				51A29B5A25203EC1001EF6E9 /* UserResponse.h */,
 				51A29B5B25203EC1001EF6E9 /* AwemeListResponse.h */,
-				51A29B5C25203EC1001EF6E9 /* CommentListResponse.m */,
-				51A29B5D25203EC1001EF6E9 /* GroupChatListResponse.h */,
-				51A29B5E25203EC1001EF6E9 /* GroupChatResponse.h */,
-				51A29B5F25203EC1001EF6E9 /* CommentResponse.h */,
-				51A29B6025203EC1001EF6E9 /* VisitorResponse.h */,
+				51A29B6325203EC1001EF6E9 /* AwemeListResponse.m */,
+				51A29B5725203EC1001EF6E9 /* AwemeResponse.h */,
 				51A29B6125203EC1001EF6E9 /* AwemeResponse.m */,
 				51A29B6225203EC1001EF6E9 /* BaseResponse.h */,
-				51A29B6325203EC1001EF6E9 /* AwemeListResponse.m */,
+				51A29B5625203EC1001EF6E9 /* BaseResponse.m */,
+				51A29B5325203EC1001EF6E9 /* CommentListResponse.h */,
+				51A29B5C25203EC1001EF6E9 /* CommentListResponse.m */,
+				51A29B5F25203EC1001EF6E9 /* CommentResponse.h */,
+				51A29B5825203EC1001EF6E9 /* CommentResponse.m */,
+				51A29B5D25203EC1001EF6E9 /* GroupChatListResponse.h */,
+				51A29B5525203EC1001EF6E9 /* GroupChatListResponse.m */,
+				51A29B5E25203EC1001EF6E9 /* GroupChatResponse.h */,
+				51A29B5425203EC1001EF6E9 /* GroupChatResponse.m */,
+				51A29B5A25203EC1001EF6E9 /* UserResponse.h */,
 				51A29B6425203EC1001EF6E9 /* UserResponse.m */,
+				51A29B6025203EC1001EF6E9 /* VisitorResponse.h */,
+				51A29B5925203EC1001EF6E9 /* VisitorResponse.m */,
 			);
 			path = HttpResponse;
 			sourceTree = "<group>";
@@ -2176,24 +2259,24 @@
 		51A29B7625203EC1001EF6E9 /* GroupChat */ = {
 			isa = PBXGroup;
 			children = (
-				51A29B7725203EC1001EF6E9 /* TextMessageCell.h */,
-				51A29B7825203EC1001EF6E9 /* PhotoSelector.h */,
-				51A29B7925203EC1001EF6E9 /* ChatTextView.h */,
-				51A29B7A25203EC1001EF6E9 /* EmotionSelector.h */,
-				51A29B7B25203EC1001EF6E9 /* ImageMessageCell.h */,
-				51A29B7C25203EC1001EF6E9 /* BaseMessageCell.m */,
-				51A29B7D25203EC1001EF6E9 /* TimeCell.h */,
-				51A29B7E25203EC1001EF6E9 /* ChatListController.m */,
-				51A29B7F25203EC1001EF6E9 /* SystemMessageCell.h */,
-				51A29B8025203EC1001EF6E9 /* PhotoSelector.m */,
-				51A29B8125203EC1001EF6E9 /* TextMessageCell.m */,
-				51A29B8225203EC1001EF6E9 /* EmotionSelector.m */,
-				51A29B8325203EC1001EF6E9 /* ChatTextView.m */,
 				51A29B8425203EC1001EF6E9 /* BaseMessageCell.h */,
-				51A29B8525203EC1001EF6E9 /* ImageMessageCell.m */,
-				51A29B8625203EC1001EF6E9 /* SystemMessageCell.m */,
-				51A29B8725203EC1001EF6E9 /* Emotion */,
+				51A29B7C25203EC1001EF6E9 /* BaseMessageCell.m */,
 				51A29B8A25203EC1001EF6E9 /* ChatListController.h */,
+				51A29B7E25203EC1001EF6E9 /* ChatListController.m */,
+				51A29B7925203EC1001EF6E9 /* ChatTextView.h */,
+				51A29B8325203EC1001EF6E9 /* ChatTextView.m */,
+				51A29B8725203EC1001EF6E9 /* Emotion */,
+				51A29B7A25203EC1001EF6E9 /* EmotionSelector.h */,
+				51A29B8225203EC1001EF6E9 /* EmotionSelector.m */,
+				51A29B7B25203EC1001EF6E9 /* ImageMessageCell.h */,
+				51A29B8525203EC1001EF6E9 /* ImageMessageCell.m */,
+				51A29B7825203EC1001EF6E9 /* PhotoSelector.h */,
+				51A29B8025203EC1001EF6E9 /* PhotoSelector.m */,
+				51A29B7F25203EC1001EF6E9 /* SystemMessageCell.h */,
+				51A29B8625203EC1001EF6E9 /* SystemMessageCell.m */,
+				51A29B7725203EC1001EF6E9 /* TextMessageCell.h */,
+				51A29B8125203EC1001EF6E9 /* TextMessageCell.m */,
+				51A29B7D25203EC1001EF6E9 /* TimeCell.h */,
 				51A29B8B25203EC1001EF6E9 /* TimeCell.m */,
 			);
 			path = GroupChat;
@@ -2238,9 +2321,9 @@
 			isa = PBXGroup;
 			children = (
 				51A29B9725203EC1001EF6E9 /* AVPlayerManager.h */,
-				51A29B9825203EC1001EF6E9 /* AVPlayerView.m */,
 				51A29B9925203EC1001EF6E9 /* AVPlayerManager.m */,
 				51A29B9A25203EC1001EF6E9 /* AVPlayerView.h */,
+				51A29B9825203EC1001EF6E9 /* AVPlayerView.m */,
 			);
 			path = AVPlayer;
 			sourceTree = "<group>";
@@ -2566,15 +2649,20 @@
 				51A29C0725203EC1001EF6E9 /* FocusView.m in Sources */,
 				51A29C1625203EC1001EF6E9 /* SlideTabBar.m in Sources */,
 				51805B5B251B91CC00FBC12D /* HXPhoto3DTouchViewController.m in Sources */,
+				51339CAB253053430039A025 /* JXPagerListContainerView.m in Sources */,
 				51A29BE425203EC1001EF6E9 /* DeleteGroupChatRequest.m in Sources */,
+				51873F1425315E320070264B /* RefreshViewController.m in Sources */,
 				51A29BFB25203EC1001EF6E9 /* PhotoSelector.m in Sources */,
 				51606928251DCC990070B9D9 /* VLNestSubjectViewController.m in Sources */,
+				51339CAC253053430039A025 /* JXPagerMainTableView.m in Sources */,
 				51A29BE825203EC1001EF6E9 /* WebCacheHelpler.m in Sources */,
 				51805B81251B91CC00FBC12D /* HXPhotoClippingView.m in Sources */,
 				51805BAB251B91CC00FBC12D /* YBFocusLayer.m in Sources */,
 				51A29BFC25203EC1001EF6E9 /* TextMessageCell.m in Sources */,
 				51805B66251B91CC00FBC12D /* HXPhotoPreviewBottomView.m in Sources */,
+				51339CAD253053430039A025 /* JXPagerView.m in Sources */,
 				51805B78251B91CC00FBC12D /* HXCircleProgressView.m in Sources */,
+				51339CA9253053430039A025 /* SmoothListViewController.m in Sources */,
 				51805AEA251B91CB00FBC12D /* NetworkUnit.m in Sources */,
 				51805B6A251B91CC00FBC12D /* HXPhotoPreviewVideoViewCell.m in Sources */,
 				51805B46251B91CC00FBC12D /* HXPhotoInteractiveTransition.m in Sources */,
@@ -2607,10 +2695,12 @@
 				51805B65251B91CC00FBC12D /* HXAlbumModel.m in Sources */,
 				51805B71251B91CC00FBC12D /* HXCustomCollectionReusableView.m in Sources */,
 				51A29BE725203EC1001EF6E9 /* DeleteCommentRequest.m in Sources */,
+				51339CA6253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m in Sources */,
 				51805B75251B91CC00FBC12D /* HXAlbumlistView.m in Sources */,
 				51A29C0125203EC1001EF6E9 /* EmotionHelper.m in Sources */,
 				51A29BE225203EC1001EF6E9 /* BaseRequest.m in Sources */,
 				51805B32251B91CC00FBC12D /* WaterFlowLayout.m in Sources */,
+				51339CAE253053430039A025 /* JXPagerSmoothView.m in Sources */,
 				51A29BF725203EC1001EF6E9 /* LoadMoreControl.m in Sources */,
 				51805B54251B91CC00FBC12D /* NSTimer+HXExtension.m in Sources */,
 				51AC9911250F03CC0023D5EA /* UIView+Frame.m in Sources */,
@@ -2621,6 +2711,7 @@
 				51805B95251B91CC00FBC12D /* HXPhotoEditStickerItemView.m in Sources */,
 				512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */,
 				51A29BF325203EC1001EF6E9 /* WebPImageView.m in Sources */,
+				51339CA7253053430039A025 /* SmoothViewController.m in Sources */,
 				51805BAA251B91CC00FBC12D /* YBTagGestureRecognizer.m in Sources */,
 				51A29C1225203EC1001EF6E9 /* HoverViewFlowLayout.m in Sources */,
 				51805B59251B91CC00FBC12D /* HXPhotoManager.m in Sources */,
@@ -2644,6 +2735,7 @@
 				51A29BD025203EC1001EF6E9 /* UIWindow+Extension.m in Sources */,
 				51805B00251B91CB00FBC12D /* UITapImageView.m in Sources */,
 				51805B5D251B91CC00FBC12D /* HXPhotoPreviewViewController.m in Sources */,
+				51339CA5253053430039A025 /* SmoothListScrollViewController.m in Sources */,
 				51805B28251B91CC00FBC12D /* WaterFallListLogic.m in Sources */,
 				51805B5E251B91CC00FBC12D /* HXPhotoViewController.m in Sources */,
 				51805B87251B91CC00FBC12D /* HXPhotoEditGridMaskLayer.m in Sources */,
@@ -2651,6 +2743,7 @@
 				51A29BCF25203EC1001EF6E9 /* NSString+Extension.m in Sources */,
 				51805B29251B91CC00FBC12D /* PersonListLogic.m in Sources */,
 				51805B62251B91CC00FBC12D /* HXVideoEditViewController.m in Sources */,
+				51339CA8253053430039A025 /* SmoothCustomPagerHeaderViewController.m in Sources */,
 				51805B80251B91CC00FBC12D /* HXPhotoEditResizeControl.m in Sources */,
 				51A29BD825203EC1001EF6E9 /* Music.m in Sources */,
 				51805B73251B91CC00FBC12D /* HXFullScreenCameraPlayView.m in Sources */,
@@ -2674,6 +2767,8 @@
 				51815251251C470C00F9CCD3 /* NCHWordItem.m in Sources */,
 				51805BAC251B91CC00FBC12D /* YBBranchLayer.m in Sources */,
 				51805B2B251B91CC00FBC12D /* ProfileViewController.m in Sources */,
+				51339CAF253053430039A025 /* JXPagerListRefreshView.m in Sources */,
+				51873F1325315E320070264B /* PagingViewController.m in Sources */,
 				51A29BF225203EC1001EF6E9 /* WebPImage.m in Sources */,
 				51805B88251B91CC00FBC12D /* HXPhotoEditStickerItem.m in Sources */,
 				51A29BC925203EC1001EF6E9 /* NSAttributedString+Extension.m in Sources */,
@@ -2683,6 +2778,7 @@
 				51A29C0325203EC1001EF6E9 /* AwemeListController.m in Sources */,
 				51805B85251B91CC00FBC12D /* HXPhotoEditClippingToolBar.m in Sources */,
 				51A29C0F25203EC1001EF6E9 /* ScalePresentAnimation.m in Sources */,
+				51339CAA253053430039A025 /* SmoothListCollectionViewController.m in Sources */,
 				51805B72251B91CC00FBC12D /* HXPhotoView.m in Sources */,
 				5181520D251C421E00F9CCD3 /* VLIndexModel.m in Sources */,
 				51805B4E251B91CC00FBC12D /* UIImageView+HXExtension.m in Sources */,

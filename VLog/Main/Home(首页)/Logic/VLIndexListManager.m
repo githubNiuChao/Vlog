@@ -40,7 +40,7 @@
         if (weakself.page == 0) {
             [weakself.dataArray removeAllObjects];
         }
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2; i++) {
             VLIndexModel *model = [VLIndexModel new];
             model.picture = weakself.imgArray[arc4random()%weakself.imgArray.count];
             model.headImg = weakself.imgArray[arc4random()%weakself.imgArray.count];

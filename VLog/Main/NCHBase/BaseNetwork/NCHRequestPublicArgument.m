@@ -27,8 +27,6 @@ NSString * const NCHRequestPublicArgument_UserAgent_Key = @"User-Agent";
     }
     return self;
 }
-
-
 - (NSString *)filterUrl:(NSString *)originUrl withRequest:(YTKBaseRequest *)request {
     return [self urlStringWithOriginUrlString:originUrl appendParameters:_arguments];
 }
