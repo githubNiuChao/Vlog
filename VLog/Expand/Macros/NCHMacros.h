@@ -101,7 +101,7 @@
 // 颜色
 #pragma mark - ------------颜色---------------
 //主题色
-#define kCOLOR_THEME kHexColor(@"E7414D")
+#define kCOLOR_THEME kHexColor(E7414D)
 // rgba颜色
 #define kRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define kRGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
@@ -130,7 +130,8 @@
 #pragma mark - ------------属性---------------
 #pragma mark - Property
 #define kProNSString(str)                @property (nonatomic, copy) NSString *str;
-#define KProNSArray(arr)                 @property (nonatomic, retain) NSArray *arr;
+#define KProNSArray(arr)                 @property (nonatomic, strong) NSArray *arr;
+#define KProNSArrayType(type,arr)        @property (nonatomic, strong) NSArray <type * >*arr;
 #define KProNSMutableArray(arr)          @property (nonatomic, strong) NSMutableArray *arr;
 #define KProNSMutableArrayType(type,arr) @property (nonatomic, strong) NSMutableArray <type * >*arr;
 #define KProNSDictionary(dic)            @property (nonatomic, strong) NSDictionary *dic;
@@ -170,8 +171,8 @@ View.layer.mask = maskLayer;
 
 #pragma mark - -------------------设备-------------------------
 //获取屏幕 宽度、高度
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define kSCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define kSCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
 // iPhone 手机型号
 // 判断是否是 ipad

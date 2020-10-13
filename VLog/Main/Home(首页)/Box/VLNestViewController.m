@@ -29,15 +29,7 @@
     self.myCategoryView.titleColor = [UIColor grayColor];
     self.myCategoryView.titleSelectedColor = [UIColor blackColor];
     self.myCategoryView.titleFont = [UIFont boldSystemFontOfSize:20];
-//    self.myCategoryView.frame = CGRectMake(0, 0, 400, 20);
-//    self.myCategoryView.layer.cornerRadius = 15;
-//    self.myCategoryView.layer.masksToBounds = YES;
-//    self.myCategoryView.layer.borderColor = [UIColor redColor].CGColor;
-//    self.myCategoryView.layer.borderWidth = 1/[UIScreen mainScreen].scale;
-//    self.myCategoryView.titleSelectedFont = [UIFont boldSystemFontOfSize:22];
-//    self.myCategoryView.titleLabelMaskEnabled = YES;
     self.myCategoryView.titleLabelZoomEnabled = YES;
-
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc ]init];
     self.myCategoryView.indicators = @[lineView];
     
@@ -71,7 +63,6 @@
         return vc;
     }else if(index == 1) {
         VLNestSubjectViewController *nestVc = [[VLNestSubjectViewController alloc] init];
-        nestVc.titles = @[@"全部", @"男士",@"女士穿搭",@"全部", @"男士",@"女士穿搭"];
         return nestVc;
     }else if (index == 2) {
         VLIndexViewController *vc = [[VLIndexViewController alloc] init];

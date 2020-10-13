@@ -12,7 +12,7 @@
 @implementation VLIndexRequest
 
 - (NSString *)requestUrl{
-   return API_VLOG_DETAIL_INFO;
+   return API_SITE_LOGIN;
 }
 
 - (YTKRequestMethod)requestMethod{

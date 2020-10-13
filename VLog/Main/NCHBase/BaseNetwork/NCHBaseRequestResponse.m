@@ -9,10 +9,10 @@
 #import "NCHBaseRequestResponse.h"
 #import "NCHBaseRequest.h"
 
-//*********************** 状态码,这个是跟后台讨论的 ***********************
+//*********************** 状态码,这个是跟后台讨论 ***********************
 typedef NSString *NCHResponseCode NS_EXTENSIBLE_STRING_ENUM;
 // 请求成功 code
-static NCHResponseCode const kPublicResponseSuccessCode = @"200";
+static NCHResponseCode const kPublicResponseSuccessCode = @"0";
 // token失效 code
 static NCHResponseCode const kPublicResponseTokenInvalidCode = @"111111";
 // 版本失效 code

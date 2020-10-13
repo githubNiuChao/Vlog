@@ -43,7 +43,7 @@ KProStrongType(UIView, line);//分割线
         
         _lblHobby=[[UILabel alloc]initWithFrame:CGRectMake(10, _imgView.jk_bottom, frame.size.width-20, 20)];
         _lblHobby.numberOfLines=0;
-        _lblHobby.textColor=kHexColor(@"1f1f1f");
+        _lblHobby.textColor=kHexColor(1f1f1f);
         _lblHobby.font= kFontBSmall;
         [self addSubview:_lblHobby];
 

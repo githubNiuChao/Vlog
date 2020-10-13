@@ -11,6 +11,7 @@
 #import "VLIndexListCollectionViewCell.h"
 #import "VLPhotoDetailViewController.h"
 #import "AwemeListController.h"
+#import "LSTPopView.h"
 
 
 @interface VLIndexViewController ()
@@ -44,7 +45,7 @@ NCHVerticalFlowLayoutDelegate
 }
 
 #pragma mark - <VLIndexListManagerDelegate>
--(void)requestDataCompleted{
+-(void)requestDataCompleted{    
     [self.collectionView reloadData];
     [self endHeaderFooterRefreshing];
 }
@@ -68,7 +69,6 @@ NCHVerticalFlowLayoutDelegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    
     VLIndexListCollectionViewCell *cell =(VLIndexListCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
 //    profileVC.headerImage = cell.imgView.image;

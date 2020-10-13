@@ -12,10 +12,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^reshtitle)(NSArray *titles);
+
 @interface VLIndexViewController : NCHRefreshCollectionViewController
 <
+JXCategoryListContentViewDelegate,
 JXPagerViewListViewDelegate
 >
+
+@property (nonatomic, assign) NSInteger catId;
+@property (nonatomic,copy) reshtitle reshblock;
 
 @end
 

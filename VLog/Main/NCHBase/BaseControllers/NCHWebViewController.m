@@ -293,7 +293,7 @@
         
         progressView.jk_height = 1;
         
-        progressView.jk_width = SCREEN_WIDTH;
+        progressView.jk_width = kSCREEN_WIDTH;
         
 //        progressView.jk_centerY = self.jk_navgationBar.jk_height;
         progressView.tintColor = [UIColor greenColor];

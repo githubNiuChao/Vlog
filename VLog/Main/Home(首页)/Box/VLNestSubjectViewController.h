@@ -6,11 +6,16 @@
 //  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "VLBaseContentViewController.h"
+#import <UIKit/UIKit.h>
+#import "JXCategoryView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VLNestSubjectViewController : VLBaseContentViewController<JXCategoryListContentViewDelegate>
+@interface VLNestSubjectViewController : UIViewController<
+JXCategoryListContentViewDelegate,
+JXCategoryListContainerViewDelegate,
+JXCategoryViewDelegate
+>
 
 @end
 

@@ -42,7 +42,7 @@
     if (!_cellHeight) {
         _cellHeight += 20;
         NSString *totalString = [NSString stringWithFormat:@"%@%@", self.title, self.subTitle];
-        _cellHeight += [totalString boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 20, MAXFLOAT) options:0 attributes:@{NSFontAttributeName : self.subTitleFont} context:nil].size.height;
+        _cellHeight += [totalString boundingRectWithSize:CGSizeMake(kSCREEN_WIDTH - 20, MAXFLOAT) options:0 attributes:@{NSFontAttributeName : self.subTitleFont} context:nil].size.height;
         _cellHeight = MAX(_cellHeight, 50);
         _cellHeight = kAdaptedWidth(_cellHeight);
     }

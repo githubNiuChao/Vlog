@@ -290,7 +290,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
     UIControl *selectedTabButton = [viewController.tabBarItem cyl_tabButton];
     if (selectedTabButton.selected) {
         @try {
-            [[[self class] cyl_topmostViewController] performSelector:@selector(refresh)];
+//            [[[self class] cyl_topmostViewController] performSelector:@selector(refresh)];
         } @catch (NSException *exception) {
             NSLog(@"🔴类名与方法名：%@（在第%@行），描述：%@", @(__PRETTY_FUNCTION__), @(__LINE__), exception.reason);
         }

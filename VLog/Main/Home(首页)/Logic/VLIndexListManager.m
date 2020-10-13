@@ -55,8 +55,6 @@
             model.imageHeight = [UIImage imageNamed:model.picture].size.height;
             
             model.imageArray = weakself.imgArray;
-            
-            
             [weakself.dataArray addObject:model];
         }
         if (self.delegagte && [self.delegagte respondsToSelector:@selector(requestDataCompleted)]) {

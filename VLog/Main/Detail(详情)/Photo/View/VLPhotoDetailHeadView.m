@@ -73,6 +73,9 @@ KProStrongType(YYLabel, detailLabel);
         _cycleScrollView.localizationImageNamesGroup = self.imageArrays;
         _cycleScrollView.bannerImageViewContentMode = UIViewContentModeScaleAspectFit;
         _cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
+        _cycleScrollView.currentPageDotColor = kCOLOR_THEME;
+        _cycleScrollView.pageDotColor = kWhiteColor;
+        _cycleScrollView.backgroundColor = kWhiteColor;
     }
     return _cycleScrollView;
 }

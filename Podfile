@@ -22,6 +22,7 @@ target 'VLog' do
   pod 'YYImage'
   pod 'YYText'
   pod 'YYAsyncLayer'
+  pod 'YYModel'
   # 蒙版
   pod 'MBProgressHUD'
   # 进度

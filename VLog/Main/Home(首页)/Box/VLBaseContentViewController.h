@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "JXCategoryView.h"
-#import "JXCategoryListContainerView.h"
 #import "VLBaseListViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,15 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VLBaseContentViewController : UIViewController<JXCategoryListContainerViewDelegate>
 
 @property (nonatomic, strong) NSArray *titles;
-
 @property (nonatomic, strong) JXCategoryBaseView *categoryView;
-
 @property (nonatomic, strong) JXCategoryListContainerView *listContainerView;
 
-@property (nonatomic, assign) BOOL isNeedIndicatorPositionChangeItem;
-
 - (JXCategoryBaseView *)preferredCategoryView;
-
 - (CGFloat)preferredCategoryViewHeight;
 
 

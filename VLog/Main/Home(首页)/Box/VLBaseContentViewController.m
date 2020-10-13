@@ -18,33 +18,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.listContainerView];
-
-    self.categoryView.listContainer = self.listContainerView;
-    self.categoryView.delegate = self;
-    [self.view addSubview:self.categoryView];
-
-
-    if (self.isNeedIndicatorPositionChangeItem) {
-        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"指示器位置切换" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClicked)];
-        self.navigationItem.rightBarButtonItem = rightItem;
-    }
 }
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
 
-    self.categoryView.frame = CGRectMake(0, 0, self.view.bounds.size.width, [self preferredCategoryViewHeight]);
-    self.listContainerView.frame = CGRectMake(0, [self preferredCategoryViewHeight], self.view.bounds.size.width, self.view.bounds.size.height);
+    _categoryView.frame = CGRectMake(0, 0, kSCREEN_WIDTH - 50, [self preferredCategoryViewHeight]);
+    _listContainerView.frame = CGRectMake(0, [self preferredCategoryViewHeight], self.view.bounds.size.width, self.view.bounds.size.height);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
     //处于第一个item的时候，才允许屏幕边缘手势返回
-    self.navigationController.interactivePopGestureRecognizer.enabled = (self.categoryView.selectedIndex == 0);
+    self.navigationController.interactivePopGestureRecognizer.enabled = (_categoryView.selectedIndex == 0);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -65,6 +52,9 @@
 - (JXCategoryBaseView *)categoryView {
     if (_categoryView == nil) {
         _categoryView = [self preferredCategoryView];
+        _categoryView.listContainer = self.listContainerView;
+        _categoryView.delegate = self;
+        [self.view addSubview:_categoryView];
     }
     return _categoryView;
 }
@@ -72,20 +62,9 @@
 - (JXCategoryListContainerView *)listContainerView {
     if (_listContainerView == nil) {
         _listContainerView = [[JXCategoryListContainerView alloc] initWithType:JXCategoryListContainerType_ScrollView delegate:self];
+        [self.view addSubview:_listContainerView];
     }
     return _listContainerView;
-}
-
-- (void)rightItemClicked {
-    JXCategoryIndicatorView *componentView = (JXCategoryIndicatorView *)self.categoryView;
-    for (JXCategoryIndicatorComponentView *view in componentView.indicators) {
-        if (view.componentPosition == JXCategoryComponentPosition_Top) {
-            view.componentPosition = JXCategoryComponentPosition_Bottom;
-        }else {
-            view.componentPosition = JXCategoryComponentPosition_Top;
-        }
-    }
-    [componentView reloadDataWithoutListContainer];
 }
 
 #pragma mark - JXCategoryViewDelegate

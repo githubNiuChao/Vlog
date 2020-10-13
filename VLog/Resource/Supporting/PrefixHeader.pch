@@ -12,9 +12,6 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-
-#import "NCThemeManager.h"
-
 #import <AFNetworking/AFNetworking.h>
 #import <YTKNetwork/YTKNetwork.h>
 #import "IQKeyboardManager.h"
@@ -39,5 +36,7 @@
 //#import "NSString+YYAdd.h"
 //#import "NSObject+YYAddForKVO.h"
 #import "MBProgressHUD+NCH.h"
+
+#import <YYModel/YYModel.h>
 
 #endif /* PrefixHeader_pch */

@@ -229,11 +229,16 @@
 		51815253251C470C00F9CCD3 /* NCHItemSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181523D251C470C00F9CCD3 /* NCHItemSection.m */; };
 		51815256251C487600F9CCD3 /* MBProgressHUD+NCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815255251C487600F9CCD3 /* MBProgressHUD+NCH.m */; };
 		51815259251C4CB700F9CCD3 /* NSObject+YYAddForKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815258251C4CB600F9CCD3 /* NSObject+YYAddForKVO.m */; };
-		51815260251C694E00F9CCD3 /* NCThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5181525F251C694E00F9CCD3 /* NCThemeManager.m */; };
 		51815263251C6F0F00F9CCD3 /* VLIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815262251C6F0F00F9CCD3 /* VLIndexViewController.m */; };
 		51815266251C79E700F9CCD3 /* VLIndexListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815265251C79E700F9CCD3 /* VLIndexListManager.m */; };
 		51873F1325315E320070264B /* PagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1025315E320070264B /* PagingViewController.m */; };
 		51873F1425315E320070264B /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1225315E320070264B /* RefreshViewController.m */; };
+		51873F1B2533F8700070264B /* LSTPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F162533F8700070264B /* LSTPopView.m */; };
+		51873F1C2533F8700070264B /* LSTPopViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1A2533F8700070264B /* LSTPopViewManager.m */; };
+		51873F212533FBF80070264B /* UIView+LSTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1D2533FBF70070264B /* UIView+LSTView.m */; };
+		51873F222533FBF80070264B /* LSTTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1E2533FBF70070264B /* LSTTimer.m */; };
+		51873F2525342A190070264B /* WMZDialogAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F2325342A180070264B /* WMZDialogAnimation.m */; };
+		51873F29253433DE0070264B /* VLIndexResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F28253433DE0070264B /* VLIndexResponse.m */; };
 		518968D5250CA66100897448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518968D4250CA66100897448 /* Assets.xcassets */; };
 		51A29BC925203EC1001EF6E9 /* NSAttributedString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B1125203EC0001EF6E9 /* NSAttributedString+Extension.m */; };
 		51A29BCA25203EC1001EF6E9 /* NSNotification+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B1525203EC0001EF6E9 /* NSNotification+Extension.m */; };
@@ -764,8 +769,6 @@
 		51815257251C4CB600F9CCD3 /* NSObject+YYAddForKVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYAddForKVO.h"; sourceTree = "<group>"; };
 		51815258251C4CB600F9CCD3 /* NSObject+YYAddForKVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYAddForKVO.m"; sourceTree = "<group>"; };
 		5181525D251C508900F9CCD3 /* YYCategoriesMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCategoriesMacro.h; sourceTree = "<group>"; };
-		5181525E251C694E00F9CCD3 /* NCThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCThemeManager.h; sourceTree = "<group>"; };
-		5181525F251C694E00F9CCD3 /* NCThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCThemeManager.m; sourceTree = "<group>"; };
 		51815261251C6F0F00F9CCD3 /* VLIndexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLIndexViewController.h; sourceTree = "<group>"; };
 		51815262251C6F0F00F9CCD3 /* VLIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLIndexViewController.m; sourceTree = "<group>"; };
 		51815264251C79E700F9CCD3 /* VLIndexListManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLIndexListManager.h; sourceTree = "<group>"; };
@@ -774,6 +777,19 @@
 		51873F1025315E320070264B /* PagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingViewController.m; sourceTree = "<group>"; };
 		51873F1125315E320070264B /* RefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshViewController.h; sourceTree = "<group>"; };
 		51873F1225315E320070264B /* RefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
+		51873F162533F8700070264B /* LSTPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopView.m; sourceTree = "<group>"; };
+		51873F172533F8700070264B /* LSTPopViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewManager.h; sourceTree = "<group>"; };
+		51873F182533F8700070264B /* LSTPopViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewProtocol.h; sourceTree = "<group>"; };
+		51873F192533F8700070264B /* LSTPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopView.h; sourceTree = "<group>"; };
+		51873F1A2533F8700070264B /* LSTPopViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewManager.m; sourceTree = "<group>"; };
+		51873F1D2533FBF70070264B /* UIView+LSTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LSTView.m"; sourceTree = "<group>"; };
+		51873F1E2533FBF70070264B /* LSTTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTTimer.m; sourceTree = "<group>"; };
+		51873F1F2533FBF70070264B /* UIView+LSTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LSTView.h"; sourceTree = "<group>"; };
+		51873F202533FBF80070264B /* LSTTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTTimer.h; sourceTree = "<group>"; };
+		51873F2325342A180070264B /* WMZDialogAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZDialogAnimation.m; sourceTree = "<group>"; };
+		51873F2425342A190070264B /* WMZDialogAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZDialogAnimation.h; sourceTree = "<group>"; };
+		51873F27253433DE0070264B /* VLIndexResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLIndexResponse.h; sourceTree = "<group>"; };
+		51873F28253433DE0070264B /* VLIndexResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLIndexResponse.m; sourceTree = "<group>"; };
 		518968C5250CA65C00897448 /* VLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		518968D4250CA66100897448 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51A29B1125203EC0001EF6E9 /* NSAttributedString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Extension.m"; sourceTree = "<group>"; };
@@ -1174,11 +1190,11 @@
 		518055D7251B91C700FBC12D /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				5181525D251C508900F9CCD3 /* YYCategoriesMacro.h */,
-				51815257251C4CB600F9CCD3 /* NSObject+YYAddForKVO.h */,
-				51815258251C4CB600F9CCD3 /* NSObject+YYAddForKVO.m */,
 				51815254251C487600F9CCD3 /* MBProgressHUD+NCH.h */,
 				51815255251C487600F9CCD3 /* MBProgressHUD+NCH.m */,
+				51815257251C4CB600F9CCD3 /* NSObject+YYAddForKVO.h */,
+				51815258251C4CB600F9CCD3 /* NSObject+YYAddForKVO.m */,
+				5181525D251C508900F9CCD3 /* YYCategoriesMacro.h */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1186,6 +1202,7 @@
 		518057F0251B91C900FBC12D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				51873F26253431FB0070264B /* Response */,
 				51E059FF2524628E00FA9744 /* Request */,
 				518057F1251B91C900FBC12D /* NetWorkBaseUrlConfig.h */,
 				518057FF251B91C900FBC12D /* NetWorkBaseUrlConfig.m */,
@@ -1252,6 +1269,7 @@
 		51805828251B91C900FBC12D /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				51873F152533F8700070264B /* NCPopView */,
 				5180582E251B91C900FBC12D /* Logger */,
 				51805833251B91C900FBC12D /* LcationManager */,
 				5180583A251B91C900FBC12D /* AddressManager */,
@@ -1573,32 +1591,32 @@
 		518058E4251B91CA00FBC12D /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				518058E5251B91CA00FBC12D /* NSString+HXExtension.m */,
-				518058E6251B91CA00FBC12D /* UIViewController+HXExtension.m */,
+				518058F2251B91CA00FBC12D /* NSArray+HXExtension.h */,
 				518058E7251B91CA00FBC12D /* NSArray+HXExtension.m */,
+				518058F9251B91CA00FBC12D /* NSBundle+HXPhotoPicker.h */,
 				518058E8251B91CA00FBC12D /* NSBundle+HXPhotoPicker.m */,
-				518058E9251B91CA00FBC12D /* NSTimer+HXExtension.h */,
-				518058EA251B91CA00FBC12D /* UIColor+HXExtension.h */,
 				518058EB251B91CA00FBC12D /* NSDate+HXExtension.h */,
+				518058F6251B91CA00FBC12D /* NSDate+HXExtension.m */,
+				518058F4251B91CA00FBC12D /* NSString+HXExtension.h */,
+				518058E5251B91CA00FBC12D /* NSString+HXExtension.m */,
+				518058E9251B91CA00FBC12D /* NSTimer+HXExtension.h */,
+				518058F8251B91CA00FBC12D /* NSTimer+HXExtension.m */,
+				518058F0251B91CA00FBC12D /* UIButton+HXExtension.h */,
+				518058FB251B91CA00FBC12D /* UIButton+HXExtension.m */,
+				518058EA251B91CA00FBC12D /* UIColor+HXExtension.h */,
+				518058F7251B91CA00FBC12D /* UIColor+HXExtension.m */,
+				518058FC251B91CA00FBC12D /* UIFont+HXExtension.h */,
+				518058EF251B91CA00FBC12D /* UIFont+HXExtension.m */,
 				518058EC251B91CA00FBC12D /* UIImage+HXExtension.h */,
+				518058F5251B91CA00FBC12D /* UIImage+HXExtension.m */,
+				518058FD251B91CA00FBC12D /* UIImageView+HXExtension.h */,
 				518058ED251B91CA00FBC12D /* UIImageView+HXExtension.m */,
 				518058EE251B91CA00FBC12D /* UILabel+HXExtension.h */,
-				518058EF251B91CA00FBC12D /* UIFont+HXExtension.m */,
-				518058F0251B91CA00FBC12D /* UIButton+HXExtension.h */,
-				518058F1251B91CA00FBC12D /* UIView+HXExtension.m */,
-				518058F2251B91CA00FBC12D /* NSArray+HXExtension.h */,
-				518058F3251B91CA00FBC12D /* UIViewController+HXExtension.h */,
-				518058F4251B91CA00FBC12D /* NSString+HXExtension.h */,
-				518058F5251B91CA00FBC12D /* UIImage+HXExtension.m */,
-				518058F6251B91CA00FBC12D /* NSDate+HXExtension.m */,
-				518058F7251B91CA00FBC12D /* UIColor+HXExtension.m */,
-				518058F8251B91CA00FBC12D /* NSTimer+HXExtension.m */,
-				518058F9251B91CA00FBC12D /* NSBundle+HXPhotoPicker.h */,
-				518058FA251B91CA00FBC12D /* UIView+HXExtension.h */,
-				518058FB251B91CA00FBC12D /* UIButton+HXExtension.m */,
-				518058FC251B91CA00FBC12D /* UIFont+HXExtension.h */,
-				518058FD251B91CA00FBC12D /* UIImageView+HXExtension.h */,
 				518058FE251B91CA00FBC12D /* UILabel+HXExtension.m */,
+				518058FA251B91CA00FBC12D /* UIView+HXExtension.h */,
+				518058F1251B91CA00FBC12D /* UIView+HXExtension.m */,
+				518058F3251B91CA00FBC12D /* UIViewController+HXExtension.h */,
+				518058E6251B91CA00FBC12D /* UIViewController+HXExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1916,8 +1934,6 @@
 		518059DE251B91CA00FBC12D /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				5181525E251C694E00F9CCD3 /* NCThemeManager.h */,
-				5181525F251C694E00F9CCD3 /* NCThemeManager.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -2054,6 +2070,33 @@
 				5181523A251C470C00F9CCD3 /* NCHWordItem.m */,
 			);
 			path = BaseModels;
+			sourceTree = "<group>";
+		};
+		51873F152533F8700070264B /* NCPopView */ = {
+			isa = PBXGroup;
+			children = (
+				51873F2425342A190070264B /* WMZDialogAnimation.h */,
+				51873F2325342A180070264B /* WMZDialogAnimation.m */,
+				51873F202533FBF80070264B /* LSTTimer.h */,
+				51873F1E2533FBF70070264B /* LSTTimer.m */,
+				51873F1F2533FBF70070264B /* UIView+LSTView.h */,
+				51873F1D2533FBF70070264B /* UIView+LSTView.m */,
+				51873F192533F8700070264B /* LSTPopView.h */,
+				51873F162533F8700070264B /* LSTPopView.m */,
+				51873F172533F8700070264B /* LSTPopViewManager.h */,
+				51873F1A2533F8700070264B /* LSTPopViewManager.m */,
+				51873F182533F8700070264B /* LSTPopViewProtocol.h */,
+			);
+			path = NCPopView;
+			sourceTree = "<group>";
+		};
+		51873F26253431FB0070264B /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				51873F27253433DE0070264B /* VLIndexResponse.h */,
+				51873F28253433DE0070264B /* VLIndexResponse.m */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		518968BC250CA65C00897448 = {
@@ -2620,6 +2663,7 @@
 				51805AF9251B91CB00FBC12D /* MPLocationConverter.m in Sources */,
 				5181524D251C470C00F9CCD3 /* NCHNavUIBaseViewController.m in Sources */,
 				51A29BCC25203EC1001EF6E9 /* UIImage+Extension.m in Sources */,
+				51873F1B2533F8700070264B /* LSTPopView.m in Sources */,
 				5160692E251DD32A0070B9D9 /* VLBaseContentViewController.m in Sources */,
 				51805B11251B91CB00FBC12D /* GCDTimer.m in Sources */,
 				51A29BEA25203EC1001EF6E9 /* GroupChatListResponse.m in Sources */,
@@ -2695,6 +2739,7 @@
 				51805B65251B91CC00FBC12D /* HXAlbumModel.m in Sources */,
 				51805B71251B91CC00FBC12D /* HXCustomCollectionReusableView.m in Sources */,
 				51A29BE725203EC1001EF6E9 /* DeleteCommentRequest.m in Sources */,
+				51873F29253433DE0070264B /* VLIndexResponse.m in Sources */,
 				51339CA6253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m in Sources */,
 				51805B75251B91CC00FBC12D /* HXAlbumlistView.m in Sources */,
 				51A29C0125203EC1001EF6E9 /* EmotionHelper.m in Sources */,
@@ -2704,6 +2749,7 @@
 				51A29BF725203EC1001EF6E9 /* LoadMoreControl.m in Sources */,
 				51805B54251B91CC00FBC12D /* NSTimer+HXExtension.m in Sources */,
 				51AC9911250F03CC0023D5EA /* UIView+Frame.m in Sources */,
+				51873F1C2533F8700070264B /* LSTPopViewManager.m in Sources */,
 				51805B97251B91CC00FBC12D /* HXPhotoEditGridLayer.m in Sources */,
 				518059F4251B91CB00FBC12D /* AppDelegate.m in Sources */,
 				51805B99251B91CC00FBC12D /* HXPhotoEdit.m in Sources */,
@@ -2727,6 +2773,7 @@
 				51A29C0C25203EC1001EF6E9 /* CircleTextView.m in Sources */,
 				51E059FD2524620100FA9744 /* NCHRequestPublicArgument.m in Sources */,
 				51805B8F251B91CC00FBC12D /* HXPhotoEditDrawView.m in Sources */,
+				51873F212533FBF80070264B /* UIView+LSTView.m in Sources */,
 				51805B44251B91CC00FBC12D /* HXPhotoConfiguration.m in Sources */,
 				51805B10251B91CB00FBC12D /* GCDQueue.m in Sources */,
 				51A29BDE25203EC1001EF6E9 /* PostGroupChatImageRequest.m in Sources */,
@@ -2754,7 +2801,6 @@
 				51805B8B251B91CC00FBC12D /* HXPhotoEditChartletContentViewCell.m in Sources */,
 				51805B58251B91CC00FBC12D /* HXPhotoTools.m in Sources */,
 				51805B6D251B91CC00FBC12D /* HXPreviewImageView.m in Sources */,
-				51815260251C694E00F9CCD3 /* NCThemeManager.m in Sources */,
 				51A29BD725203EC1001EF6E9 /* GroupChat.m in Sources */,
 				51A29C0625203EC1001EF6E9 /* AwemeListCell.m in Sources */,
 				51805B96251B91CC00FBC12D /* HXPhotoEditGraffitiColorView.m in Sources */,
@@ -2802,6 +2848,8 @@
 				51805B67251B91CC00FBC12D /* HXPhotoPreviewLivePhotoCell.m in Sources */,
 				51805B91251B91CC00FBC12D /* HXPhotoEditChartletPreviewView.m in Sources */,
 				5173E5C725231EB600E57C71 /* VLFollowListViewController.m in Sources */,
+				51873F2525342A190070264B /* WMZDialogAnimation.m in Sources */,
+				51873F222533FBF80070264B /* LSTTimer.m in Sources */,
 				51A29C1825203EC1001EF6E9 /* PhotoView.m in Sources */,
 				51A29BE025203EC1001EF6E9 /* AwemeListRequest.m in Sources */,
 				51A29C0425203EC1001EF6E9 /* MusicAlbumView.m in Sources */,
