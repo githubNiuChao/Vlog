@@ -1,23 +1,23 @@
 //
-//  UIView+LSTView.h
-//  KitNote
+//  UIView+NCHView.h
+//  VLog
 //
-//  Created by LoSenTrad on 2018/5/30.
-//  Copyright © 2018年 LoSenTrad. All rights reserved.
+//  Created by szy on 2020/10/13.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 typedef enum : NSUInteger {
-    LSTBorderTypeTop,
-    LSTBorderTypeLeft,
-    LSTBorderTypeRight,
-    LSTBorderTypeBottom
-} LSTBorderType;
+    NCHBorderTypeTop,
+    NCHBorderTypeLeft,
+    NCHBorderTypeRight,
+    NCHBorderTypeBottom
+} NCHBorderType;
 
 
 
-@interface UIView (QTFrame)
+@interface UIView (NCHView)
 
 /** 获取/设置view的x坐标 */
 @property (nonatomic, assign) CGFloat x;
@@ -44,48 +44,48 @@ typedef enum : NSUInteger {
 
 
 /** 屏幕大小 */
-CGSize LSTScreenSize();
+CGSize NCHScreenSize();
 /** 屏幕宽度 */
-CGFloat LSTScreenWidth();
+CGFloat NCHScreenWidth();
 /** 屏幕高度 */
-CGFloat LSTScreenHeight();
+CGFloat NCHScreenHeight();
 /** 屏幕bounds */
-CGRect LSTScreenBounds();
+CGRect NCHScreenBounds();
 /** 获取相对屏幕的宽度 */
-CGFloat LSTAutoWidth(CGFloat width);
+CGFloat NCHAutoWidth(CGFloat width);
 /** 获取相对屏幕的高度 */
-CGFloat LSTAutoHeight(CGFloat height);
+CGFloat NCHAutoHeight(CGFloat height);
 /** 获取相对指定view的宽度 */
-CGFloat LSTAutoWidthForView(CGFloat width,UIView *tagView);
+CGFloat NCHAutoWidthForView(CGFloat width,UIView *tagView);
 /** 获取相对指定view的高度 */
-CGFloat LSTAutoHeightForView(CGFloat height,UIView *tagView);
+CGFloat NCHAutoHeightForView(CGFloat height,UIView *tagView);
 
 static inline CGSize QTSizeMake(CGFloat width, CGFloat height);
 static inline CGPoint QTPointMake(CGFloat x, CGFloat y);
 static inline CGRect QTRectMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height);
 
 /** 是否是苹果X */
-BOOL lst_IsIphoneX();
+BOOL NCH_IsIphoneX();
 /** 是否是苹果XR */
-BOOL lst_IsIphoneXR();
+BOOL NCH_IsIphoneXR();
 /** 是否是苹果XS */
-BOOL lst_IsIphoneXS();
+BOOL NCH_IsIphoneXS();
 /** 是否是苹果XS_Max */
-BOOL lst_IsIphoneXS_Max();
+BOOL NCH_IsIphoneXS_Max();
 /** 是否是苹果X系列(刘海屏系列) */
-BOOL lst_IsIphoneX_ALL();
+BOOL NCH_IsIphoneX_ALL();
 /** 状态栏高度 X:44 非X:20 */
-CGFloat LSTStatusBarHeight();
+CGFloat NCHStatusBarHeight();
 /** 导航栏高度 X:88 非X:64 */
-CGFloat LSTNavBarHeight();
+CGFloat NCHNavBarHeight();
 /** 底部导航栏高度 X:83 非X:49 */
-CGFloat LSTTabBarHeight();
+CGFloat NCHTabBarHeight();
 /** 状态栏高度 X:34 非X:0 */
-CGFloat LSTTabBarBottomMargin();
+CGFloat NCHTabBarBottomMargin();
 /** 底部贴边控件高度 */
-CGFloat LSTBottomHemViewHeight(CGFloat height);
+CGFloat NCHBottomHemViewHeight(CGFloat height);
 /** 底部控件下间距 (间距小于20使用) */
-CGFloat LSTBottomHemViewMargin(CGFloat margin);
+CGFloat NCHBottomHemViewMargin(CGFloat margin);
 
 
 
@@ -94,9 +94,9 @@ CGFloat LSTBottomHemViewMargin(CGFloat margin);
 /** 根据nib文件转UIView对象 */
 + (instancetype)getNibView:(NSString *)nibName;
 /** 设置圆角 */
-- (void)lst_RoundCorners:(UIRectCorner)corners radius:(CGFloat)radius;
+- (void)NCH_RoundCorners:(UIRectCorner)corners radius:(CGFloat)radius;
 /** 截屏生成图片 */
-- (nullable UIImage *)lst_SnapshotImage;
+- (nullable UIImage *)NCH_SnapshotImage;
 /** 获取当前控制器 */
 - (UIViewController *)getCurrVc;
 /**
@@ -123,7 +123,7 @@ CGFloat LSTBottomHemViewMargin(CGFloat margin);
 /** 添加单边框 可设置颜色 大小 方向 */
 - (void)addBorderLayerWithColor:(UIColor *)color
                            size:(CGFloat)size
-                     borderType:(LSTBorderType)boderType;
+                     borderType:(NCHBorderType)boderType;
 
 
 

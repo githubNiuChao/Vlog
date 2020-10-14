@@ -1,16 +1,17 @@
 //
-//  LSTTimer.m
-//  LSTTimer
+//  NCHTimer.m
+//  VLog
 //
-//  Created by LoSenTrad on 2020/7/13.
+//  Created by szy on 2020/10/13.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "LSTTimer.h"
+#import "NCHTimer.h"
 
 
-#define LSTPopViewTimerPath(name)  [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"LSTTimer_%@_Timer",name]]
+#define NCHPopViewTimerPath(name)  [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"NCHTimer_%@_Timer",name]]
 
-@interface LSTPopViewTimerModel : NSObject
+@interface NCHPopViewTimerModel : NSObject
 
 /** 毫秒为单位计算 */
 @property (nonatomic, assign) NSTimeInterval time;
@@ -29,23 +30,23 @@
 /** 通知名称 */
 @property (nonatomic, copy) NSString *NFName;
 /** 通知类型 0.不发通知 1.毫秒通知 2.秒通知 */
-@property (nonatomic, assign) LSTTimerSecondChangeNFType NFType;
+@property (nonatomic, assign) NCHTimerSecondChangeNFType NFType;
 
 
-@property (nonatomic, copy) LSTTimerChangeBlock handleBlock;
+@property (nonatomic, copy) NCHTimerChangeBlock handleBlock;
 /** 定时器执行block */
-@property (nonatomic, copy) LSTTimerFinishBlock finishBlock;
+@property (nonatomic, copy) NCHTimerFinishBlock finishBlock;
 /** 定时器执行block */
-@property (nonatomic, copy) LSTTimerPauseBlock pauseBlock;
+@property (nonatomic, copy) NCHTimerPauseBlock pauseBlock;
 
 + (instancetype)timeInterval:(NSInteger)timeInterval;
 
 @end
 
-@implementation LSTPopViewTimerModel
+@implementation NCHPopViewTimerModel
 
 + (instancetype)timeInterval:(NSInteger)timeInterval {
-    LSTPopViewTimerModel *object = [LSTPopViewTimerModel new];
+    NCHPopViewTimerModel *object = [NCHPopViewTimerModel new];
     object.time = timeInterval*1000;
     object.oriTime = timeInterval*1000;
     return object;
@@ -77,22 +78,22 @@
 
 @end
 
-@interface LSTTimer ()
+@interface NCHTimer ()
 
 @property (nonatomic, strong) NSTimer * _Nullable showTimer;
 /** 储存多个计时器数据源 */
-@property (nonatomic, strong) NSMutableDictionary<NSString *, LSTPopViewTimerModel *> *timerMdic;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NCHPopViewTimerModel *> *timerMdic;
 
 
 @end
 
-@implementation LSTTimer
+@implementation NCHTimer
 
-static LSTTimer *_instance;
+static NCHTimer *_instance;
 
 
-LSTTimer *LSTTimerM() {
-    return [LSTTimer sharedInstance];
+NCHTimer *NCHTimerM() {
+    return [NCHTimer sharedInstance];
 }
 
 + (instancetype)sharedInstance {
@@ -118,12 +119,12 @@ LSTTimer *LSTTimerM() {
 /// @param name 通知名
 /// @param identifier 倒计时任务的标识
 /// @param type 倒计时变化通知类型
-+ (void)setNotificationForName:(NSString *)name identifier:(NSString *)identifier changeNFType:(LSTTimerSecondChangeNFType)type  {
++ (void)setNotificationForName:(NSString *)name identifier:(NSString *)identifier changeNFType:(NCHTimerSecondChangeNFType)type  {
     if (identifier.length<=0) {
         NSLog(@"计时器标识不能为空");
         return;
     }
-    LSTPopViewTimerModel *model = LSTTimerM().timerMdic[identifier];
+    NCHPopViewTimerModel *model = NCHTimerM().timerMdic[identifier];
     if (model) {
         model.NFType = type;
         model.NFName = name;
@@ -136,67 +137,67 @@ LSTTimer *LSTTimerM() {
 
 
 /** 添加定时器并开启计时 */
-+ (void)addTimerForTime:(NSTimeInterval)time handle:(LSTTimerChangeBlock)handle {
++ (void)addTimerForTime:(NSTimeInterval)time handle:(NCHTimerChangeBlock)handle {
     [self initTimerForForTime:time identifier:nil ForIsDisk:NO unit:0 handle:handle finish:nil pause:nil];
 }
 /** 添加定时器并开启计时 */
 + (void)addTimerForTime:(NSTimeInterval)time
              identifier:(NSString *)identifier
-                 handle:(LSTTimerChangeBlock)handle {
+                 handle:(NCHTimerChangeBlock)handle {
      [self initTimerForForTime:time identifier:identifier ForIsDisk:NO unit:-1 handle:handle finish:nil pause:nil];
 }
 /** 添加定时器并开启计时 */
 + (void)addTimerForTime:(NSTimeInterval)time
              identifier:(NSString *)identifier
-                 handle:(LSTTimerChangeBlock)handle
-                 finish:(LSTTimerFinishBlock)finishBlock
-                  pause:(LSTTimerPauseBlock)pauseBlock {
+                 handle:(NCHTimerChangeBlock)handle
+                 finish:(NCHTimerFinishBlock)finishBlock
+                  pause:(NCHTimerPauseBlock)pauseBlock {
      [self initTimerForForTime:time identifier:identifier ForIsDisk:NO unit:-1 handle:handle finish:finishBlock pause:finishBlock];
 }
 
 /** 添加定时器并开启计时 */
 + (void)addDiskTimerForTime:(NSTimeInterval)time
                  identifier:(NSString *)identifier
-                     handle:(LSTTimerChangeBlock)handle {
+                     handle:(NCHTimerChangeBlock)handle {
      [self initTimerForForTime:time identifier:identifier ForIsDisk:YES unit:-1 handle:handle finish:nil pause:nil];
 }
 
 /** 添加定时器并开启计时 */
 + (void)addDiskTimerForTime:(NSTimeInterval)time
                  identifier:(NSString *)identifier
-                     handle:(LSTTimerChangeBlock)handle
-                     finish:(LSTTimerFinishBlock)finishBlock
-                      pause:(LSTTimerPauseBlock)pauseBlock {
+                     handle:(NCHTimerChangeBlock)handle
+                     finish:(NCHTimerFinishBlock)finishBlock
+                      pause:(NCHTimerPauseBlock)pauseBlock {
      [self initTimerForForTime:time identifier:identifier ForIsDisk:YES unit:-1 handle:handle finish:finishBlock pause:pauseBlock];
 }
 
 
 /** 添加定时器并开启计时 */
-+ (void)addMinuteTimerForTime:(NSTimeInterval)time handle:(LSTTimerChangeBlock)handle {
++ (void)addMinuteTimerForTime:(NSTimeInterval)time handle:(NCHTimerChangeBlock)handle {
      [self initTimerForForTime:time identifier:nil ForIsDisk:NO unit:1000 handle:handle finish:nil pause:nil];
 }
 /** 添加定时器并开启计时 */
 + (void)addMinuteTimerForTime:(NSTimeInterval)time
                    identifier:(NSString *)identifier
-                       handle:(LSTTimerChangeBlock)handle {
+                       handle:(NCHTimerChangeBlock)handle {
      [self initTimerForForTime:time identifier:identifier ForIsDisk:NO unit:1000 handle:handle finish:nil pause:nil];
 }
 
 /** 添加定时器并开启计时 */
 + (void)addMinuteTimerForTime:(NSTimeInterval)time
                    identifier:(NSString *)identifier
-                       handle:(LSTTimerChangeBlock)handle
-                       finish:(LSTTimerFinishBlock)finishBlock
-                        pause:(LSTTimerPauseBlock)pauseBlock {
+                       handle:(NCHTimerChangeBlock)handle
+                       finish:(NCHTimerFinishBlock)finishBlock
+                        pause:(NCHTimerPauseBlock)pauseBlock {
      [self initTimerForForTime:time identifier:identifier ForIsDisk:NO unit:1000 handle:handle finish:finishBlock pause:finishBlock];
 }
 
 /** 添加定时器并开启计时 */
 + (void)addDiskMinuteTimerForTime:(NSTimeInterval)time
                        identifier:(NSString *)identifier
-                           handle:(LSTTimerChangeBlock)handle
-                           finish:(LSTTimerFinishBlock)finishBlock
-                            pause:(LSTTimerPauseBlock)pauseBlock {
+                           handle:(NCHTimerChangeBlock)handle
+                           finish:(NCHTimerFinishBlock)finishBlock
+                            pause:(NCHTimerPauseBlock)pauseBlock {
      [self initTimerForForTime:time identifier:identifier ForIsDisk:YES unit:1000 handle:handle finish:finishBlock pause:pauseBlock];
 }
 
@@ -205,19 +206,19 @@ LSTTimer *LSTTimerM() {
                  identifier:(NSString *)identifier
                   ForIsDisk:(BOOL)isDisk
                        unit:(NSTimeInterval)unit
-                     handle:(LSTTimerChangeBlock)handle
-                     finish:(LSTTimerFinishBlock)finishBlock
-                      pause:(LSTTimerPauseBlock)pauseBlock {
+                     handle:(NCHTimerChangeBlock)handle
+                     finish:(NCHTimerFinishBlock)finishBlock
+                      pause:(NCHTimerPauseBlock)pauseBlock {
     
     if (identifier.length<=0) {
-        LSTPopViewTimerModel *model = [LSTPopViewTimerModel timeInterval:time];
+        NCHPopViewTimerModel *model = [NCHPopViewTimerModel timeInterval:time];
         model.isDisk = isDisk;
         model.identifier = [NSString stringWithFormat:@"%p",model];
         model.unit = unit;
         model.handleBlock = handle;
         model.finishBlock = finishBlock;
         model.pauseBlock = pauseBlock;
-        [LSTTimerM().timerMdic setObject:model forKey:model.identifier];
+        [NCHTimerM().timerMdic setObject:model forKey:model.identifier];
         if (model.handleBlock) {
             NSInteger totalSeconds = model.time/1000.0;
             NSString *days = [NSString stringWithFormat:@"%zd", totalSeconds/60/60/24];
@@ -243,7 +244,7 @@ LSTTimer *LSTTimerM() {
           
         }
         // 发出通知
-        if (model.NFType != LSTTimerSecondChangeNFTypeNone) {
+        if (model.NFType != NCHTimerSecondChangeNFTypeNone) {
             [[NSNotificationCenter defaultCenter] postNotificationName:model.NFName object:nil userInfo:nil];
         }
         if (model.isDisk) {
@@ -254,18 +255,18 @@ LSTTimer *LSTTimerM() {
     }
     
         
-    BOOL isTempDisk = [LSTTimer timerIsExistInDiskForIdentifier:identifier];//磁盘有任务
-    BOOL isRAM = LSTTimerM().timerMdic[identifier]?YES:NO;//内存有任务
+    BOOL isTempDisk = [NCHTimer timerIsExistInDiskForIdentifier:identifier];//磁盘有任务
+    BOOL isRAM = NCHTimerM().timerMdic[identifier]?YES:NO;//内存有任务
     
     if (!isRAM && !isTempDisk) {//新任务
-        LSTPopViewTimerModel *model = [LSTPopViewTimerModel timeInterval:time];
+        NCHPopViewTimerModel *model = [NCHPopViewTimerModel timeInterval:time];
         model.handleBlock = handle;
         model.isDisk = isDisk;
         model.identifier = identifier;
         model.unit = unit;
         model.finishBlock = finishBlock;
         model.pauseBlock = pauseBlock;
-        [LSTTimerM().timerMdic setObject:model forKey:identifier];
+        [NCHTimerM().timerMdic setObject:model forKey:identifier];
         if (model.handleBlock) {
             
             NSInteger totalSeconds = model.time/1000.0;
@@ -295,7 +296,7 @@ LSTTimer *LSTTimerM() {
             
         }
         // 发出通知
-        if (model.NFType != LSTTimerSecondChangeNFTypeNone) {
+        if (model.NFType != NCHTimerSecondChangeNFTypeNone) {
             [[NSNotificationCenter defaultCenter] postNotificationName:model.NFName object:nil userInfo:nil];
         }
         [self initTimer];
@@ -303,7 +304,7 @@ LSTTimer *LSTTimerM() {
     
     
     if (isRAM && !isTempDisk) {//内存任务
-        LSTPopViewTimerModel *model = LSTTimerM().timerMdic[identifier];
+        NCHPopViewTimerModel *model = NCHTimerM().timerMdic[identifier];
         model.isPause = NO;
         model.handleBlock = handle;
         model.isDisk = isDisk;
@@ -316,16 +317,16 @@ LSTTimer *LSTTimerM() {
     }
     
     if (!isRAM && isTempDisk) {//硬盘的任务
-        LSTPopViewTimerModel *model = [LSTTimer getTimerModelForIdentifier:identifier];
+        NCHPopViewTimerModel *model = [NCHTimer getTimerModelForIdentifier:identifier];
         if (isDisk == NO) {
-            [LSTTimer deleteForIdentifier:identifier];
+            [NCHTimer deleteForIdentifier:identifier];
         }
         model.isPause = NO;
         model.isDisk = isDisk;
         model.handleBlock = handle;
         model.finishBlock = finishBlock;
         model.pauseBlock = pauseBlock;
-        [LSTTimerM().timerMdic setObject:model forKey:identifier];
+        [NCHTimerM().timerMdic setObject:model forKey:identifier];
         if (model.handleBlock) {
             NSInteger totalSeconds = model.time/1000.0;
             NSString *days = [NSString stringWithFormat:@"%zd", totalSeconds/60/60/24];
@@ -351,7 +352,7 @@ LSTTimer *LSTTimerM() {
            
         }
         // 发出通知
-        if (model.NFType != LSTTimerSecondChangeNFTypeNone) {
+        if (model.NFType != NCHTimerSecondChangeNFTypeNone) {
             [[NSNotificationCenter defaultCenter] postNotificationName:model.NFName object:nil userInfo:nil];
         }
         if (model.isDisk) {
@@ -361,16 +362,16 @@ LSTTimer *LSTTimerM() {
     }
     
     if (isRAM && isTempDisk) {//硬盘的任务
-        LSTPopViewTimerModel *model = [LSTTimer getTimerModelForIdentifier:identifier];
+        NCHPopViewTimerModel *model = [NCHTimer getTimerModelForIdentifier:identifier];
         model.isPause = NO;
         if (isDisk == NO) {
-            [LSTTimer deleteForIdentifier:identifier];
+            [NCHTimer deleteForIdentifier:identifier];
         }
         model.isDisk = isDisk;
         model.handleBlock = handle;
         model.finishBlock = finishBlock;
         model.pauseBlock = pauseBlock;
-        [LSTTimerM().timerMdic setObject:model forKey:identifier];
+        [NCHTimerM().timerMdic setObject:model forKey:identifier];
         if (model.handleBlock) {
             NSInteger totalSeconds = model.time/1000.0;
             NSString *days = [NSString stringWithFormat:@"%zd", totalSeconds/60/60/24];
@@ -396,7 +397,7 @@ LSTTimer *LSTTimerM() {
             
         }
         // 发出通知
-        if (model.NFType != LSTTimerSecondChangeNFTypeNone) {
+        if (model.NFType != NCHTimerSecondChangeNFTypeNone) {
             [[NSNotificationCenter defaultCenter] postNotificationName:model.NFName object:nil userInfo:nil];
         }
         if (model.isDisk) {
@@ -412,15 +413,15 @@ LSTTimer *LSTTimerM() {
         return 0.0;
     }
     
-    BOOL isTempDisk = [LSTTimer timerIsExistInDiskForIdentifier:identifier];//磁盘有任务
-    BOOL isRAM = LSTTimerM().timerMdic[identifier]?YES:NO;//内存有任务
+    BOOL isTempDisk = [NCHTimer timerIsExistInDiskForIdentifier:identifier];//磁盘有任务
+    BOOL isRAM = NCHTimerM().timerMdic[identifier]?YES:NO;//内存有任务
     
     
     if (isTempDisk) {
-        LSTPopViewTimerModel *model = [LSTTimer loadTimerForIdentifier:identifier];
+        NCHPopViewTimerModel *model = [NCHTimer loadTimerForIdentifier:identifier];
         return model.oriTime - model.time;
     }else if (isRAM) {
-        LSTPopViewTimerModel *model = LSTTimerM().timerMdic[identifier];
+        NCHPopViewTimerModel *model = NCHTimerM().timerMdic[identifier];
         return model.oriTime - model.time;
     }else {
         NSLog(@"找不到计时任务");
@@ -434,7 +435,7 @@ LSTTimer *LSTTimerM() {
         NSLog(@"计时器标识不能为空");
         return NO;
     }
-    LSTPopViewTimerModel *model = LSTTimerM().timerMdic[identifier];
+    NCHPopViewTimerModel *model = NCHTimerM().timerMdic[identifier];
     
     if (model) {
         model.isPause = YES;
@@ -447,7 +448,7 @@ LSTTimer *LSTTimerM() {
 }
 
 + (void)pauseAllTimer {
-    [LSTTimerM().timerMdic enumerateKeysAndObjectsUsingBlock:^(NSString *key, LSTPopViewTimerModel *obj, BOOL *stop) {
+    [NCHTimerM().timerMdic enumerateKeysAndObjectsUsingBlock:^(NSString *key, NCHPopViewTimerModel *obj, BOOL *stop) {
         obj.isPause = YES;
         if (obj.pauseBlock) { obj.pauseBlock(obj.identifier); }
     }];
@@ -460,9 +461,9 @@ LSTTimer *LSTTimerM() {
     }
     
     //只有内存任务才能重启, 硬盘任务只能调用addTimer系列方法重启
-    BOOL isRAM = LSTTimerM().timerMdic[identifier]?YES:NO;//内存有任务
+    BOOL isRAM = NCHTimerM().timerMdic[identifier]?YES:NO;//内存有任务
     if (isRAM) {
-        LSTPopViewTimerModel *model = LSTTimerM().timerMdic[identifier];
+        NCHPopViewTimerModel *model = NCHTimerM().timerMdic[identifier];
         model.isPause = NO;
         return YES;
     }else {
@@ -474,11 +475,11 @@ LSTTimer *LSTTimerM() {
 }
 + (void)restartAllTimer {
     
-    if (LSTTimerM().timerMdic.count<=0) {
+    if (NCHTimerM().timerMdic.count<=0) {
         return;
     }
     
-    [LSTTimerM().timerMdic enumerateKeysAndObjectsUsingBlock:^(NSString *key, LSTPopViewTimerModel *obj, BOOL *stop) {
+    [NCHTimerM().timerMdic enumerateKeysAndObjectsUsingBlock:^(NSString *key, NCHPopViewTimerModel *obj, BOOL *stop) {
         obj.isPause = NO;
     }];
 }
@@ -489,36 +490,36 @@ LSTTimer *LSTTimerM() {
         return NO;
     }
     
-    [LSTTimerM().timerMdic removeObjectForKey:identifier];
-    if (LSTTimerM().timerMdic.count<=0) {//如果没有计时任务了 就销毁计时器
-        [LSTTimerM().showTimer invalidate];
-        LSTTimerM().showTimer = nil;
+    [NCHTimerM().timerMdic removeObjectForKey:identifier];
+    if (NCHTimerM().timerMdic.count<=0) {//如果没有计时任务了 就销毁计时器
+        [NCHTimerM().showTimer invalidate];
+        NCHTimerM().showTimer = nil;
     }
     return YES;
 }
 
 + (void)removeAllTimer {
-    [LSTTimerM().timerMdic removeAllObjects];
-    [LSTTimerM().showTimer invalidate];
-    LSTTimerM().showTimer = nil;
+    [NCHTimerM().timerMdic removeAllObjects];
+    [NCHTimerM().showTimer invalidate];
+    NCHTimerM().showTimer = nil;
 }
 
 /** increase YES: 递增 NO: 递减   */
 + (void)initTimer {
     
-    if (LSTTimerM().showTimer) {
+    if (NCHTimerM().showTimer) {
         return;
     }
     
-    NSTimer *timer = [NSTimer timerWithTimeInterval:0.01f target:LSTTimerM() selector:@selector(timerChange) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.01f target:NCHTimerM() selector:@selector(timerChange) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-    LSTTimerM().showTimer = timer;
+    NCHTimerM().showTimer = timer;
     
 }
 
 - (void)timerChange {
     // 时间差+
-    [LSTTimerM().timerMdic enumerateKeysAndObjectsUsingBlock:^(NSString *key, LSTPopViewTimerModel *obj, BOOL *stop) {
+    [NCHTimerM().timerMdic enumerateKeysAndObjectsUsingBlock:^(NSString *key, NCHPopViewTimerModel *obj, BOOL *stop) {
         if (!obj.isPause) {
             
             obj.time = obj.time-10.0;
@@ -557,27 +558,27 @@ LSTTimer *LSTTimerM() {
             if (obj.unit<=-1) {
                 if (obj.handleBlock) {obj.handleBlock(days,hours,minute,second,ms);}
                 
-                if (obj.NFType == LSTTimerSecondChangeNFTypeMS) {
+                if (obj.NFType == NCHTimerSecondChangeNFTypeMS) {
                     // 发出通知
                     [[NSNotificationCenter defaultCenter] postNotificationName:obj.NFName object:nil userInfo:nil];
                 }
             }else if (obj.unit == 0) {
                 if (obj.handleBlock) {obj.handleBlock(days,hours,minute,second,ms);}
                 obj.unit = 1000;
-                if (obj.NFType == LSTTimerSecondChangeNFTypeSecond) {
+                if (obj.NFType == NCHTimerSecondChangeNFTypeSecond) {
                     // 发出通知
                     [[NSNotificationCenter defaultCenter] postNotificationName:obj.NFName object:nil userInfo:nil];
                 }
             }
             
             if (obj.isDisk) {
-                [LSTTimer savaForTimerModel:obj];
+                [NCHTimer savaForTimerModel:obj];
             }
             
             if (obj.time<=0) {//计时器计时完毕自动移除计时任务
                 if (obj.finishBlock) { obj.finishBlock(obj.identifier); }
-                [LSTTimerM().timerMdic removeObjectForKey:obj.identifier];
-                [LSTTimer deleteForIdentifier:obj.identifier];
+                [NCHTimerM().timerMdic removeObjectForKey:obj.identifier];
+                [NCHTimer deleteForIdentifier:obj.identifier];
             }
             
         }
@@ -585,7 +586,7 @@ LSTTimer *LSTTimerM() {
   
 }
 
-- (NSMutableDictionary<NSString *,LSTPopViewTimerModel *> *)timerMdic {
+- (NSMutableDictionary<NSString *,NCHPopViewTimerModel *> *)timerMdic {
     if(_timerMdic) return _timerMdic;
     _timerMdic = [NSMutableDictionary dictionary];
     return _timerMdic;
@@ -596,13 +597,13 @@ LSTTimer *LSTTimerM() {
 #pragma mark - ***** other *****
 
 + (BOOL)timerIsExistInDiskForIdentifier:(NSString *)identifier {
-    NSString *filePath = LSTPopViewTimerPath(identifier);
+    NSString *filePath = NCHPopViewTimerPath(identifier);
     BOOL isExist = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
     return isExist;
 }
 
 /** 格式化时间  */
-+ (void)formatDateForTime:(NSTimeInterval)time handle:(LSTTimerChangeBlock)handle {
++ (void)formatDateForTime:(NSTimeInterval)time handle:(NCHTimerChangeBlock)handle {
     if (handle) {
         NSInteger totalSeconds = time/1000.0;
         NSString *days = [NSString stringWithFormat:@"%zd", totalSeconds/60/60/24];
@@ -630,18 +631,18 @@ LSTTimer *LSTTimerM() {
 }
 
 
-+ (BOOL)savaForTimerModel:(LSTPopViewTimerModel *)model {
-    NSString *filePath = LSTPopViewTimerPath(model.identifier);
++ (BOOL)savaForTimerModel:(NCHPopViewTimerModel *)model {
+    NSString *filePath = NCHPopViewTimerPath(model.identifier);
     return [NSKeyedArchiver archiveRootObject:model toFile:filePath];
 }
 
-+ (LSTPopViewTimerModel *)loadTimerForIdentifier:(NSString *)identifier{
-    NSString *filePath = LSTPopViewTimerPath(identifier);
++ (NCHPopViewTimerModel *)loadTimerForIdentifier:(NSString *)identifier{
+    NSString *filePath = NCHPopViewTimerPath(identifier);
     return [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
 }
 
 + (BOOL)deleteForIdentifier:(NSString *)identifier {
-    NSString *filePath = LSTPopViewTimerPath(identifier);
+    NSString *filePath = NCHPopViewTimerPath(identifier);
     NSFileManager* fileManager = [NSFileManager defaultManager];
     BOOL isExist = [fileManager fileExistsAtPath:filePath];
     if (isExist) {
@@ -650,11 +651,11 @@ LSTTimer *LSTTimerM() {
     return NO;
 }
 
-+ (LSTPopViewTimerModel *)getTimerModelForIdentifier:(NSString *)identifier {
++ (NCHPopViewTimerModel *)getTimerModelForIdentifier:(NSString *)identifier {
     if (identifier.length<=0) {
         return nil;
     }
-    LSTPopViewTimerModel *model = [LSTTimer loadTimerForIdentifier:identifier];
+    NCHPopViewTimerModel *model = [NCHTimer loadTimerForIdentifier:identifier];
     return model;
     
 }

@@ -12,11 +12,11 @@
 @implementation VLIndexRequest
 
 - (NSString *)requestUrl{
-   return API_SITE_LOGIN;
+   return API_VLOG_INDEX_FIND;
 }
 
 - (YTKRequestMethod)requestMethod{
-    return YTKRequestMethodPOST;
+    return YTKRequestMethodGET;
 }
 
 @end

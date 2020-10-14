@@ -1,15 +1,16 @@
 //
-//  LSTPopViewManager.m
-//  LSTButton
+//  NCHPopViewManager.m
+//  VLog
 //
-//  Created by LoSenTrad on 2020/3/30.
+//  Created by szy on 2020/10/13.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "LSTPopViewManager.h"
-#import "LSTPopView.h"
+#import "NCHPopViewManager.h"
+#import "NCHPopView.h"
 
 
-@interface LSTPopViewManager ()
+@interface NCHPopViewManager ()
 
 /** 内存储存popView */
 @property (nonatomic,strong) NSMutableArray *popViewMarr;
@@ -18,13 +19,13 @@
 @end
 
 
-@implementation LSTPopViewManager
+@implementation NCHPopViewManager
 
-static LSTPopViewManager *_instance;
+static NCHPopViewManager *_instance;
 
 
-LSTPopViewManager *LSTPopViewM() {
-    return [LSTPopViewManager sharedInstance];
+NCHPopViewManager *NCHPopViewM() {
+    return [NCHPopViewManager sharedInstance];
 }
 
 + (instancetype)sharedInstance {
@@ -47,19 +48,19 @@ LSTPopViewManager *LSTPopViewM() {
 }
 
 + (NSArray *)getAllPopView {
-    return LSTPopViewM().popViewMarr;
+    return NCHPopViewM().popViewMarr;
 }
 /** 获取当前页面所有popView */
 + (NSArray *)getAllPopViewForParentView:(UIView *)view {
-    NSMutableArray *mArr = LSTPopViewM().popViewMarr;
+    NSMutableArray *mArr = NCHPopViewM().popViewMarr;
     NSMutableArray *resMarr = [NSMutableArray array];
     for (id obj in mArr) {
-        LSTPopView *popView;
+        NCHPopView *popView;
         if ([obj isKindOfClass:[NSValue class]]) {
             NSValue *resObj = (NSValue *)obj;
             popView  = resObj.nonretainedObjectValue;
         }else {
-            popView  = (LSTPopView *)obj;
+            popView  = (NCHPopView *)obj;
         }
         if ([popView.parentView isEqual:view]) {
             [resMarr addObject:obj];
@@ -70,17 +71,17 @@ LSTPopViewManager *LSTPopViewM() {
 
 /** 获取所有popView 精准获取 */
 /** 获取当前页面指定编队的所有popView */
-+ (NSArray *)getAllPopViewForPopView:(LSTPopView *)popView {
++ (NSArray *)getAllPopViewForPopView:(NCHPopView *)popView {
     
     NSArray *mArr = [self getAllPopViewForParentView:popView.parentView];
     NSMutableArray *resMarr = [NSMutableArray array];
     for (id obj in mArr) {
-        LSTPopView *tPopView;
+        NCHPopView *tPopView;
         if ([obj isKindOfClass:[NSValue class]]) {
             NSValue *resObj = (NSValue *)obj;
             tPopView  = resObj.nonretainedObjectValue;
         }else {
-            tPopView  = (LSTPopView *)obj;
+            tPopView  = (NCHPopView *)obj;
         }
         
         if (popView.groupId == nil && tPopView.groupId == nil) {
@@ -96,21 +97,21 @@ LSTPopViewManager *LSTPopViewM() {
 }
 
 /** 读取popView */
-+ (LSTPopView *)getPopViewForKey:(NSString *)key {
++ (NCHPopView *)getPopViewForKey:(NSString *)key {
     
     return nil;
 }
 
-+ (void)savePopView:(LSTPopView *)popView {
++ (void)savePopView:(NCHPopView *)popView {
     
     NSArray *arr = [self getAllPopView];
     for (id obj in arr) {
-        LSTPopView *tPopView;
+        NCHPopView *tPopView;
         if ([obj isKindOfClass:[NSValue class]]) {
             NSValue *resObj = (NSValue *)obj;
             tPopView  = resObj.nonretainedObjectValue;
         }else {
-            tPopView  = (LSTPopView *)obj;
+            tPopView  = (NCHPopView *)obj;
         }
         if ([tPopView isEqual:popView]) {
             break;
@@ -119,10 +120,10 @@ LSTPopViewManager *LSTPopViewM() {
     }
     
     if (popView.superview) {
-        [LSTPopViewM().popViewMarr addObject:[NSValue valueWithNonretainedObject:popView]];
+        [NCHPopViewM().popViewMarr addObject:[NSValue valueWithNonretainedObject:popView]];
         
     }else {
-        [LSTPopViewM().popViewMarr addObject:popView];
+        [NCHPopViewM().popViewMarr addObject:popView];
         
     }
     
@@ -133,26 +134,26 @@ LSTPopViewManager *LSTPopViewM() {
 //冒泡排序
 + (void)sortingArr{
     
-    NSMutableArray *arr = LSTPopViewM().popViewMarr;
+    NSMutableArray *arr = NCHPopViewM().popViewMarr;
     
     for (int i = 0; i < arr.count; i++) {
         for (int j = i+1; j < arr.count; j++) {
             
-            LSTPopView *iPopView;
+            NCHPopView *iPopView;
             if ([arr[i] isKindOfClass:[NSValue class]]) {
                 NSValue *resObj = (NSValue *)arr[i];
                 iPopView  = resObj.nonretainedObjectValue;
                 
             }else {
-                iPopView  = (LSTPopView *)arr[i];
+                iPopView  = (NCHPopView *)arr[i];
             }
-            LSTPopView *jPopView;
+            NCHPopView *jPopView;
             if ([arr[j] isKindOfClass:[NSValue class]]) {
                 NSValue *resObj = (NSValue *)arr[j];
                 jPopView  = resObj.nonretainedObjectValue;
                 
             }else {
-                jPopView  = (LSTPopView *)arr[j];
+                jPopView  = (NCHPopView *)arr[j];
             }
             
             if (iPopView.priority > jPopView.priority) {
@@ -163,33 +164,33 @@ LSTPopViewManager *LSTPopViewM() {
 }
 
 /** 弱化popView 仅供内部调用 */
-+ (void)weakWithPopView:(LSTPopView *)popView {
++ (void)weakWithPopView:(NCHPopView *)popView {
     
-    if (![LSTPopViewM().popViewMarr containsObject:popView]) {
+    if (![NCHPopViewM().popViewMarr containsObject:popView]) {
         return;
     }
     
-    NSUInteger index =  [LSTPopViewM().popViewMarr indexOfObject:popView];
+    NSUInteger index =  [NCHPopViewM().popViewMarr indexOfObject:popView];
     
-    [LSTPopViewM().popViewMarr replaceObjectAtIndex:index withObject:[NSValue valueWithNonretainedObject:popView]];
-    NSLog(@"%@",LSTPopViewM().popViewMarr);
+    [NCHPopViewM().popViewMarr replaceObjectAtIndex:index withObject:[NSValue valueWithNonretainedObject:popView]];
+    NSLog(@"%@",NCHPopViewM().popViewMarr);
 }
 
 /** 移除popView */
-+ (void)removePopView:(LSTPopView *)popView {
++ (void)removePopView:(NCHPopView *)popView {
     if (!popView) { return;}
-    NSArray *arr = LSTPopViewM().popViewMarr;
+    NSArray *arr = NCHPopViewM().popViewMarr;
     
     for (id obj in arr) {
-        LSTPopView *tPopView;
+        NCHPopView *tPopView;
         if ([obj isKindOfClass:[NSValue class]]) {
             NSValue *resObj = (NSValue *)obj;
             tPopView  = resObj.nonretainedObjectValue;
         }else {
-            tPopView  = (LSTPopView *)obj;
+            tPopView  = (NCHPopView *)obj;
         }
         if ([tPopView isEqual:popView]) {
-            [LSTPopViewM().popViewMarr removeObject:obj];
+            [NCHPopViewM().popViewMarr removeObject:obj];
             break;
             return;
         }
@@ -199,18 +200,18 @@ LSTPopViewManager *LSTPopViewM() {
 /** 移除popView */
 + (void)removePopViewForKey:(NSString *)key {
     if (key.length<=0) { return;}
-    NSArray *arr = LSTPopViewM().popViewMarr;
+    NSArray *arr = NCHPopViewM().popViewMarr;
     
     for (id obj in arr) {
-        LSTPopView *tPopView;
+        NCHPopView *tPopView;
         if ([obj isKindOfClass:[NSValue class]]) {
             NSValue *resObj = (NSValue *)obj;
             tPopView  = resObj.nonretainedObjectValue;
         }else {
-            tPopView  = (LSTPopView *)obj;
+            tPopView  = (NCHPopView *)obj;
         }
         if ([tPopView.identifier isEqualToString:key]) {
-            [LSTPopViewM().popViewMarr removeObject:obj];
+            [NCHPopViewM().popViewMarr removeObject:obj];
             break;
             return;
         }
@@ -218,7 +219,7 @@ LSTPopViewManager *LSTPopViewM() {
 }
 /** 移除所有popView */
 + (void)removeAllPopView {
-    NSMutableArray *arr = LSTPopViewM().popViewMarr;
+    NSMutableArray *arr = NCHPopViewM().popViewMarr;
     
     if (arr.count<=0) {return;}
     [arr removeAllObjects];
@@ -235,3 +236,4 @@ LSTPopViewManager *LSTPopViewM() {
 
 
 @end
+

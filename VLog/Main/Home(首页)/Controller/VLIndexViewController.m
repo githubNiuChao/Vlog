@@ -11,7 +11,7 @@
 #import "VLIndexListCollectionViewCell.h"
 #import "VLPhotoDetailViewController.h"
 #import "AwemeListController.h"
-#import "LSTPopView.h"
+
 
 
 @interface VLIndexViewController ()
@@ -41,7 +41,7 @@ NCHVerticalFlowLayoutDelegate
 #pragma mark - Super
 -(void)loadMore:(BOOL)isMore{
     self.manager.page = isMore? self.manager.page+=1:0;
-    [self.manager loadData];
+    [self.manager loadDataWithCatId:self.catId];
 }
 
 #pragma mark - <VLIndexListManagerDelegate>
@@ -61,7 +61,7 @@ NCHVerticalFlowLayoutDelegate
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     VLIndexListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([VLIndexListCollectionViewCell class]) forIndexPath:indexPath];
-    cell.personModel = self.manager.dataArray[indexPath.row];
+    cell.listModel = self.manager.dataArray[indexPath.row];
     
     return cell;
 }
@@ -73,7 +73,7 @@ NCHVerticalFlowLayoutDelegate
     VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
 //    profileVC.headerImage = cell.imgView.image;
 //    profileVC.isTransition = YES;
-    photoDetaiVC.imageArray = cell.personModel.imageArray;
+//    photoDetaiVC.imageArray = cell.listModel.imageArray;
     [self.navigationController pushViewController:photoDetaiVC animated:YES];
 
 //    
@@ -105,12 +105,12 @@ NCHVerticalFlowLayoutDelegate
 
 - (CGFloat)waterflowLayout:(NCHVerticalFlowLayout *)waterflowLayout collectionView:(UICollectionView *)collectionView heightForItemAtIndexPath:(NSIndexPath *)indexPath itemWidth:(CGFloat)itemWidth
 {
-    VLIndexModel *personModel = self.manager.dataArray[indexPath.row];
-      if (personModel.imageCacheHeight == 0 || personModel.hobbysCacheHeight == 0) {
-        personModel.hobbysCacheHeight = [personModel.hobbys jk_heightWithFont:kFontSmall constrainedToWidth:itemWidth];
-        personModel.imageCacheHeight = personModel.imageHeight * itemWidth / personModel.imageWidth;
+    VLIndex_ListResponse *listModel = self.manager.dataArray[indexPath.row];
+      if (listModel.imageCacheHeight == 0 || listModel.hobbysCacheHeight == 0) {
+        listModel.hobbysCacheHeight = [listModel.video_desc jk_heightWithFont:kFontSmall constrainedToWidth:itemWidth];
+        listModel.imageCacheHeight = listModel.height * itemWidth / listModel.width;
       }
-    return personModel.imageCacheHeight + personModel.hobbysCacheHeight + 70;
+    return listModel.imageCacheHeight + listModel.hobbysCacheHeight + 70;
 }
 
 #pragma mark - <JXCategoryListContentViewDelegate>

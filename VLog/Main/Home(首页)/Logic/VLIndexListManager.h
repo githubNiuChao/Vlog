@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VLIndexResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,11 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VLIndexListManager : NSObject
 @property (nonatomic,assign) NSInteger  page;//页码
-@property (nonatomic,strong) NSMutableArray * dataArray;//数据源
+@property (nonatomic,strong) NSArray<VLIndex_ListResponse*> * dataArray;//数据源
 @property (nonatomic,weak) id<VLIndexListManagerDelegate> delegagte;
 
 /**拉取数据*/
--(void)loadData;
+-(void)loadDataWithCatId:(NSInteger)catId;
 
 @end
 

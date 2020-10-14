@@ -1,82 +1,79 @@
 //
-//  LSTPopView.h
-//  LoSenTrad
+//  NCHPopView.h
+//  VLog
 //
-//  Created by LoSenTrad on 2020/2/22.
+//  Created by szy on 2020/10/13.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
-/** 博客地址 如果觉得好用 伸出你的小指头 点Star 点赞 点收藏! 就是给予我最大的支持!
-    github: https://github.com/LoSenTrad/LSTPopView
-    简书: https://www.jianshu.com/p/8023a85dc2a2
- */
 
 #import <UIKit/UIKit.h>
-#import "LSTPopViewProtocol.h"
+#import "NCHPopViewProtocol.h"
 
 
-#define LSTPopViewWK(object)  __weak typeof(object) wk_##object = object;
-#define LSTPopViewSS(object)  __strong typeof(object) object = weak##object;
+#define NCHPopViewWK(object)  __weak typeof(object) wk_##object = object;
+#define NCHPopViewSS(object)  __strong typeof(object) object = weak##object;
 
 
 /** 显示动画样式 */
-typedef NS_ENUM(NSInteger, LSTPopStyle) {
-    LSTPopStyleNO = 0,                 // 默认 无动画
-    LSTPopStyleScale,                  // 缩放 先放大 后恢复至原大小
-    LSTPopStyleSmoothFromTop,          // 顶部 平滑淡入动画
-    LSTPopStyleSmoothFromLeft,         // 左侧 平滑淡入动画
-    LSTPopStyleSmoothFromBottom,       // 底部 平滑淡入动画
-    LSTPopStyleSmoothFromRight,        // 右侧 平滑淡入动画
-    LSTPopStyleSpringFromTop,          // 顶部 平滑淡入动画 带弹簧
-    LSTPopStyleSpringFromLeft,         // 左侧 平滑淡入动画 带弹簧
-    LSTPopStyleSpringFromBottom,       // 底部 平滑淡入动画 带弹簧
-    LSTPopStyleSpringFromRight,        // 右侧 平滑淡入动画 带弹簧
-    LSTPopStyleCardDropFromLeft,       // 顶部左侧 掉落动画
-    LSTPopStyleCardDropFromRight,      // 顶部右侧 掉落动画
+typedef NS_ENUM(NSInteger, NCHPopStyle) {
+    NCHPopStyleNO = 0,                 // 默认 无动画
+    NCHPopStyleScale,                  // 缩放 先放大 后恢复至原大小
+    NCHPopStyleSmoothFromTop,          // 顶部 平滑淡入动画
+    NCHPopStyleSmoothFromLeft,         // 左侧 平滑淡入动画
+    NCHPopStyleSmoothFromBottom,       // 底部 平滑淡入动画
+    NCHPopStyleSmoothFromRight,        // 右侧 平滑淡入动画
+    NCHPopStyleSpringFromTop,          // 顶部 平滑淡入动画 带弹簧
+    NCHPopStyleSpringFromLeft,         // 左侧 平滑淡入动画 带弹簧
+    NCHPopStyleSpringFromBottom,       // 底部 平滑淡入动画 带弹簧
+    NCHPopStyleSpringFromRight,        // 右侧 平滑淡入动画 带弹簧
+    NCHPopStyleCardDropFromLeft,       // 顶部左侧 掉落动画
+    NCHPopStyleCardDropFromRight,      // 顶部右侧 掉落动画
 };
 /** 消失动画样式 */
-typedef NS_ENUM(NSInteger, LSTDismissStyle) {
-    LSTDismissStyleNO = 0,               // 默认 无动画
-    LSTDismissStyleScale,                // 缩放
-    LSTDismissStyleSmoothToTop,          // 顶部 平滑淡出动画
-    LSTDismissStyleSmoothToLeft,         // 左侧 平滑淡出动画
-    LSTDismissStyleSmoothToBottom,       // 底部 平滑淡出动画
-    LSTDismissStyleSmoothToRight,        // 右侧 平滑淡出动画
-    LSTDismissStyleCardDropToLeft,       // 卡片从中间往左侧掉落
-    LSTDismissStyleCardDropToRight,      // 卡片从中间往右侧掉落
-    LSTDismissStyleCardDropToTop,        // 卡片从中间往顶部移动消失
+typedef NS_ENUM(NSInteger, NCHDismissStyle) {
+    NCHDismissStyleNO = 0,               // 默认 无动画
+    NCHDismissStyleScale,                // 缩放
+    NCHDismissStyleSmoothToTop,          // 顶部 平滑淡出动画
+    NCHDismissStyleSmoothToLeft,         // 左侧 平滑淡出动画
+    NCHDismissStyleSmoothToBottom,       // 底部 平滑淡出动画
+    NCHDismissStyleSmoothToRight,        // 右侧 平滑淡出动画
+    NCHDismissStyleCardDropToLeft,       // 卡片从中间往左侧掉落
+    NCHDismissStyleCardDropToRight,      // 卡片从中间往右侧掉落
+    NCHDismissStyleCardDropToTop,        // 卡片从中间往顶部移动消失
 };
 /** 主动动画样式(开发中) */
-typedef NS_ENUM(NSInteger, LSTActivityStyle) {
-    LSTActivityStyleNO = 0,               /// 无动画
-    LSTActivityStyleScale,                /// 缩放
-    LSTActivityStyleShake,                /// 抖动
+typedef NS_ENUM(NSInteger, NCHActivityStyle) {
+    NCHActivityStyleNO = 0,               /// 无动画
+    NCHActivityStyleScale,                /// 缩放
+    NCHActivityStyleShake,                /// 抖动
 };
 /**弹框位置 */
-typedef NS_ENUM(NSInteger, LSTHemStyle) {
-    LSTHemStyleCenter = 0,
-    LSTHemStyleTop,    //贴顶
-    LSTHemStyleLeft,   //贴左
-    LSTHemStyleBottom, //贴底
-    LSTHemStyleRight,  //贴右
+typedef NS_ENUM(NSInteger, NCHHemStyle) {
+    NCHHemStyleCenter = 0,
+    NCHHemStyleTop,    //贴顶
+    NCHHemStyleLeft,   //贴左
+    NCHHemStyleBottom, //贴底
+    NCHHemStyleRight,  //贴右
 };
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSTPopView : UIView
+@interface NCHPopView : UIView
 
 /** 代理 支持多代理 */
-@property (nonatomic, weak) id<LSTPopViewProtocol> _Nullable delegate;
+@property (nonatomic, weak) id<NCHPopViewProtocol> _Nullable delegate;
 /** 标识 默认为空 */
 @property (nonatomic,copy) NSString *_Nullable identifier;
 /** 弹框容器 默认是app UIWindow 可指定view作为容器 */
 @property (nonatomic,weak) UIView * _Nullable parentView;
-/** 弹框位置 默认LSTHemStyleCenter */
-@property (nonatomic, assign) LSTHemStyle hemStyle;
-/** 显示时动画弹框样式 默认LSTPopStyleNO */
-@property (nonatomic) LSTPopStyle popStyle;
-/** 移除时动画弹框样式 默认LSTDismissStyleNO */
-@property (nonatomic) LSTDismissStyle dismissStyle;
+/** 弹框位置 默认NCHHemStyleCenter */
+@property (nonatomic, assign) NCHHemStyle hemStyle;
+/** 显示时动画弹框样式 默认NCHPopStyleNO */
+@property (nonatomic) NCHPopStyle popStyle;
+/** 移除时动画弹框样式 默认NCHDismissStyleNO */
+@property (nonatomic) NCHDismissStyle dismissStyle;
 /** 显示时动画时长，>= 0。不设置则使用默认的动画时长 */
 @property (nonatomic, assign) NSTimeInterval popDuration;
 /** 隐藏时动画时长，>= 0。不设置则使用默认的动画时长 */
@@ -145,7 +142,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 已经移除完毕 回调 */
 @property (nullable, nonatomic, copy) void(^popViewDidDismissBlock)(void);
 /** 倒计时 回调 */
-@property (nullable, nonatomic, copy) void(^popViewCountDownBlock)(LSTPopView *popView,NSTimeInterval timeInterval);
+@property (nullable, nonatomic, copy) void(^popViewCountDownBlock)(NCHPopView *popView,NSTimeInterval timeInterval);
 //********************************************
 
 
@@ -159,24 +156,24 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable instancetype)initWithCustomView:(UIView *_Nonnull)customView;
 
 + (nullable instancetype)initWithCustomView:(UIView *)customView
-                                   popStyle:(LSTPopStyle)popStyle
-                               dismissStyle:(LSTDismissStyle)dismissStyle;
+                                   popStyle:(NCHPopStyle)popStyle
+                               dismissStyle:(NCHDismissStyle)dismissStyle;
 
 + (nullable instancetype)initWithCustomView:(UIView *)customView
                                  parentView:(UIView *_Nullable)parentView
-                                   popStyle:(LSTPopStyle)popStyle
+                                   popStyle:(NCHPopStyle)popStyle
 
 
-                               dismissStyle:(LSTDismissStyle)dismissStyle;
+                               dismissStyle:(NCHDismissStyle)dismissStyle;
 /*
   以下是弹出方法
   popStyle: 弹出动画 优先级大于全局的popStyle 局部起作用
   duration: 弹出时间 优先级大于全局的popDuration 局部起作用
 */
 - (void)pop;
-- (void)popWithStyle:(LSTPopStyle)popStyle;
+- (void)popWithStyle:(NCHPopStyle)popStyle;
 - (void)popWithDuration:(NSTimeInterval)duration;
-- (void)popWithStyle:(LSTPopStyle)popStyle duration:(NSTimeInterval)duration;
+- (void)popWithStyle:(NCHPopStyle)popStyle duration:(NSTimeInterval)duration;
 
 
 /*
@@ -185,13 +182,13 @@ NS_ASSUME_NONNULL_BEGIN
   duration: 弹出时间 优先级大于全局的dismissDuration 局部起作用
 */
 - (void)dismiss;
-- (void)dismissWithStyle:(LSTDismissStyle)dismissStyle;
+- (void)dismissWithStyle:(NCHDismissStyle)dismissStyle;
 - (void)dismissWithDuration:(NSTimeInterval)duration;
-- (void)dismissWithStyle:(LSTDismissStyle)dismissStyle duration:(NSTimeInterval)duration;
+- (void)dismissWithStyle:(NCHDismissStyle)dismissStyle duration:(NSTimeInterval)duration;
 
 
 /** 删除指定代理 */
-- (void)removeForDelegate:(id<LSTPopViewProtocol>)delegate;
+- (void)removeForDelegate:(id<NCHPopViewProtocol>)delegate;
 /** 删除代理池 删除所有代理 */
 - (void)removeAllDelegate;
 

@@ -128,6 +128,11 @@ KProNSArrayType(VLIndex_Cat_InfoResponse,children)
 //           }
 //       ]
 
+typedef enum : NSUInteger {
+    VLIndex_ListResponseTypeImage = 0,
+    VLIndex_ListResponseTypeVidel = 1
+} VLIndex_ListResponseType;
+
 @interface VLIndex_ListResponse : NSObject
 kProNSString(video_id)
 kProNSString(video_title)
@@ -155,7 +160,11 @@ kProNSString(nickname)
 kProNSString(headimg)
 kProNSString(like_count)
 KProBool(is_like)
-
+KProNSInteger(width)
+KProNSInteger(height)
+KProAssignType(NSInteger,imageCacheHeight)
+KProAssignType(NSInteger,hobbysCacheHeight)
+KProAssignType(VLIndex_ListResponseType,videoType)
 @end
 
 //"page":{

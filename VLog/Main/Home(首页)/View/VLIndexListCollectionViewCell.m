@@ -100,24 +100,21 @@ KProStrongType(UIView, line);//分割线
 
 - (void)likeClicked:(UIButton *)button{
     _like.selected = !_like.selected;
-    _personModel.islike = _like.selected;
+    _listModel.is_like = _like.selected;
 }
 
--(void)setPersonModel:(VLIndexModel *)personModel{
-    _personModel=personModel;
+-(void)setListModel:(VLIndex_ListResponse *)listModel{
+    _listModel = listModel;
     _imgView.backgroundColor=kWhiteColor;
-//    [_imgView sd_setImageWithURL:[NSURL URLWithString:personModel.picture] placeholderImage:[UIImage jk_imageWithColor:KGrayColor]];
-//    [_imgHead sd_setImageWithURL:[NSURL URLWithString:personModel.headImg] placeholderImage:[UIImage jk_imageWithColor:KGrayColor]];
-    _like.selected = _personModel.islike;
-    _videoIcon.hidden = !_personModel.isvideo;
-    _lblHobby.text=personModel.hobbys;
-    _lblNickName.text=personModel.nickName;
-    [_imgHead setImage:[UIImage imageNamed:personModel.picture]];
-    [_imgView setImage:[UIImage imageNamed:personModel.picture]];
+    [_imgView sd_setImageWithURL:[NSURL URLWithString:listModel.video_img] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
+    [_imgHead sd_setImageWithURL:[NSURL URLWithString:listModel.headimg] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
+    _like.selected = listModel.is_like;
+    _videoIcon.hidden = !listModel.videoType;
+    _lblHobby.text=listModel.video_title;
+    _lblNickName.text=listModel.nickname;
     
-    _imgView.frame=CGRectMake(0, 0, self.jk_width, personModel.imageCacheHeight);
-    _lblHobby.frame=CGRectMake(10, _imgView.jk_height+10, self.jk_width-20, personModel.hobbysCacheHeight);
-    
+    _imgView.frame=CGRectMake(0, 0, self.jk_width, listModel.imageCacheHeight);
+    _lblHobby.frame=CGRectMake(10, _imgView.jk_height+10, self.jk_width-20, listModel.hobbysCacheHeight);
     _line.jk_top=_lblHobby.jk_bottom+10;
     _imgHead.jk_top=_line.jk_bottom+10;
     _lblNickName.jk_top=_imgHead.jk_top+5;

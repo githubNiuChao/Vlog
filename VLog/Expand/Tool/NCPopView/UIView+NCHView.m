@@ -1,17 +1,17 @@
 //
-//  UIView+LSTView.m
-//  KitNote
+//  UIView+NCHView.m
+//  VLog
 //
-//  Created by LoSenTrad on 2018/5/30.
-//  Copyright © 2018年 LoSenTrad. All rights reserved.
+//  Created by szy on 2020/10/13.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "UIView+LSTView.h"
+#import "UIView+NCHView.h"
 
 #define kShadowViewTag 2132
 #define kValidDirections [NSArray arrayWithObjects: @"top", @"bottom", @"left", @"right",nil]
 
-@implementation UIView (QTFrame)
+@implementation UIView (NCHView)
 
 
 - (void)setX:(CGFloat)x
@@ -147,7 +147,7 @@
 }
 
 
-CGSize LSTScreenSize() {
+CGSize NCHScreenSize() {
     static CGSize size;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -161,7 +161,7 @@ CGSize LSTScreenSize() {
     return size;
 }
 
-CGFloat LSTScreenWidth() {
+CGFloat NCHScreenWidth() {
     static CGSize size;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -175,7 +175,7 @@ CGFloat LSTScreenWidth() {
     return size.width;
 }
 
-CGFloat LSTScreenHeight() {
+CGFloat NCHScreenHeight() {
     static CGSize size;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -189,20 +189,20 @@ CGFloat LSTScreenHeight() {
     return size.height;
 }
 
-CGFloat LSTAutoWidth(CGFloat width) {
-    return  LSTScreenWidth() * (width/LSTScreenWidth());
+CGFloat NCHAutoWidth(CGFloat width) {
+    return  NCHScreenWidth() * (width/NCHScreenWidth());
 }
-CGFloat LSTAutoHeight(CGFloat height) {
-    return  LSTScreenHeight() * (height/LSTScreenHeight());
+CGFloat NCHAutoHeight(CGFloat height) {
+    return  NCHScreenHeight() * (height/NCHScreenHeight());
 }
-CGFloat LSTAutoWidthForView(CGFloat width,UIView *tagView) {
+CGFloat NCHAutoWidthForView(CGFloat width,UIView *tagView) {
     return 0;
 }
-CGFloat LSTAutoHeightForView(CGFloat height,UIView *tagView) {
+CGFloat NCHAutoHeightForView(CGFloat height,UIView *tagView) {
     return 0;
 }
 
-CGRect LSTScreenBounds() {
+CGRect NCHScreenBounds() {
     static CGRect bounds;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -211,7 +211,7 @@ CGRect LSTScreenBounds() {
     return bounds;
 }
 
-#define widthRatio(_f_) (_f_) * LSTScreenWidth()
+#define widthRatio(_f_) (_f_) * NCHScreenWidth()
 
 static inline CGSize QTSizeMake(CGFloat width, CGFloat height){
     CGSize size; size.width = widthRatio(width); size.height = widthRatio(height); return size;
@@ -229,24 +229,24 @@ static inline CGRect QTRectMake(CGFloat x, CGFloat y, CGFloat width, CGFloat hei
 }
 
 /** 是否是苹果X */
-BOOL lst_IsIphoneX() {
+BOOL NCH_IsIphoneX() {
     return ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO);
 }
 /** 是否是苹果XR */
-BOOL lst_IsIphoneXR() {
+BOOL NCH_IsIphoneXR() {
     return ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1624), [[UIScreen mainScreen] currentMode].size) : NO);
 }
 /** 是否是苹果XS */
-BOOL lst_IsIphoneXS() {
+BOOL NCH_IsIphoneXS() {
     return ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO);
 }
 /** 是否是苹果XS_Max */
-BOOL lst_IsIphoneXS_Max() {
+BOOL NCH_IsIphoneXS_Max() {
     return ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size): NO);
 }
 /** 是否是苹果X系列(刘海屏系列) */
-BOOL lst_IsIphoneX_ALL() {
-    return (CGSizeEqualToSize(CGSizeMake(375.f, 812.f), LSTScreenSize())|| CGSizeEqualToSize(CGSizeMake(812.f, 375.f), LSTScreenSize())  || CGSizeEqualToSize(CGSizeMake(414.f, 896.f), LSTScreenSize()) || CGSizeEqualToSize(CGSizeMake(896.f, 414.f), LSTScreenSize()));
+BOOL NCH_IsIphoneX_ALL() {
+    return (CGSizeEqualToSize(CGSizeMake(375.f, 812.f), NCHScreenSize())|| CGSizeEqualToSize(CGSizeMake(812.f, 375.f), NCHScreenSize())  || CGSizeEqualToSize(CGSizeMake(414.f, 896.f), NCHScreenSize()) || CGSizeEqualToSize(CGSizeMake(896.f, 414.f), NCHScreenSize()));
     //或者以下方法判断
 //    BOOL isPhoneX = NO;
 //        if (@available(iOS 11.0, *)) {
@@ -255,32 +255,32 @@ BOOL lst_IsIphoneX_ALL() {
 }
 
 /** 状态栏高度 X:44 非X:20 */
-CGFloat LSTStatusBarHeight() {
-    if (lst_IsIphoneX_ALL()) {
+CGFloat NCHStatusBarHeight() {
+    if (NCH_IsIphoneX_ALL()) {
         return 44;
     } else {
         return 20;
     }
 }
 /** 导航栏高度 X:88 非X:64 */
-CGFloat LSTNavBarHeight() {
-    if (lst_IsIphoneX_ALL()) {
+CGFloat NCHNavBarHeight() {
+    if (NCH_IsIphoneX_ALL()) {
         return 44+44;
     } else {
         return 44+20;
     }
 }
 /** 底部导航栏高度 X:83 非X:49 */
-CGFloat LSTTabBarHeight() {
-    if (lst_IsIphoneX_ALL()) {
+CGFloat NCHTabBarHeight() {
+    if (NCH_IsIphoneX_ALL()) {
         return 49+34;
     } else {
         return 49;
     }
 }
 /** 标签栏高度 X:34 非X:0 */
-CGFloat LSTTabBarBottomMargin() {
-    if (lst_IsIphoneX_ALL()) {
+CGFloat NCHTabBarBottomMargin() {
+    if (NCH_IsIphoneX_ALL()) {
         return 34;
     } else {
         return 0;
@@ -288,16 +288,16 @@ CGFloat LSTTabBarBottomMargin() {
 }
 
 /** 底部贴边控件高度 */
-CGFloat LSTBottomHemViewHeight(CGFloat height) {
-    if (lst_IsIphoneX_ALL()) {
+CGFloat NCHBottomHemViewHeight(CGFloat height) {
+    if (NCH_IsIphoneX_ALL()) {
         return (height+20)>64?64:height+20;
     }else {
         return height;
     }
 }
 /** 底部控件下间距 (间距小于20使用) */
-CGFloat LSTBottomHemViewMargin(CGFloat margin) {
-    if (lst_IsIphoneX_ALL()) {
+CGFloat NCHBottomHemViewMargin(CGFloat margin) {
+    if (NCH_IsIphoneX_ALL()) {
         return margin+15;
     }else {
         return margin;
@@ -309,14 +309,14 @@ CGFloat LSTBottomHemViewMargin(CGFloat margin) {
     return [nib instantiateWithOwner:nil options:nil].firstObject;
 }
 
-- (void)lst_RoundCorners:(UIRectCorner)corners radius:(CGFloat)radius {
+- (void)NCH_RoundCorners:(UIRectCorner)corners radius:(CGFloat)radius {
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.frame = self.bounds;
     maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(radius, radius)].CGPath;
     self.layer.mask = maskLayer;
 }
 
-- (UIImage *)lst_SnapshotImage {
+- (UIImage *)NCH_SnapshotImage {
     UIGraphicsBeginImageContext(self.bounds.size);
     if([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]){
         [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
@@ -485,22 +485,22 @@ CGFloat LSTBottomHemViewMargin(CGFloat margin) {
     }
 }
 
-- (void)addBorderLayerWithColor:(UIColor *)color size:(CGFloat)size borderType:(LSTBorderType)boderType{
+- (void)addBorderLayerWithColor:(UIColor *)color size:(CGFloat)size borderType:(NCHBorderType)boderType{
     CALayer * layer = [CALayer layer];
     layer.backgroundColor = color.CGColor;
     [self.layer addSublayer:layer];
     [UIFont systemFontOfSize:4];
     switch (boderType) {
-        case LSTBorderTypeTop:
+        case NCHBorderTypeTop:
             layer.frame = CGRectMake(0, 0, self.frame.size.width, size);
             break;
-        case LSTBorderTypeLeft:
+        case NCHBorderTypeLeft:
             layer.frame = CGRectMake(0, 0, size, self.frame.size.height);
             break;
-        case LSTBorderTypeBottom:
+        case NCHBorderTypeBottom:
             layer.frame = CGRectMake(0, self.frame.size.height - size, self.frame.size.width, size);
             break;
-        case LSTBorderTypeRight:
+        case NCHBorderTypeRight:
             layer.frame = CGRectMake(self.frame.size.width - size, 0, size, self.frame.size.height);
             break;
         default:
@@ -515,11 +515,11 @@ CGFloat LSTBottomHemViewMargin(CGFloat margin) {
     QTPointMake(0, 0);
     QTSizeMake(0, 0);
     QTRectMake(0, 0, 0, 0);
-    lst_IsIphoneX();
-    lst_IsIphoneXR();
-    lst_IsIphoneXS();
-    lst_IsIphoneXS_Max();
-    lst_IsIphoneX_ALL();
+    NCH_IsIphoneX();
+    NCH_IsIphoneXR();
+    NCH_IsIphoneXS();
+    NCH_IsIphoneXS_Max();
+    NCH_IsIphoneX_ALL();
 }
 
 @end

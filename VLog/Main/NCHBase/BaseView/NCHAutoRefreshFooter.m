@@ -28,6 +28,7 @@
 {
     self.automaticallyChangeAlpha = YES;
     self.refreshingTitleHidden = YES;
+    [self setTitle:@"" forState:MJRefreshStateIdle];
 }
 
 // MJBug fix

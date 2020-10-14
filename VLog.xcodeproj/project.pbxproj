@@ -24,6 +24,10 @@
 		514875D9251F1416003B7F11 /* NCHMacroTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 514875D8251F1416003B7F11 /* NCHMacroTools.m */; };
 		515E777D25218D470020F3EF /* home_like_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 515E777B25218D470020F3EF /* home_like_s.png */; };
 		515E777E25218D470020F3EF /* home_like_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 515E777C25218D470020F3EF /* home_like_n.png */; };
+		515FCC812535947E007F964A /* NCHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 515FCC802535947E007F964A /* NCHPopView.m */; };
+		515FCC842535953A007F964A /* NCHPopViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 515FCC832535953A007F964A /* NCHPopViewManager.m */; };
+		515FCC882535967C007F964A /* UIView+NCHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 515FCC872535967C007F964A /* UIView+NCHView.m */; };
+		515FCC8B25359704007F964A /* NCHTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 515FCC8A25359704007F964A /* NCHTimer.m */; };
 		51606925251DCB0B0070B9D9 /* VLNestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51606924251DCB0B0070B9D9 /* VLNestViewController.m */; };
 		51606928251DCC990070B9D9 /* VLNestSubjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51606927251DCC990070B9D9 /* VLNestSubjectViewController.m */; };
 		5160692B251DD0580070B9D9 /* VLBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5160692A251DD0580070B9D9 /* VLBaseListViewController.m */; };
@@ -233,10 +237,6 @@
 		51815266251C79E700F9CCD3 /* VLIndexListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815265251C79E700F9CCD3 /* VLIndexListManager.m */; };
 		51873F1325315E320070264B /* PagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1025315E320070264B /* PagingViewController.m */; };
 		51873F1425315E320070264B /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1225315E320070264B /* RefreshViewController.m */; };
-		51873F1B2533F8700070264B /* LSTPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F162533F8700070264B /* LSTPopView.m */; };
-		51873F1C2533F8700070264B /* LSTPopViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1A2533F8700070264B /* LSTPopViewManager.m */; };
-		51873F212533FBF80070264B /* UIView+LSTView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1D2533FBF70070264B /* UIView+LSTView.m */; };
-		51873F222533FBF80070264B /* LSTTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F1E2533FBF70070264B /* LSTTimer.m */; };
 		51873F2525342A190070264B /* WMZDialogAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F2325342A180070264B /* WMZDialogAnimation.m */; };
 		51873F29253433DE0070264B /* VLIndexResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F28253433DE0070264B /* VLIndexResponse.m */; };
 		518968D5250CA66100897448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518968D4250CA66100897448 /* Assets.xcassets */; };
@@ -377,6 +377,15 @@
 		514875D8251F1416003B7F11 /* NCHMacroTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHMacroTools.m; sourceTree = "<group>"; };
 		515E777B25218D470020F3EF /* home_like_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_like_s.png; sourceTree = "<group>"; };
 		515E777C25218D470020F3EF /* home_like_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_like_n.png; sourceTree = "<group>"; };
+		515FCC7F2535947E007F964A /* NCHPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHPopView.h; sourceTree = "<group>"; };
+		515FCC802535947E007F964A /* NCHPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHPopView.m; sourceTree = "<group>"; };
+		515FCC822535953A007F964A /* NCHPopViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHPopViewManager.h; sourceTree = "<group>"; };
+		515FCC832535953A007F964A /* NCHPopViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHPopViewManager.m; sourceTree = "<group>"; };
+		515FCC85253595A4007F964A /* NCHPopViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHPopViewProtocol.h; sourceTree = "<group>"; };
+		515FCC862535967C007F964A /* UIView+NCHView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+NCHView.h"; sourceTree = "<group>"; };
+		515FCC872535967C007F964A /* UIView+NCHView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+NCHView.m"; sourceTree = "<group>"; };
+		515FCC8925359704007F964A /* NCHTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHTimer.h; sourceTree = "<group>"; };
+		515FCC8A25359704007F964A /* NCHTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHTimer.m; sourceTree = "<group>"; };
 		51606923251DCB0B0070B9D9 /* VLNestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLNestViewController.h; sourceTree = "<group>"; };
 		51606924251DCB0B0070B9D9 /* VLNestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLNestViewController.m; sourceTree = "<group>"; };
 		51606926251DCC990070B9D9 /* VLNestSubjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLNestSubjectViewController.h; sourceTree = "<group>"; };
@@ -777,15 +786,6 @@
 		51873F1025315E320070264B /* PagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagingViewController.m; sourceTree = "<group>"; };
 		51873F1125315E320070264B /* RefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshViewController.h; sourceTree = "<group>"; };
 		51873F1225315E320070264B /* RefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
-		51873F162533F8700070264B /* LSTPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopView.m; sourceTree = "<group>"; };
-		51873F172533F8700070264B /* LSTPopViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewManager.h; sourceTree = "<group>"; };
-		51873F182533F8700070264B /* LSTPopViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewProtocol.h; sourceTree = "<group>"; };
-		51873F192533F8700070264B /* LSTPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopView.h; sourceTree = "<group>"; };
-		51873F1A2533F8700070264B /* LSTPopViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewManager.m; sourceTree = "<group>"; };
-		51873F1D2533FBF70070264B /* UIView+LSTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LSTView.m"; sourceTree = "<group>"; };
-		51873F1E2533FBF70070264B /* LSTTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTTimer.m; sourceTree = "<group>"; };
-		51873F1F2533FBF70070264B /* UIView+LSTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LSTView.h"; sourceTree = "<group>"; };
-		51873F202533FBF80070264B /* LSTTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTTimer.h; sourceTree = "<group>"; };
 		51873F2325342A180070264B /* WMZDialogAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZDialogAnimation.m; sourceTree = "<group>"; };
 		51873F2425342A190070264B /* WMZDialogAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZDialogAnimation.h; sourceTree = "<group>"; };
 		51873F27253433DE0070264B /* VLIndexResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLIndexResponse.h; sourceTree = "<group>"; };
@@ -2077,15 +2077,15 @@
 			children = (
 				51873F2425342A190070264B /* WMZDialogAnimation.h */,
 				51873F2325342A180070264B /* WMZDialogAnimation.m */,
-				51873F202533FBF80070264B /* LSTTimer.h */,
-				51873F1E2533FBF70070264B /* LSTTimer.m */,
-				51873F1F2533FBF70070264B /* UIView+LSTView.h */,
-				51873F1D2533FBF70070264B /* UIView+LSTView.m */,
-				51873F192533F8700070264B /* LSTPopView.h */,
-				51873F162533F8700070264B /* LSTPopView.m */,
-				51873F172533F8700070264B /* LSTPopViewManager.h */,
-				51873F1A2533F8700070264B /* LSTPopViewManager.m */,
-				51873F182533F8700070264B /* LSTPopViewProtocol.h */,
+				515FCC8925359704007F964A /* NCHTimer.h */,
+				515FCC8A25359704007F964A /* NCHTimer.m */,
+				515FCC862535967C007F964A /* UIView+NCHView.h */,
+				515FCC872535967C007F964A /* UIView+NCHView.m */,
+				515FCC7F2535947E007F964A /* NCHPopView.h */,
+				515FCC802535947E007F964A /* NCHPopView.m */,
+				515FCC822535953A007F964A /* NCHPopViewManager.h */,
+				515FCC832535953A007F964A /* NCHPopViewManager.m */,
+				515FCC85253595A4007F964A /* NCHPopViewProtocol.h */,
 			);
 			path = NCPopView;
 			sourceTree = "<group>";
@@ -2663,7 +2663,6 @@
 				51805AF9251B91CB00FBC12D /* MPLocationConverter.m in Sources */,
 				5181524D251C470C00F9CCD3 /* NCHNavUIBaseViewController.m in Sources */,
 				51A29BCC25203EC1001EF6E9 /* UIImage+Extension.m in Sources */,
-				51873F1B2533F8700070264B /* LSTPopView.m in Sources */,
 				5160692E251DD32A0070B9D9 /* VLBaseContentViewController.m in Sources */,
 				51805B11251B91CB00FBC12D /* GCDTimer.m in Sources */,
 				51A29BEA25203EC1001EF6E9 /* GroupChatListResponse.m in Sources */,
@@ -2733,6 +2732,7 @@
 				51A29BDC25203EC1001EF6E9 /* NetworkHelper.m in Sources */,
 				51A29C1425203EC1001EF6E9 /* UserInfoHeader.m in Sources */,
 				51805B53251B91CC00FBC12D /* UIColor+HXExtension.m in Sources */,
+				515FCC8B25359704007F964A /* NCHTimer.m in Sources */,
 				51805B57251B91CC00FBC12D /* HXPhotoCommon.m in Sources */,
 				51A29C0225203EC1001EF6E9 /* TimeCell.m in Sources */,
 				51805BCB251B9F8600FBC12D /* MPRequstFailedHelper.m in Sources */,
@@ -2749,7 +2749,6 @@
 				51A29BF725203EC1001EF6E9 /* LoadMoreControl.m in Sources */,
 				51805B54251B91CC00FBC12D /* NSTimer+HXExtension.m in Sources */,
 				51AC9911250F03CC0023D5EA /* UIView+Frame.m in Sources */,
-				51873F1C2533F8700070264B /* LSTPopViewManager.m in Sources */,
 				51805B97251B91CC00FBC12D /* HXPhotoEditGridLayer.m in Sources */,
 				518059F4251B91CB00FBC12D /* AppDelegate.m in Sources */,
 				51805B99251B91CC00FBC12D /* HXPhotoEdit.m in Sources */,
@@ -2773,7 +2772,6 @@
 				51A29C0C25203EC1001EF6E9 /* CircleTextView.m in Sources */,
 				51E059FD2524620100FA9744 /* NCHRequestPublicArgument.m in Sources */,
 				51805B8F251B91CC00FBC12D /* HXPhotoEditDrawView.m in Sources */,
-				51873F212533FBF80070264B /* UIView+LSTView.m in Sources */,
 				51805B44251B91CC00FBC12D /* HXPhotoConfiguration.m in Sources */,
 				51805B10251B91CB00FBC12D /* GCDQueue.m in Sources */,
 				51A29BDE25203EC1001EF6E9 /* PostGroupChatImageRequest.m in Sources */,
@@ -2838,6 +2836,7 @@
 				51A29C1725203EC1001EF6E9 /* RefreshControl.m in Sources */,
 				51805B94251B91CC00FBC12D /* HXPhotoEditGraffitiColorViewCell.m in Sources */,
 				5173E5CE252334F400E57C71 /* BaseRequestService.m in Sources */,
+				515FCC882535967C007F964A /* UIView+NCHView.m in Sources */,
 				51805B7B251B91CC00FBC12D /* HXPhotoEditConfiguration.m in Sources */,
 				51815256251C487600F9CCD3 /* MBProgressHUD+NCH.m in Sources */,
 				5173E5B62522CB2700E57C71 /* VLPhotoDetailHeadView.m in Sources */,
@@ -2849,7 +2848,6 @@
 				51805B91251B91CC00FBC12D /* HXPhotoEditChartletPreviewView.m in Sources */,
 				5173E5C725231EB600E57C71 /* VLFollowListViewController.m in Sources */,
 				51873F2525342A190070264B /* WMZDialogAnimation.m in Sources */,
-				51873F222533FBF80070264B /* LSTTimer.m in Sources */,
 				51A29C1825203EC1001EF6E9 /* PhotoView.m in Sources */,
 				51A29BE025203EC1001EF6E9 /* AwemeListRequest.m in Sources */,
 				51A29C0425203EC1001EF6E9 /* MusicAlbumView.m in Sources */,
@@ -2869,8 +2867,10 @@
 				51815247251C470C00F9CCD3 /* NCHStaticTableViewController.m in Sources */,
 				51A29BF625203EC1001EF6E9 /* MenuPopView.m in Sources */,
 				51A29BF125203EC1001EF6E9 /* UserResponse.m in Sources */,
+				515FCC812535947E007F964A /* NCHPopView.m in Sources */,
 				51805B2F251B91CC00FBC12D /* PersonModel.m in Sources */,
 				51815241251C470C00F9CCD3 /* NCHNavigationBar.m in Sources */,
+				515FCC842535953A007F964A /* NCHPopViewManager.m in Sources */,
 				51606925251DCB0B0070B9D9 /* VLNestViewController.m in Sources */,
 				51A29BE925203EC1001EF6E9 /* GroupChatResponse.m in Sources */,
 				5181524E251C470C00F9CCD3 /* NCHWebViewController.m in Sources */,

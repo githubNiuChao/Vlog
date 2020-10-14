@@ -9,6 +9,7 @@
 #import "VLIndexListManager.h"
 #import "GetWaterFallListAPI.h"
 #import "VLIndexModel.h"
+#import "VLIndexRequest.h"
 
 @interface VLIndexListManager()
 @property (nonatomic,copy) NSArray * imgArray;
@@ -32,35 +33,35 @@
 }
 
 #pragma mark ————— 拉取数据 —————
--(void)loadData{
+-(void)loadDataWithCatId:(NSInteger)catId{
 
-    NCWeakSelf(self);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //模拟成功
-        if (weakself.page == 0) {
-            [weakself.dataArray removeAllObjects];
-        }
-        for (int i = 0; i < 2; i++) {
-            VLIndexModel *model = [VLIndexModel new];
-            model.picture = weakself.imgArray[arc4random()%weakself.imgArray.count];
-            model.headImg = weakself.imgArray[arc4random()%weakself.imgArray.count];
-            model.nickName = weakself.nickNameArray[arc4random()%weakself.nickNameArray.count];
-            model.hobbys = weakself.hobbysArray[arc4random()%weakself.hobbysArray.count];
-            model.age = @"28岁";
-            model.city = weakself.fromArray[arc4random()%weakself.fromArray.count];
-            model.juli = i%2==0 ? @"0.5km" : @"1800km";
-            model.islike = (i%2==0);
-            model.isvideo = (i%2==0);
-            model.imageWidth = [UIImage imageNamed:model.picture].size.width;
-            model.imageHeight = [UIImage imageNamed:model.picture].size.height;
-            
-            model.imageArray = weakself.imgArray;
-            [weakself.dataArray addObject:model];
-        }
-        if (self.delegagte && [self.delegagte respondsToSelector:@selector(requestDataCompleted)]) {
-            [self.delegagte requestDataCompleted];
-        }
-    });
+//    NCWeakSelf(self);
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        //模拟成功
+//        if (weakself.page == 0) {
+//            [weakself.dataArray removeAllObjects];
+//        }
+//        for (int i = 0; i < 2; i++) {
+//            VLIndexModel *model = [VLIndexModel new];
+//            model.picture = weakself.imgArray[arc4random()%weakself.imgArray.count];
+//            model.headImg = weakself.imgArray[arc4random()%weakself.imgArray.count];
+//            model.nickName = weakself.nickNameArray[arc4random()%weakself.nickNameArray.count];
+//            model.hobbys = weakself.hobbysArray[arc4random()%weakself.hobbysArray.count];
+//            model.age = @"28岁";
+//            model.city = weakself.fromArray[arc4random()%weakself.fromArray.count];
+//            model.juli = i%2==0 ? @"0.5km" : @"1800km";
+//            model.islike = (i%2==0);
+//            model.isvideo = (i%2==0);
+//            model.imageWidth = [UIImage imageNamed:model.picture].size.width;
+//            model.imageHeight = [UIImage imageNamed:model.picture].size.height;
+//
+//            model.imageArray = weakself.imgArray;
+//            [weakself.dataArray addObject:model];
+//        }
+//        if (self.delegagte && [self.delegagte respondsToSelector:@selector(requestDataCompleted)]) {
+//            [self.delegagte requestDataCompleted];
+//        }
+//    });
     
     //发起请求 示例
 //    GetWaterFallListAPI *req = [GetWaterFallListAPI new];
@@ -69,6 +70,27 @@
 //    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
 //        NSLog(@"请求失败 %@",req.message);
 //    }];
+    
+    VLIndexRequest *request =  [[VLIndexRequest alloc]init];
+      NSLog(@"%@%@",request.baseUrl,request.requestUrl);
+      //        [request setArgument:@"asthare" forKey:@"user_name"];
+      //        [request setArgument:@"123456" forKey:@"password"];
+      //        [request setArgument:@"15" forKey:@"video_id"];
+//    [request setArgument:[NSString stringWithFormat:@"%ld",catId] forKey:@"cat_id"];
+    [request setArgument:@"2" forKey:@"cat_id"];
+      NCWeakSelf(self);
+      [request startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+          NCHBaseRequestResponse *baseRespose = [NCHBaseRequestResponse yy_modelWithJSON:request.responseObject];
+          VLIndexResponse *dataModel = [VLIndexResponse yy_modelWithJSON:baseRespose.data];
+          weakself.dataArray = dataModel.list;
+          if (weakself.delegagte && [self.delegagte respondsToSelector:@selector(requestDataCompleted)]) {
+              [weakself.delegagte requestDataCompleted];
+          }
+          
+      } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        
+      }];
+    
 }
 
 @end

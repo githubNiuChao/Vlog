@@ -1,36 +1,37 @@
 //
-//  LSTPopViewManager.h
-//  LSTButton
+//  NCHPopViewManager.h
+//  VLog
 //
-//  Created by LoSenTrad on 2020/3/30.
+//  Created by szy on 2020/10/13.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@class LSTPopView;
+@class NCHPopView;
 
 
-static NSString * _Nonnull const LSTPopView_ParentView = @"LSTPopView_ParentView";
-static NSString * _Nonnull const LSTPopView_Key = @"LSTPopView_Key";
-static NSString * _Nonnull const LSTPopView_PopView = @"LSTPopView_PopView";
+static NSString * _Nonnull const NCHPopView_ParentView = @"NCHPopView_ParentView";
+static NSString * _Nonnull const NCHPopView_Key = @"NCHPopView_Key";
+static NSString * _Nonnull const NCHPopView_PopView = @"NCHPopView_PopView";
 
 
-typedef void(^LSTPopViewManagerTimerBlock)(NSTimeInterval interval);
+typedef void(^NCHPopViewManagerTimerBlock)(NSTimeInterval interval);
 
 
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSTPopViewManager : NSObject
+@interface NCHPopViewManager : NSObject
 
 
 /** 单例 */
-LSTPopViewManager *LSTPopViewM(void);
+NCHPopViewManager *NCHPopViewM(void);
 
 
 /** 保存popView */
-+ (void)savePopView:(LSTPopView *)popView;
++ (void)savePopView:(NCHPopView *)popView;
 
 /** 获取全局(整个app内)所有popView */
 + (NSArray *)getAllPopView;
@@ -42,12 +43,12 @@ LSTPopViewManager *LSTPopViewM(void);
     读取popView (有可能会跨编队读取弹框)
     建议使用getPopViewForGroupId:forkey: 方法进行精确读取
  */
-+ (LSTPopView *)getPopViewForKey:(NSString *)key;
++ (NCHPopView *)getPopViewForKey:(NSString *)key;
 
 
 
 /** 移除popView */
-+ (void)removePopView:(LSTPopView *)popView;
++ (void)removePopView:(NCHPopView *)popView;
 /**
    移除popView 通过唯一key (有可能会跨编队误删弹框)
    建议使用removePopViewForGroupId:forkey: 方法进行精确删除
@@ -58,7 +59,7 @@ LSTPopViewManager *LSTPopViewM(void);
 
 
 /** 弱化popView 仅供内部调用 */
-+ (void)weakWithPopView:(LSTPopView *)popView;
++ (void)weakWithPopView:(NCHPopView *)popView;
 
 
 @end
