@@ -86,7 +86,6 @@
           if (weakself.delegagte && [self.delegagte respondsToSelector:@selector(requestDataCompleted)]) {
               [weakself.delegagte requestDataCompleted];
           }
-          
       } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         
       }];

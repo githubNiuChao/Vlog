@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) id data;
 /**  消息内容  */
 @property (nonatomic, copy) NSString *message;
+
 @property(nonatomic, strong, readonly) NSString *errorMessage;
 
 @end

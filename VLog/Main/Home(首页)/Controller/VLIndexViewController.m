@@ -16,7 +16,7 @@
 
 @interface VLIndexViewController ()
 <
-VLIndexListManagerDelegate,
+NCHBaseModelManagerDelegate,
 NCHVerticalFlowLayoutDelegate
 >
 @property (strong, nonatomic) VLIndexListManager *manager;
@@ -28,7 +28,9 @@ NCHVerticalFlowLayoutDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self initCommon];
+}
+- (void)initCommon{
     self.manager = [[VLIndexListManager alloc] init];
     self.manager.delegagte = self;
     [self.collectionView registerClass:[VLIndexListCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([VLIndexListCollectionViewCell class])];
@@ -69,8 +71,11 @@ NCHVerticalFlowLayoutDelegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    VLIndexListCollectionViewCell *cell =(VLIndexListCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+//    VLIndexListCollectionViewCell *cell =(VLIndexListCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
+    VLIndex_ListResponse *listModel = self.manager.dataArray[indexPath.row];
+    photoDetaiVC.video_id = listModel.video_id;
+    
 //    profileVC.headerImage = cell.imgView.image;
 //    profileVC.isTransition = YES;
 //    photoDetaiVC.imageArray = cell.listModel.imageArray;

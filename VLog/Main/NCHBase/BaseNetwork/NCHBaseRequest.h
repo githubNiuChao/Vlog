@@ -18,6 +18,7 @@ static NSString * _Nonnull const kDefaultErrorInfo = @"当前太多人访问,请
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^NCHBaseRequestCompletionBlock)(__kindof YTKBaseRequest *request,NCHBaseRequestResponse *baseResponse);
 
 @interface NCHBaseRequest : YTKBaseRequest
 
@@ -34,9 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**  添加请求参数  */
 - (void)setArgument:(id)value forKey:(NSString *)key;
-/**  请求后解析json后的对应的模型,可以是这个base的子类,建议不同的请求这个模型集成自LTBaseRequestResponse  */
+/**  封装请求方法  */
+- (void)nch_startWithCompletionBlockWithSuccess:(nullable NCHBaseRequestCompletionBlock)success
+                                    failure:(nullable NCHBaseRequestCompletionBlock)failure;
+
+/**  请求后解析json后的对应的模型,可以是这个base的子类,建议不同的请求这个模型集成自NCHBaseRequestResponse  */
 - (NSString *)baseResopnesModelClassName;
-/**  请求后解析json字典data后的对应的模型,可以是这个base的子类,建议不同的请求这个模型集成自LTBaseRequestDataResponse  */
+/**  请求后解析json字典data后的对应的模型,可以是这个base的子类,建议不同的请求这个模型集成自NCHBaseRequestResponse  */
 - (NSString *)baseResopnesDataModelClassName;
 
 #pragma mark - code处理

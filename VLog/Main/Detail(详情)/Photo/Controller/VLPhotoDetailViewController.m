@@ -8,53 +8,64 @@
 
 #import "VLPhotoDetailViewController.h"
 #import "VLPhotoDetailHeadView.h"
+
+
 #import "VLCommentTableViewCell.h"
 
 #import "CommentListRequest.h"
 #import "NetworkHelper.h"
 
+#import "VLPhotoDetailRequest.h"
+#import "VLPhotoDetailManager.h"
+
 NSString * const kVLCommentTableViewCell     = @"VLCommentTableViewCell";
 
-
-@interface VLPhotoDetailViewController ()
+@interface VLPhotoDetailViewController ()<NCHBaseModelManagerDelegate>
 
 kProNSString(awemeId);
 KProNSMutableArrayType(Comment,data);
-KProAssignType(NSInteger, pageIndex);
-KProAssignType(NSInteger, pageSize);
+KProAssignType(NSInteger,pageIndex);
+KProAssignType(NSInteger,pageSize);
 KProStrongType(VLPhotoDetailHeadView,detailHeadView);
+
+KProStrongType(VLPhotoDetailManager, manager)
+
 @end
 
 @implementation VLPhotoDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self commInit];
-    [self setupViews];
+    [self initCommon];
+    [self initSubView];
     
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self endHeaderFooterRefreshing];
+//        [self endHeaderFooterRefreshing];
 //    });
 }
-- (void)commInit{
+
+- (void)initCommon{
     _pageIndex = 0;
     _pageSize = 20;
     _data = [NSMutableArray array];
-      
+    self.manager = [[VLPhotoDetailManager alloc] init];
+    self.manager.delegagte = self;
+    
 }
 
-- (void)setupViews{
+- (void)initSubView{
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.tableHeaderView = self.detailHeadView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[VLCommentTableViewCell class] forCellReuseIdentifier:kVLCommentTableViewCell];
 }
 
+
 #pragma mark - Super
 -(void)loadMore:(BOOL)isMore{
     _pageIndex = isMore? _pageIndex+=1:0;
-//    [self.manager loadData];
-    [self loadData:_pageIndex pageSize:_pageSize];
+    [self.manager loadDataWithVideoId:self.video_id];
+//    [self loadData:_pageIndex pageSize:_pageSize];
 }
 
 - (void)loadData:(NSInteger)pageIndex pageSize:(NSInteger)pageSize {

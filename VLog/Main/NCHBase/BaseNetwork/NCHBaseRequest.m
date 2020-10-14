@@ -66,7 +66,20 @@ NSString * const NCHRequestHeaderField_UserAgent_Key = @"User-Agent";
 - (NSDictionary *)requestHeaderFieldValueDictionary
 {
     return @{NCHRequestHeaderField_SzyVersion_Key: @"5.5",NCHRequestHeaderField_UserAgent_Key:@"szyapp/ios"};
+}
 
+///封装请求
+- (void)nch_startWithCompletionBlockWithSuccess:(NCHBaseRequestCompletionBlock)success failure:(NCHBaseRequestCompletionBlock)failure{
+    NSLog(@"Request:--------------%@%@",self.baseUrl,self.requestUrl);
+    NSLog(@"RequestArgument:--------------%@",self.requestArgument);
+    
+    [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NCHBaseRequestResponse *baseRespose = [NCHBaseRequestResponse yy_modelWithJSON:request.responseObject];
+        success(request,baseRespose);
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NCHBaseRequestResponse *baseRespose = [NCHBaseRequestResponse yy_modelWithJSON:request.responseObject];
+        failure(request,baseRespose);
+    }];
 }
 
 /// 处理公共参数
@@ -184,6 +197,8 @@ NSString * const NCHRequestHeaderField_UserAgent_Key = @"User-Agent";
     self.argumentsDictionary[key] = value;
 }
 
+
+
 - (NSString *)baseResopnesModelClassName
 {
     return @"NCHBaseRequestResponse";
@@ -191,7 +206,7 @@ NSString * const NCHRequestHeaderField_UserAgent_Key = @"User-Agent";
 
 - (NSString *)baseResopnesDataModelClassName
 {
-    return @"LTBaseRequestDataResponse";
+    return @"NCHBaseRequestResponse";
 }
 
 #pragma mark - 加解密/签名

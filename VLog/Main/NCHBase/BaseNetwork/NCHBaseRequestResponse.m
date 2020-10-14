@@ -26,6 +26,7 @@ static NCHResponseCode const kPublicResponseServerNotResponseCode = @"500";
 - (NSString *)errorMessage
 {
     NSString *errorMessage = self.message;
+    
     if ([self isRequestSuccess])
     {
         errorMessage = nil;
