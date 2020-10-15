@@ -73,7 +73,7 @@ NCHVerticalFlowLayoutDelegate
 
 //    VLIndexListCollectionViewCell *cell =(VLIndexListCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
-    VLIndex_ListResponse *listModel = self.manager.dataArray[indexPath.row];
+    VLVideoInfoModel *listModel = self.manager.dataArray[indexPath.row];
     photoDetaiVC.video_id = listModel.video_id;
     
 //    profileVC.headerImage = cell.imgView.image;
@@ -110,7 +110,7 @@ NCHVerticalFlowLayoutDelegate
 
 - (CGFloat)waterflowLayout:(NCHVerticalFlowLayout *)waterflowLayout collectionView:(UICollectionView *)collectionView heightForItemAtIndexPath:(NSIndexPath *)indexPath itemWidth:(CGFloat)itemWidth
 {
-    VLIndex_ListResponse *listModel = self.manager.dataArray[indexPath.row];
+    VLVideoInfoModel *listModel = self.manager.dataArray[indexPath.row];
       if (listModel.imageCacheHeight == 0 || listModel.hobbysCacheHeight == 0) {
         listModel.hobbysCacheHeight = [listModel.video_desc jk_heightWithFont:kFontSmall constrainedToWidth:itemWidth];
         listModel.imageCacheHeight = listModel.height * itemWidth / listModel.width;

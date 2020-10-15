@@ -14,6 +14,7 @@
 
 @implementation VLDetail_TagListResponse
 
+
 @end
 
 @implementation VLDetail_UserInfoResponse

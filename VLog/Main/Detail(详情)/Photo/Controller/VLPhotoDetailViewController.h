@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VLPhotoDetailViewController : NCHRefreshTableViewController
 
-KProStrongType(NSArray, imageArray)
+//KProStrongType(NSArray, imageArray)
 kProNSString(video_id)
 
 @end

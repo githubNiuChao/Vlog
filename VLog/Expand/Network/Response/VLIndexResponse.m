@@ -11,22 +11,13 @@
 @implementation VLIndexResponse
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{@"cat_list" : [VLIndex_Cat_InfoResponse class],
-             @"list" : [VLIndex_ListResponse class]};
+             @"list" : [VLVideoInfoModel class]};
 }
 @end
 
 @implementation VLIndex_Cat_InfoResponse
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{@"children" : [VLIndex_Cat_InfoResponse class]};
-}
-
-@end
-
-@implementation VLIndex_ListResponse
-
-- (void)setVideo_type:(NSString *)video_type{
-    _video_type = video_type;
-    _videoType = [video_type integerValue];
 }
 
 @end

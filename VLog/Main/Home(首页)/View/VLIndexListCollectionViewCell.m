@@ -103,7 +103,7 @@ KProStrongType(UIView, line);//分割线
     _listModel.is_like = _like.selected;
 }
 
--(void)setListModel:(VLIndex_ListResponse *)listModel{
+-(void)setListModel:(VLVideoInfoModel *)listModel{
     _listModel = listModel;
     _imgView.backgroundColor=kWhiteColor;
     [_imgView sd_setImageWithURL:[NSURL URLWithString:listModel.video_img] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];

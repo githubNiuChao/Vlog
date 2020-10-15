@@ -7,12 +7,13 @@
 //
 
 #import "NCHBaseRequestResponse.h"
+#import "VLVideoInfoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class
 VLIndex_Cat_InfoResponse,
-VLIndex_ListResponse,
+VLVideoInfoModel,
 VLIndex_PageResponse,
 VLIndex_ContextResponse
 ;
@@ -22,7 +23,7 @@ KProStrongType(VLIndex_Cat_InfoResponse,cat_info)
 KProNSArrayType(VLIndex_Cat_InfoResponse,cat_list)
 kProNSString(tab_id)
 kProNSString(short_video_hot_search)
-KProNSArrayType(VLIndex_ListResponse,list)
+KProNSArrayType(VLVideoInfoModel,list)
 KProStrongType(VLIndex_PageResponse,page)
 KProStrongType(VLIndex_ContextResponse,context)
 
@@ -39,45 +40,6 @@ kProNSString(cat_image)
 KProNSInteger(width)
 KProNSInteger(height)
 KProNSArrayType(VLIndex_Cat_InfoResponse,children)
-@end
-
-typedef enum : NSUInteger {
-    VLIndex_ListResponseTypeImage = 0,
-    VLIndex_ListResponseTypeVidel = 1
-} VLIndex_ListResponseType;
-
-@interface VLIndex_ListResponse : NSObject
-kProNSString(video_id)
-kProNSString(video_title)
-kProNSString(video_desc)
-KProNSArray(video_path)
-kProNSString(video_img)
-kProNSString(video_type)
-kProNSString(user_id)
-kProNSString(cat_id1)
-kProNSString(cat_id2)
-kProNSString(publish_time)
-kProNSString(publish_address)
-kProNSString(publish_lng)
-kProNSString(publish_lat)
-kProNSString(province)
-kProNSString(city)
-kProNSString(city_code)
-kProNSString(is_recommend)
-kProNSString(audit_status)
-kProNSString(audit_text)
-kProNSString(clicks)
-kProNSString(video_sort)
-kProNSString(user_name)
-kProNSString(nickname)
-kProNSString(headimg)
-kProNSString(like_count)
-KProBool(is_like)
-KProNSInteger(width)
-KProNSInteger(height)
-KProAssignType(NSInteger,imageCacheHeight)
-KProAssignType(NSInteger,hobbysCacheHeight)
-KProAssignType(VLIndex_ListResponseType,videoType)
 @end
 
 @interface VLIndex_PageResponse : NSObject

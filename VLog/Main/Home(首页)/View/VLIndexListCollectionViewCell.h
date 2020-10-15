@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "VLIndexModel.h"
-#import "VLIndexResponse.h"
+#import "VLVideoInfoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VLIndexListCollectionViewCell : UICollectionViewCell
 
-@property(nonatomic,strong) VLIndex_ListResponse *listModel;
+@property(nonatomic,strong) VLVideoInfoModel *listModel;
 @property (strong, nonatomic) UIImageView *imgView;
 
 @end

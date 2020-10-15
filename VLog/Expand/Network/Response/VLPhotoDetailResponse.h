@@ -9,19 +9,22 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-@class VLIndex_ListResponse;
+@class VLVideoInfoModel;
+@class VLDetail_UserInfoResponse;
 @class VLIndex_Cat_InfoResponse;
 @class VLIndex_ContextResponse;
 
 @interface VLPhotoDetailResponse : NSObject
-KProStrongType(VLIndex_ListResponse,video_info)
+
+KProStrongType(VLVideoInfoModel,video_info)
 KProStrongType(VLIndex_Cat_InfoResponse,video_cat_info)
+KProStrongType(VLDetail_UserInfoResponse,user_info)
+KProStrongType(VLDetail_UserInfoResponse,current_user)
 KProBool(is_follow)
-KProBool(is_like)
-KProBool(is_collection)
 kProNSString(like_count)
 kProNSString(collection_count)
+KProBool(is_like)
+KProBool(is_collection)
 KProNSArray(tag_list)
 KProNSArray(img_size_list)
 KProStrongType(VLIndex_ContextResponse,context)
@@ -93,7 +96,7 @@ KProNSInteger(auth_codes)
 kProNSString(company_name)
 kProNSString(company_region_code)
 kProNSString(company_address)
-kProNSString(purpose_type)
+//kProNSString(purpose_type)
 kProNSString(referral_mobile)
 kProNSString(employees)
 kProNSString(industry)

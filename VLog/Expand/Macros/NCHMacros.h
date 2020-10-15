@@ -121,6 +121,7 @@
 #define kGreyColorN  [UIColor systemGray6Color]
 #define kWhiteColor  [UIColor whiteColor]
 #define kBlackColor  [UIColor blackColor]
+#define kBuleColor   kRGBAColor(110,170,250,1.0)
 #define kRedColor    [UIColor colorWithRed:0.878431 green:0.003922 blue:0.003922 alpha:1.0]
 #define kOrangeColor [UIColor colorWithRed:0.949020 green:0.447059 blue:0.109804 alpha:1.0]
 #define kBorderColor [UIColor colorWithRed:0.815686 green:0.815686 blue:0.815686 alpha:1.0]

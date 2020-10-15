@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VLPhotoDetailResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFrame:(CGRect)frame imageArray:(NSArray *)array;
 
-KProStrongType(NSArray, imageArrays);
+- (void)setInfo:(VLPhotoDetailResponse *)info;
 
 @end
 

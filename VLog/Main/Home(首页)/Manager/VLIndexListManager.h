@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VLIndexListManager : NCHBaseModelManager
-@property (nonatomic,strong) NSArray<VLIndex_ListResponse*> * dataArray;//数据源
+@property (nonatomic,strong) NSArray<VLVideoInfoModel*> * dataArray;//数据源
 /**拉取数据*/
 -(void)loadDataWithCatId:(NSInteger)catId;
 

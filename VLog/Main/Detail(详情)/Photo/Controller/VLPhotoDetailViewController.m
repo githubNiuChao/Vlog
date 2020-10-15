@@ -17,6 +17,8 @@
 
 #import "VLPhotoDetailRequest.h"
 #import "VLPhotoDetailManager.h"
+#import "VLPhotoDetailResponse.h"
+#import "VLIndexResponse.h"
 
 NSString * const kVLCommentTableViewCell     = @"VLCommentTableViewCell";
 
@@ -29,7 +31,8 @@ KProAssignType(NSInteger,pageSize);
 KProStrongType(VLPhotoDetailHeadView,detailHeadView);
 
 KProStrongType(VLPhotoDetailManager, manager)
-
+KProStrongType(VLPhotoDetailResponse, dataModel)
+KProStrongType(VLVideoInfoModel, videoIndfoModel)
 @end
 
 @implementation VLPhotoDetailViewController
@@ -55,7 +58,6 @@ KProStrongType(VLPhotoDetailManager, manager)
 
 - (void)initSubView{
     self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.tableHeaderView = self.detailHeadView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[VLCommentTableViewCell class] forCellReuseIdentifier:kVLCommentTableViewCell];
 }
@@ -64,8 +66,22 @@ KProStrongType(VLPhotoDetailManager, manager)
 #pragma mark - Super
 -(void)loadMore:(BOOL)isMore{
     _pageIndex = isMore? _pageIndex+=1:0;
-    [self.manager loadDataWithVideoId:self.video_id];
-//    [self loadData:_pageIndex pageSize:_pageSize];
+    if (isMore) {
+        [self loadData:_pageIndex pageSize:_pageSize];
+    }else{
+        [self.manager loadDataWithVideoId:self.video_id];
+    }
+}
+
+
+
+#pragma mark -
+
+- (void)requestDataCompleted{
+    self.dataModel = self.manager.dataModel;
+    self.videoIndfoModel = self.manager.dataModel.video_info;
+    self.tableView.tableHeaderView = self.detailHeadView;
+    [self endHeaderFooterRefreshing];
 }
 
 - (void)loadData:(NSInteger)pageIndex pageSize:(NSInteger)pageSize {
@@ -135,7 +151,8 @@ KProStrongType(VLPhotoDetailManager, manager)
 
 -(VLPhotoDetailHeadView *)detailHeadView{
     if (!_detailHeadView) {
-        _detailHeadView = [[VLPhotoDetailHeadView alloc] initWithFrame:CGRectMake(0, 0, self.view.jk_width, 900) imageArray:self.imageArray];
+        _detailHeadView = [[VLPhotoDetailHeadView alloc] initWithFrame:CGRectMake(0, 0, self.view.jk_width, 900) imageArray:self.videoIndfoModel.video_path];
+        [_detailHeadView setInfo:self.dataModel];
     }
     return _detailHeadView;
 }

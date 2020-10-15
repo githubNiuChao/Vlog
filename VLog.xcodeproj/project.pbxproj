@@ -322,6 +322,7 @@
 		51A29C2125203EC2001EF6E9 /* awemes.json in Resources */ = {isa = PBXBuildFile; fileRef = 51A29BC625203EC1001EF6E9 /* awemes.json */; };
 		51A29C2225203EC2001EF6E9 /* emotion.json in Resources */ = {isa = PBXBuildFile; fileRef = 51A29BC725203EC1001EF6E9 /* emotion.json */; };
 		51A29C292520625B001EF6E9 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29C262520625B001EF6E9 /* SRWebSocket.m */; };
+		51A66CA02537DD3900F34CED /* VLVideoInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A66C9F2537DD3900F34CED /* VLVideoInfoModel.m */; };
 		51AC9911250F03CC0023D5EA /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9905250F03CB0023D5EA /* UIView+Frame.m */; };
 		51AC9912250F03CC0023D5EA /* YISVlogTabBarController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */; };
 		51AC9914250F03CC0023D5EA /* YISPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9909250F03CB0023D5EA /* YISPlusButton.m */; };
@@ -952,6 +953,8 @@
 		51A29C262520625B001EF6E9 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		51A29C272520625B001EF6E9 /* SocketRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketRocket.h; sourceTree = "<group>"; };
 		51A29C282520625B001EF6E9 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		51A66C9E2537DD3900F34CED /* VLVideoInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLVideoInfoModel.h; sourceTree = "<group>"; };
+		51A66C9F2537DD3900F34CED /* VLVideoInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLVideoInfoModel.m; sourceTree = "<group>"; };
 		51AC9903250F03CB0023D5EA /* YISPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISPlusButton.h; sourceTree = "<group>"; };
 		51AC9905250F03CB0023D5EA /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISVlogTabBarController1.m; sourceTree = "<group>"; };
@@ -2086,6 +2089,8 @@
 			children = (
 				51873F27253433DE0070264B /* VLIndexResponse.h */,
 				51873F28253433DE0070264B /* VLIndexResponse.m */,
+				51A66C9E2537DD3900F34CED /* VLVideoInfoModel.h */,
+				51A66C9F2537DD3900F34CED /* VLVideoInfoModel.m */,
 				51BA08002536A3F7002E481E /* VLPhotoDetailResponse.h */,
 				51BA08012536A3F7002E481E /* VLPhotoDetailResponse.m */,
 			);
@@ -2833,6 +2838,7 @@
 				51339CAA253053430039A025 /* SmoothListCollectionViewController.m in Sources */,
 				51805B72251B91CC00FBC12D /* HXPhotoView.m in Sources */,
 				5181520D251C421E00F9CCD3 /* VLIndexModel.m in Sources */,
+				51A66CA02537DD3900F34CED /* VLVideoInfoModel.m in Sources */,
 				51805B4E251B91CC00FBC12D /* UIImageView+HXExtension.m in Sources */,
 				51805B7E251B91CC00FBC12D /* HXMECancelBlock.m in Sources */,
 				5173E5CD252334F400E57C71 /* BaseRequestAPI.m in Sources */,
