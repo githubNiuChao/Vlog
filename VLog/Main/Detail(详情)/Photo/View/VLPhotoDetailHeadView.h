@@ -10,11 +10,16 @@
 #import "VLPhotoDetailResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class VLPhotoDetailHeadView;
+@protocol VLPhotoDetailHeadViewDelegate <NSObject>
+- (void)detailHeadView:(VLPhotoDetailHeadView *)detailHeadView;
+@end
 
 @interface VLPhotoDetailHeadView : UIView 
 
-- (instancetype)initWithFrame:(CGRect)frame imageArray:(NSArray *)array;
+@property (nonatomic,weak) id<VLPhotoDetailHeadViewDelegate> delegate;
 
+- (instancetype)initWithFrame:(CGRect)frame imageArray:(NSArray *)array;
 - (void)setInfo:(VLPhotoDetailResponse *)info;
 
 @end

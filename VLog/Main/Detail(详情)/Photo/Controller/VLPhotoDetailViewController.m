@@ -41,19 +41,13 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     [super viewDidLoad];
     [self initCommon];
     [self initSubView];
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self endHeaderFooterRefreshing];
-//    });
 }
-
 - (void)initCommon{
     _pageIndex = 0;
     _pageSize = 20;
     _data = [NSMutableArray array];
     self.manager = [[VLPhotoDetailManager alloc] init];
     self.manager.delegagte = self;
-    
 }
 
 - (void)initSubView{
@@ -61,7 +55,6 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[VLCommentTableViewCell class] forCellReuseIdentifier:kVLCommentTableViewCell];
 }
-
 
 #pragma mark - Super
 -(void)loadMore:(BOOL)isMore{
@@ -73,8 +66,6 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     }
 }
 
-
-
 #pragma mark -
 
 - (void)requestDataCompleted{
@@ -83,6 +74,9 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     self.tableView.tableHeaderView = self.detailHeadView;
     [self endHeaderFooterRefreshing];
 }
+
+
+
 
 - (void)loadData:(NSInteger)pageIndex pageSize:(NSInteger)pageSize {
     __weak __typeof(self) wself = self;
@@ -146,8 +140,6 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 //        [menu show];
 //    }
 }
-
-#pragma mark -
 
 -(VLPhotoDetailHeadView *)detailHeadView{
     if (!_detailHeadView) {

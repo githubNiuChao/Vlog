@@ -56,7 +56,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
 - (NSArray *)viewControllersForTabBar {
     NCHNavigationController *one = [[NCHNavigationController alloc] initWithRootViewController:[[VLNestViewController alloc] init]];
       
-    NCHNavigationController *two = [[NCHNavigationController alloc] initWithRootViewController:[[YISIndexViewController alloc] init]];
+    NCHNavigationController *two = [[NCHNavigationController alloc] initWithRootViewController:[[UserHomePageController alloc] init]];
       
     NCHNavigationController *four = [[NCHNavigationController alloc] initWithRootViewController:[[YISIndexViewController alloc] init]];
       

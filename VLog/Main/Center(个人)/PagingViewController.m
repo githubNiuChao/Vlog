@@ -101,9 +101,6 @@
 }
 
 - (id<JXPagerViewListViewDelegate>)pagerView:(JXPagerView *)pagerView initListAtIndex:(NSInteger)index {
-//    SmoothListCollectionViewController *list = [[SmoothListCollectionViewController alloc] init];
-//    list.title = self.titles[index];
-    
     VLIndexViewController *list = [[VLIndexViewController alloc]init];
     return list;
     

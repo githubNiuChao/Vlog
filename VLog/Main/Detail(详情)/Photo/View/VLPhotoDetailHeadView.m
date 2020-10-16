@@ -13,7 +13,10 @@
 #import "VLIndexResponse.h"
 
 
-static CGFloat const TopViewHeitgh = 450;
+static CGFloat const SpaceValue = 10;
+static CGFloat const TopViewHeight = 450;
+static CGFloat const TitleLabelHeight = 40;
+static CGFloat const TopicButtonHeight = 30;
 
 @interface VLPhotoDetailHeadView ()<SDCycleScrollViewDelegate>
 
@@ -21,7 +24,7 @@ KProStrongType(SDCycleScrollView,cycleScrollView);
 KProStrongType(NSArray,imageArrays);
 KProStrongType(YYLabel,titleLabel);
 KProStrongType(UIButton,topicButton);
-KProStrongType(UIView,tagView);
+KProStrongType(UIView,bgView);
 KProStrongType(YYLabel,tagLabel);
 KProStrongType(YYLabel,detailLabel);
 
@@ -46,44 +49,50 @@ KProStrongType(YYLabel,detailLabel);
     //        make.left.top.right.equalTo(self);
     //        make.width.equalTo(@300);
     //    }];
-    [self addSubview:self.titleLabel];
+    self.bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    self.bgView.backgroundColor = kWhiteColor;
+    [self addSubview:self.bgView];
+    [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).offset(SpaceValue);
+        make.top.equalTo(self).offset(TopViewHeight+SpaceValue);
+        make.right.equalTo(self).offset(-SpaceValue);
+        make.bottom.equalTo(self).offset(-SpaceValue);
+    }];
     
+    [self.bgView addSubview:self.titleLabel];
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(TopViewHeitgh+10);
-        make.left.equalTo(self.mas_left).offset(10);
-        make.right.equalTo(self.mas_right).offset(-10);
-        make.height.equalTo(@40);
+        make.top.left.right.equalTo(self.bgView);
+        make.height.equalTo(@(TitleLabelHeight));
     }];
     
-    [self addSubview:self.topicButton];
+    [self.bgView addSubview:self.topicButton];
     [_topicButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.titleLabel);
         make.top.equalTo(self.titleLabel.mas_bottom);
-        make.height.equalTo(@30);
+        make.left.equalTo(self.bgView);
+        make.height.equalTo(@(TopicButtonHeight));
     }];
     
-    [self addSubview:self.tagLabel];
+    [self.bgView addSubview:self.tagLabel];
     [_tagLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.titleLabel);
         make.top.equalTo(self.topicButton.mas_bottom);
+        make.left.right.equalTo(self.bgView);
     }];
     
-    [self addSubview:self.detailLabel];
+    [self.bgView addSubview:self.detailLabel];
     [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tagLabel.mas_bottom).offset(10);
-        make.left.equalTo(self.mas_left).offset(10);
-        make.right.equalTo(self.mas_right).offset(-10);
-        make.bottom.equalTo(self.mas_bottom).offset(-40);
+        make.top.equalTo(self.tagLabel.mas_bottom).offset(SpaceValue);
+        make.left.right.equalTo(self.bgView);
+        make.bottom.equalTo(self.bgView.mas_bottom).offset(-SpaceValue);
     }];
     
-    _detailLabel.alpha = 0;
-    _detailLabel.transform = CGAffineTransformMakeTranslation(0, 50);
+//    _detailLabel.alpha = 0;
+//    _detailLabel.transform = CGAffineTransformMakeTranslation(0, 50);
+    self.bgView.alpha = 0;
+    self.bgView.transform = CGAffineTransformMakeTranslation(0, 50);
     NCWeakSelf(self);
     [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^{
-        weakself.titleLabel.alpha = 1;
-        weakself.titleLabel.transform = CGAffineTransformIdentity;
-        weakself.detailLabel.alpha = 1;
-        weakself.detailLabel.transform = CGAffineTransformIdentity;
+        weakself.bgView.alpha = 1;
+        weakself.bgView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
         
     }];
@@ -91,7 +100,8 @@ KProStrongType(YYLabel,detailLabel);
 
 - (void)setInfo:(VLPhotoDetailResponse *)dataModel{
     self.titleLabel.attributedText = [self appendAttributedString:dataModel.video_info.video_title font:kFontBBig];
-    self.detailLabel.attributedText =  [self appendAttributedString:dataModel.video_info.video_desc font:kFontBMedium];
+    NSAttributedString *detailLabelAText =[self appendAttributedString:dataModel.video_info.video_desc font:kFontBMedium];
+    self.detailLabel.attributedText = detailLabelAText;
     [self.topicButton setTitle:[NSString stringWithFormat:@"%@ ",dataModel.video_cat_info.cat_name] forState:UIControlStateNormal];
     
     NSMutableArray<VLDetail_TagListResponse*> *muArray = [[NSMutableArray alloc]init];
@@ -100,13 +110,28 @@ KProStrongType(YYLabel,detailLabel);
             [muArray addObject:tagmModel];
         }
     }];
-    
     NSMutableAttributedString *text = [NSMutableAttributedString new];
     NCWeakSelf(self);
     [muArray enumerateObjectsUsingBlock:^(VLDetail_TagListResponse * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [text appendAttributedString:[weakself appendTagAttributedString:obj.tag_text]];
+        [text appendAttributedString:[weakself appendTagAttributedStringWithInfoModel:obj]];
     }];
     self.tagLabel.attributedText = text;
+    
+    CGFloat detailLabelHeight = [self getTextHeight:detailLabelAText andLabel:self.detailLabel];
+    CGFloat tagLabelHeight = [self getTextHeight:text andLabel:self.tagLabel];
+    
+    self.frame = CGRectMake(0, 0,self.superview.jk_width , TopViewHeight+10+TitleLabelHeight+10+TopicButtonHeight+10+tagLabelHeight+10+detailLabelHeight+10);
+    
+    
+}
+
+-(CGFloat)getTextHeight:(NSAttributedString *)text andLabel:(YYLabel *)lable
+{
+    CGSize introSize = CGSizeMake(self.jk_width-10, CGFLOAT_MAX);
+    YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:introSize text:text];
+    lable.textLayout = layout;
+    CGFloat introHeight = layout.textBoundingSize.height;
+    return introHeight;
 }
 
 - (NSAttributedString *)appendAttributedString:(NSString *)string font:(UIFont *)font{
@@ -125,7 +150,7 @@ KProStrongType(YYLabel,detailLabel);
     return text;
 }
 
-- (NSAttributedString *)appendTagAttributedString:(NSString *)string{
+- (NSAttributedString *)appendTagAttributedStringWithInfoModel:(VLDetail_TagListResponse *)infoModel{
     
     NSMutableAttributedString *text = [NSMutableAttributedString new];
     UIImage *image = [UIImage imageNamed:@"publish_tag_icon"];
@@ -133,7 +158,7 @@ KProStrongType(YYLabel,detailLabel);
     [text appendAttributedString: attachment];
     
     {
-        NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithString:string];
+        NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithString:infoModel.tag_text];
         one.yy_font = kFontBMedium;
         one.yy_color = kBuleColor;
         
@@ -145,8 +170,10 @@ KProStrongType(YYLabel,detailLabel);
     
         YYTextHighlight *highlight = [YYTextHighlight new];
         [highlight setColor:[UIColor colorWithRed:1.000 green:0.795 blue:0.014 alpha:1.000]];
+        NCWeakSelf(self);
         highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
 //            [_self showMessage:[NSString stringWithFormat:@"Tap: %@",[text.string substringWithRange:range]]];
+            [weakself actiondidTagClickWithInfoModel:infoModel];
         };
         [one yy_setTextHighlight:highlight range:one.yy_rangeOfAll];
         
@@ -154,6 +181,11 @@ KProStrongType(YYLabel,detailLabel);
         [text appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"  "]];
     }
     return text;
+}
+
+- (void)actiondidTagClickWithInfoModel:(VLDetail_TagListResponse *)infoModel{
+    
+    
 }
 
 
@@ -170,10 +202,9 @@ KProStrongType(YYLabel,detailLabel);
     return _tagLabel;
 }
 
-
 - (SDCycleScrollView *)cycleScrollView{
     if (!_cycleScrollView) {
-        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.jk_width, TopViewHeitgh) delegate:self placeholderImage:[UIImage new]];
+        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.jk_width, TopViewHeight) delegate:self placeholderImage:[UIImage new]];
         _cycleScrollView.autoScroll = NO;
         kViewRadius(_cycleScrollView, 5);
         _cycleScrollView.imageURLStringsGroup = self.imageArrays;
@@ -196,8 +227,8 @@ KProStrongType(YYLabel,detailLabel);
         _titleLabel.textVerticalAlignment = YYTextVerticalAlignmentCenter;
         _titleLabel.numberOfLines = 2;
         _titleLabel.text = @"";
-        _titleLabel.alpha = 0;
-        _titleLabel.transform = CGAffineTransformMakeTranslation(0, 50);
+//        _titleLabel.alpha = 0;
+//        _titleLabel.transform = CGAffineTransformMakeTranslation(0, 50);
         
     }
     return _titleLabel;
@@ -219,9 +250,8 @@ KProStrongType(YYLabel,detailLabel);
 - (UIButton *)topicButton{
     if (!_topicButton) {
         _topicButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        kViewRadius(_topicButton, 15);
-        //        [_topicButton jk_setImagePosition:LXMImagePositionLeft spacing:1.0];
-        _topicButton.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
+        kViewRadius(_topicButton, TopicButtonHeight/2);
+        _topicButton.backgroundColor = [UIColor colorWithWhite:0.95 alpha:0.8];
         [_topicButton setImage:kNameImage(@"detail_topic_icon") forState:UIControlStateNormal];
         [_topicButton setTitle:@"" forState:UIControlStateNormal];
         [_topicButton setTitleColor:kBuleColor forState:UIControlStateNormal];
@@ -231,6 +261,11 @@ KProStrongType(YYLabel,detailLabel);
     }
     return _topicButton;
 }
+
+
+
+
+
 
 
 

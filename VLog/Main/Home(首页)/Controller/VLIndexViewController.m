@@ -127,6 +127,9 @@ NCHVerticalFlowLayoutDelegate
     return self.view;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    !self.scrollCallback ?: self.scrollCallback(scrollView);
+}
 
 #pragma mark - JXPagingViewListViewDelegate
 //- (UIView *)listView {
