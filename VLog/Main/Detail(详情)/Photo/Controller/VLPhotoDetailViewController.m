@@ -17,7 +17,7 @@
 
 #import "VLPhotoDetailRequest.h"
 #import "VLPhotoDetailManager.h"
-#import "VLPhotoDetailResponse.h"
+#import "VLDetailResponse.h"
 #import "VLIndexResponse.h"
 
 NSString * const kVLCommentTableViewCell     = @"VLCommentTableViewCell";
@@ -31,7 +31,7 @@ KProAssignType(NSInteger,pageSize);
 KProStrongType(VLPhotoDetailHeadView,detailHeadView);
 
 KProStrongType(VLPhotoDetailManager, manager)
-KProStrongType(VLPhotoDetailResponse, dataModel)
+KProStrongType(VLDetailResponse, dataModel)
 KProStrongType(VLVideoInfoModel, videoIndfoModel)
 @end
 

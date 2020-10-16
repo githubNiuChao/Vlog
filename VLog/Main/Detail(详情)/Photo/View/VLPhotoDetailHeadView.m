@@ -98,7 +98,7 @@ KProStrongType(YYLabel,detailLabel);
     }];
 }
 
-- (void)setInfo:(VLPhotoDetailResponse *)dataModel{
+- (void)setInfo:(VLDetailResponse *)dataModel{
     self.titleLabel.attributedText = [self appendAttributedString:dataModel.video_info.video_title font:kFontBBig];
     NSAttributedString *detailLabelAText =[self appendAttributedString:dataModel.video_info.video_desc font:kFontBMedium];
     self.detailLabel.attributedText = detailLabelAText;
@@ -261,12 +261,6 @@ KProStrongType(YYLabel,detailLabel);
     }
     return _topicButton;
 }
-
-
-
-
-
-
 
 
 - (void)showMessage:(NSString *)msg {

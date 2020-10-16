@@ -10,17 +10,18 @@
 #import "JXPagerView.h"
 //#import "PagingViewTableHeaderView.h"
 #import "UserInfoHeader.h"
+#import "VLUserHomeHeaderView.h"
 #import "SmoothListCollectionViewController.h"
 #import "VLIndexViewController.h"
 #import "JXCategoryTitleView.h"
 
-static const CGFloat JXTableHeaderViewHeight = 300;
-static const CGFloat JXheightForHeaderInSection = 50;
+static const CGFloat TableHeaderViewHeight = 220;
+static const CGFloat HeaderInSectionHeight = 50;
 
 @interface PagingViewController : UIViewController <JXPagerViewDelegate, JXPagerMainTableViewGestureDelegate>
 
 @property (nonatomic, strong) JXPagerView *pagerView;
-@property (nonatomic, strong) UserInfoHeader *userHeaderView;
+@property (nonatomic, strong) VLUserHomeHeaderView *userHeaderView;
 @property (nonatomic, strong, readonly) JXCategoryTitleView *categoryView;
 @property (nonatomic, assign) BOOL isNeedFooter;
 @property (nonatomic, assign) BOOL isNeedHeader;

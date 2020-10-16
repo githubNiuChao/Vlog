@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VLPhotoDetailResponse.h"
+#import "VLDetailResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class VLPhotoDetailHeadView;
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,weak) id<VLPhotoDetailHeadViewDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame imageArray:(NSArray *)array;
-- (void)setInfo:(VLPhotoDetailResponse *)info;
+- (void)setInfo:(VLDetailResponse *)info;
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import "VLPhotoDetailManager.h"
 #import "VLPhotoDetailRequest.h"
-#import "VLPhotoDetailResponse.h"
+#import "VLDetailResponse.h"
 
 @implementation VLPhotoDetailManager
 
@@ -21,7 +21,7 @@
 //        [request setArgument:@"2" forKey:@"cat_id"];
     NCWeakSelf(self);
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
-        VLPhotoDetailResponse *dataModel = [VLPhotoDetailResponse yy_modelWithJSON:baseResponse.data];
+        VLDetailResponse *dataModel = [VLDetailResponse yy_modelWithJSON:baseResponse.data];
         NSMutableArray *muArray = [[NSMutableArray alloc] init];
         [dataModel.tag_list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSArray *modelArray = [NSArray yy_modelArrayWithClass:[VLDetail_TagListResponse class] json:obj];

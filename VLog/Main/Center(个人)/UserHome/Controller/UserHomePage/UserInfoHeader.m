@@ -43,9 +43,6 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
 }
 
 - (void) initAvatarBackground {
-//    _topBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50 + SafeAreaTopHeight)];
-//    _topBackground.contentMode = UIViewContentModeScaleAspectFill;
-//    [self addSubview:_topBackground];
     
     _bottomBackground = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.jk_width, self.jk_height)];
     _bottomBackground.contentMode = UIViewContentModeScaleAspectFill;
@@ -266,7 +263,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     }];
     
     _likeNum = [[UILabel alloc] init];
-    _likeNum.text = @"0获赞";
+    _likeNum.text = @"0/n获赞";
     _likeNum.textColor = ColorBlack;
     _likeNum.font = BigBoldFont;
     [_containerView addSubview:_likeNum];
@@ -276,7 +273,7 @@ static const NSTimeInterval kAnimationDefaultDuration = 0.25;
     }];
     
     _followNum = [[UILabel alloc] init];
-    _followNum.text = @"0关注";
+    _followNum.text = @"0 n/关注";
     _followNum.textColor = ColorBlack;
     _followNum.font = BigBoldFont;
     [_containerView addSubview:_followNum];

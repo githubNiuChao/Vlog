@@ -7,13 +7,13 @@
 //
 
 #import "NCHBaseModelManager.h"
-#import "VLPhotoDetailResponse.h"
+#import "VLDetailResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VLPhotoDetailManager : NCHBaseModelManager
 
-KProStrongType(VLPhotoDetailResponse,dataModel)
+KProStrongType(VLDetailResponse,dataModel)
 
 -(void)loadDataWithVideoId:(NSString *)videoid;
 

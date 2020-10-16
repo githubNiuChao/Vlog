@@ -78,17 +78,20 @@
       //        [request setArgument:@"15" forKey:@"video_id"];
 //    [request setArgument:[NSString stringWithFormat:@"%ld",catId] forKey:@"cat_id"];
     [request setArgument:@"2" forKey:@"cat_id"];
-      NCWeakSelf(self);
-      [request startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-          NCHBaseRequestResponse *baseRespose = [NCHBaseRequestResponse yy_modelWithJSON:request.responseObject];
-          VLIndexResponse *dataModel = [VLIndexResponse yy_modelWithJSON:baseRespose.data];
-          weakself.dataArray = dataModel.list;
-          if (weakself.delegagte && [self.delegagte respondsToSelector:@selector(requestDataCompleted)]) {
-              [weakself.delegagte requestDataCompleted];
-          }
-      } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+    
+    NCWeakSelf(self);
+    [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
         
-      }];
+        VLIndexResponse *dataModel = [VLIndexResponse yy_modelWithJSON:baseResponse.data];
+        weakself.dataArray = dataModel.list;
+        if (weakself.delegagte && [self.delegagte respondsToSelector:@selector(requestDataCompleted)]) {
+            [weakself.delegagte requestDataCompleted];
+        }
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+        if (weakself.delegagte && [weakself.delegagte respondsToSelector:@selector(requestDataFailedErrorMessage:)]) {
+               [weakself.delegagte requestDataFailedErrorMessage:baseResponse.errorMessage];
+           }
+    }];
     
 }
 

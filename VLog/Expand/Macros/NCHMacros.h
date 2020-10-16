@@ -112,6 +112,8 @@
 
 #define kSysBGColor   [UIColor systemBackgroundColor]
 #define kSysGroupBGColor   [UIColor systemGroupedBackgroundColor]
+#define kSysSeparatorColor   [UIColor separatorColor]
+
 
 #define kGreyColor   [UIColor systemGrayColor]
 #define kGreyColor2  [UIColor systemGray2Color]
@@ -126,6 +128,22 @@
 #define kOrangeColor [UIColor colorWithRed:0.949020 green:0.447059 blue:0.109804 alpha:1.0]
 #define kBorderColor [UIColor colorWithRed:0.815686 green:0.815686 blue:0.815686 alpha:1.0]
 #define KGreenColor  [UIColor colorWithRed:0.364706 green:0.635294 blue:0.215686 alpha:1.0]
+
+
+#define kColorWhiteAlpha10 RGBA(255.0, 255.0, 255.0, 0.1)
+#define kColorWhiteAlpha20 RGBA(255.0, 255.0, 255.0, 0.2)
+#define kColorWhiteAlpha40 RGBA(255.0, 255.0, 255.0, 0.4)
+#define kColorWhiteAlpha60 RGBA(255.0, 255.0, 255.0, 0.6)
+#define kColorWhiteAlpha80 RGBA(255.0, 255.0, 255.0, 0.8)
+
+#define kColorBlackAlpha1 RGBA(0.0, 0.0, 0.0, 0.01)
+#define kColorBlackAlpha5 RGBA(0.0, 0.0, 0.0, 0.05)
+#define kColorBlackAlpha10 RGBA(0.0, 0.0, 0.0, 0.1)
+#define kColorBlackAlpha20 RGBA(0.0, 0.0, 0.0, 0.2)
+#define kColorBlackAlpha40 RGBA(0.0, 0.0, 0.0, 0.4)
+#define kColorBlackAlpha60 RGBA(0.0, 0.0, 0.0, 0.6)
+#define kColorBlackAlpha80 RGBA(0.0, 0.0, 0.0, 0.8)
+#define kColorBlackAlpha90 RGBA(0.0, 0.0, 0.0, 0.9)
 
 // Property
 #pragma mark - ------------属性---------------

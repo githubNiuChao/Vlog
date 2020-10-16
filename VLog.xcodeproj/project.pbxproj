@@ -323,12 +323,16 @@
 		51A29C2225203EC2001EF6E9 /* emotion.json in Resources */ = {isa = PBXBuildFile; fileRef = 51A29BC725203EC1001EF6E9 /* emotion.json */; };
 		51A29C292520625B001EF6E9 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29C262520625B001EF6E9 /* SRWebSocket.m */; };
 		51A66CA02537DD3900F34CED /* VLVideoInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A66C9F2537DD3900F34CED /* VLVideoInfoModel.m */; };
+		51A66CA62539428700F34CED /* VLDetailResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A66CA52539428700F34CED /* VLDetailResponse.m */; };
+		51A66CA92539434000F34CED /* VLUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A66CA82539434000F34CED /* VLUserInfoModel.m */; };
+		51A66CAC2539440F00F34CED /* VLUserHomeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A66CAB2539440F00F34CED /* VLUserHomeResponse.m */; };
+		51A66CAF2539445D00F34CED /* VLUserHomeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A66CAE2539445D00F34CED /* VLUserHomeRequest.m */; };
+		51A66CB225394BBB00F34CED /* VLUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A66CB125394BBB00F34CED /* VLUserHomeHeaderView.m */; };
 		51AC9911250F03CC0023D5EA /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9905250F03CB0023D5EA /* UIView+Frame.m */; };
 		51AC9912250F03CC0023D5EA /* YISVlogTabBarController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */; };
 		51AC9914250F03CC0023D5EA /* YISPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9909250F03CB0023D5EA /* YISPlusButton.m */; };
 		51AC9920250F0AE80023D5EA /* YISNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC991F250F0AE80023D5EA /* YISNavigationController.m */; };
 		51BA07FF2536A369002E481E /* VLPhotoDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */; };
-		51BA08022536A3F7002E481E /* VLPhotoDetailResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08012536A3F7002E481E /* VLPhotoDetailResponse.m */; };
 		51BA08052536A843002E481E /* VLPhotoDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08042536A843002E481E /* VLPhotoDetailManager.m */; };
 		51BA08082536ABF4002E481E /* NCHBaseModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08072536ABF4002E481E /* NCHBaseModelManager.m */; };
 		51BA08102536D736002E481E /* WaterFallListLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA080A2536D736002E481E /* WaterFallListLogic.m */; };
@@ -955,6 +959,16 @@
 		51A29C282520625B001EF6E9 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		51A66C9E2537DD3900F34CED /* VLVideoInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLVideoInfoModel.h; sourceTree = "<group>"; };
 		51A66C9F2537DD3900F34CED /* VLVideoInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLVideoInfoModel.m; sourceTree = "<group>"; };
+		51A66CA42539428700F34CED /* VLDetailResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLDetailResponse.h; sourceTree = "<group>"; };
+		51A66CA52539428700F34CED /* VLDetailResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLDetailResponse.m; sourceTree = "<group>"; };
+		51A66CA72539434000F34CED /* VLUserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserInfoModel.h; sourceTree = "<group>"; };
+		51A66CA82539434000F34CED /* VLUserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserInfoModel.m; sourceTree = "<group>"; };
+		51A66CAA2539440F00F34CED /* VLUserHomeResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeResponse.h; sourceTree = "<group>"; };
+		51A66CAB2539440F00F34CED /* VLUserHomeResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeResponse.m; sourceTree = "<group>"; };
+		51A66CAD2539445D00F34CED /* VLUserHomeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeRequest.h; sourceTree = "<group>"; };
+		51A66CAE2539445D00F34CED /* VLUserHomeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeRequest.m; sourceTree = "<group>"; };
+		51A66CB025394BBB00F34CED /* VLUserHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeHeaderView.h; sourceTree = "<group>"; };
+		51A66CB125394BBB00F34CED /* VLUserHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeHeaderView.m; sourceTree = "<group>"; };
 		51AC9903250F03CB0023D5EA /* YISPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISPlusButton.h; sourceTree = "<group>"; };
 		51AC9905250F03CB0023D5EA /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISVlogTabBarController1.m; sourceTree = "<group>"; };
@@ -965,8 +979,6 @@
 		51AC991F250F0AE80023D5EA /* YISNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YISNavigationController.m; sourceTree = "<group>"; };
 		51BA07FD2536A369002E481E /* VLPhotoDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailRequest.h; sourceTree = "<group>"; };
 		51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailRequest.m; sourceTree = "<group>"; };
-		51BA08002536A3F7002E481E /* VLPhotoDetailResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailResponse.h; sourceTree = "<group>"; };
-		51BA08012536A3F7002E481E /* VLPhotoDetailResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailResponse.m; sourceTree = "<group>"; };
 		51BA08032536A843002E481E /* VLPhotoDetailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailManager.h; sourceTree = "<group>"; };
 		51BA08042536A843002E481E /* VLPhotoDetailManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailManager.m; sourceTree = "<group>"; };
 		51BA08062536ABF4002E481E /* NCHBaseModelManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHBaseModelManager.h; sourceTree = "<group>"; };
@@ -1493,6 +1505,8 @@
 				51873F1025315E320070264B /* PagingViewController.m */,
 				51873F1125315E320070264B /* RefreshViewController.h */,
 				51873F1225315E320070264B /* RefreshViewController.m */,
+				51A66CB025394BBB00F34CED /* VLUserHomeHeaderView.h */,
+				51A66CB125394BBB00F34CED /* VLUserHomeHeaderView.m */,
 				51339C9A253053430039A025 /* JXPagerView */,
 				51339C8C253053430039A025 /* Smooth */,
 				51A29B0D25203EC0001EF6E9 /* UserHome */,
@@ -2091,8 +2105,12 @@
 				51873F28253433DE0070264B /* VLIndexResponse.m */,
 				51A66C9E2537DD3900F34CED /* VLVideoInfoModel.h */,
 				51A66C9F2537DD3900F34CED /* VLVideoInfoModel.m */,
-				51BA08002536A3F7002E481E /* VLPhotoDetailResponse.h */,
-				51BA08012536A3F7002E481E /* VLPhotoDetailResponse.m */,
+				51A66CA42539428700F34CED /* VLDetailResponse.h */,
+				51A66CA52539428700F34CED /* VLDetailResponse.m */,
+				51A66CA72539434000F34CED /* VLUserInfoModel.h */,
+				51A66CA82539434000F34CED /* VLUserInfoModel.m */,
+				51A66CAA2539440F00F34CED /* VLUserHomeResponse.h */,
+				51A66CAB2539440F00F34CED /* VLUserHomeResponse.m */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -2478,6 +2496,8 @@
 				51E05A01252462F200FA9744 /* VLIndexRequest.m */,
 				51BA07FD2536A369002E481E /* VLPhotoDetailRequest.h */,
 				51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */,
+				51A66CAD2539445D00F34CED /* VLUserHomeRequest.h */,
+				51A66CAE2539445D00F34CED /* VLUserHomeRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2669,6 +2689,7 @@
 				51A29BF925203EC1001EF6E9 /* BaseMessageCell.m in Sources */,
 				51805B79251B91CC00FBC12D /* HXPhotoPreviewViewCell.m in Sources */,
 				5173E5A82522C4B600E57C71 /* VLIndexListCollectionViewCell.m in Sources */,
+				51A66CAC2539440F00F34CED /* VLUserHomeResponse.m in Sources */,
 				51A29BD125203EC1001EF6E9 /* UIImageView+WebCache.m in Sources */,
 				51A29C0B25203EC1001EF6E9 /* CommentsPopView.m in Sources */,
 				51A29BFD25203EC1001EF6E9 /* EmotionSelector.m in Sources */,
@@ -2691,6 +2712,7 @@
 				51805B4C251B91CC00FBC12D /* NSArray+HXExtension.m in Sources */,
 				51815244251C470C00F9CCD3 /* NCHNormalRefreshHeader.m in Sources */,
 				51805BB6251B91CC00FBC12D /* YSCTagCollectionViewCell.m in Sources */,
+				51A66CA62539428700F34CED /* VLDetailResponse.m in Sources */,
 				51805B45251B91CC00FBC12D /* HXPhotoEditTransition.m in Sources */,
 				51A29BD525203EC1001EF6E9 /* User.m in Sources */,
 				5181524A251C470C00F9CCD3 /* NCHBaseViewController.m in Sources */,
@@ -2714,7 +2736,6 @@
 				51339CAC253053430039A025 /* JXPagerMainTableView.m in Sources */,
 				51A29BE825203EC1001EF6E9 /* WebCacheHelpler.m in Sources */,
 				51805B81251B91CC00FBC12D /* HXPhotoClippingView.m in Sources */,
-				51BA08022536A3F7002E481E /* VLPhotoDetailResponse.m in Sources */,
 				51805BAB251B91CC00FBC12D /* YBFocusLayer.m in Sources */,
 				51A29BFC25203EC1001EF6E9 /* TextMessageCell.m in Sources */,
 				51805B66251B91CC00FBC12D /* HXPhotoPreviewBottomView.m in Sources */,
@@ -2800,6 +2821,7 @@
 				51805B5E251B91CC00FBC12D /* HXPhotoViewController.m in Sources */,
 				51805B87251B91CC00FBC12D /* HXPhotoEditGridMaskLayer.m in Sources */,
 				51805BB5251B91CC00FBC12D /* YSCVlogPublishView.m in Sources */,
+				51A66CB225394BBB00F34CED /* VLUserHomeHeaderView.m in Sources */,
 				51A29BCF25203EC1001EF6E9 /* NSString+Extension.m in Sources */,
 				51805B62251B91CC00FBC12D /* HXVideoEditViewController.m in Sources */,
 				51339CA8253053430039A025 /* SmoothCustomPagerHeaderViewController.m in Sources */,
@@ -2859,6 +2881,7 @@
 				51AC9920250F0AE80023D5EA /* YISNavigationController.m in Sources */,
 				51805BB1251B91CC00FBC12D /* YBTagView.m in Sources */,
 				51805B67251B91CC00FBC12D /* HXPhotoPreviewLivePhotoCell.m in Sources */,
+				51A66CA92539434000F34CED /* VLUserInfoModel.m in Sources */,
 				51805B91251B91CC00FBC12D /* HXPhotoEditChartletPreviewView.m in Sources */,
 				5173E5C725231EB600E57C71 /* VLFollowListViewController.m in Sources */,
 				51873F2525342A190070264B /* WMZDialogAnimation.m in Sources */,
@@ -2920,6 +2943,7 @@
 				51A29BD925203EC1001EF6E9 /* Comment.m in Sources */,
 				51805B42251B91CC00FBC12D /* YSCTagViewController.m in Sources */,
 				51A29BD425203EC1001EF6E9 /* Video.m in Sources */,
+				51A66CAF2539445D00F34CED /* VLUserHomeRequest.m in Sources */,
 				51805B89251B91CC00FBC12D /* HXPhotoEditGraffitiColorSizeView.m in Sources */,
 				51805B5C251B91CC00FBC12D /* HXAlbumListViewController.m in Sources */,
 				51805B14251B91CB00FBC12D /* MPFileManager.m in Sources */,

@@ -91,11 +91,11 @@ KProStrongType(VLIndex_Context_UserInfo_UserRankResponse, user_rank)
 @end
 
 @interface VLIndex_Context_UserInfo_UserRankResponse : NSObject
-KProNSInteger(min_points)
-KProNSInteger(max_points)
-KProNSInteger(is_special)
-KProNSInteger(type)
-KProNSInteger(rank_id)
+kProNSString(min_points)
+kProNSString(max_points)
+kProNSString(is_special)
+kProNSString(type)
+kProNSString(rank_id)
 kProNSString(rank_name)
 kProNSString(rank_img)
 @end

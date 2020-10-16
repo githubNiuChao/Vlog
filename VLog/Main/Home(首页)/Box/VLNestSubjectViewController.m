@@ -61,18 +61,18 @@ static const CGFloat CategoryViewHeight = 40;
     //        [request setArgument:@"15" forKey:@"video_id"];
 //        [request setArgument:@"2" forKey:@"cat_id"];
     NCWeakSelf(self);
-    [request startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //            [weakself endHeaderFooterRefreshing];
-        NCHBaseRequestResponse *baseRespose = [NCHBaseRequestResponse yy_modelWithJSON:request.responseObject];
-        self.indexData = [VLIndexResponse yy_modelWithJSON:baseRespose.data];
+    
+    [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+        self.indexData = [VLIndexResponse yy_modelWithJSON:baseResponse.data];
         for (VLIndex_Cat_InfoResponse* catInfo in self.indexData.cat_list) {
             [weakself.tittleArray addObject:catInfo.cat_name];
             [weakself.catIdArray addObject:@(catInfo.cat_id)];
         }
         [weakself initSubView];
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        //            [weakself endHeaderFooterRefreshing];
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+        
     }];
+    
 }
 
 
@@ -114,7 +114,6 @@ static const CGFloat CategoryViewHeight = 40;
             [self.popView dismiss];
         }
 }
-
 
 #pragma mark - Set/Get
 
