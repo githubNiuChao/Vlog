@@ -90,32 +90,6 @@
 }
 
 
-/** 导航条的左边的 view */
-//- (UIView *)NCHNavigationBarLeftView:(NCHNavigationBar *)navigationBar
-//{
-//
-//}
-/** 导航条右边的 view */
-//- (UIView *)NCHNavigationBarRightView:(NCHNavigationBar *)navigationBar
-//{
-//
-//}
-/** 导航条中间的 View */
-//- (UIView *)NCHNavigationBarTitleView:(NCHNavigationBar *)navigationBar
-//{
-//
-//}
-/** 导航条左边的按钮 */
-//- (UIImage *)NCHNavigationBarLeftButtonImage:(UIButton *)leftButton navigationBar:(NCHNavigationBar *)navigationBar
-//{
-//
-//}
-/** 导航条右边的按钮 */
-//- (UIImage *)NCHNavigationBarRightButtonImage:(UIButton *)rightButton navigationBar:(NCHNavigationBar *)navigationBar
-//{
-//
-//}
-
 #pragma mark - Delegate
 /** 左边的按钮的点击 */
 -(void)leftButtonEvent:(UIButton *)sender navigationBar:(NCHNavigationBar *)navigationBar {
@@ -142,30 +116,6 @@
     [title addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:17] range:NSMakeRange(0, title.length)];
     
     return title;
-}
-
-//
-//- (NCHNavigationBar *)jk_navgationBar {
-//    // 父类控制器必须是导航控制器
-//    if(!_jk_navgationBar && [self.parentViewController isKindOfClass:[UINavigationController class]])
-//    {
-//        NCHNavigationBar *navigationBar = [[NCHNavigationBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0)];
-//        [self.view addSubview:navigationBar];
-//        _jk_navgationBar = navigationBar;
-//
-//        navigationBar.dataSource = self;
-//        navigationBar.NCHDelegate = self;
-//        navigationBar.hidden = ![self navUIBaseViewControllerIsNeedNavBar:self];
-//    }
-//    return _jk_navgationBar;
-//}
-
-
-
-
-- (void)setTitle:(NSString *)title {
-    [super setTitle:title];
-//    self.jk_navgationBar.title = [self changeTitle:title];
 }
 
 @end
