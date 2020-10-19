@@ -79,10 +79,10 @@
 }
 
 /** 是否显示底部黑线 */
-//- (BOOL)NCHNavigationIsHideBottomLine:(NCHNavigationBar *)navigationBar
-//{
-//    return NO;
-//}
+- (BOOL)NCHNavigationIsHideBottomLine:(NCHNavigationBar *)navigationBar
+{
+    return NO;
+}
 
 /** 导航条的高度 */
 - (CGFloat)NCHNavigationHeight:(NCHNavigationBar *)navigationBar {

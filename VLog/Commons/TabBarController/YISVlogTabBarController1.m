@@ -7,7 +7,6 @@
 //
 
 #import "YISVlogTabBarController1.h"
-#import "YISNavigationController.h"
 #import "NCHNavigationController.h"
 #import "VLNestViewController.h"
 #import "UserHomePageController.h"
@@ -60,7 +59,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
       
     NCHNavigationController *four = [[NCHNavigationController alloc] initWithRootViewController:[[YISIndexViewController alloc] init]];
       
-    YISNavigationController *five = [[YISNavigationController alloc] initWithRootViewController:[[PagingViewController alloc] init]];
+    NCHNavigationController *five = [[NCHNavigationController alloc] initWithRootViewController:[[PagingViewController alloc] init]];
     
     return @[one, two, four, five];
 }

@@ -7,7 +7,7 @@
 //
 
 #import "UserHomePageController.h"
-#import "AwemeListController.h"
+#import "VLVideoListViewController.h"
 #import "ChatListController.h"
 #import "HoverViewFlowLayout.h"
 #import "UserInfoHeader.h"
@@ -181,11 +181,11 @@ NSString * const kAwemeCollectionCell  = @"AwemeCollectionCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     _selectIndex = indexPath.row;
     
-    AwemeListController *controller;
+    VLVideoListViewController *controller;
     if(_tabIndex == 0) {
-        controller = [[AwemeListController alloc] initWithVideoData:_workAwemes currentIndex:indexPath.row pageIndex:_pageIndex pageSize:_pageSize awemeType:AwemeWork uid:_uid];
+        controller = [[VLVideoListViewController alloc] initWithVideoData:_workAwemes currentIndex:indexPath.row pageIndex:_pageIndex pageSize:_pageSize awemeType:AwemeWork uid:_uid];
     }else {
-        controller = [[AwemeListController alloc] initWithVideoData:_favoriteAwemes currentIndex:indexPath.row pageIndex:_pageIndex pageSize:_pageSize awemeType:AwemeFavorite uid:_uid];
+        controller = [[VLVideoListViewController alloc] initWithVideoData:_favoriteAwemes currentIndex:indexPath.row pageIndex:_pageIndex pageSize:_pageSize awemeType:AwemeFavorite uid:_uid];
     }
     controller.transitioningDelegate = self;
     

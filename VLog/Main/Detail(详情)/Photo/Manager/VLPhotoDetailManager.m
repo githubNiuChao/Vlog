@@ -14,11 +14,7 @@
 
 -(void)loadDataWithVideoId:(NSString *)videoid{
     VLPhotoDetailRequest *request =  [[VLPhotoDetailRequest alloc]init];
-    //        [request setArgument:@"asthare" forKey:@"user_name"];
-    //        [request setArgument:@"123456" forKey:@"password"];
-    //        [request setArgument:@"15" forKey:@"video_id"];
     [request setArgument:@"15" forKey:@"video_id"];
-//        [request setArgument:@"2" forKey:@"cat_id"];
     NCWeakSelf(self);
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
         VLDetailResponse *dataModel = [VLDetailResponse yy_modelWithJSON:baseResponse.data];

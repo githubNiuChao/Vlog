@@ -75,27 +75,8 @@ NCHVerticalFlowLayoutDelegate
     VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
     VLVideoInfoModel *listModel = self.manager.dataArray[indexPath.row];
     photoDetaiVC.video_id = listModel.video_id;
-    
-//    profileVC.headerImage = cell.imgView.image;
-//    profileVC.isTransition = YES;
-//    photoDetaiVC.imageArray = cell.listModel.imageArray;
     [self.navigationController pushViewController:photoDetaiVC animated:YES];
-
-//    
-//    if (indexPath.row%2==0) return;
-//    AwemeListController *controller;
-//    if(_tabIndex == 0) {
-//        controller = [[AwemeListController alloc] initWithVideoData:_workAwemes currentIndex:indexPath.row pageIndex:_pageIndex pageSize:_pageSize awemeType:AwemeWork uid:_uid];
-//    }else {
-//        controller = [[AwemeListController alloc] initWithVideoData:_favoriteAwemes currentIndex:indexPath.row pageIndex:_pageIndex pageSize:_pageSize awemeType:AwemeFavorite uid:_uid];
-//    }
-//    controller.transitioningDelegate = self;
-//    
-//    controller.modalPresentationStyle = UIModalPresentationOverFullScreen;
-//    self.modalPresentationStyle = UIModalPresentationCurrentContext;
-//    [_swipeLeftInteractiveTransition wireToViewController:controller];
-//    [self presentViewController:controller animated:YES completion:nil];
-//    
+    
 }
 
 
@@ -112,7 +93,7 @@ NCHVerticalFlowLayoutDelegate
 {
     VLVideoInfoModel *listModel = self.manager.dataArray[indexPath.row];
       if (listModel.imageCacheHeight == 0 || listModel.hobbysCacheHeight == 0) {
-        listModel.hobbysCacheHeight = [listModel.video_desc jk_heightWithFont:kFontSmall constrainedToWidth:itemWidth];
+        listModel.hobbysCacheHeight = [listModel.video_title jk_heightWithFont:kFontSmall constrainedToWidth:itemWidth];
         listModel.imageCacheHeight = listModel.height * itemWidth / listModel.width;
       }
     return listModel.imageCacheHeight + listModel.hobbysCacheHeight + 70;

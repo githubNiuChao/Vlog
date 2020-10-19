@@ -21,6 +21,8 @@
 		51339CAD253053430039A025 /* JXPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C9E253053430039A025 /* JXPagerView.m */; };
 		51339CAE253053430039A025 /* JXPagerSmoothView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339CA0253053430039A025 /* JXPagerSmoothView.m */; };
 		51339CAF253053430039A025 /* JXPagerListRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339CA4253053430039A025 /* JXPagerListRefreshView.m */; };
+		5134C86F253C2B5A00FE5528 /* VLVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5134C86E253C2B5A00FE5528 /* VLVideoListViewController.m */; };
+		5134C872253C2D5E00FE5528 /* VLVideoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5134C871253C2D5E00FE5528 /* VLVideoListTableViewCell.m */; };
 		514875D9251F1416003B7F11 /* NCHMacroTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 514875D8251F1416003B7F11 /* NCHMacroTools.m */; };
 		515E777D25218D470020F3EF /* home_like_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 515E777B25218D470020F3EF /* home_like_s.png */; };
 		515E777E25218D470020F3EF /* home_like_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 515E777C25218D470020F3EF /* home_like_n.png */; };
@@ -331,7 +333,6 @@
 		51AC9911250F03CC0023D5EA /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9905250F03CB0023D5EA /* UIView+Frame.m */; };
 		51AC9912250F03CC0023D5EA /* YISVlogTabBarController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */; };
 		51AC9914250F03CC0023D5EA /* YISPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC9909250F03CB0023D5EA /* YISPlusButton.m */; };
-		51AC9920250F0AE80023D5EA /* YISNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51AC991F250F0AE80023D5EA /* YISNavigationController.m */; };
 		51BA07FF2536A369002E481E /* VLPhotoDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */; };
 		51BA08052536A843002E481E /* VLPhotoDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08042536A843002E481E /* VLPhotoDetailManager.m */; };
 		51BA08082536ABF4002E481E /* NCHBaseModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08072536ABF4002E481E /* NCHBaseModelManager.m */; };
@@ -380,6 +381,10 @@
 		51339CA2253053430039A025 /* JXPagerListContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerListContainerView.h; sourceTree = "<group>"; };
 		51339CA3253053430039A025 /* JXPagerMainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerMainTableView.h; sourceTree = "<group>"; };
 		51339CA4253053430039A025 /* JXPagerListRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListRefreshView.m; sourceTree = "<group>"; };
+		5134C86D253C2B5A00FE5528 /* VLVideoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLVideoListViewController.h; sourceTree = "<group>"; };
+		5134C86E253C2B5A00FE5528 /* VLVideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLVideoListViewController.m; sourceTree = "<group>"; };
+		5134C870253C2D5E00FE5528 /* VLVideoListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLVideoListTableViewCell.h; sourceTree = "<group>"; };
+		5134C871253C2D5E00FE5528 /* VLVideoListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLVideoListTableViewCell.m; sourceTree = "<group>"; };
 		514875D7251F1416003B7F11 /* NCHMacroTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHMacroTools.h; sourceTree = "<group>"; };
 		514875D8251F1416003B7F11 /* NCHMacroTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHMacroTools.m; sourceTree = "<group>"; };
 		515E777B25218D470020F3EF /* home_like_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_like_s.png; sourceTree = "<group>"; };
@@ -969,14 +974,13 @@
 		51A66CAE2539445D00F34CED /* VLUserHomeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeRequest.m; sourceTree = "<group>"; };
 		51A66CB025394BBB00F34CED /* VLUserHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeHeaderView.h; sourceTree = "<group>"; };
 		51A66CB125394BBB00F34CED /* VLUserHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeHeaderView.m; sourceTree = "<group>"; };
+		51A66CB4253B685800F34CED /* QMUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QMUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51AC9903250F03CB0023D5EA /* YISPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISPlusButton.h; sourceTree = "<group>"; };
 		51AC9905250F03CB0023D5EA /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISVlogTabBarController1.m; sourceTree = "<group>"; };
 		51AC9909250F03CB0023D5EA /* YISPlusButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISPlusButton.m; sourceTree = "<group>"; };
 		51AC990B250F03CB0023D5EA /* YISVlogTabBarController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISVlogTabBarController1.h; sourceTree = "<group>"; };
 		51AC990C250F03CB0023D5EA /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
-		51AC991E250F0AE80023D5EA /* YISNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YISNavigationController.h; sourceTree = "<group>"; };
-		51AC991F250F0AE80023D5EA /* YISNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YISNavigationController.m; sourceTree = "<group>"; };
 		51BA07FD2536A369002E481E /* VLPhotoDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailRequest.h; sourceTree = "<group>"; };
 		51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailRequest.m; sourceTree = "<group>"; };
 		51BA08032536A843002E481E /* VLPhotoDetailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailManager.h; sourceTree = "<group>"; };
@@ -1018,6 +1022,7 @@
 		1050D16EED33C00374B8BE77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				51A66CB4253B685800F34CED /* QMUIKit.framework */,
 				6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */,
 			);
 			name = Frameworks;
@@ -1098,6 +1103,8 @@
 		5173E5AA2522CB1F00E57C71 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5134C870253C2D5E00FE5528 /* VLVideoListTableViewCell.h */,
+				5134C871253C2D5E00FE5528 /* VLVideoListTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1105,6 +1112,8 @@
 		5173E5AB2522CB1F00E57C71 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5134C86D253C2B5A00FE5528 /* VLVideoListViewController.h */,
+				5134C86E253C2B5A00FE5528 /* VLVideoListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2445,7 +2454,6 @@
 			isa = PBXGroup;
 			children = (
 				512B033E251053DE00447945 /* Base */,
-				51AC991D250F0AC20023D5EA /* NavigationController */,
 				51AC9901250F03CB0023D5EA /* TabBarController */,
 				512B0351251065B300447945 /* UICollectionView+IndexPath.h */,
 				512B0350251065B300447945 /* UICollectionView+IndexPath.m */,
@@ -2465,15 +2473,6 @@
 				51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */,
 			);
 			path = TabBarController;
-			sourceTree = "<group>";
-		};
-		51AC991D250F0AC20023D5EA /* NavigationController */ = {
-			isa = PBXGroup;
-			children = (
-				51AC991E250F0AE80023D5EA /* YISNavigationController.h */,
-				51AC991F250F0AE80023D5EA /* YISNavigationController.m */,
-			);
-			path = NavigationController;
 			sourceTree = "<group>";
 		};
 		51BA08092536D736002E481E /* Manager */ = {
@@ -2768,6 +2767,7 @@
 				51A29BDC25203EC1001EF6E9 /* NetworkHelper.m in Sources */,
 				51A29C1425203EC1001EF6E9 /* UserInfoHeader.m in Sources */,
 				51805B53251B91CC00FBC12D /* UIColor+HXExtension.m in Sources */,
+				5134C872253C2D5E00FE5528 /* VLVideoListTableViewCell.m in Sources */,
 				515FCC8B25359704007F964A /* NCHTimer.m in Sources */,
 				51805B57251B91CC00FBC12D /* HXPhotoCommon.m in Sources */,
 				51A29C0225203EC1001EF6E9 /* TimeCell.m in Sources */,
@@ -2878,7 +2878,6 @@
 				5173E5B62522CB2700E57C71 /* VLPhotoDetailHeadView.m in Sources */,
 				51815245251C470C00F9CCD3 /* NCHHorizontalFlowLayout.m in Sources */,
 				51805B82251B91CC00FBC12D /* HXPhotoEditStickerTrashView.m in Sources */,
-				51AC9920250F0AE80023D5EA /* YISNavigationController.m in Sources */,
 				51805BB1251B91CC00FBC12D /* YBTagView.m in Sources */,
 				51805B67251B91CC00FBC12D /* HXPhotoPreviewLivePhotoCell.m in Sources */,
 				51A66CA92539434000F34CED /* VLUserInfoModel.m in Sources */,
@@ -2904,6 +2903,7 @@
 				51805B48251B91CC00FBC12D /* HXPhotoPersentInteractiveTransition.m in Sources */,
 				51E059FB2524620100FA9744 /* NCHNetWorkManager.m in Sources */,
 				51815247251C470C00F9CCD3 /* NCHStaticTableViewController.m in Sources */,
+				5134C86F253C2B5A00FE5528 /* VLVideoListViewController.m in Sources */,
 				51A29BF625203EC1001EF6E9 /* MenuPopView.m in Sources */,
 				51A29BF125203EC1001EF6E9 /* UserResponse.m in Sources */,
 				515FCC812535947E007F964A /* NCHPopView.m in Sources */,

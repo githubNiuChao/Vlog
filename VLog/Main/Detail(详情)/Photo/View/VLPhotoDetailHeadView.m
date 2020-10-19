@@ -100,7 +100,18 @@ KProStrongType(YYLabel,detailLabel);
 
 - (void)setInfo:(VLDetailResponse *)dataModel{
     self.titleLabel.attributedText = [self appendAttributedString:dataModel.video_info.video_title font:kFontBBig];
-    NSAttributedString *detailLabelAText =[self appendAttributedString:dataModel.video_info.video_desc font:kFontBMedium];
+    
+//    NSAttributedString *detailLabelAText =[self appendAttributedString:dataModel.video_info.video_desc font:kFontBMedium];
+    NSMutableAttributedString *detailLabelAText = [NSMutableAttributedString new];
+    NCWeakSelf(self);
+    [dataModel.video_info.video_desc enumerateObjectsUsingBlock:^(VLVideoInfo_DescModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.is_tag) {
+            [detailLabelAText appendAttributedString:[weakself appendDescTagAttributedStringWithInfoModel:obj]];
+        }else{
+            [detailLabelAText appendAttributedString:[weakself appendAttributedString:obj.name font:kFontBMedium]];
+        }
+    }];
+    
     self.detailLabel.attributedText = detailLabelAText;
     [self.topicButton setTitle:[NSString stringWithFormat:@"%@ ",dataModel.video_cat_info.cat_name] forState:UIControlStateNormal];
     
@@ -111,7 +122,7 @@ KProStrongType(YYLabel,detailLabel);
         }
     }];
     NSMutableAttributedString *text = [NSMutableAttributedString new];
-    NCWeakSelf(self);
+//    NCWeakSelf(self);
     [muArray enumerateObjectsUsingBlock:^(VLDetail_TagListResponse * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [text appendAttributedString:[weakself appendTagAttributedStringWithInfoModel:obj]];
     }];
@@ -182,6 +193,40 @@ KProStrongType(YYLabel,detailLabel);
     }
     return text;
 }
+
+- (NSAttributedString *)appendDescTagAttributedStringWithInfoModel:(VLVideoInfo_DescModel *)infoModel{
+    
+    NSMutableAttributedString *text = [NSMutableAttributedString new];
+    UIImage *image = [UIImage imageNamed:@"publish_tag_icon"];
+    NSMutableAttributedString *attachment = [NSMutableAttributedString yy_attachmentStringWithContent:image contentMode:UIViewContentModeCenter attachmentSize:image.size alignToFont:kFontBSmall alignment:YYTextVerticalAlignmentCenter];
+    [text appendAttributedString: attachment];
+    
+    {
+        NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithString:infoModel.name];
+        one.yy_font = kFontBMedium;
+        one.yy_color = kBuleColor;
+        
+        YYTextShadow *shadow = [YYTextShadow new];
+        shadow.color = [UIColor colorWithWhite:0.0 alpha:0.5];
+        shadow.offset = CGSizeMake(0, 1);
+        shadow.radius = 5;
+        one.yy_textShadow = shadow;
+    
+        YYTextHighlight *highlight = [YYTextHighlight new];
+        [highlight setColor:[UIColor colorWithRed:1.000 green:0.795 blue:0.014 alpha:1.000]];
+        NCWeakSelf(self);
+        highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
+//            [_self showMessage:[NSString stringWithFormat:@"Tap: %@",[text.string substringWithRange:range]]];
+            [weakself actiondidTagClickWithInfoModel:infoModel];
+        };
+        [one yy_setTextHighlight:highlight range:one.yy_rangeOfAll];
+        
+        [text appendAttributedString:one];
+        [text appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"  "]];
+    }
+    return text;
+}
+
 
 - (void)actiondidTagClickWithInfoModel:(VLDetail_TagListResponse *)infoModel{
     

@@ -70,7 +70,7 @@ static const CGFloat CategoryViewHeight = 40;
         }
         [weakself initSubView];
     } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
-        
+
     }];
     
 }

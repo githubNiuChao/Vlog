@@ -14,10 +14,11 @@ typedef enum : NSUInteger {
     VLVideoInfoModelTypeVidel = 1
 } VLVideoInfoModelType;
 
+@class VLVideoInfo_DescModel;
 @interface VLVideoInfoModel : NSObject
 kProNSString(video_id)
 kProNSString(video_title)
-kProNSString(video_desc)
+KProNSArrayType(VLVideoInfo_DescModel,video_desc)
 KProNSArray(video_path)
 kProNSString(video_img)
 kProNSString(video_type)
@@ -47,5 +48,13 @@ KProAssignType(NSInteger,imageCacheHeight)
 KProAssignType(NSInteger,hobbysCacheHeight)
 KProAssignType(VLVideoInfoModelType,videoType)
 @end
+
+@interface VLVideoInfo_DescModel : NSObject
+kProNSString(tagId)
+KProBool(is_tag)
+kProNSString(name)
+kProNSString(type)
+@end
+
 
 NS_ASSUME_NONNULL_END

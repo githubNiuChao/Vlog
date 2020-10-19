@@ -21,10 +21,11 @@
     [super viewDidLoad];
     
 //    self.navigationBar.hidden = YES;
-
     // 不让自控制器控制系统导航条
 //    self.fd_viewControllerBasedNavigationBarAppearanceEnabled = NO;
     self.navigationBar.translucent = NO;
+//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -10) forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
 }
 /*
 #pragma mark - 全局侧滑代码------------BEGIN----
@@ -53,6 +54,10 @@
 {
     if (self.childViewControllers.count != 0) {
         viewController.hidesBottomBarWhenPushed = YES;
+           UIViewController *backVC = [self.viewControllers lastObject];
+           UIBarButtonItem * backButtonItem = [[UIBarButtonItem alloc] init];
+           backButtonItem.title = @"";
+           backVC.navigationItem.backBarButtonItem = backButtonItem;
     }
     
     [super pushViewController:viewController animated:animated];

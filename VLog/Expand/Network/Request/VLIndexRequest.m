@@ -16,7 +16,7 @@
 }
 
 - (YTKRequestMethod)requestMethod{
-    return YTKRequestMethodGET;
+    return YTKRequestMethodPOST;
 }
 
 @end
