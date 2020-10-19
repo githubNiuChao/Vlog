@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VLUserHomeResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +27,8 @@ static const NSInteger VLUserHomeHeaderGithubTag = 0x06;
 @interface VLUserHomeHeaderView : UIView
 @property (nonatomic, weak)   id <VLUserHomeHeaderViewDelegate>        delegate;
 
+- (void)setInfoData:(VLUserHomeResponse *)userHomeModel;
+- (void)scrollViewDidScroll:(CGFloat)contentOffsetY;
 @end
 
 NS_ASSUME_NONNULL_END

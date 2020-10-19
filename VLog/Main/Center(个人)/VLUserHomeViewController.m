@@ -1,32 +1,36 @@
 //
-//  OCExampleViewController.m
-//  JXPagerView
+//  VLUserHomeViewController.m
+//  VLog
 //
-//  Created by jiaxin on 2018/8/27.
-//  Copyright © 2018年 jiaxin. All rights reserved.
+//  Created by szy on 2020/10/19.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "PagingViewController.h"
+#import "VLUserHomeViewController.h"
 #import "JXCategoryView.h"
+#import "JXCategoryTitleView.h"
+
+#import "VLUserHomeHeaderView.h"
 #import "VLUserHomeRequest.h"
 #import "VLUserHomeResponse.h"
+#import "VLUserInfoModel.h"
 
+@interface VLUserHomeViewController () <JXCategoryViewDelegate>
 
-@interface PagingViewController () <JXCategoryViewDelegate>
-
+@property (nonatomic, strong) JXPagerView *pagerView;
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 @property (nonatomic, strong) NSArray <NSString *> *titles;
+@property (nonatomic, strong) VLUserHomeHeaderView *userHeaderView;
 @property (nonatomic, strong) VLUserHomeResponse *dataModel;
 
 @end
 
-@implementation PagingViewController
+@implementation VLUserHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.translucent = false;
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
     //导航栏隐藏的情况，处理扣边返回，下面的代码要加上
@@ -39,7 +43,7 @@
 }
 
 - (void)initCommon{
-    self.titles = @[@"笔记", @"收藏", @"赞过"];
+    self.titles = @[@"笔记", @"赞过", @"收藏"];
 }
 
 - (void)initSubView{
@@ -48,6 +52,7 @@
     /*关联*/
     self.categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pagerView.listContainerView;
 }
+
 
 - (VLUserHomeHeaderView *)userHeaderView{
     if (!_userHeaderView) {
@@ -88,16 +93,12 @@
 
 - (void)loadData{
      VLUserHomeRequest *request =  [[VLUserHomeRequest alloc]init];
-        //        [request setArgument:@"asthare" forKey:@"user_name"];
-        //        [request setArgument:@"123456" forKey:@"password"];
-        //        [request setArgument:@"15" forKey:@"video_id"];
-//        [request setArgument:@"15" forKey:@"video_id"];
-    //        [request setArgument:@"2" forKey:@"cat_id"];
         NCWeakSelf(self);
         [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
             
-            self.dataModel = [VLUserHomeResponse yy_modelWithJSON:baseResponse.data];
-            
+            weakself.dataModel = [VLUserHomeResponse yy_modelWithJSON:baseResponse.data];
+            weakself.navigationItem.title = weakself.dataModel.user_info.nickname;
+            [weakself.userHeaderView setInfoData:weakself.dataModel];
 //            VLDetailResponse *dataModel = [VLDetailResponse yy_modelWithJSON:baseResponse.data];
 //            NSMutableArray *muArray = [[NSMutableArray alloc] init];
 //            [dataModel.tag_list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -116,8 +117,6 @@
 //                [weakself.delegagte requestDataFailedErrorMessage:baseResponse.errorMessage];
 //            }
         }];
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -163,8 +162,14 @@
     return self.categoryView.titles.count;
 }
 
+- (void)pagerView:(JXPagerView *)pagerView mainTableViewDidScroll:(UIScrollView *)scrollView {
+    [self.userHeaderView scrollViewDidScroll:scrollView.contentOffset.y];
+}
+
+
 - (id<JXPagerViewListViewDelegate>)pagerView:(JXPagerView *)pagerView initListAtIndex:(NSInteger)index {
-    VLIndexViewController *list = [[VLIndexViewController alloc]init];
+    VLUserHomeListViewController *list = [[VLUserHomeListViewController alloc]init];
+    list.catId = index;
     return list;
     
 }

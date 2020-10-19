@@ -1,0 +1,50 @@
+//
+//  VLUserHomeListManager.m
+//  VLog
+//
+//  Created by szy on 2020/10/19.
+//  Copyright © 2020 niuchao. All rights reserved.
+//
+
+#import "VLUserHomeListManager.h"
+#import "VLIndexModel.h"
+#import "VLUserHomeRequest.h"
+
+@implementation VLUserHomeListManager
+
+-(instancetype)init{
+    self = [super init];
+    if (self) {
+        _dataArray = @[].mutableCopy;
+    }
+    return self;
+}
+
+#pragma mark ————— 拉取数据 —————
+-(void)loadDataWithCatId:(NSInteger)catId{
+    
+    VLUserHomeRequest *request =  [[VLUserHomeRequest alloc]init];
+      NSLog(@"%@%@",request.baseUrl,request.requestUrl);
+      //        [request setArgument:@"asthare" forKey:@"user_name"];
+      //        [request setArgument:@"123456" forKey:@"password"];
+      //        [request setArgument:@"15" forKey:@"video_id"];
+//    [request setArgument:[NSString stringWithFormat:@"%ld",catId] forKey:@"cat_id"];
+    if (catId!=0) {
+        [request setArgument:[NSString stringWithFormat:@"%ld",catId] forKey:@"tab_id"];
+    }
+    
+    NCWeakSelf(self);
+    [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+        VLUserHomeResponse *dataModel = [VLUserHomeResponse yy_modelWithJSON:baseResponse.data];
+        weakself.dataArray = dataModel.list;
+        if (weakself.delegagte && [self.delegagte respondsToSelector:@selector(requestDataCompleted)]) {
+            [weakself.delegagte requestDataCompleted];
+        }
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+        if (weakself.delegagte && [weakself.delegagte respondsToSelector:@selector(requestDataFailedErrorMessage:)]) {
+               [weakself.delegagte requestDataFailedErrorMessage:baseResponse.errorMessage];
+           }
+    }];
+}
+
+@end

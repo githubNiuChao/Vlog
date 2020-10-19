@@ -7,7 +7,6 @@
 //
 
 #import "VLIndexListManager.h"
-#import "GetWaterFallListAPI.h"
 #import "VLIndexModel.h"
 #import "VLIndexRequest.h"
 
@@ -34,42 +33,6 @@
 
 #pragma mark ————— 拉取数据 —————
 -(void)loadDataWithCatId:(NSInteger)catId{
-
-//    NCWeakSelf(self);
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        //模拟成功
-//        if (weakself.page == 0) {
-//            [weakself.dataArray removeAllObjects];
-//        }
-//        for (int i = 0; i < 2; i++) {
-//            VLIndexModel *model = [VLIndexModel new];
-//            model.picture = weakself.imgArray[arc4random()%weakself.imgArray.count];
-//            model.headImg = weakself.imgArray[arc4random()%weakself.imgArray.count];
-//            model.nickName = weakself.nickNameArray[arc4random()%weakself.nickNameArray.count];
-//            model.hobbys = weakself.hobbysArray[arc4random()%weakself.hobbysArray.count];
-//            model.age = @"28岁";
-//            model.city = weakself.fromArray[arc4random()%weakself.fromArray.count];
-//            model.juli = i%2==0 ? @"0.5km" : @"1800km";
-//            model.islike = (i%2==0);
-//            model.isvideo = (i%2==0);
-//            model.imageWidth = [UIImage imageNamed:model.picture].size.width;
-//            model.imageHeight = [UIImage imageNamed:model.picture].size.height;
-//
-//            model.imageArray = weakself.imgArray;
-//            [weakself.dataArray addObject:model];
-//        }
-//        if (self.delegagte && [self.delegagte respondsToSelector:@selector(requestDataCompleted)]) {
-//            [self.delegagte requestDataCompleted];
-//        }
-//    });
-    
-    //发起请求 示例
-//    GetWaterFallListAPI *req = [GetWaterFallListAPI new];
-//    [req startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-//        NSLog(@"请求成功");
-//    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-//        NSLog(@"请求失败 %@",req.message);
-//    }];
     
     VLIndexRequest *request =  [[VLIndexRequest alloc]init];
       NSLog(@"%@%@",request.baseUrl,request.requestUrl);

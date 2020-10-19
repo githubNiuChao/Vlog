@@ -7,6 +7,8 @@
 //
 
 #import "VLUserHomeHeaderView.h"
+#import "VLIndexResponse.h"
+#import "VLUserInfoModel.h"
 
 @interface VLUserHomeHeaderView ()
 KProStrongType(UIImageView,bottomBackground)
@@ -41,17 +43,16 @@ KProStrongType(UILabel,descLabel)//标签
     self.bottomBackground = [[UIImageView alloc] initWithFrame:self.frame];
     self.bottomBackground.contentMode = UIViewContentModeScaleAspectFill;
     self.bottomBackground.layer.masksToBounds = YES;
-    [self.bottomBackground setImage:[UIImage imageNamed:@"5.jpg"]];
+    [self.bottomBackground setImage:[UIImage imageNamed:@"12.jpg"]];
     [self addSubview:self.bottomBackground];
 
-    UIBlurEffect *blurEffect =[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIBlurEffect *blurEffect =[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
     visualEffectView.frame = self.bottomBackground.bounds;
     visualEffectView.alpha = 0.95;
     [self.bottomBackground addSubview:visualEffectView];
     
     self.bgView = [[UIView alloc] initWithFrame:CGRectZero];
-//    self.bgView.backgroundColor = kOrangeColor;
     [self addSubview:self.bgView];
     [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.bottom.equalTo(self);
@@ -75,6 +76,10 @@ KProStrongType(UILabel,descLabel)//标签
         make.right.equalTo(self.bgView).offset(-20);
         make.size.mas_equalTo(CGSizeMake(250, 40));
     }];
+    
+    self.follow = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.fans = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.like = [[UILabel alloc] initWithFrame:CGRectZero];
     [stackBgView addArrangedSubview:[self setupViewWithLabel:self.follow infoText:@"关注" actionTag:VLUserHomeHeaderFollowTag]];
     [stackBgView addArrangedSubview:[self setupViewWithLabel:self.fans infoText:@"粉丝" actionTag:VLUserHomeHeaderFansTag]];
     [stackBgView addArrangedSubview:[self setupViewWithLabel:self.like infoText:@"获赞与收藏" actionTag:VLUserHomeHeaderLikeTag]];
@@ -149,20 +154,20 @@ KProStrongType(UILabel,descLabel)//标签
 - (UIView *)setupViewWithLabel:(UILabel *)label infoText:(NSString *)text actionTag:(NSInteger)tag{
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
-    label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = kFontBBig;
-    label.text = @"88";
-    label.textColor = kColorBlackAlpha80;
+    label.text = @"";
+    label.textColor = kWhiteColor;
     [view addSubview:label];
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(view);
     }];
+
     UILabel *infoTextLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     infoTextLabel.textAlignment = NSTextAlignmentCenter;
     infoTextLabel.font = kFontBSmall;
     infoTextLabel.text = text;
-    infoTextLabel.textColor = kColorBlackAlpha80;
+    infoTextLabel.textColor = kWhiteColor;
     [view addSubview:infoTextLabel];
     [infoTextLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.left.right.equalTo(view);
@@ -173,8 +178,6 @@ KProStrongType(UILabel,descLabel)//标签
     [view addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTapAction:)]];
     return view;
 }
-
-
 
 - (UIImageView *)avatar{
     if (!_avatar) {
@@ -190,7 +193,7 @@ KProStrongType(UILabel,descLabel)//标签
         _informationButton = [[UIButton alloc] initWithFrame:CGRectZero];
         kViewBorderRadius(_informationButton, 15, 1.0, kSysGroupBGColor);
         [_informationButton setTitle:@"编辑资料" forState:UIControlStateNormal];
-        [_informationButton setTitleColor:kColorBlackAlpha80 forState:UIControlStateNormal];
+        [_informationButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
 //        [_informationButton addTarget:self action:@selector(actionPublish:) forControlEvents:UIControlEventTouchUpInside];
         _informationButton.titleLabel.font = kFontBMedium;
         _informationButton.tag = VLUserHomeHeaderSettingTag;
@@ -210,8 +213,8 @@ KProStrongType(UILabel,descLabel)//标签
     if (!_cityButton) {
         _cityButton = [[UIButton alloc] initWithFrame:CGRectZero];
         [_cityButton setImage:kNameImage(@"user_city_icon") forState:UIControlStateNormal];
-        [_cityButton setTitleColor:kColorBlackAlpha80 forState:UIControlStateNormal];
-        [_cityButton setTitle:@"黑龙江 哈尔滨" forState:UIControlStateNormal];
+        [_cityButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+        [_cityButton setTitle:@"" forState:UIControlStateNormal];
         [_cityButton setImageEdgeInsets:UIEdgeInsetsMake(5,0,5,0)];
         _cityButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
         _cityButton.titleLabel.font = kFontBSmall;
@@ -224,8 +227,8 @@ KProStrongType(UILabel,descLabel)//标签
     if (!_sexButton) {
         _sexButton = [[UIButton alloc] initWithFrame:CGRectZero];
         [_sexButton setImage:kNameImage(@"user_sex_girl") forState:UIControlStateNormal];
-        [_sexButton setTitleColor:kColorBlackAlpha80 forState:UIControlStateNormal];
-        [_sexButton setTitle:@"女" forState:UIControlStateNormal];
+        [_sexButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+        [_sexButton setTitle:@"" forState:UIControlStateNormal];
         [_sexButton setImageEdgeInsets:UIEdgeInsetsMake(5,0,5,0)];
         _sexButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
         _sexButton.titleLabel.font = kFontBSmall;
@@ -237,8 +240,8 @@ KProStrongType(UILabel,descLabel)//标签
     if (!_rankButton) {
         _rankButton = [[UIButton alloc] initWithFrame:CGRectZero];
         [_rankButton setImage:kNameImage(@"user_rank_icon") forState:UIControlStateNormal];
-        [_rankButton setTitleColor:kColorBlackAlpha80 forState:UIControlStateNormal];
-        [_rankButton setTitle:@"银牌会员" forState:UIControlStateNormal];
+        [_rankButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
+        [_rankButton setTitle:@"" forState:UIControlStateNormal];
         [_rankButton setImageEdgeInsets:UIEdgeInsetsMake(5,0,5,0)];
         _rankButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
         _rankButton.titleLabel.font = kFontBSmall;
@@ -246,18 +249,37 @@ KProStrongType(UILabel,descLabel)//标签
     return _rankButton;
 }
 
-
 - (UILabel *)descLabel{
     if (!_descLabel) {
         _descLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _descLabel.text = @"本宝宝暂时还没想到个性的签名";
         _descLabel.font = kFontMedium;
-        _descLabel.textColor = kColorBlackAlpha80;
+        _descLabel.textColor = kWhiteColor;
     }
     return _descLabel;
 }
 
+- (void)setInfoData:(VLUserHomeResponse *)userHomeModel{
+    NCWeakSelf(self);
+    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://68test.oss-cn-beijing.aliyuncs.com/images/746%@",userHomeModel.user_info.headimg]] completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+        weakself.avatar.image = image;
+        weakself.bottomBackground.image = image;
+    }];
+    
+//    [self.avatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://68test.oss-cn-beijing.aliyuncs.com/images/746%@",userHomeModel.user_info.headimg]] placeholderImage:kNameImage(@"img_find_default")];
+    self.follow.text = userHomeModel.follow_count;
+    self.fans.text = userHomeModel.fans_count;
+    self.like.text = userHomeModel.like_collection_count;
+    self.descLabel.text = userHomeModel.user_info.self_introduction;
+    [self.cityButton setTitle:userHomeModel.user_info.detail_address forState:UIControlStateNormal];
+    [self.sexButton setTitle:userHomeModel.user_info.sex?@"男":@"@女" forState:UIControlStateNormal];
+    [self.rankButton setTitle:userHomeModel.user_rank.rank_name forState:UIControlStateNormal];
+    
+}
 
+- (void)scrollViewDidScroll:(CGFloat)contentOffsetY {
+    
+}
 
 
 @end

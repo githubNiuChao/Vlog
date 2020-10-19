@@ -1,42 +1,40 @@
 //
-//  VLIndexViewController.m
+//  VLUserHomeListViewController.m
 //  VLog
 //
-//  Created by szy on 2020/9/24.
+//  Created by szy on 2020/10/19.
 //  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "VLIndexViewController.h"
-#import "VLIndexListManager.h"
+#import "VLUserHomeListViewController.h"
+#import "VLUserHomeListManager.h"
 #import "VLIndexListCollectionViewCell.h"
 #import "VLPhotoDetailViewController.h"
 #import "AwemeListController.h"
 
-
-
-@interface VLIndexViewController ()
+@interface VLUserHomeListViewController ()
 <
 NCHBaseModelManagerDelegate,
 NCHVerticalFlowLayoutDelegate
 >
-@property (strong, nonatomic) VLIndexListManager *manager;
+@property (strong, nonatomic) VLUserHomeListManager *manager;
+@property (nonatomic, copy) void(^scrollCallback)(UIScrollView *scrollView);
 
 @end
 
-@implementation VLIndexViewController
+@implementation VLUserHomeListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initCommon];
 }
 - (void)initCommon{
-    self.manager = [[VLIndexListManager alloc] init];
+    self.manager = [[VLUserHomeListManager alloc] init];
     self.manager.delegagte = self;
     [self.collectionView registerClass:[VLIndexListCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([VLIndexListCollectionViewCell class])];
 }
 
 - (void)viewDidLayoutSubviews{
-//    [self.collectionView setFrame:CGRectMake(0, 0, self.view.jk_width, self.view.jk_height-kTabbarH)];
     self.collectionView.frame = self.view.bounds;
 }
 #pragma mark - Super
@@ -46,7 +44,7 @@ NCHVerticalFlowLayoutDelegate
 }
 
 #pragma mark - <VLIndexListManagerDelegate>
--(void)requestDataCompleted{    
+-(void)requestDataCompleted{
     [self.collectionView reloadData];
     [self endHeaderFooterRefreshing];
 }
@@ -75,7 +73,6 @@ NCHVerticalFlowLayoutDelegate
     VLVideoInfoModel *listModel = self.manager.dataArray[indexPath.row];
     photoDetaiVC.video_id = listModel.video_id;
     [self.navigationController pushViewController:photoDetaiVC animated:YES];
-    
 }
 
 
@@ -98,13 +95,37 @@ NCHVerticalFlowLayoutDelegate
     return listModel.imageCacheHeight + listModel.hobbysCacheHeight + 70;
 }
 
-#pragma mark - <JXCategoryListContentViewDelegate>
-- (void)listDidAppear{
-    
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    !self.scrollCallback ?: self.scrollCallback(scrollView);
 }
+
+#pragma mark - JXPagingViewListViewDelegate
 
 - (UIView *)listView {
     return self.view;
 }
 
+- (UIScrollView *)listScrollView {
+    return self.collectionView;
+}
+- (void)listViewDidScrollCallback:(void (^)(UIScrollView *))callback {
+    self.scrollCallback = callback;
+}
+//- (void)listWillAppear {
+//    NSLog(@"%@:%@", self.title, NSStringFromSelector(_cmd));
+//}
+
+//- (void)listDidAppear {
+//    NSLog(@"%@:%@", self.title, NSStringFromSelector(_cmd));
+//}
+
+//- (void)listWillDisappear {
+//    NSLog(@"%@:%@", self.title, NSStringFromSelector(_cmd));
+//}
+
+//- (void)listDidDisappear {
+//    NSLog(@"%@:%@", self.title, NSStringFromSelector(_cmd));
+//}
+
 @end
+

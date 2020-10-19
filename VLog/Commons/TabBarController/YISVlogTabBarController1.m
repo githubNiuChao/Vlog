@@ -12,8 +12,7 @@
 #import "UserHomePageController.h"
 #import "YISIndexViewController.h"
 #import "YISPlusButton.h"
-#import "SmoothViewController.h"
-#import "PagingViewController.h"
+#import "VLUserHomeViewController.h"
 
 static CGFloat const CYLTabBarControllerHeight = 40.f;
 
@@ -59,7 +58,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
       
     NCHNavigationController *four = [[NCHNavigationController alloc] initWithRootViewController:[[YISIndexViewController alloc] init]];
       
-    NCHNavigationController *five = [[NCHNavigationController alloc] initWithRootViewController:[[PagingViewController alloc] init]];
+    NCHNavigationController *five = [[NCHNavigationController alloc] initWithRootViewController:[[VLUserHomeViewController alloc] init]];
     
     return @[one, two, four, five];
 }
