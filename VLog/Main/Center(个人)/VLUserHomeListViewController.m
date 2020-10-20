@@ -10,6 +10,7 @@
 #import "VLUserHomeListManager.h"
 #import "VLIndexListCollectionViewCell.h"
 #import "VLPhotoDetailViewController.h"
+#import "VLVideoListViewController.h"
 #import "AwemeListController.h"
 
 @interface VLUserHomeListViewController ()
@@ -68,11 +69,21 @@ NCHVerticalFlowLayoutDelegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-//    VLIndexListCollectionViewCell *cell =(VLIndexListCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
-    VLVideoInfoModel *listModel = self.manager.dataArray[indexPath.row];
-    photoDetaiVC.video_id = listModel.video_id;
-    [self.navigationController pushViewController:photoDetaiVC animated:YES];
+    VLIndexListCollectionViewCell *cell =(VLIndexListCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+//    VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
+//    VLVideoInfoModel *listModel = self.manager.dataArray[indexPath.row];
+//    photoDetaiVC.video_id = listModel.video_id;
+//    [self.navigationController pushViewController:photoDetaiVC animated:YES];
+    
+    NSMutableArray *muarr = [[NSMutableArray alloc]init];
+    [muarr addObject:[self.manager.dataArray lastObject]];
+    [muarr addObject:[self.manager.dataArray lastObject]];
+    [muarr addObject:[self.manager.dataArray lastObject]];
+    [muarr addObject:[self.manager.dataArray lastObject]];
+    [muarr addObject:[self.manager.dataArray lastObject]];
+    
+    VLVideoListViewController *videoDetailVC = [[VLVideoListViewController alloc] initWithVideoData:muarr currentIndex:1 pageIndex:1 pageSize:10 uid:@"1"];
+    [self.navigationController pushViewController:videoDetailVC animated:YES];
 }
 
 

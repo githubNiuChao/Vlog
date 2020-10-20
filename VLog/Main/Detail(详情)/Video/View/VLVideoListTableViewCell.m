@@ -285,7 +285,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 - (void)onSendText:(NSString *)text {
     __weak __typeof(self) wself = self;
     PostCommentRequest *request = [PostCommentRequest new];
-    request.aweme_id = _aweme.aweme_id;
+//    request.aweme_id = _aweme.aweme_id;
     request.udid = UDID;
     request.text = text;
     [NetworkHelper postWithUrlPath:PostComentPath request:request success:^(id data) {
@@ -305,7 +305,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 - (void)handleGesture:(UITapGestureRecognizer *)sender {
     switch (sender.view.tag) {
         case kAwemeListLikeCommentTag: {
-            CommentsPopView *popView = [[CommentsPopView alloc] initWithAwemeId:_aweme.aweme_id];
+            CommentsPopView *popView = [[CommentsPopView alloc] initWithAwemeId:@"1"];
             [popView show];
             break;
         }
@@ -445,7 +445,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
             [self startLoadingPlayItemAnim:NO];
             
             _isPlayerReady = YES;
-            [_musicAlum startAnimation:_aweme.rate];
+//            [_musicAlum startAnimation:_aweme.rate];
             
             if(_onPlayerReady) {
                 _onPlayerReady();
@@ -461,27 +461,27 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 }
 
 // update method
-- (void)initData:(Aweme *)aweme {
-    _aweme = aweme;
+- (void)initData:(VLVideoInfoModel *)videoModel {
+    _videoModel = videoModel;
     
-    [_nickName setText:[NSString stringWithFormat:@"@%@", aweme.author.nickname]];
-    [_desc setText:aweme.desc];
-    [_musicName setText:[NSString stringWithFormat:@"%@ - %@", aweme.music.title, aweme.music.author]];
-    [_favoriteNum setText:[NSString formatCount:aweme.statistics.digg_count]];
-    [_commentNum setText:[NSString formatCount:aweme.statistics.comment_count]];
-    [_shareNum setText:[NSString formatCount:aweme.statistics.share_count]];
+    [_nickName setText:[NSString stringWithFormat:@"@%@", @"sssssss"]];
+    [_desc setText:@"ssssss"];
+    [_musicName setText:[NSString stringWithFormat:@"%@ - %@", @"云音乐", @"牛超"]];
+    [_favoriteNum setText:[NSString formatCount:1000]];
+    [_commentNum setText:[NSString formatCount:1000]];
+    [_shareNum setText:[NSString formatCount:1000]];
 
     __weak __typeof(self) wself = self;
-    [_musicAlum.album setImageWithURL:[NSURL URLWithString:aweme.music.cover_thumb.url_list.firstObject] completedBlock:^(UIImage *image, NSError *error) {
-        if(!error) {
-            wself.musicAlum.album.image = [image drawCircleImage];
-        }
-    }];
-    [_avatar setImageWithURL:[NSURL URLWithString:aweme.author.avatar_thumb.url_list.firstObject] completedBlock:^(UIImage *image, NSError *error) {
-        if(!error) {
-            wself.avatar.image = [image drawCircleImage];
-        }
-    }];
+//    [_musicAlum.album setImageWithURL:[NSURL URLWithString:aweme.music.cover_thumb.url_list.firstObject] completedBlock:^(UIImage *image, NSError *error) {
+//        if(!error) {
+//            wself.musicAlum.album.image = [image drawCircleImage];
+//        }
+//    }];
+//    [_avatar setImageWithURL:[NSURL URLWithString:aweme.author.avatar_thumb.url_list.firstObject] completedBlock:^(UIImage *image, NSError *error) {
+//        if(!error) {
+//            wself.avatar.image = [image drawCircleImage];
+//        }
+//    }];
     
 }
 
@@ -501,13 +501,13 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 }
 
 - (void)startDownloadBackgroundTask {
-    NSString *playUrl = [NetworkHelper isWifiStatus] ? _aweme.video.play_addr.url_list.firstObject : _aweme.video.play_addr_lowbr.url_list.firstObject;
-    [_playerView setPlayerWithUrl:playUrl];
+//    NSString *playUrl = [NetworkHelper isWifiStatus] ? _aweme.video.play_addr.url_list.firstObject : _aweme.video.play_addr_lowbr.url_list.firstObject;
+    [_playerView setPlayerWithUrl:[self.videoModel.video_path firstObject]];
 }
 
 - (void)startDownloadHighPriorityTask {
-    NSString *playUrl = [NetworkHelper isWifiStatus] ? _aweme.video.play_addr.url_list.firstObject : _aweme.video.play_addr_lowbr.url_list.firstObject;
-    [_playerView startDownloadTask:[[NSURL alloc] initWithString:playUrl] isBackground:NO];
+//    NSString *playUrl = [NetworkHelper isWifiStatus] ? _aweme.video.play_addr.url_list.firstObject : _aweme.video.play_addr_lowbr.url_list.firstObject;
+    [_playerView startDownloadTask:[[NSURL alloc] initWithString:[self.videoModel.video_path firstObject]] isBackground:NO];
 }
 
 @end

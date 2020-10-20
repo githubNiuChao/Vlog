@@ -21,7 +21,6 @@ NSString * const kVideoListTableViewCell   = @"VideoListTableViewCell";
 @property (nonatomic, assign) BOOL                              isCurPlayerPause;
 @property (nonatomic, assign) NSInteger                         pageIndex;
 @property (nonatomic, assign) NSInteger                         pageSize;
-@property (nonatomic, assign) AwemeType                         awemeType;
 @property (nonatomic, copy) NSString                            *uid;
 
 @property (nonatomic, strong) NSMutableArray<VLVideoInfoModel *>           *data;
@@ -32,14 +31,13 @@ NSString * const kVideoListTableViewCell   = @"VideoListTableViewCell";
 
 @implementation VLVideoListViewController
 
--(instancetype)initWithVideoData:(NSMutableArray<Aweme *> *)data currentIndex:(NSInteger)currentIndex pageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize awemeType:(AwemeType)type uid:(NSString *)uid {
+-(instancetype)initWithVideoData:(NSMutableArray<VLVideoInfoModel *> *)data currentIndex:(NSInteger)currentIndex pageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize uid:(NSString *)uid {
     self = [super init];
     if(self) {
         _isCurPlayerPause = NO;
         _currentIndex = currentIndex;
         _pageIndex = pageIndex;
         _pageSize = pageSize;
-        _awemeType = type;
         _uid = uid;
         
         _awemes = [data mutableCopy];
@@ -56,8 +54,41 @@ NSString * const kVideoListTableViewCell   = @"VideoListTableViewCell";
     [super viewDidLoad];
     [self setBackgroundImage:@"img_video_loading"];
     [self setUpView];
-    [self setLeftButton:@"icon_titlebar_whiteback"];
+//    [self setLeftButton:@"icon_titlebar_whiteback"];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+//    [self setNavigationBarTitleColor:ColorClear];
+//    [self setNavigationBarBackgroundColor:ColorClear];
+//    [self setStatusBarBackgroundColor:ColorClear];
+//    [self setStatusBarHidden:NO];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+}
+
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [_tableView.layer removeAllAnimations];
+    NSArray<VLVideoListTableViewCell *> *cells = [_tableView visibleCells];
+    for(VLVideoListTableViewCell *cell in cells) {
+        [cell.playerView cancelLoading];
+    }
+    [[AVPlayerManager shareManager] removeAllPlayers];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self removeObserver:self forKeyPath:@"currentIndex"];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
 
 - (void)setUpView {
     self.view.layer.masksToBounds = YES;
@@ -94,21 +125,6 @@ NSString * const kVideoListTableViewCell   = @"VideoListTableViewCell";
                                       animated:NO];
         [self addObserver:self forKeyPath:@"currentIndex" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
     });
-}
-
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [_tableView.layer removeAllAnimations];
-    NSArray<VLVideoListTableViewCell *> *cells = [_tableView visibleCells];
-    for(VLVideoListTableViewCell *cell in cells) {
-        [cell.playerView cancelLoading];
-    }
-    [[AVPlayerManager shareManager] removeAllPlayers];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self removeObserver:self forKeyPath:@"currentIndex"];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma tableView delegate
@@ -211,7 +227,6 @@ NSString * const kVideoListTableViewCell   = @"VideoListTableViewCell";
     request.page = pageIndex;
     request.size = pageSize;
     request.uid = _uid;
-    if(_awemeType == AwemeWork) {
         [NetworkHelper getWithUrlPath:FindAwemePostByPagePath request:request success:^(id data) {
             AwemeListResponse *response = [[AwemeListResponse alloc] initWithDictionary:data error:nil];
             NSArray<Aweme *> *array = response.data;
@@ -234,29 +249,29 @@ NSString * const kVideoListTableViewCell   = @"VideoListTableViewCell";
         } failure:^(NSError *error) {
             [wself.loadMore loadingFailed];
         }];
-    }else {
-        [NetworkHelper getWithUrlPath:FindAwemeFavoriteByPagePath request:request success:^(id data) {
-            AwemeListResponse *response = [[AwemeListResponse alloc] initWithDictionary:data error:nil];
-            NSArray<Aweme *> *array = response.data;
-            if(array.count > 0) {
-                wself.pageIndex++;
-                [wself.tableView beginUpdates];
-                [wself.data addObjectsFromArray:array];
-                NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray array];
-                for(NSInteger row = wself.data.count - array.count; row<wself.data.count; row++) {
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-                    [indexPaths addObject:indexPath];
-                }
-                [wself.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:NO];
-                [wself.tableView endUpdates];
-                [wself.loadMore endLoading];
-            }else {
-                [wself.loadMore loadingAll];
-            }
-        } failure:^(NSError *error) {
-            [wself.loadMore loadingFailed];
-        }];
-    }
+//    }else {
+//        [NetworkHelper getWithUrlPath:FindAwemeFavoriteByPagePath request:request success:^(id data) {
+//            AwemeListResponse *response = [[AwemeListResponse alloc] initWithDictionary:data error:nil];
+//            NSArray<Aweme *> *array = response.data;
+//            if(array.count > 0) {
+//                wself.pageIndex++;
+//                [wself.tableView beginUpdates];
+//                [wself.data addObjectsFromArray:array];
+//                NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray array];
+//                for(NSInteger row = wself.data.count - array.count; row<wself.data.count; row++) {
+//                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+//                    [indexPaths addObject:indexPath];
+//                }
+//                [wself.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:NO];
+//                [wself.tableView endUpdates];
+//                [wself.loadMore endLoading];
+//            }else {
+//                [wself.loadMore loadingAll];
+//            }
+//        } failure:^(NSError *error) {
+//            [wself.loadMore loadingFailed];
+//        }];
+//    }
 }
 
 - (void)dealloc {

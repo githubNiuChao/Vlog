@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VLVideoInfoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^OnPlayerReady)(void);
-@class Aweme;
+
 @class AVPlayerView;
 @class HoverTextView;
 @class CircleTextView;
@@ -21,7 +22,7 @@ typedef void (^OnPlayerReady)(void);
 
 @interface VLVideoListTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) Aweme            *aweme;
+@property (nonatomic, strong) VLVideoInfoModel            *videoModel;
 
 @property (nonatomic, strong) AVPlayerView     *playerView;
 @property (nonatomic, strong) HoverTextView    *hoverTextView;
@@ -46,7 +47,7 @@ typedef void (^OnPlayerReady)(void);
 @property (nonatomic, strong) OnPlayerReady    onPlayerReady;
 @property (nonatomic, assign) BOOL             isPlayerReady;
 
-- (void)initData:(Aweme *)aweme;
+- (void)initData:(VLVideoInfoModel *)aweme;
 - (void)play;
 - (void)pause;
 - (void)replay;

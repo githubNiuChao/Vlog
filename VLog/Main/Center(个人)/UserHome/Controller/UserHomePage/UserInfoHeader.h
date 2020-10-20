@@ -47,13 +47,11 @@ static const NSInteger UserInfoHeaderGithubTag = 0x06;
 @property (nonatomic, strong) UILabel                      *followNum;
 @property (nonatomic, strong) UILabel                      *followedNum;
 
-//@property (nonatomic, strong) SlideTabBar                  *slideTabBar;
+@property (nonatomic, strong) SlideTabBar                  *slideTabBar;
 
 - (void)initData:(User *)user;
 - (void)overScrollAction:(CGFloat) offsetY;
 - (void)scrollToTopAction:(CGFloat) offsetY;
 - (void)startFocusAnimation;
-
-- (void)scrollViewDidScroll:(CGFloat)contentOffsetY;
 
 @end

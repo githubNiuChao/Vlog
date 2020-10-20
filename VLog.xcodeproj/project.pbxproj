@@ -10,12 +10,6 @@
 		512B0341251053DE00447945 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B033F251053DE00447945 /* RootViewController.m */; };
 		512B03462510549B00447945 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B03442510549B00447945 /* XYTransition.m */; };
 		512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B0350251065B300447945 /* UICollectionView+IndexPath.m */; };
-		51339CA5253053430039A025 /* SmoothListScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C8D253053430039A025 /* SmoothListScrollViewController.m */; };
-		51339CA6253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C8E253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m */; };
-		51339CA7253053430039A025 /* SmoothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C95253053430039A025 /* SmoothViewController.m */; };
-		51339CA8253053430039A025 /* SmoothCustomPagerHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C96253053430039A025 /* SmoothCustomPagerHeaderViewController.m */; };
-		51339CA9253053430039A025 /* SmoothListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C97253053430039A025 /* SmoothListViewController.m */; };
-		51339CAA253053430039A025 /* SmoothListCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C99253053430039A025 /* SmoothListCollectionViewController.m */; };
 		51339CAB253053430039A025 /* JXPagerListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C9C253053430039A025 /* JXPagerListContainerView.m */; };
 		51339CAC253053430039A025 /* JXPagerMainTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C9D253053430039A025 /* JXPagerMainTableView.m */; };
 		51339CAD253053430039A025 /* JXPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C9E253053430039A025 /* JXPagerView.m */; };
@@ -359,19 +353,6 @@
 		512B03452510549B00447945 /* XYTransitionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransitionProtocol.h; sourceTree = "<group>"; };
 		512B0350251065B300447945 /* UICollectionView+IndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+IndexPath.m"; sourceTree = "<group>"; };
 		512B0351251065B300447945 /* UICollectionView+IndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+IndexPath.h"; sourceTree = "<group>"; };
-		51339C8D253053430039A025 /* SmoothListScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothListScrollViewController.m; sourceTree = "<group>"; };
-		51339C8E253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerSmoothCollectionFlowLayout.m; sourceTree = "<group>"; };
-		51339C8F253053430039A025 /* SmoothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothViewController.h; sourceTree = "<group>"; };
-		51339C90253053430039A025 /* SmoothListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothListViewController.h; sourceTree = "<group>"; };
-		51339C91253053430039A025 /* SmoothCustomPagerHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothCustomPagerHeaderViewController.h; sourceTree = "<group>"; };
-		51339C92253053430039A025 /* SmoothListCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothListCollectionViewController.h; sourceTree = "<group>"; };
-		51339C93253053430039A025 /* SmoothListScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothListScrollViewController.h; sourceTree = "<group>"; };
-		51339C94253053430039A025 /* JXPagerSmoothCollectionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerSmoothCollectionFlowLayout.h; sourceTree = "<group>"; };
-		51339C95253053430039A025 /* SmoothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothViewController.m; sourceTree = "<group>"; };
-		51339C96253053430039A025 /* SmoothCustomPagerHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothCustomPagerHeaderViewController.m; sourceTree = "<group>"; };
-		51339C97253053430039A025 /* SmoothListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothListViewController.m; sourceTree = "<group>"; };
-		51339C98253053430039A025 /* SmoothViewDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmoothViewDefines.h; sourceTree = "<group>"; };
-		51339C99253053430039A025 /* SmoothListCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmoothListCollectionViewController.m; sourceTree = "<group>"; };
 		51339C9B253053430039A025 /* JXPagerSmoothView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerSmoothView.h; sourceTree = "<group>"; };
 		51339C9C253053430039A025 /* JXPagerListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListContainerView.m; sourceTree = "<group>"; };
 		51339C9D253053430039A025 /* JXPagerMainTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerMainTableView.m; sourceTree = "<group>"; };
@@ -1050,26 +1031,6 @@
 			path = XYTransition;
 			sourceTree = "<group>";
 		};
-		51339C8C253053430039A025 /* Smooth */ = {
-			isa = PBXGroup;
-			children = (
-				51339C94253053430039A025 /* JXPagerSmoothCollectionFlowLayout.h */,
-				51339C8E253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m */,
-				51339C91253053430039A025 /* SmoothCustomPagerHeaderViewController.h */,
-				51339C96253053430039A025 /* SmoothCustomPagerHeaderViewController.m */,
-				51339C92253053430039A025 /* SmoothListCollectionViewController.h */,
-				51339C99253053430039A025 /* SmoothListCollectionViewController.m */,
-				51339C93253053430039A025 /* SmoothListScrollViewController.h */,
-				51339C8D253053430039A025 /* SmoothListScrollViewController.m */,
-				51339C90253053430039A025 /* SmoothListViewController.h */,
-				51339C97253053430039A025 /* SmoothListViewController.m */,
-				51339C8F253053430039A025 /* SmoothViewController.h */,
-				51339C95253053430039A025 /* SmoothViewController.m */,
-				51339C98253053430039A025 /* SmoothViewDefines.h */,
-			);
-			path = Smooth;
-			sourceTree = "<group>";
-		};
 		51339C9A253053430039A025 /* JXPagerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1522,7 +1483,6 @@
 				51A66CB025394BBB00F34CED /* VLUserHomeHeaderView.h */,
 				51A66CB125394BBB00F34CED /* VLUserHomeHeaderView.m */,
 				51339C9A253053430039A025 /* JXPagerView */,
-				51339C8C253053430039A025 /* Smooth */,
 				51A29B0D25203EC0001EF6E9 /* UserHome */,
 			);
 			path = "Center(个人)";
@@ -2744,7 +2704,6 @@
 				51805B66251B91CC00FBC12D /* HXPhotoPreviewBottomView.m in Sources */,
 				51339CAD253053430039A025 /* JXPagerView.m in Sources */,
 				51805B78251B91CC00FBC12D /* HXCircleProgressView.m in Sources */,
-				51339CA9253053430039A025 /* SmoothListViewController.m in Sources */,
 				51805B6A251B91CC00FBC12D /* HXPhotoPreviewVideoViewCell.m in Sources */,
 				51805B46251B91CC00FBC12D /* HXPhotoInteractiveTransition.m in Sources */,
 				51805B2C251B91CC00FBC12D /* SecondViewController.m in Sources */,
@@ -2781,7 +2740,6 @@
 				51805B71251B91CC00FBC12D /* HXCustomCollectionReusableView.m in Sources */,
 				51A29BE725203EC1001EF6E9 /* DeleteCommentRequest.m in Sources */,
 				51873F29253433DE0070264B /* VLIndexResponse.m in Sources */,
-				51339CA6253053430039A025 /* JXPagerSmoothCollectionFlowLayout.m in Sources */,
 				51805B75251B91CC00FBC12D /* HXAlbumlistView.m in Sources */,
 				51A29C0125203EC1001EF6E9 /* EmotionHelper.m in Sources */,
 				51A29BE225203EC1001EF6E9 /* BaseRequest.m in Sources */,
@@ -2799,7 +2757,6 @@
 				51805B95251B91CC00FBC12D /* HXPhotoEditStickerItemView.m in Sources */,
 				512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */,
 				51A29BF325203EC1001EF6E9 /* WebPImageView.m in Sources */,
-				51339CA7253053430039A025 /* SmoothViewController.m in Sources */,
 				51805BAA251B91CC00FBC12D /* YBTagGestureRecognizer.m in Sources */,
 				51A29C1225203EC1001EF6E9 /* HoverViewFlowLayout.m in Sources */,
 				51805B59251B91CC00FBC12D /* HXPhotoManager.m in Sources */,
@@ -2824,14 +2781,12 @@
 				51A29BD025203EC1001EF6E9 /* UIWindow+Extension.m in Sources */,
 				51805B00251B91CB00FBC12D /* UITapImageView.m in Sources */,
 				51805B5D251B91CC00FBC12D /* HXPhotoPreviewViewController.m in Sources */,
-				51339CA5253053430039A025 /* SmoothListScrollViewController.m in Sources */,
 				51805B5E251B91CC00FBC12D /* HXPhotoViewController.m in Sources */,
 				51805B87251B91CC00FBC12D /* HXPhotoEditGridMaskLayer.m in Sources */,
 				51805BB5251B91CC00FBC12D /* YSCVlogPublishView.m in Sources */,
 				51A66CB225394BBB00F34CED /* VLUserHomeHeaderView.m in Sources */,
 				51A29BCF25203EC1001EF6E9 /* NSString+Extension.m in Sources */,
 				51805B62251B91CC00FBC12D /* HXVideoEditViewController.m in Sources */,
-				51339CA8253053430039A025 /* SmoothCustomPagerHeaderViewController.m in Sources */,
 				51805B80251B91CC00FBC12D /* HXPhotoEditResizeControl.m in Sources */,
 				51A29BD825203EC1001EF6E9 /* Music.m in Sources */,
 				51805B73251B91CC00FBC12D /* HXFullScreenCameraPlayView.m in Sources */,
@@ -2863,7 +2818,6 @@
 				51A29C0325203EC1001EF6E9 /* AwemeListController.m in Sources */,
 				51805B85251B91CC00FBC12D /* HXPhotoEditClippingToolBar.m in Sources */,
 				51A29C0F25203EC1001EF6E9 /* ScalePresentAnimation.m in Sources */,
-				51339CAA253053430039A025 /* SmoothListCollectionViewController.m in Sources */,
 				51805B72251B91CC00FBC12D /* HXPhotoView.m in Sources */,
 				5181520D251C421E00F9CCD3 /* VLIndexModel.m in Sources */,
 				51A66CA02537DD3900F34CED /* VLVideoInfoModel.m in Sources */,
