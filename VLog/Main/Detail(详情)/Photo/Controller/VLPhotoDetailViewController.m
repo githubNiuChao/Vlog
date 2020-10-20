@@ -75,9 +75,6 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     [self endHeaderFooterRefreshing];
 }
 
-
-
-
 - (void)loadData:(NSInteger)pageIndex pageSize:(NSInteger)pageSize {
     __weak __typeof(self) wself = self;
     CommentListRequest *request = [CommentListRequest new];

@@ -102,7 +102,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     _desc = [[UILabel alloc]init];
     _desc.numberOfLines = 0;
     _desc.textColor = ColorWhiteAlpha80;
-    _desc.font = MediumFont;
+    _desc.font = MediumBoldFont;
     [_container addSubview:_desc];
     
     
@@ -113,8 +113,8 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     
     
     //init music alum view
-    _musicAlum = [MusicAlbumView new];
-    [_container addSubview:_musicAlum];
+//    _musicAlum = [MusicAlbumView new];
+//    [_container addSubview:_musicAlum];
     
     //init share、comment、like action view
     _share = [[UIImageView alloc]init];
@@ -192,7 +192,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         make.width.mas_equalTo(30);
         make.height.mas_equalTo(25);
     }];
-    
+
     [_musicName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.musicIcon.mas_right);
         make.centerY.equalTo(self.musicIcon);
@@ -204,19 +204,20 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         make.bottom.equalTo(self.musicIcon.mas_top);
         make.width.mas_lessThanOrEqualTo(ScreenWidth/5*3);
     }];
-    [_nickName mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_avatar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(10);
-        make.bottom.equalTo(self.desc.mas_top).inset(5);
-        make.width.mas_lessThanOrEqualTo(ScreenWidth/4*3 + 30);
+        make.bottom.equalTo(self.desc.mas_top).inset(20);
+        make.width.height.mas_equalTo(avatarRadius*2);
     }];
     
-    [_musicAlum mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.musicName);
-        make.right.equalTo(self).inset(10);
-        make.width.height.mas_equalTo(50);
+    [_nickName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.avatar.mas_right).offset(10);
+        make.centerY.equalTo(self.avatar.mas_centerY);
+        make.width.mas_lessThanOrEqualTo(ScreenWidth/4*3 + 30);
     }];
+
     [_share mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.musicAlum.mas_top).inset(50);
+        make.bottom.equalTo(self.musicName);
         make.right.equalTo(self).inset(10);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(45);
@@ -246,11 +247,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         make.top.equalTo(self.favorite.mas_bottom);
         make.centerX.equalTo(self.favorite);
     }];
-    [_avatar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.favorite.mas_top).inset(35);
-        make.right.equalTo(self).inset(10);
-        make.width.height.mas_equalTo(avatarRadius*2);
-    }];
+
     [_focus mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.avatar);
         make.centerY.equalTo(self.avatar.mas_bottom);
@@ -268,7 +265,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [_hoverTextView.textView setText:@""];
     [_avatar setImage:[UIImage imageNamed:@"img_find_default"]];
     
-    [_musicAlum resetView];
+//    [_musicAlum resetView];
     [_favorite resetView];
     [_focus resetView];
 }
@@ -461,15 +458,16 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 }
 
 // update method
-- (void)initData:(VLVideoInfoModel *)videoModel {
-    _videoModel = videoModel;
+- (void)initData:(VLDetailResponse *)detailModel {
+    _detailModel = detailModel;
     
-    [_nickName setText:[NSString stringWithFormat:@"@%@", @"sssssss"]];
-    [_desc setText:@"ssssss"];
+    [_nickName setText:[NSString stringWithFormat:@"@%@",detailModel.current_user.nickname]];
+    [_desc setText:detailModel.video_info.video_title];
     [_musicName setText:[NSString stringWithFormat:@"%@ - %@", @"云音乐", @"牛超"]];
-    [_favoriteNum setText:[NSString formatCount:1000]];
-    [_commentNum setText:[NSString formatCount:1000]];
-    [_shareNum setText:[NSString formatCount:1000]];
+    [_favoriteNum setText:@"赞"];
+    [_commentNum setText:@"评论"];
+    [_shareNum setText:@"收藏"];
+    [_avatar sd_setImageWithURL:[NSURL URLWithString:detailModel.current_user.headimg] placeholderImage:kNameImage(@"img_find_default")];
 
     __weak __typeof(self) wself = self;
 //    [_musicAlum.album setImageWithURL:[NSURL URLWithString:aweme.music.cover_thumb.url_list.firstObject] completedBlock:^(UIImage *image, NSError *error) {
@@ -502,12 +500,12 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 
 - (void)startDownloadBackgroundTask {
 //    NSString *playUrl = [NetworkHelper isWifiStatus] ? _aweme.video.play_addr.url_list.firstObject : _aweme.video.play_addr_lowbr.url_list.firstObject;
-    [_playerView setPlayerWithUrl:[self.videoModel.video_path firstObject]];
+    [_playerView setPlayerWithUrl:[self.detailModel.video_info.video_path firstObject]];
 }
 
 - (void)startDownloadHighPriorityTask {
 //    NSString *playUrl = [NetworkHelper isWifiStatus] ? _aweme.video.play_addr.url_list.firstObject : _aweme.video.play_addr_lowbr.url_list.firstObject;
-    [_playerView startDownloadTask:[[NSURL alloc] initWithString:[self.videoModel.video_path firstObject]] isBackground:NO];
+    [_playerView startDownloadTask:[[NSURL alloc] initWithString:[self.detailModel.video_info.video_path firstObject]] isBackground:NO];
 }
 
 @end

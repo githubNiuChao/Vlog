@@ -6,17 +6,20 @@
 //  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "NCHBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class VLVideoInfoModel;
-@interface VLVideoListViewController : BaseViewController
+@interface VLVideoListViewController : NCHBaseViewController
 
 @property (nonatomic, strong) UITableView                       *tableView;
 @property (nonatomic, assign) NSInteger                         currentIndex;
 
 -(instancetype)initWithVideoData:(NSMutableArray<VLVideoInfoModel *> *)data currentIndex:(NSInteger)currentIndex pageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize uid:(NSString *)uid;
+
+kProNSString(video_id)
+
 @end
 
 NS_ASSUME_NONNULL_END
