@@ -15,7 +15,6 @@
 		51339CAD253053430039A025 /* JXPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C9E253053430039A025 /* JXPagerView.m */; };
 		51339CAE253053430039A025 /* JXPagerSmoothView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339CA0253053430039A025 /* JXPagerSmoothView.m */; };
 		51339CAF253053430039A025 /* JXPagerListRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339CA4253053430039A025 /* JXPagerListRefreshView.m */; };
-		5134C86F253C2B5A00FE5528 /* VLVideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5134C86E253C2B5A00FE5528 /* VLVideoListViewController.m */; };
 		5134C872253C2D5E00FE5528 /* VLVideoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5134C871253C2D5E00FE5528 /* VLVideoListTableViewCell.m */; };
 		514875D9251F1416003B7F11 /* NCHMacroTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 514875D8251F1416003B7F11 /* NCHMacroTools.m */; };
 		515E777D25218D470020F3EF /* home_like_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 515E777B25218D470020F3EF /* home_like_s.png */; };
@@ -328,6 +327,7 @@
 		51ADE215253D5DAE0081F620 /* VLUserHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE214253D5DAE0081F620 /* VLUserHomeViewController.m */; };
 		51ADE218253D70C40081F620 /* VLUserHomeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE217253D70C40081F620 /* VLUserHomeListViewController.m */; };
 		51ADE21B253D726E0081F620 /* VLUserHomeListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE21A253D726E0081F620 /* VLUserHomeListManager.m */; };
+		51ADE21E253EB1A60081F620 /* VLVideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE21D253EB1A60081F620 /* VLVideoDetailViewController.m */; };
 		51BA07FF2536A369002E481E /* VLPhotoDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */; };
 		51BA08052536A843002E481E /* VLPhotoDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08042536A843002E481E /* VLPhotoDetailManager.m */; };
 		51BA08082536ABF4002E481E /* NCHBaseModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08072536ABF4002E481E /* NCHBaseModelManager.m */; };
@@ -363,8 +363,6 @@
 		51339CA2253053430039A025 /* JXPagerListContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerListContainerView.h; sourceTree = "<group>"; };
 		51339CA3253053430039A025 /* JXPagerMainTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPagerMainTableView.h; sourceTree = "<group>"; };
 		51339CA4253053430039A025 /* JXPagerListRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPagerListRefreshView.m; sourceTree = "<group>"; };
-		5134C86D253C2B5A00FE5528 /* VLVideoListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLVideoListViewController.h; sourceTree = "<group>"; };
-		5134C86E253C2B5A00FE5528 /* VLVideoListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLVideoListViewController.m; sourceTree = "<group>"; };
 		5134C870253C2D5E00FE5528 /* VLVideoListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLVideoListTableViewCell.h; sourceTree = "<group>"; };
 		5134C871253C2D5E00FE5528 /* VLVideoListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLVideoListTableViewCell.m; sourceTree = "<group>"; };
 		514875D7251F1416003B7F11 /* NCHMacroTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHMacroTools.h; sourceTree = "<group>"; };
@@ -965,6 +963,8 @@
 		51ADE217253D70C40081F620 /* VLUserHomeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeListViewController.m; sourceTree = "<group>"; };
 		51ADE219253D726E0081F620 /* VLUserHomeListManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeListManager.h; sourceTree = "<group>"; };
 		51ADE21A253D726E0081F620 /* VLUserHomeListManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeListManager.m; sourceTree = "<group>"; };
+		51ADE21C253EB1A60081F620 /* VLVideoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLVideoDetailViewController.h; sourceTree = "<group>"; };
+		51ADE21D253EB1A60081F620 /* VLVideoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLVideoDetailViewController.m; sourceTree = "<group>"; };
 		51BA07FD2536A369002E481E /* VLPhotoDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailRequest.h; sourceTree = "<group>"; };
 		51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailRequest.m; sourceTree = "<group>"; };
 		51BA08032536A843002E481E /* VLPhotoDetailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailManager.h; sourceTree = "<group>"; };
@@ -1076,8 +1076,8 @@
 		5173E5AB2522CB1F00E57C71 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5134C86D253C2B5A00FE5528 /* VLVideoListViewController.h */,
-				5134C86E253C2B5A00FE5528 /* VLVideoListViewController.m */,
+				51ADE21C253EB1A60081F620 /* VLVideoDetailViewController.h */,
+				51ADE21D253EB1A60081F620 /* VLVideoDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2670,6 +2670,7 @@
 				51815248251C470C00F9CCD3 /* NCHNavigationController.m in Sources */,
 				51BA08122536D736002E481E /* VLIndexListManager.m in Sources */,
 				51805BB3251B91CC00FBC12D /* YISTagBgView.m in Sources */,
+				51ADE21E253EB1A60081F620 /* VLVideoDetailViewController.m in Sources */,
 				51805B86251B91CC00FBC12D /* HX_PhotoEditBottomView.m in Sources */,
 				51805B7F251B91CC00FBC12D /* HXPhotoEditGraffitiColorModel.m in Sources */,
 				51815253251C470C00F9CCD3 /* NCHItemSection.m in Sources */,
@@ -2863,7 +2864,6 @@
 				51805B48251B91CC00FBC12D /* HXPhotoPersentInteractiveTransition.m in Sources */,
 				51E059FB2524620100FA9744 /* NCHNetWorkManager.m in Sources */,
 				51815247251C470C00F9CCD3 /* NCHStaticTableViewController.m in Sources */,
-				5134C86F253C2B5A00FE5528 /* VLVideoListViewController.m in Sources */,
 				51A29BF625203EC1001EF6E9 /* MenuPopView.m in Sources */,
 				51A29BF125203EC1001EF6E9 /* UserResponse.m in Sources */,
 				515FCC812535947E007F964A /* NCHPopView.m in Sources */,

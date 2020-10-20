@@ -1,12 +1,12 @@
 //
-//  VLVideoListViewController.m
+//  VLVideoDetailViewController.m
 //  VLog
 //
-//  Created by szy on 2020/10/18.
+//  Created by szy on 2020/10/20.
 //  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "VLVideoListViewController.h"
+#import "VLVideoDetailViewController.h"
 #import <AVKit/AVKit.h>
 #import "VLVideoListTableViewCell.h"
 #import "AVPlayerView.h"
@@ -18,7 +18,7 @@
 
 NSString * const kVideoListTableViewCell   = @"VideoListTableViewCell";
 
-@interface VLVideoListViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate,NCHBaseModelManagerDelegate>
+@interface VLVideoDetailViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate,NCHBaseModelManagerDelegate>
 
 @property (nonatomic, assign) BOOL                              isCurPlayerPause;
 @property (nonatomic, assign) NSInteger                         pageIndex;
@@ -37,7 +37,7 @@ KProStrongType(VLDetailResponse, dataModel)
 KProStrongType(VLVideoInfoModel, videoIndfoModel)
 @end
 
-@implementation VLVideoListViewController
+@implementation VLVideoDetailViewController
 
 -(instancetype)initWithVideoData:(NSMutableArray<VLVideoInfoModel *> *)data currentIndex:(NSInteger)currentIndex pageIndex:(NSInteger)pageIndex pageSize:(NSInteger)pageSize uid:(NSString *)uid {
     self = [super init];
@@ -62,7 +62,8 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     [super viewDidLoad];
     [self initCommon];
     [self initSubView];
-//    [self setLeftButton:@"icon_titlebar_whiteback"];
+    self.fd_prefersNavigationBarHidden = YES;
+    [self setLeftButton:@"icon_titlebar_whiteback"];
 }
 
 - (void)initCommon{
@@ -123,17 +124,16 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.translucent = YES;
+//    self.navigationController.navigationBar.translucent = YES;
 //    [self setNavigationBarTitleColor:ColorClear];
 //    [self setNavigationBarBackgroundColor:ColorClear];
 //    [self setStatusBarBackgroundColor:ColorClear];
 //    [self setStatusBarHidden:NO];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.navigationBar.translucent = NO;
 }
 
 -(void)viewDidDisappear:(BOOL)animated {

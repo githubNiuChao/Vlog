@@ -10,7 +10,7 @@
 #import "VLUserHomeListManager.h"
 #import "VLIndexListCollectionViewCell.h"
 #import "VLPhotoDetailViewController.h"
-#import "VLVideoListViewController.h"
+#import "VLVideoDetailViewController.h"
 #import "AwemeListController.h"
 
 @interface VLUserHomeListViewController ()
@@ -83,7 +83,7 @@ NCHVerticalFlowLayoutDelegate
     [muarr addObject:[self.manager.dataArray lastObject]];
     
 //    VLVideoListViewController *videoDetailVC = [[VLVideoListViewController alloc] initWithVideoData:muarr currentIndex:1 pageIndex:1 pageSize:10 uid:@"1"];
-    VLVideoListViewController *videoDetailVC = [[VLVideoListViewController alloc] init];
+    VLVideoDetailViewController *videoDetailVC = [[VLVideoDetailViewController alloc] init];
     videoDetailVC.video_id = @"14";
     
     [self.navigationController pushViewController:videoDetailVC animated:YES];
