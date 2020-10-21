@@ -15,6 +15,8 @@ NSString * const kVLTagListViewCell   = @"VLTagListViewCell";
 
 @interface VLTagListView ()
 KProStrongType(UIView, headerView)
+KProStrongType(UILabel, tagTitle)
+KProNSArray(dataArray)
 @end
 
 @implementation VLTagListView
@@ -27,15 +29,20 @@ KProStrongType(UIView, headerView)
 }
 
 - (void)initCommon{
-    
+    self.dataArray = [[NSArray alloc] init];
 }
 
 - (void)initSubView{
     [self setBackgroundColor:[UIColor clearColor]];
-    self.tableView.tableHeaderView = self.headerView;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.tableView registerClass:[VLTagListViewCell class] forCellReuseIdentifier:kVLTagListViewCell];
+}
+
+- (void)setInfoData:(NSArray *)dataArray tagInfo:(NSString *)titleInfo{
+    _dataArray = dataArray;
+    self.tableView.tableHeaderView = [self createHeaderViewWithTagTitle:titleInfo];
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
@@ -44,7 +51,7 @@ KProStrongType(UIView, headerView)
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 50;
+    return self.dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -53,12 +60,25 @@ KProStrongType(UIView, headerView)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VLTagListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kVLTagListViewCell];
-    cell.titleLabel.text = @"达芙妮";
-    cell.titleImage.image = kNameImage(@"5.jpg");
+    NSObject *model = [self.dataArray objectAtIndex:indexPath.row];
+    if ([model isKindOfClass:[VLPublishBrandTagModel class]]) {
+        VLPublishBrandTagModel *brandModel = (VLPublishBrandTagModel *)model;
+        [cell.titleImage sd_setImageWithURL:[NSURL URLWithString:brandModel.brand_logo] placeholderImage:[UIImage jk_imageWithColor:kGreyColor]];
+        cell.titleLabel.text = brandModel.brand_name;
+    }else if([model isKindOfClass:[VLPublishGoodsTagModel class]]){
+        VLPublishGoodsTagModel *goodsModel = (VLPublishGoodsTagModel *)model;
+        [cell.titleImage sd_setImageWithURL:[NSURL URLWithString:goodsModel.goods_image] placeholderImage:[UIImage jk_imageWithColor:kGreyColor]];
+        cell.titleLabel.text = goodsModel.goods_name;
+        cell.subTitleLabel.text = [NSString stringWithFormat:@"¥%@",goodsModel.goods_price];
+    }
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    VLPublishTagModel *model = [self.dataArray objectAtIndex:indexPath.row];
+    
+    
+    
 //    Comment *comment = _data[indexPath.row];
 //    if(!comment.isTemp && [@"visitor" isEqualToString:comment.user_type] && [MD5_UDID isEqualToString:comment.visitor.udid]) {
 //        MenuPopView *menu = [[MenuPopView alloc] initWithTitles:@[@"删除"]];
@@ -71,22 +91,28 @@ KProStrongType(UIView, headerView)
 }
 
 
-- (UIView *)headerView{
-    if (!_headerView) {
+- (UIView *)createHeaderViewWithTagTitle:(NSString *)tagTitle{
+
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.jk_width, 80)];
         _headerView.userInteractionEnabled = YES;
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
         [button setBackgroundImage:kNameImage(@"publish_add_icon") forState:UIControlStateNormal];
         [_headerView addSubview:button];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(75, 30, 100, 20)];
+        _tagTitle = [[UILabel alloc] initWithFrame:CGRectMake(75, 20, 200, 20)];
+        _tagTitle.text = tagTitle;
+        _tagTitle.font = kFontBBig;
+        _tagTitle.textColor = kWhiteColor;
+        [_headerView addSubview:_tagTitle];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(75, 50, 200, 20)];
         label.text = @"点击添加标签";
         label.font = kFontBMedium;
         label.textColor = kWhiteColor;
         [_headerView addSubview:label];
+        
         [_headerView jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
             
         }];
-    }
     return _headerView;
 }
 
@@ -128,8 +154,14 @@ KProStrongType(UIView, headerView)
     [self.contentView addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.titleImage.mas_right).offset(10);
-        make.centerY.equalTo(self.contentView);
+        make.centerY.equalTo(self.contentView).offset(-10);
         make.right.equalTo(self.contentView).offset(-10);
+    }];
+    
+    [self.contentView addSubview:self.subTitleLabel];
+    [self.subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(5);
+        make.left.right.equalTo(self.titleLabel);
     }];
 }
 
@@ -137,7 +169,7 @@ KProStrongType(UIView, headerView)
 - (UIImageView *)titleImage{
     if (!_titleImage) {
         _titleImage = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _titleImage.image = kNameImage(@"12.jpg");
+        _titleImage.contentMode = UIViewContentModeScaleToFill;
         kViewRadius(_titleImage, 5);
     }
     return _titleImage;
@@ -147,10 +179,21 @@ KProStrongType(UIView, headerView)
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _titleLabel.textColor = kWhiteColor;
         _titleLabel.font = kFontBMedium;
-        _titleLabel.text = @"affaasdafa";
+        _titleLabel.text = @"";
     }
     return _titleLabel;
 }
+
+- (UILabel *)subTitleLabel{
+    if (!_subTitleLabel) {
+        _subTitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _subTitleLabel.textColor = kGreyColor;
+        _subTitleLabel.font = kFontBSmall;
+        _subTitleLabel.text = @"";
+    }
+    return _subTitleLabel;
+}
+
 
 @end
 

@@ -331,6 +331,8 @@
 		51ADE224253EBACC0081F620 /* VLPublishTagListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE223253EBACC0081F620 /* VLPublishTagListViewController.m */; };
 		51ADE227253ED9230081F620 /* VLTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE226253ED9230081F620 /* VLTagListView.m */; };
 		51ADE22E253F2F450081F620 /* VLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE22D253F2F450081F620 /* VLMessageViewController.m */; };
+		51ADE231253FCA110081F620 /* VLPublishTagRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE230253FCA110081F620 /* VLPublishTagRequest.m */; };
+		51ADE234253FCFBE0081F620 /* VLPublishTagResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE233253FCFBE0081F620 /* VLPublishTagResponse.m */; };
 		51BA07FF2536A369002E481E /* VLPhotoDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */; };
 		51BA08052536A843002E481E /* VLPhotoDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08042536A843002E481E /* VLPhotoDetailManager.m */; };
 		51BA08082536ABF4002E481E /* NCHBaseModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08072536ABF4002E481E /* NCHBaseModelManager.m */; };
@@ -974,6 +976,10 @@
 		51ADE226253ED9230081F620 /* VLTagListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTagListView.m; sourceTree = "<group>"; };
 		51ADE22C253F2F450081F620 /* VLMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLMessageViewController.h; sourceTree = "<group>"; };
 		51ADE22D253F2F450081F620 /* VLMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLMessageViewController.m; sourceTree = "<group>"; };
+		51ADE22F253FCA110081F620 /* VLPublishTagRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPublishTagRequest.h; sourceTree = "<group>"; };
+		51ADE230253FCA110081F620 /* VLPublishTagRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPublishTagRequest.m; sourceTree = "<group>"; };
+		51ADE232253FCFBE0081F620 /* VLPublishTagResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPublishTagResponse.h; sourceTree = "<group>"; };
+		51ADE233253FCFBE0081F620 /* VLPublishTagResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPublishTagResponse.m; sourceTree = "<group>"; };
 		51BA07FD2536A369002E481E /* VLPhotoDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailRequest.h; sourceTree = "<group>"; };
 		51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailRequest.m; sourceTree = "<group>"; };
 		51BA08032536A843002E481E /* VLPhotoDetailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailManager.h; sourceTree = "<group>"; };
@@ -2102,6 +2108,8 @@
 				51A66CA82539434000F34CED /* VLUserInfoModel.m */,
 				51A66CAA2539440F00F34CED /* VLUserHomeResponse.h */,
 				51A66CAB2539440F00F34CED /* VLUserHomeResponse.m */,
+				51ADE232253FCFBE0081F620 /* VLPublishTagResponse.h */,
+				51ADE233253FCFBE0081F620 /* VLPublishTagResponse.m */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -2509,6 +2517,8 @@
 				51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */,
 				51A66CAD2539445D00F34CED /* VLUserHomeRequest.h */,
 				51A66CAE2539445D00F34CED /* VLUserHomeRequest.m */,
+				51ADE22F253FCA110081F620 /* VLPublishTagRequest.h */,
+				51ADE230253FCA110081F620 /* VLPublishTagRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2859,6 +2869,7 @@
 				51815251251C470C00F9CCD3 /* NCHWordItem.m in Sources */,
 				51805BAC251B91CC00FBC12D /* YBBranchLayer.m in Sources */,
 				51805B2B251B91CC00FBC12D /* ProfileViewController.m in Sources */,
+				51ADE234253FCFBE0081F620 /* VLPublishTagResponse.m in Sources */,
 				51339CAF253053430039A025 /* JXPagerListRefreshView.m in Sources */,
 				51A29BF225203EC1001EF6E9 /* WebPImage.m in Sources */,
 				51805B88251B91CC00FBC12D /* HXPhotoEditStickerItem.m in Sources */,
@@ -2944,6 +2955,7 @@
 				51805B13251B91CB00FBC12D /* GCDSemaphore.m in Sources */,
 				51805B2A251B91CC00FBC12D /* PersonListViewController.m in Sources */,
 				51A29C0D25203EC1001EF6E9 /* HoverTextView.m in Sources */,
+				51ADE231253FCA110081F620 /* VLPublishTagRequest.m in Sources */,
 				51805B83251B91CC00FBC12D /* HXPhotoEditImageView.m in Sources */,
 				51805B63251B91CC00FBC12D /* HXPhotoModel.m in Sources */,
 				51805B23251B91CB00FBC12D /* UICKeyChainStore.m in Sources */,

@@ -17,7 +17,6 @@
 
 @property (strong, nonatomic) NSMutableArray *pointArray;
 
-
 @end
 
 @implementation YSCTagCollectionViewCell
@@ -32,11 +31,13 @@
 
 - (void)setup{
     self.pointArray = [[NSMutableArray alloc] init];
-    
     [self.contentView addSubview:self.imageView];
-    HXWeakSelf
+    NCWeakSelf(self);
     [self.imageView jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-        [weakSelf tapAction:gestureRecoginzer];
+        CGPoint point = [gestureRecoginzer locationInView:gestureRecoginzer.view];
+        if (!weakself.delegate && [weakself.delegate respondsToSelector:@selector(tagCollectionViewCell:didClickImageViewWithTap:)]) {
+            [self.delegate tagCollectionViewCell:weakself didClickImageViewWithTap:point];
+        }
     }];
 }
 

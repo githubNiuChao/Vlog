@@ -25,6 +25,13 @@
 #define API_VLOG_DETAIL_INFO @"/user/short-video/video-info"
 
 
+#pragma mark - 发布
+//品牌
+#define API_VLOG_PUBLISH_TAG_BRAND @"/user/short-video/brand-list"
+//商品
+#define API_VLOG_PUBLISH_TAG_GOODS @"/user/short-video/goods-list"
+
+
 #pragma mark - 个人中心
 //作品
 #define API_VLOG_HOME_WORKS @"/user/short-video/user.html"
@@ -32,5 +39,7 @@
 #define API_VLOG_HOME_COLLECT @"/user/short-video/user.html?tab_id=2"
 //赞过
 #define API_VLOG_HOME_LIKE @"/user/short-video/user.html?tab_id=1"
+
+
 
 #endif /* VLAPIMacros_h */

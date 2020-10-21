@@ -12,7 +12,7 @@
 #import "VLPublishTagListViewController.h"
 
 
-@interface YSCTagViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface YSCTagViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,TagCollectionViewCellDelegate>
 
 @property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
 @property (strong, nonatomic) HXPhotoModel *currentModel;
@@ -36,7 +36,6 @@
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.navBar];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.nextBtn];
-    
 }
 
 - (void)changeColor{
@@ -81,12 +80,17 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
- 
-        VLPublishTagListViewController *tagListVC = [[VLPublishTagListViewController alloc] init];
-//        tagListVC.modalPresentationStyle = UIModalPresentationAutomatic;
-        tagListVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self presentViewController:tagListVC animated:YES completion:nil];
+}
+
+
+#pragma TagCollectionViewCellDelegate
+
+- (void)tagCollectionViewCell:(YSCTagCollectionViewCell *)cell didClickImageViewWithTap:(CGPoint)tapPoint{
     
+    VLPublishTagListViewController *tagListVC = [[VLPublishTagListViewController alloc] init];
+    tagListVC.modalPresentationStyle = UIModalPresentationAutomatic;
+    tagListVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:tagListVC animated:YES completion:nil];
 }
 
 
@@ -147,7 +151,6 @@
     return _navBar;
 }
 
-
 //- (NSMutableArray *)modelArray {
 //    if (!_modelArray) {
 //        _modelArray = [NSMutableArray array];
@@ -161,7 +164,6 @@
     }
     return self.manager.configuration.statusBarStyle;
 }
-
 
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
     return UIStatusBarAnimationFade;

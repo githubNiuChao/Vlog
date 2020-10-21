@@ -9,6 +9,8 @@
 #import "VLPublishTagListViewController.h"
 #import "JXCategoryView.h"
 #import "VLTagListView.h"
+#import "VLPublishTagRequest.h"
+#import "VLPublishTagResponse.h"
 
 static const CGFloat CategoryViewHeight = 40;
 
@@ -17,9 +19,15 @@ static const CGFloat CategoryViewHeight = 40;
 JXCategoryListContentViewDelegate,
 JXCategoryListContainerViewDelegate,
 JXCategoryViewDelegate>
+
+
 KProStrongType(UISearchBar, searchBar)
 KProStrongType(JXCategoryTitleView, myCategoryView)
 KProStrongType(JXCategoryListContainerView, listContainerView)
+
+KProNSMutableArray(dataArray)
+KProStrongType(VLTagListView, brandList)
+KProStrongType(VLTagListView, goodsList)
 
 @end
 
@@ -32,7 +40,7 @@ KProStrongType(JXCategoryListContainerView, listContainerView)
 }
 
 - (void)initCommon{
-    
+    self.dataArray = [[NSMutableArray alloc] init];
 }
 - (void)initSubView{
 //    [self setBackgroundColor:];
@@ -82,7 +90,6 @@ KProStrongType(JXCategoryListContainerView, listContainerView)
     return _searchBar;
 }
 
-
 #pragma mark - 实现取消按钮的方法
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     NSLog(@"您点击了取消按钮");
@@ -94,6 +101,7 @@ KProStrongType(JXCategoryListContainerView, listContainerView)
     NSLog(@"您点击了键盘上的Search按钮");
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];
+    [self loadData];
 }
 #pragma mark - 实现监听开始输入的方法
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
@@ -104,7 +112,35 @@ KProStrongType(JXCategoryListContainerView, listContainerView)
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
     NSLog(@"输入完毕");
     [searchBar setShowsCancelButton:NO animated:YES];
+    
     return YES;
+}
+
+- (void)loadData{
+    VLPublishTagRequest *request = [[VLPublishTagRequest alloc] init];
+    NSString *searchStr = self.searchBar.searchTextField.text;
+    BOOL select = self.myCategoryView.selectedIndex;
+    request.isGoods = select;
+    if (select) {
+        [request setArgument:searchStr forKey:@"goods_name"];
+    }else{
+        [request setArgument:searchStr forKey:@"brand_name"];
+    }
+    NCWeakSelf(self);
+    [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+        
+        if (weakself.myCategoryView.selectedIndex == 0) {
+            VLPublishBrandTagResponse * dataModel = [VLPublishBrandTagResponse yy_modelWithJSON:baseResponse.data];
+            weakself.dataArray = [dataModel.list mutableCopy];
+            [self.brandList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
+        }else{
+            VLPublishGoodsTagResponse * dataModel = [VLPublishGoodsTagResponse yy_modelWithJSON:baseResponse.data];
+            weakself.dataArray = [dataModel.list mutableCopy];
+            [self.goodsList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
+        }
+        
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+    }];
 }
 
 
@@ -115,9 +151,13 @@ KProStrongType(JXCategoryListContainerView, listContainerView)
 
 #pragma mark - JXCategoryListContainerViewDelegate
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    
-    VLTagListView *tagListView = [[VLTagListView alloc] init];
-    return tagListView;
+    if (index == 0) {
+        self.brandList = [[VLTagListView alloc] init];
+        return self.brandList;
+    }else{
+        self.goodsList = [[VLTagListView alloc] init];
+        return self.goodsList;
+    }
 }
 - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
     return 2;
