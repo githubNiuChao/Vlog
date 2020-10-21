@@ -51,6 +51,7 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 }
 
 - (void)initSubView{
+    [self initLeftBackButton:@"niv_back_white"];
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[VLCommentTableViewCell class] forCellReuseIdentifier:kVLCommentTableViewCell];

@@ -328,6 +328,9 @@
 		51ADE218253D70C40081F620 /* VLUserHomeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE217253D70C40081F620 /* VLUserHomeListViewController.m */; };
 		51ADE21B253D726E0081F620 /* VLUserHomeListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE21A253D726E0081F620 /* VLUserHomeListManager.m */; };
 		51ADE21E253EB1A60081F620 /* VLVideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE21D253EB1A60081F620 /* VLVideoDetailViewController.m */; };
+		51ADE224253EBACC0081F620 /* VLPublishTagListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE223253EBACC0081F620 /* VLPublishTagListViewController.m */; };
+		51ADE227253ED9230081F620 /* VLTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE226253ED9230081F620 /* VLTagListView.m */; };
+		51ADE22E253F2F450081F620 /* VLMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE22D253F2F450081F620 /* VLMessageViewController.m */; };
 		51BA07FF2536A369002E481E /* VLPhotoDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */; };
 		51BA08052536A843002E481E /* VLPhotoDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08042536A843002E481E /* VLPhotoDetailManager.m */; };
 		51BA08082536ABF4002E481E /* NCHBaseModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08072536ABF4002E481E /* NCHBaseModelManager.m */; };
@@ -965,6 +968,12 @@
 		51ADE21A253D726E0081F620 /* VLUserHomeListManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeListManager.m; sourceTree = "<group>"; };
 		51ADE21C253EB1A60081F620 /* VLVideoDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLVideoDetailViewController.h; sourceTree = "<group>"; };
 		51ADE21D253EB1A60081F620 /* VLVideoDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLVideoDetailViewController.m; sourceTree = "<group>"; };
+		51ADE222253EBACC0081F620 /* VLPublishTagListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPublishTagListViewController.h; sourceTree = "<group>"; };
+		51ADE223253EBACC0081F620 /* VLPublishTagListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPublishTagListViewController.m; sourceTree = "<group>"; };
+		51ADE225253ED9230081F620 /* VLTagListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLTagListView.h; sourceTree = "<group>"; };
+		51ADE226253ED9230081F620 /* VLTagListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTagListView.m; sourceTree = "<group>"; };
+		51ADE22C253F2F450081F620 /* VLMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLMessageViewController.h; sourceTree = "<group>"; };
+		51ADE22D253F2F450081F620 /* VLMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLMessageViewController.m; sourceTree = "<group>"; };
 		51BA07FD2536A369002E481E /* VLPhotoDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailRequest.h; sourceTree = "<group>"; };
 		51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailRequest.m; sourceTree = "<group>"; };
 		51BA08032536A843002E481E /* VLPhotoDetailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailManager.h; sourceTree = "<group>"; };
@@ -1491,6 +1500,10 @@
 		518058CF251B91C900FBC12D /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				51ADE22B253F2F220081F620 /* Controller */,
+				51ADE22A253F2F210081F620 /* Manager */,
+				51ADE228253F2F210081F620 /* Model */,
+				51ADE229253F2F210081F620 /* View */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -1511,6 +1524,10 @@
 			children = (
 				518058D5251B91C900FBC12D /* YSCTagViewController.h */,
 				518058D2251B91C900FBC12D /* YSCTagViewController.m */,
+				51ADE222253EBACC0081F620 /* VLPublishTagListViewController.h */,
+				51ADE223253EBACC0081F620 /* VLPublishTagListViewController.m */,
+				51ADE225253ED9230081F620 /* VLTagListView.h */,
+				51ADE226253ED9230081F620 /* VLTagListView.m */,
 				518058D4251B91C900FBC12D /* YSCVlogPublishViewController.h */,
 				518058D3251B91C900FBC12D /* YSCVlogPublishViewController.m */,
 			);
@@ -2440,6 +2457,36 @@
 			path = TabBarController;
 			sourceTree = "<group>";
 		};
+		51ADE228253F2F210081F620 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		51ADE229253F2F210081F620 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51ADE22A253F2F210081F620 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		51ADE22B253F2F220081F620 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				51ADE22C253F2F450081F620 /* VLMessageViewController.h */,
+				51ADE22D253F2F450081F620 /* VLMessageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		51BA08092536D736002E481E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2746,6 +2793,7 @@
 				51A29BE225203EC1001EF6E9 /* BaseRequest.m in Sources */,
 				51BA08112536D736002E481E /* PersonListLogic.m in Sources */,
 				51ADE21B253D726E0081F620 /* VLUserHomeListManager.m in Sources */,
+				51ADE227253ED9230081F620 /* VLTagListView.m in Sources */,
 				51805B32251B91CC00FBC12D /* WaterFlowLayout.m in Sources */,
 				51339CAE253053430039A025 /* JXPagerSmoothView.m in Sources */,
 				51A29BF725203EC1001EF6E9 /* LoadMoreControl.m in Sources */,
@@ -2764,6 +2812,7 @@
 				51A29BD325203EC1001EF6E9 /* PictureInfo.m in Sources */,
 				51A29BEB25203EC1001EF6E9 /* BaseResponse.m in Sources */,
 				51A29C0E25203EC1001EF6E9 /* SwipeLeftInteractiveTransition.m in Sources */,
+				51ADE22E253F2F450081F620 /* VLMessageViewController.m in Sources */,
 				512B03462510549B00447945 /* XYTransition.m in Sources */,
 				51805B51251B91CC00FBC12D /* UIImage+HXExtension.m in Sources */,
 				51A29BE625203EC1001EF6E9 /* UserRequest.m in Sources */,
@@ -2913,6 +2962,7 @@
 				5173E5C425231E4A00E57C71 /* VLFollowListModel.m in Sources */,
 				51A29BD225203EC1001EF6E9 /* Aweme.m in Sources */,
 				51805AFA251B91CB00FBC12D /* CLLocation+MPLocation.m in Sources */,
+				51ADE224253EBACC0081F620 /* VLPublishTagListViewController.m in Sources */,
 				51A29BCA25203EC1001EF6E9 /* NSNotification+Extension.m in Sources */,
 				51815250251C470C00F9CCD3 /* NCHRefreshCollectionViewController.m in Sources */,
 				51805B4D251B91CC00FBC12D /* NSBundle+HXPhotoPicker.m in Sources */,

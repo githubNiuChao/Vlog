@@ -1,10 +1,11 @@
 //
 //  NCHNavigationBar.h
-//  PLMMPRJK
+//  VLog
 //
-//  Created by NCH on 2017/3/31.
-//  Copyright © 2017年 GoMePrjk. All rights reserved.
+//  Created by szy on 2020/9/12.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
+
 
 #import <UIKit/UIKit.h>
 

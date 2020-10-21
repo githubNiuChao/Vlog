@@ -9,6 +9,8 @@
 #import "YSCTagViewController.h"
 #import "YSCTagCollectionViewCell.h"
 #import "HXPhotoCustomNavigationBar.h"
+#import "VLPublishTagListViewController.h"
+
 
 @interface YSCTagViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -78,6 +80,16 @@
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+ 
+        VLPublishTagListViewController *tagListVC = [[VLPublishTagListViewController alloc] init];
+//        tagListVC.modalPresentationStyle = UIModalPresentationAutomatic;
+        tagListVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:tagListVC animated:YES completion:nil];
+    
+}
+
+
 
 #pragma mark - Action
 - (void)didDoneClick:(UIButton *)button{
@@ -129,7 +141,7 @@
 - (HXPhotoCustomNavigationBar *)navBar {
     if (!_navBar) {
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
-        _navBar = [[HXPhotoCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, width, hxNavigationBarHeight)];
+        _navBar = [[HXPhotoCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, width, kNavBarH)];
         _navBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     }
     return _navBar;

@@ -1,9 +1,11 @@
 //
 //  LNCHBBaseViewController.m
-//  PLMMPRJK
+//  VLog
 //
-//  Created by HuXuPeng on 2017/4/11.
-//  Copyright © 2017年 GoMePrjk. All rights reserved.
+//  Created by szy on 2020/9/12.
+//  Copyright © 2020 niuchao. All rights reserved.
+//
+
 //
 
 #import "NCHBaseViewController.h"
@@ -18,8 +20,6 @@
 #pragma mark - 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor systemBackgroundColor];
-    self.automaticallyAdjustsScrollViewInsets = NO;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (@available(iOS 11.0, *)){
@@ -47,7 +47,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self initNavigationBarTransparent];
+//    [self initNavigationBarTransparent];
 }
 
 - (void) initNavigationBarTransparent {
@@ -55,8 +55,8 @@
 //    [self setNavigationBarBackgroundImage:[UIImage new]];
 //    [self setStatusBarStyle:UIStatusBarStyleLightContent];
 //    [self setNavigationBarShadowImage:[UIImage new]];
-    [self initLeftBarButton:@"niv_back_dark"];
-    [self setBackgroundColor:kWhiteColor];
+//    [self initLeftBarButton:@"niv_back_dark"];
+//    [self setBackgroundColor:kWhiteColor];
 }
 
 
@@ -72,11 +72,6 @@
     [self.view addSubview:visualEffectView];
 }
 
-- (void) initLeftBarButton:(NSString *)imageName {
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:imageName] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-    leftButton.tintColor = kBlackColor;
-    self.navigationItem.leftBarButtonItem = leftButton;
-}
 
 - (void) setStatusBarHidden:(BOOL) hidden {
     [[UIApplication sharedApplication] setStatusBarHidden:hidden];
@@ -125,9 +120,25 @@
     return self.navigationController.navigationBar.frame.size.height;
 }
 
-- (void) setLeftButton:(NSString *)imageName {
+- (void) setLeftBarButton:(NSString *)imageName {
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:imageName] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    leftButton.tintColor = kBlackColor;
+    self.navigationItem.leftBarButtonItem = leftButton;
+}
+
+- (void) initLeftBackButton:(NSString *)imageName {
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftButton.frame = CGRectMake(15.0f, StatusBarHeight + 11, 20.0f, 20.0f);
+    leftButton.frame = CGRectMake(15.0f, kStatusBarH + 11, 20.0f, 20.0f);
+    [leftButton setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:leftButton];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.view bringSubviewToFront:leftButton];
+    });
+}
+- (void) initLeftDismissButton:(NSString *)imageName {
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(15.0f, 22, 20.0f, 20.0f);
     [leftButton setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:leftButton];
@@ -135,6 +146,7 @@
         [self.view bringSubviewToFront:leftButton];
     });
 }
+
 
 - (void) setBackgroundImage:(NSString *)imageName {
     UIImageView *background = [[UIImageView alloc] initWithFrame:self.view.bounds];

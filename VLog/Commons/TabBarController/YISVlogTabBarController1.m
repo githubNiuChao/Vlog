@@ -12,6 +12,7 @@
 #import "UserHomePageController.h"
 #import "YISIndexViewController.h"
 #import "YISPlusButton.h"
+#import "VLMessageViewController.h"
 #import "VLUserHomeViewController.h"
 
 static CGFloat const CYLTabBarControllerHeight = 40.f;
@@ -56,7 +57,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
       
     UINavigationController *two = [[UINavigationController alloc] initWithRootViewController:[[UserHomePageController alloc] init]];
       
-    NCHNavigationController *four = [[NCHNavigationController alloc] initWithRootViewController:[[YISIndexViewController alloc] init]];
+    NCHNavigationController *four = [[NCHNavigationController alloc] initWithRootViewController:[[VLMessageViewController alloc] init]];
       
     NCHNavigationController *five = [[NCHNavigationController alloc] initWithRootViewController:[[VLUserHomeViewController alloc] init]];
     

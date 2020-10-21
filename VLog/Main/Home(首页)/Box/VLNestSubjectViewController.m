@@ -119,7 +119,6 @@ static const CGFloat CategoryViewHeight = 40;
 
 - (JXCategoryTitleView *)myCategoryView {
     if (_myCategoryView == nil) {
-        //        self.tittleArray = [@[@"111",@"222",@"333",@"444",@"555",@"666"]mutableCopy];
         
         JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc ]init];
         _myCategoryView = [[JXCategoryTitleView alloc] init];

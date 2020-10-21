@@ -63,7 +63,7 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     [self initCommon];
     [self initSubView];
     self.fd_prefersNavigationBarHidden = YES;
-    [self setLeftButton:@"icon_titlebar_whiteback"];
+    
 }
 
 - (void)initCommon{

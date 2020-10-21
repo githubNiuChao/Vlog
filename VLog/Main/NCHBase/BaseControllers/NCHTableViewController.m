@@ -1,9 +1,11 @@
 //
 //  NCHTableViewController.m
-//  PLMMPRJK
+//  VLog
 //
-//  Created by HuXuPeng on 2017/4/11.
-//  Copyright © 2017年 GoMePrjk. All rights reserved.
+//  Created by szy on 2020/9/12.
+//  Copyright © 2020 niuchao. All rights reserved.
+//
+
 //
 
 #import "NCHTableViewController.h"
@@ -23,7 +25,7 @@
 
 - (void)setupBaseTableViewUI
 {
-    self.tableView.backgroundColor = self.view.backgroundColor;
+    
 //    if ([self.parentViewController isKindOfClass:[UINavigationController class]]) {
 //        UIEdgeInsets contentInset = self.tableView.contentInset;
 //        contentInset.top += self.jk_navgationBar.jk_height;
@@ -64,9 +66,15 @@
     if(_tableView == nil)
     {
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:self.tableViewStyle];
-        [self.view addSubview:tableView];
+        tableView.backgroundColor = self.view.backgroundColor;
         tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self.view addSubview:tableView];
         _tableView = tableView;
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
     }
     return _tableView;
 }

@@ -1,9 +1,11 @@
 //
 //  NCHCollectionViewController.h
-//  PLMMPRJK
+//  VLog
 //
-//  Created by HuXuPeng on 2017/4/11.
-//  Copyright © 2017年 GoMePrjk. All rights reserved.
+//  Created by szy on 2020/9/12.
+//  Copyright © 2020 niuchao. All rights reserved.
+//
+
 //
 
 #import "NCHBaseViewController.h"
