@@ -64,6 +64,9 @@ static NSInteger kDefaultNetworkType = 0;
 
 - (NSArray<NCHConnectPort *> *)environmentArray{
     
+//        #define YSCBaseURL [[NSUserDefaults standardUserDefaults] objectForKey:@"server"]?[[NSUserDefaults standardUserDefaults] objectForKey:@"server"]:@"http://www.test.68mall.com"
+    
+//    @"http://seller.test.68mall.com"
     if (!_environmentArray) {
         NCHConnectPort *release = [[NCHConnectPort alloc] init];
         release.name = @"生产环境";

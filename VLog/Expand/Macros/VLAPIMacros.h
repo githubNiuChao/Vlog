@@ -26,6 +26,12 @@
 
 
 #pragma mark - 发布
+#define API_VLOG_PUBLISH_UPLOAD_IMAGE @"/site/upload-image"//上传图片
+#define API_VLOG_PUBLISH_UPLOAD_VIDEO @"/site/upload-video"//上传视频
+
+
+//发布
+#define API_VLOG_PUBLISH_ADD @"/user/short-video/add"
 //品牌
 #define API_VLOG_PUBLISH_TAG_BRAND @"/user/short-video/brand-list"
 //商品

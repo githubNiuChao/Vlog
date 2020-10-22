@@ -120,6 +120,7 @@ static const CGFloat CategoryViewHeight = 40;
 - (JXCategoryTitleView *)myCategoryView {
     if (_myCategoryView == nil) {
         
+        
         JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc ]init];
         _myCategoryView = [[JXCategoryTitleView alloc] init];
         _myCategoryView.listContainer = self.listContainerView;

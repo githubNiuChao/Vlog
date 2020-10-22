@@ -337,9 +337,8 @@
 
 @property (assign, nonatomic) CGFloat previewContentOffsetX;
 
-
 /// 标签数组
-@property (strong, nonatomic) NSMutableArray<YSCTagModel *> *tagMuArrays;
+@property (strong, nonatomic) NSMutableArray<YSCTagModel *> * _Nullable tagMuArrays;
 
 @end
 
