@@ -39,6 +39,7 @@ static const CGFloat CategoryViewHeight = 40;
 - (void)initCommon{
     self.tittleArray = [[NSMutableArray alloc] init];
     self.catIdArray = [[NSMutableArray alloc] init];
+    
 }
 
 - (void)initSubView{

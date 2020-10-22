@@ -17,6 +17,8 @@
 @property (strong, nonatomic) UITextField *titleField;
 @property (strong, nonatomic) YYTextView *bodyText;
 
+@property (strong, nonatomic) UIButton *topicButton;
+@property (strong, nonatomic) UIButton *loctionButon;
 @end
 
 @implementation YSCVlogPublishView
@@ -49,7 +51,7 @@
     [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.titleField);
         make.top.equalTo(self.titleField.mas_bottom);
-        make.height.equalTo(@0.6);
+        make.height.equalTo(@0.5);
     }];
     
     [self.bodyText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -78,31 +80,33 @@
         }];
     {//参与话题
         UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [leftButton setImage:[UIImage imageNamed:@"hx_original_selected_wx"] forState:UIControlStateNormal];
+        [leftButton setImage:[UIImage imageNamed:@"publish_topic_s"] forState:UIControlStateNormal];
         [leftButton setTitle:@"参与话题" forState:UIControlStateNormal];
         [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        leftButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        [leftButton jk_setImagePosition:LXMImagePositionLeft spacing:5];
+        leftButton.titleLabel.font = kFontBMedium;
+//        [leftButton jk_setImagePosition:LXMImagePositionLeft spacing:5];
+        leftButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [leftButton setImageEdgeInsets:UIEdgeInsetsMake(12,0,12,0)];
         leftButton.userInteractionEnabled = NO;
         [topic addSubview:leftButton];
         
         [leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(topic);
             make.centerY.equalTo(topic);
-            make.size.mas_equalTo(CGSizeMake(120, 45));
+            make.size.mas_equalTo(CGSizeMake(100, 45));
         }];
         
-        UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [rightButton setImage:[UIImage imageNamed:@"hx_original_selected_wx"] forState:UIControlStateNormal];
-        [rightButton setTitle:@"选择适当的话题会有更多的赞" forState:UIControlStateNormal];
-        [rightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-        rightButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        rightButton.titleLabel.textAlignment = NSTextAlignmentRight;
-        [rightButton jk_setImagePosition:LXMImagePositionRight spacing:10];
-        [rightButton addTarget:self action:@selector(actionTopicButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [topic addSubview:rightButton];
+        self.topicButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [self.topicButton  setImage:[UIImage imageNamed:@"common_arrow_right_dark"] forState:UIControlStateNormal];
+        [self.topicButton  setTitle:@"选择适当的话题会有更多的赞" forState:UIControlStateNormal];
+        [self.topicButton  setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        self.topicButton .titleLabel.font = kFontBSmall;
+        self.topicButton .titleLabel.textAlignment = NSTextAlignmentRight;
+        [self.topicButton  jk_setImagePosition:LXMImagePositionRight spacing:10];
+        [self.topicButton  addTarget:self action:@selector(actionTopicButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [topic addSubview:self.topicButton ];
 
-        [rightButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.topicButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(topic);
             make.centerY.equalTo (topic);
             make.height.equalTo(@45);
@@ -130,25 +134,27 @@
         }];
     {//选择地点
         UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [leftButton setImage:[UIImage imageNamed:@"hx_original_selected_wx"] forState:UIControlStateNormal];
+        [leftButton setImage:[UIImage imageNamed:@"publish_location_s"] forState:UIControlStateNormal];
         [leftButton setTitle:@"添加地点" forState:UIControlStateNormal];
         [leftButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        leftButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-        [leftButton jk_setImagePosition:LXMImagePositionLeft spacing:5];
+        leftButton.titleLabel.font = kFontBMedium;
+//        [leftButton jk_setImagePosition:LXMImagePositionLeft spacing:5];
+        [leftButton setImageEdgeInsets:UIEdgeInsetsMake(12,0,12,0)];
+        leftButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
         leftButton.userInteractionEnabled = NO;
         [location addSubview:leftButton];
         
         [leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(location);
             make.centerY.equalTo(location);
-            make.size.mas_equalTo(CGSizeMake(120, 45));
+            make.size.mas_equalTo(CGSizeMake(100, 45));
         }];
         
         UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [rightButton setImage:[UIImage imageNamed:@"hx_original_selected_wx"] forState:UIControlStateNormal];
+        [rightButton setImage:[UIImage imageNamed:@"common_arrow_right_dark"] forState:UIControlStateNormal];
         [rightButton setTitle:@"选择准确的地址会用更多的赞" forState:UIControlStateNormal];
         [rightButton setTitleColor:location.backgroundColor forState:UIControlStateNormal];
-        rightButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+        rightButton.titleLabel.font = kFontBSmall;
         rightButton.titleLabel.textAlignment = NSTextAlignmentRight;
         [rightButton jk_setImagePosition:LXMImagePositionRight spacing:10];
         [rightButton addTarget:self action:@selector(actionLocationButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -171,6 +177,11 @@
     }
 }
 
+- (void)refreshIndfo:(NSString *)title{
+    [self.topicButton setTitle:[NSString stringWithFormat:@"# %@",title] forState:UIControlStateNormal];
+    [self.topicButton setTitleColor:kBuleColor forState:UIControlStateNormal];
+}
+
 
 - (void)actionTopicButtonClicked:(UIButton *)button{
     if ([self.delegate respondsToSelector:@selector(publishView:didTopicButtonClicked:)]) {
@@ -190,7 +201,7 @@
         _bodyText.returnKeyType = UIReturnKeyDone;
         _bodyText.placeholderText = @"添加正文";
         _bodyText.placeholderFont = [UIFont boldSystemFontOfSize:15];
-        _bodyText.font = [UIFont systemFontOfSize:15];
+        _bodyText.font = kFontBMedium;
         _bodyText.backgroundColor = [UIColor colorWithWhite:0.98 alpha:1.0];
         _bodyText.layer.cornerRadius = 5.0;
 //
@@ -273,7 +284,7 @@
         _titleField = [[UITextField alloc] initWithFrame:CGRectZero];
         _titleField.placeholder = @"填写标题会有更多赞哦";
         _titleField.textColor = [UIColor blackColor];
-        _titleField.font = [UIFont boldSystemFontOfSize:18];
+        _titleField.font = kFontBBig;
     }
     return _titleField;
 }

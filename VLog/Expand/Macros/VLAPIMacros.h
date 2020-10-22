@@ -32,6 +32,8 @@
 
 //发布
 #define API_VLOG_PUBLISH_ADD @"/user/short-video/add"
+//话题
+#define API_VLOG_PUBLISH_TOPIC @"/user/short-video/video-cat"
 //品牌
 #define API_VLOG_PUBLISH_TAG_BRAND @"/user/short-video/brand-list"
 //商品

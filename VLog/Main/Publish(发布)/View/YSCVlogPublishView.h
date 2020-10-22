@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) id<YSCVlogPublishViewDelegate> delegate;
 
+- (void)refreshIndfo:(NSString *)title;
+
 @end
 
 NS_ASSUME_NONNULL_END

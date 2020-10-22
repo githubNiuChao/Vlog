@@ -64,8 +64,8 @@
     self.view.backgroundColor = color;
 }
 
-- (void) setTranslucentCover {
-    UIBlurEffect *blurEffect =[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+- (void) setTranslucentCoverWtih:(UIBlurEffectStyle)effectStyle {
+    UIBlurEffect *blurEffect =[UIBlurEffect effectWithStyle:effectStyle];
     UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc]initWithEffect:blurEffect];
     visualEffectView.frame = self.view.bounds;
     visualEffectView.alpha = 1;
@@ -138,7 +138,7 @@
 }
 - (void) initLeftDismissButton:(NSString *)imageName {
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftButton.frame = CGRectMake(15.0f, 22, 20.0f, 20.0f);
+    leftButton.frame = CGRectMake(15.0f, kStatusBarH + 11, 20.0f, 20.0f);
     [leftButton setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:leftButton];

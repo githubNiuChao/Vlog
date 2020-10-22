@@ -1,37 +1,38 @@
 //
-//  VLPublishTagListViewController.m
+//  VLTopicViewController.m
 //  VLog
 //
-//  Created by szy on 2020/10/20.
+//  Created by szy on 2020/10/22.
 //  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#import "VLPublishTagListViewController.h"
+#import "VLTopicViewController.h"
 #import "JXCategoryView.h"
-#import "VLTagListView.h"
-#import "VLPublishTagRequest.h"
-#import "VLPublishTagResponse.h"
+#import "VLTopicListView.h"
+#import "VLTopicRequest.h"
+#import "VLTopicResponse.h"
+#import "VLIndexResponse.h"
 
-static const CGFloat CategoryViewHeight = 40;
+static const CGFloat CategoryViewHeight = 45;
 
-@interface VLPublishTagListViewController ()
+@interface VLTopicViewController ()
 <UISearchBarDelegate,
 JXCategoryListContentViewDelegate,
 JXCategoryListContainerViewDelegate,
-JXCategoryViewDelegate>
+JXCategoryViewDelegate,
+VLTopicListViewDelegate>
 
-
-KProStrongType(UISearchBar, searchBar)
+KProStrongType(UISearchBar,searchBar)
 KProStrongType(JXCategoryTitleView, myCategoryView)
 KProStrongType(JXCategoryListContainerView, listContainerView)
 
-KProNSMutableArray(dataArray)
-KProStrongType(VLTagListView, brandList)
-KProStrongType(VLTagListView, goodsList)
+KProNSArrayType(VLIndex_Cat_InfoResponse, dataArray);
+KProNSMutableArray(tittleArray)
+KProNSMutableArray(catIdArray)
 
 @end
 
-@implementation VLPublishTagListViewController
+@implementation VLTopicViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,18 +42,26 @@ KProStrongType(VLTagListView, goodsList)
 
 - (void)initCommon{
     self.dataArray = [[NSMutableArray alloc] init];
+    self.tittleArray = [[NSMutableArray alloc] init];
+    self.catIdArray = [[NSMutableArray alloc] init];
+    [self loadData];
 }
+
+
 - (void)initSubView{
-//    [self setBackgroundColor:];
-    [self setTranslucentCoverWtih:UIBlurEffectStyleDark];
+    [self setBackgroundColor:kWhiteColor];
+    [self setTranslucentCoverWtih:UIBlurEffectStyleLight];
     [self initLeftDismissButton:@"niv_back_dark"];
     [self.view addSubview:self.searchBar];
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(10);
+        make.top.equalTo(self.view).offset(kStatusBarH);
         make.left.equalTo(self.view).offset(40);
         make.right.equalTo(self.view).inset(10);
         make.height.equalTo(@(45));
     }];
+}
+
+- (void)initCategoryView {
     [self.view addSubview:self.myCategoryView];
     [self.myCategoryView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(-1);
@@ -66,8 +75,6 @@ KProStrongType(VLTagListView, goodsList)
         make.top.equalTo(self.myCategoryView.mas_bottom);
     }];
 }
-
-
 - (UISearchBar *)searchBar{
     if (!_searchBar) {
         _searchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
@@ -77,15 +84,8 @@ KProStrongType(VLTagListView, goodsList)
         _searchBar.tintColor = kCOLOR_THEME; // 设置UISearchBar的颜色 使用clearColor就是去掉背景
         _searchBar.searchTextField.textColor = kWhiteColor;
         _searchBar.searchTextField.font = kFontBMedium;
-        _searchBar.placeholder = @"请输入品牌或商品"; // 设置提示文字
+        _searchBar.placeholder = @"请输入相关话题"; // 设置提示文字
         _searchBar.delegate = self; // 设置代理
-        //        _searchBar.text = @"呵呵"; // 设置默认的文字
-        //        _searchBar.prompt = @"提示信息"; // 设置提示
-        //        _searchBar.showsCancelButton = YES; // 设置时候显示关闭按钮
-        //         _searchBar.showsScopeBar = YES; // 设置显示范围框
-        // _searchBar.showsSearchResultsButton = YES; // 设置显示搜索结果
-        // _searchBar.showsBookmarkButton = YES; // 设置显示书签按钮
-        
     }
     return _searchBar;
 }
@@ -101,7 +101,7 @@ KProStrongType(VLTagListView, goodsList)
     NSLog(@"您点击了键盘上的Search按钮");
     [searchBar resignFirstResponder];
     [searchBar setShowsCancelButton:NO animated:YES];
-    [self loadData];
+    
 }
 #pragma mark - 实现监听开始输入的方法
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
@@ -117,28 +117,17 @@ KProStrongType(VLTagListView, goodsList)
 }
 
 - (void)loadData{
-    VLPublishTagRequest *request = [[VLPublishTagRequest alloc] init];
-    NSString *searchStr = self.searchBar.searchTextField.text;
-    BOOL select = self.myCategoryView.selectedIndex;
-    request.isGoods = select;
-    if (select) {
-        [request setArgument:searchStr forKey:@"goods_name"];
-    }else{
-        [request setArgument:searchStr forKey:@"brand_name"];
-    }
+    VLTopicRequest *request = [[VLTopicRequest alloc] init];
+//    [request setArgument:@"4" forKey:@"parent_id"];
     NCWeakSelf(self);
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
-        
-        if (weakself.myCategoryView.selectedIndex == 0) {
-            VLPublishBrandTagResponse * dataModel = [VLPublishBrandTagResponse yy_modelWithJSON:baseResponse.data];
-            weakself.dataArray = [dataModel.list mutableCopy];
-            [self.brandList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
-        }else{
-            VLPublishGoodsTagResponse * dataModel = [VLPublishGoodsTagResponse yy_modelWithJSON:baseResponse.data];
-            weakself.dataArray = [dataModel.list mutableCopy];
-            [self.goodsList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
-        }
-        
+        NSArray *modelArray = [NSArray yy_modelArrayWithClass:[VLIndex_Cat_InfoResponse class] json:baseResponse.data];
+        weakself.dataArray = [modelArray mutableCopy];
+        for (VLIndex_Cat_InfoResponse* catInfo in weakself.dataArray) {
+              [weakself.tittleArray addObject:catInfo.cat_name];
+              [weakself.catIdArray addObject:@(catInfo.cat_id)];
+          }
+        [weakself initCategoryView];
     } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
     }];
 }
@@ -151,31 +140,41 @@ KProStrongType(VLTagListView, goodsList)
 
 #pragma mark - JXCategoryListContainerViewDelegate
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
-    if (index == 0) {
-        self.brandList = [[VLTagListView alloc] init];
-        return self.brandList;
-    }else{
-        self.goodsList = [[VLTagListView alloc] init];
-        return self.goodsList;
-    }
+    VLTopicListView *listView = [[VLTopicListView alloc] init];
+    listView.parent_id = [NSString stringWithFormat:@"%@",self.catIdArray[index]];
+    listView.delegate = self;
+    return listView;
 }
 - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
-    return 2;
+    return self.tittleArray.count;
 }
+
+
+#pragma mark - VLTopicListViewDelegate
+- (void)topicListView:(VLTopicListView *)topicListView didSelectCatid:(NSInteger)catid SelectCatTitle:(NSString *)caTtitle{
+    if (catid!=0) {
+        self.selectTopicBlock(catid, caTtitle);
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    });
+}
+
 
 - (JXCategoryTitleView *)myCategoryView {
     if (_myCategoryView == nil) {
         
         JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc ]init];
         _myCategoryView = [[JXCategoryTitleView alloc] init];
-        kViewBorderRadius(_myCategoryView, 0, 0.5, kColorWhiteAlpha40);
+        kViewBorderRadius(_myCategoryView, 0, 0.4, kColorBlackAlpha20);
         _myCategoryView.listContainer = self.listContainerView;
         _myCategoryView.delegate = self;
-        _myCategoryView.titles = @[@"品牌",@"商品"];
+        _myCategoryView.titles = self.tittleArray;
         _myCategoryView.indicators = @[lineView];
-        _myCategoryView.titleColor = kWhiteColor;
-        _myCategoryView.titleSelectedColor = kCOLOR_THEME;
-        _myCategoryView.titleFont = [UIFont boldSystemFontOfSize:15];
+        _myCategoryView.titleColor = kBlackColor;
+        _myCategoryView.titleSelectedColor = kBlackColor;
+        _myCategoryView.titleLabelZoomEnabled = YES;
+        _myCategoryView.titleFont = kFontBBig;
         _myCategoryView.backgroundColor = [UIColor clearColor];
     }
     return _myCategoryView;
@@ -189,3 +188,4 @@ KProStrongType(VLTagListView, goodsList)
 }
 
 @end
+

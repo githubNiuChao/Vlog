@@ -15,16 +15,12 @@
 
 @end
 
-
-
 @protocol HoverTextViewDelegate
 
 @required
 -(void) hoverTextViewStateChange:(BOOL)isHover;
 
 @end
-
-
 
 @interface HoverTextView : UIView
 

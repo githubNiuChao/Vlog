@@ -151,13 +151,6 @@
     return _navBar;
 }
 
-//- (NSMutableArray *)modelArray {
-//    if (!_modelArray) {
-//        _modelArray = [NSMutableArray array];
-//    }
-//    return _modelArray;
-//}
-
 - (UIStatusBarStyle)preferredStatusBarStyle {
     if ([HXPhotoCommon photoCommon].isDark) {
         return UIStatusBarStyleLightContent;

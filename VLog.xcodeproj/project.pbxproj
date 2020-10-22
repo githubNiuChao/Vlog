@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		512A9CAD254151A80042E41D /* VLTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CAC254151A80042E41D /* VLTopicViewController.m */; };
+		512A9CB0254151DD0042E41D /* VLLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CAF254151DD0042E41D /* VLLocationViewController.m */; };
+		512A9CB3254152970042E41D /* VLTopicRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CB2254152970042E41D /* VLTopicRequest.m */; };
+		512A9CB6254153540042E41D /* VLTopicResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CB5254153540042E41D /* VLTopicResponse.m */; };
+		512A9CB925416DA50042E41D /* VLTopicListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CB825416DA50042E41D /* VLTopicListView.m */; };
 		512B0341251053DE00447945 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B033F251053DE00447945 /* RootViewController.m */; };
 		512B03462510549B00447945 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B03442510549B00447945 /* XYTransition.m */; };
 		512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B0350251065B300447945 /* UICollectionView+IndexPath.m */; };
@@ -361,6 +366,16 @@
 		1DBC088DDB5B05DAF9266763 /* Pods-VLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLog.release.xcconfig"; path = "Target Support Files/Pods-VLog/Pods-VLog.release.xcconfig"; sourceTree = "<group>"; };
 		38B77A7DBA94D170E173CE2D /* Pods-VLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLog.debug.xcconfig"; path = "Target Support Files/Pods-VLog/Pods-VLog.debug.xcconfig"; sourceTree = "<group>"; };
 		512A715E251EEDB100064EB0 /* NCHMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHMacros.h; sourceTree = "<group>"; };
+		512A9CAB254151A80042E41D /* VLTopicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLTopicViewController.h; sourceTree = "<group>"; };
+		512A9CAC254151A80042E41D /* VLTopicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTopicViewController.m; sourceTree = "<group>"; };
+		512A9CAE254151DD0042E41D /* VLLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLLocationViewController.h; sourceTree = "<group>"; };
+		512A9CAF254151DD0042E41D /* VLLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLLocationViewController.m; sourceTree = "<group>"; };
+		512A9CB1254152970042E41D /* VLTopicRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLTopicRequest.h; sourceTree = "<group>"; };
+		512A9CB2254152970042E41D /* VLTopicRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTopicRequest.m; sourceTree = "<group>"; };
+		512A9CB4254153540042E41D /* VLTopicResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLTopicResponse.h; sourceTree = "<group>"; };
+		512A9CB5254153540042E41D /* VLTopicResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTopicResponse.m; sourceTree = "<group>"; };
+		512A9CB725416DA50042E41D /* VLTopicListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLTopicListView.h; sourceTree = "<group>"; };
+		512A9CB825416DA50042E41D /* VLTopicListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTopicListView.m; sourceTree = "<group>"; };
 		512B033F251053DE00447945 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		512B0340251053DE00447945 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		512B03432510549B00447945 /* XYTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransition.h; sourceTree = "<group>"; };
@@ -1569,6 +1584,12 @@
 				51ADE226253ED9230081F620 /* VLTagListView.m */,
 				518058D4251B91C900FBC12D /* YSCVlogPublishViewController.h */,
 				518058D3251B91C900FBC12D /* YSCVlogPublishViewController.m */,
+				512A9CAB254151A80042E41D /* VLTopicViewController.h */,
+				512A9CAC254151A80042E41D /* VLTopicViewController.m */,
+				512A9CB725416DA50042E41D /* VLTopicListView.h */,
+				512A9CB825416DA50042E41D /* VLTopicListView.m */,
+				512A9CAE254151DD0042E41D /* VLLocationViewController.h */,
+				512A9CAF254151DD0042E41D /* VLLocationViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2145,6 +2166,8 @@
 				51A66CAB2539440F00F34CED /* VLUserHomeResponse.m */,
 				51ADE232253FCFBE0081F620 /* VLPublishTagResponse.h */,
 				51ADE233253FCFBE0081F620 /* VLPublishTagResponse.m */,
+				512A9CB4254153540042E41D /* VLTopicResponse.h */,
+				512A9CB5254153540042E41D /* VLTopicResponse.m */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -2589,6 +2612,8 @@
 				51ADE230253FCA110081F620 /* VLPublishTagRequest.m */,
 				51ADE23825400B6F0081F620 /* VLPublishRequest.h */,
 				51ADE23925400B6F0081F620 /* VLPublishRequest.m */,
+				512A9CB1254152970042E41D /* VLTopicRequest.h */,
+				512A9CB2254152970042E41D /* VLTopicRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2918,6 +2943,7 @@
 				51805B5E251B91CC00FBC12D /* HXPhotoViewController.m in Sources */,
 				51805B87251B91CC00FBC12D /* HXPhotoEditGridMaskLayer.m in Sources */,
 				51805BB5251B91CC00FBC12D /* YSCVlogPublishView.m in Sources */,
+				512A9CB3254152970042E41D /* VLTopicRequest.m in Sources */,
 				51A66CB225394BBB00F34CED /* VLUserHomeHeaderView.m in Sources */,
 				51A29BCF25203EC1001EF6E9 /* NSString+Extension.m in Sources */,
 				51805B62251B91CC00FBC12D /* HXVideoEditViewController.m in Sources */,
@@ -2929,6 +2955,7 @@
 				51805B4A251B91CC00FBC12D /* NSString+HXExtension.m in Sources */,
 				51A29BEF25203EC1001EF6E9 /* AwemeResponse.m in Sources */,
 				51805B8B251B91CC00FBC12D /* HXPhotoEditChartletContentViewCell.m in Sources */,
+				512A9CB925416DA50042E41D /* VLTopicListView.m in Sources */,
 				51805B58251B91CC00FBC12D /* HXPhotoTools.m in Sources */,
 				51805B6D251B91CC00FBC12D /* HXPreviewImageView.m in Sources */,
 				51ADE27C25410F2E0081F620 /* BANetManager.m in Sources */,
@@ -2937,6 +2964,7 @@
 				51805B96251B91CC00FBC12D /* HXPhotoEditGraffitiColorView.m in Sources */,
 				51805B47251B91CC00FBC12D /* HXPhotoViewPresentTransition.m in Sources */,
 				51805B52251B91CC00FBC12D /* NSDate+HXExtension.m in Sources */,
+				512A9CB0254151DD0042E41D /* VLLocationViewController.m in Sources */,
 				5173E5BC2522D31900E57C71 /* VLCommentTableViewCell.m in Sources */,
 				51815243251C470C00F9CCD3 /* NCHAutoRefreshFooter.m in Sources */,
 				51AC9914250F03CC0023D5EA /* YISPlusButton.m in Sources */,
@@ -2958,6 +2986,7 @@
 				51805B72251B91CC00FBC12D /* HXPhotoView.m in Sources */,
 				5181520D251C421E00F9CCD3 /* VLIndexModel.m in Sources */,
 				51A66CA02537DD3900F34CED /* VLVideoInfoModel.m in Sources */,
+				512A9CB6254153540042E41D /* VLTopicResponse.m in Sources */,
 				51805B4E251B91CC00FBC12D /* UIImageView+HXExtension.m in Sources */,
 				51805B7E251B91CC00FBC12D /* HXMECancelBlock.m in Sources */,
 				5173E5CD252334F400E57C71 /* BaseRequestAPI.m in Sources */,
@@ -3027,6 +3056,7 @@
 				51A29BED25203EC1001EF6E9 /* VisitorResponse.m in Sources */,
 				514875D9251F1416003B7F11 /* NCHMacroTools.m in Sources */,
 				51ADE27D25410F2E0081F620 /* UIImage+CompressImage.m in Sources */,
+				512A9CAD254151A80042E41D /* VLTopicViewController.m in Sources */,
 				51A29C1125203EC1001EF6E9 /* CircleProgressView.m in Sources */,
 				51A29BCB25203EC1001EF6E9 /* NSTextAttachment+Emotion.m in Sources */,
 				51805B5F251B91CC00FBC12D /* HXCustomCameraController.m in Sources */,

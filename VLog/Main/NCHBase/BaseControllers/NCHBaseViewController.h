@@ -26,7 +26,7 @@
 
 - (void) setBackgroundColor:(UIColor *)color;
 
-- (void) setTranslucentCover;
+- (void) setTranslucentCoverWtih:(UIBlurEffectStyle)effectStyle;
 
 - (void) setStatusBarHidden:(BOOL) hidden;
 
