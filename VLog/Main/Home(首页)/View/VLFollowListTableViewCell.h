@@ -22,7 +22,17 @@ KProStrongType(UILabel, titleLabel);
 @end
 @class StackSubView;
 @class VLIndex_Context_UserInfoResponse;
+@class VLFollowListTableViewCell;
+
+@protocol VLFollowListTableViewCellDelegate <NSObject>
+
+- (void)followListTableViewCell:(VLFollowListTableViewCell *)cell didClickFollowButton:(UIButton *)button;
+
+@end
+
 @interface VLFollowListTableViewCell : UITableViewCell
+
+@property(nonatomic , weak) id<VLFollowListTableViewCellDelegate>followListTableViewCellDelegate;
 
 KProNSInteger(indexPathRow)
 KProStrongType(VLFollowListModel, dataModel)

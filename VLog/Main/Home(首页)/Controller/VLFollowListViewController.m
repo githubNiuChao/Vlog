@@ -7,16 +7,35 @@
 //
 
 #import "VLFollowListViewController.h"
-#import "VLFollowListTableViewCell.h"
 #import "VLFollowListRequest.h"
 #import "VLFollowResponse.h"
+#import "VLNestSubjectViewController.h"
+
+#import "NCHPopView.h"
+#import "VLIndexRequest.h"
+#import "VLIndexViewController.h"
 
 static NSString *const kVLFollowListTableViewCell = @"VLFollowListTableViewCell";
+
+static const CGFloat CategoryViewHeight = 40;
 
 @interface VLFollowListViewController ()
 
 KProStrongType(UIView, headerView)
 KProNSArrayType(VLFollowListModel, dataArray)
+
+@property (nonatomic, strong) JXCategoryTitleView   *myCategoryView;
+@property (nonatomic, strong) JXCategoryListContainerView *listContainerView;
+
+@property (nonatomic, strong) UIButton              *catSelector;
+@property (nonatomic, strong) UIView                *catSelectorView;
+@property (nonatomic, strong) NCHPopView            *popView;
+@property (nonatomic, strong) VLIndexResponse       *indexData;
+@property (nonatomic, strong) NSMutableArray        *tittleArray;
+@property (nonatomic, strong) NSMutableArray        *catIdArray;
+
+
+
 @end
 
 @implementation VLFollowListViewController
@@ -26,9 +45,6 @@ KProNSArrayType(VLFollowListModel, dataArray)
     
     VLFollowListRequest *request =  [[VLFollowListRequest alloc]init];
     NSLog(@"%@%@",request.baseUrl,request.requestUrl);
-    //    [request setArgument:@"asthare" forKey:@"user_name"];
-    //    [request setArgument:@"123456" forKey:@"password"];
-    //    [request setArgument:@"15" forKey:@"video_id"];
     NCWeakSelf(self);
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
         
@@ -46,27 +62,16 @@ KProNSArrayType(VLFollowListModel, dataArray)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self initCommon];
     [self initSubView];
 }
 
 - (void)initCommon{
     self.dataArray = [[NSArray alloc] init];
+    self.tittleArray = [[NSMutableArray alloc] init];
+    self.catIdArray = [[NSMutableArray alloc] init];
 }
-
-//- (void)loadMore:(BOOL)isMore{
-//      VLTopicRequest *request = [[VLTopicRequest alloc] init];
-//        [request setArgument:self.parent_id forKey:@"parent_id"];
-//        NCWeakSelf(self);
-//        [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
-//            NSArray *modelArray = [NSArray yy_modelArrayWithClass:[VLIndex_Cat_InfoResponse class] json:baseResponse.data];
-//            weakself.dataArray = [modelArray mutableCopy];
-//            weakself.tableView.tableHeaderView = [weakself createHeaderView];
-//            [weakself.tableView reloadData];
-//            [weakself endHeaderFooterRefreshing];
-//        } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
-//        }];
-//}
 
 - (void)initSubView{
     [self setBackgroundColor:[UIColor whiteColor]];
@@ -91,6 +96,7 @@ KProNSArrayType(VLFollowListModel, dataArray)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VLFollowListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kVLFollowListTableViewCell];
     VLFollowListModel *model = [self.dataArray objectAtIndex:indexPath.row];
+    cell.followListTableViewCellDelegate = self;
     cell.indexPathRow  = indexPath.row;
     [cell setDataModel:model];
     return cell;
@@ -100,6 +106,16 @@ KProNSArrayType(VLFollowListModel, dataArray)
     
     
 }
+
+- (void)followListTableViewCell:(VLFollowListTableViewCell *)cell didClickFollowButton:(UIButton *)button{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView removeFromSuperview];
+        [self loadCategorySubViewData];
+        
+    });
+    
+}
+
 
 - (UIView *)createHeaderView{
     
@@ -142,6 +158,147 @@ KProNSArrayType(VLFollowListModel, dataArray)
 //        }
 //    }];
     return _headerView;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- (void)initCategorySubView{
+    [self.view addSubview:self.catSelector];
+    [self.view addSubview:self.myCategoryView];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    _myCategoryView.frame = CGRectMake(0, 0, kSCREEN_WIDTH - 50, CategoryViewHeight);
+    _catSelector.frame = CGRectMake(kSCREEN_WIDTH - 50, 0, 50, CategoryViewHeight);
+    _listContainerView.frame = CGRectMake(0, CategoryViewHeight, kSCREEN_WIDTH, self.view.jk_height-kTabbarH);
+}
+
+- (void)loadCategorySubViewData{
+    VLIndexRequest *request =  [[VLIndexRequest alloc]init];
+    request.isFolllow = YES;
+    NSLog(@"%@%@",request.baseUrl,request.requestUrl);
+    NCWeakSelf(self);
+    [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+        self.indexData = [VLIndexResponse yy_modelWithJSON:baseResponse.data];
+        for (VLIndex_Cat_InfoResponse* catInfo in self.indexData.cat_list) {
+            [weakself.tittleArray addObject:catInfo.cat_name];
+            [weakself.catIdArray addObject:@(catInfo.cat_id)];
+        }
+        [weakself initCategorySubView];
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+
+    }];
+}
+
+
+#pragma mark - JXCategoryViewDelegate
+- (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
+    //作为嵌套的子容器，不需要处理侧滑手势处理。示例demo因为是继承，所以直接覆盖掉该代理方法，达到父类不调用下面一行处理侧滑手势的代码。
+    //    self.navigationController.interactivePopGestureRecognizer.enabled = (index == 0);
+}
+
+
+#pragma mark - JXCategoryListContainerViewDelegate
+- (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
+    
+    VLIndexViewController * indexViewController = [[VLIndexViewController alloc] init];
+    indexViewController.catId = [self.catIdArray jk_integerWithIndex:index];
+    indexViewController.isfollow = YES;
+    return indexViewController;
+}
+- (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
+    return self.tittleArray.count;
+}
+
+#pragma mark -Action
+- (void)actionCatSelectorClick:(UIButton *)buttton{
+    buttton.selected = !buttton.selected;
+        if (buttton.selected) {
+            [self initPopView];
+        }else{
+            [self.popView dismiss];
+        }
+}
+
+#pragma mark - Set/Get
+
+- (JXCategoryTitleView *)myCategoryView {
+    if (_myCategoryView == nil) {
+        JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc ]init];
+        _myCategoryView = [[JXCategoryTitleView alloc] init];
+        _myCategoryView.listContainer = self.listContainerView;
+        _myCategoryView.delegate = self;
+        _myCategoryView.titles = self.tittleArray;
+        _myCategoryView.indicators = @[lineView];
+        _myCategoryView.titleColor = [UIColor grayColor];
+        _myCategoryView.titleSelectedColor = [UIColor redColor];
+        _myCategoryView.titleFont = [UIFont boldSystemFontOfSize:15];
+        _myCategoryView.backgroundColor = [UIColor whiteColor];
+    }
+    return _myCategoryView;
+}
+
+- (JXCategoryListContainerView *)listContainerView {
+    if (_listContainerView == nil) {
+        _listContainerView = [[JXCategoryListContainerView alloc] initWithType:JXCategoryListContainerType_ScrollView delegate:self];
+        [self.view addSubview:_listContainerView];
+    }
+    return _listContainerView;
+}
+
+- (UIButton *)catSelector{
+    if (!_catSelector) {
+        _catSelector = [[UIButton alloc]init];
+        _catSelector.backgroundColor = kOrangeColor;
+        [_catSelector addTarget:self action:@selector(actionCatSelectorClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _catSelector;
+}
+
+- (void)initPopView{
+    
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = kOrangeColor;
+    view.frame = CGRectMake(0, 0, kSCREEN_WIDTH,(kSCREEN_WIDTH)/2.0);
+    _popView = [NCHPopView initWithCustomView:view
+                                   parentView:_listContainerView
+                                     popStyle:NCHPopStyleSmoothFromTop
+                                 dismissStyle:NCHDismissStyleSmoothToTop];
+    _popView.hemStyle = NCHHemStyleTop;
+    _popView.adjustY = 0;
+    _popView.popDuration = 0.5;
+    _popView.dismissDuration = 0.5;
+    _popView.bgAlpha = 0.0;
+    _popView.isSingle = YES;
+    _popView.isClickFeedback = YES;
+    
+    NCWeakSelf(_popView);
+    _popView.bgClickBlock = ^{
+        [weak_popView dismiss];
+    };
+    NCWeakSelf(self);
+    _popView.popViewWillDismissBlock = ^{
+        weakself.catSelector.selected = NO;
+    };
+    //       [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+    //           [wk_popView dismiss];
+    //       }];
+    //    }
+    [_popView pop];
 }
 
 

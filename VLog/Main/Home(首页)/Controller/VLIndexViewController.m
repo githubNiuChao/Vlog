@@ -43,6 +43,7 @@ NCHVerticalFlowLayoutDelegate
 #pragma mark - Super
 -(void)loadMore:(BOOL)isMore{
     self.manager.page = isMore? self.manager.page+=1:0;
+    self.manager.isfollow = self.isfollow;
     [self.manager loadDataWithCatId:self.catId];
 }
 

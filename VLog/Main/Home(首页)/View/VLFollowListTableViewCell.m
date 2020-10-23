@@ -231,8 +231,12 @@ KProStrongType(UIStackView, stackView);
 
 
 - (void)followClicked:(UIButton *)button{
-    
-    
+    self.followButton.selected = !button;
+
+    if (_followListTableViewCellDelegate && [_followListTableViewCellDelegate respondsToSelector:@selector(followListTableViewCell:didClickFollowButton:)]) {
+        [_followListTableViewCellDelegate followListTableViewCell:self didClickFollowButton:self.followButton];
+    }
+
 }
 
 @end

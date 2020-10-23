@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**拉取数据*/
 -(void)loadDataWithCatId:(NSInteger)catId;
 
+KProBool(isfollow)
+
 @end
 
 NS_ASSUME_NONNULL_END

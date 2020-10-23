@@ -35,11 +35,8 @@
 -(void)loadDataWithCatId:(NSInteger)catId{
     
     VLIndexRequest *request =  [[VLIndexRequest alloc]init];
+    request.isFolllow = self.isfollow;
       NSLog(@"%@%@",request.baseUrl,request.requestUrl);
-      //        [request setArgument:@"asthare" forKey:@"user_name"];
-      //        [request setArgument:@"123456" forKey:@"password"];
-      //        [request setArgument:@"15" forKey:@"video_id"];
-//    [request setArgument:[NSString stringWithFormat:@"%ld",catId] forKey:@"cat_id"];
     [request setArgument:@"2" forKey:@"cat_id"];
     
     NCWeakSelf(self);

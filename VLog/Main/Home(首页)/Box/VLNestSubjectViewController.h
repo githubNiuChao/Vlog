@@ -17,6 +17,8 @@ JXCategoryListContainerViewDelegate,
 JXCategoryViewDelegate
 >
 
+KProBool(isFollow)
+
 @end
 
 NS_ASSUME_NONNULL_END

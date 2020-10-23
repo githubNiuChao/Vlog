@@ -20,6 +20,7 @@ JXCategoryListContentViewDelegate,
 JXPagerViewListViewDelegate
 >
 
+KProBool(isfollow)
 @property (nonatomic, assign) NSInteger catId;
 @property (nonatomic,copy) reshtitle reshblock;
 

@@ -11,7 +11,7 @@
 @implementation VLFollowListRequest
 
 - (NSString *)requestUrl{
-   return API_VLOG_INDEX_FOLLOW;
+   return API_VLOG_INDEX_FOLLOW_RECOMMEND;
 }
 
 - (YTKRequestMethod)requestMethod{

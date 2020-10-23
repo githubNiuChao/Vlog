@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VLIndexRequest : NCHBaseRequest
 
+KProBool(isFolllow)
+
 @end
 
 NS_ASSUME_NONNULL_END

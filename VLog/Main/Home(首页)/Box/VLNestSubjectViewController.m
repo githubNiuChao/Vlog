@@ -11,6 +11,8 @@
 #import "VLIndexRequest.h"
 #import "VLIndexResponse.h"
 #import "NCHPopView.h"
+#import "VLFollowListViewController.h"
+
 
 static const CGFloat CategoryViewHeight = 40;
 
@@ -56,13 +58,9 @@ static const CGFloat CategoryViewHeight = 40;
 
 - (void)loadData{
     VLIndexRequest *request =  [[VLIndexRequest alloc]init];
+    request.isFolllow  = NO;
     NSLog(@"%@%@",request.baseUrl,request.requestUrl);
-    //        [request setArgument:@"asthare" forKey:@"user_name"];
-    //        [request setArgument:@"123456" forKey:@"password"];
-    //        [request setArgument:@"15" forKey:@"video_id"];
-//        [request setArgument:@"2" forKey:@"cat_id"];
     NCWeakSelf(self);
-    
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
         self.indexData = [VLIndexResponse yy_modelWithJSON:baseResponse.data];
         for (VLIndex_Cat_InfoResponse* catInfo in self.indexData.cat_list) {
@@ -91,8 +89,10 @@ static const CGFloat CategoryViewHeight = 40;
 
 #pragma mark - JXCategoryListContainerViewDelegate
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
+    
     VLIndexViewController * indexViewController = [[VLIndexViewController alloc] init];
     indexViewController.catId = [self.catIdArray jk_integerWithIndex:index];
+    indexViewController.isfollow = NO;
 //    if (index == 0) {
 //        indexViewController.catId = 0;
 //    }

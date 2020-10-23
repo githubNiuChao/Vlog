@@ -12,7 +12,11 @@
 @implementation VLIndexRequest
 
 - (NSString *)requestUrl{
-   return API_VLOG_INDEX_FIND;
+    if (self.isFolllow) {
+        return API_VLOG_INDEX_FOLLOW;
+    }else{
+        return API_VLOG_INDEX_FIND;
+    }
 }
 
 - (YTKRequestMethod)requestMethod{
