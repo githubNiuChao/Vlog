@@ -109,7 +109,7 @@ KProStrongType(UIView, line);//分割线
     [_imgView sd_setImageWithURL:[NSURL URLWithString:listModel.video_img] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
     [_imgHead sd_setImageWithURL:[NSURL URLWithString:listModel.headimg] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
     _like.selected = listModel.is_like;
-    _videoIcon.hidden = !listModel.videoType;
+    _videoIcon.hidden = listModel.videoType;
     _lblHobby.text=listModel.video_title;
     _lblNickName.text=listModel.nickname;
     

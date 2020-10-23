@@ -10,8 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
-    VLVideoInfoModelTypeImage = 0,
-    VLVideoInfoModelTypeVideo = 1
+    VLVideoInfoModelTypeVideo = 0,
+    VLVideoInfoModelTypeImage = 1
 } VLVideoInfoModelType;
 
 @class VLVideoInfo_DescModel;

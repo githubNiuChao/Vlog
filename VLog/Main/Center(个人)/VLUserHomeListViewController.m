@@ -70,23 +70,27 @@ NCHVerticalFlowLayoutDelegate
 {
 
     VLIndexListCollectionViewCell *cell =(VLIndexListCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-//    VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
-//    VLVideoInfoModel *listModel = self.manager.dataArray[indexPath.row];
-//    photoDetaiVC.video_id = listModel.video_id;
-//    [self.navigationController pushViewController:photoDetaiVC animated:YES];
     
-    NSMutableArray *muarr = [[NSMutableArray alloc]init];
-    [muarr addObject:[self.manager.dataArray lastObject]];
-    [muarr addObject:[self.manager.dataArray lastObject]];
-    [muarr addObject:[self.manager.dataArray lastObject]];
-    [muarr addObject:[self.manager.dataArray lastObject]];
-    [muarr addObject:[self.manager.dataArray lastObject]];
+    VLVideoInfoModel *listModel = self.manager.dataArray[indexPath.row];
+    if (listModel.videoType == VLVideoInfoModelTypeImage) {
+        VLPhotoDetailViewController *photoDetaiVC = [VLPhotoDetailViewController new];
+        photoDetaiVC.video_id = listModel.video_id;
+        [self.navigationController pushViewController:photoDetaiVC animated:YES];
+    }else if (listModel.videoType == VLVideoInfoModelTypeVideo){
+        VLVideoDetailViewController *videoDetailVC = [[VLVideoDetailViewController alloc] init];
+        videoDetailVC.video_id = listModel.video_id;
+        [self.navigationController pushViewController:videoDetailVC animated:YES];
+    }
     
-//    VLVideoListViewController *videoDetailVC = [[VLVideoListViewController alloc] initWithVideoData:muarr currentIndex:1 pageIndex:1 pageSize:10 uid:@"1"];
-    VLVideoDetailViewController *videoDetailVC = [[VLVideoDetailViewController alloc] init];
-    videoDetailVC.video_id = @"14";
     
-    [self.navigationController pushViewController:videoDetailVC animated:YES];
+//    NSMutableArray *muarr = [[NSMutableArray alloc]init];
+//    [muarr addObject:[self.manager.dataArray lastObject]];
+//    [muarr addObject:[self.manager.dataArray lastObject]];
+//    [muarr addObject:[self.manager.dataArray lastObject]];
+//    [muarr addObject:[self.manager.dataArray lastObject]];
+//    [muarr addObject:[self.manager.dataArray lastObject]];
+//
+
 }
 
 
