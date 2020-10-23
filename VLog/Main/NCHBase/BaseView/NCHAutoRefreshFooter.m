@@ -30,7 +30,7 @@
 {
     self.automaticallyChangeAlpha = YES;
     self.refreshingTitleHidden = YES;
-//    [self setTitle:@"" forState:MJRefreshStateIdle];
+    [self setTitle:@"" forState:MJRefreshStateIdle];
 //    [self setTitle:@"" forState:MJRefreshStatePulling];
 //    [self setTitle:@"" forState:MJRefreshStateRefreshing];
 //    [self setTitle:@"" forState:MJRefreshStateWillRefresh];

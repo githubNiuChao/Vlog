@@ -16,8 +16,10 @@
 
 - (void)setVideo_type:(NSString *)video_type{
     _video_type = video_type;
-    _videoType = [video_type integerValue];
+    self.videoType = [video_type integerValue];
 }
+
+
 @end
 
 @implementation VLVideoInfo_DescModel
