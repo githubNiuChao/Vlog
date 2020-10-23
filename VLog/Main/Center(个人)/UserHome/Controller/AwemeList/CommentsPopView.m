@@ -468,7 +468,7 @@ static const CGFloat kCommentTextViewTopBottomInset          = 15;
         _textHeight = ceilf(_textView.font.lineHeight);
         
         _placeholderLabel = [[UILabel alloc]init];
-        _placeholderLabel.text = @"有爱评论，说点儿好听的~";
+        _placeholderLabel.text = @"有爱评论~~~~";
         _placeholderLabel.textColor = ColorGray;
         _placeholderLabel.font = BigFont;
         _placeholderLabel.frame = CGRectMake(kCommentTextViewLeftInset, 0, ScreenWidth - kCommentTextViewLeftInset - kCommentTextViewRightInset, 50);

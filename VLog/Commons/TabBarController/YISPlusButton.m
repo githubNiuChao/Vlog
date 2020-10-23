@@ -92,7 +92,7 @@
 //    }];
     
     YSCVlogPublishViewController *publishViewController = [[YSCVlogPublishViewController alloc] init];
-//    publishViewController.modalPresentationStyle = UIModalPresentationAutomatic;
+    publishViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     publishViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [viewController presentViewController:publishViewController animated:YES completion:nil];
 //    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];

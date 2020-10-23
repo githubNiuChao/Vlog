@@ -12,6 +12,8 @@
 		512A9CB3254152970042E41D /* VLTopicRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CB2254152970042E41D /* VLTopicRequest.m */; };
 		512A9CB6254153540042E41D /* VLTopicResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CB5254153540042E41D /* VLTopicResponse.m */; };
 		512A9CB925416DA50042E41D /* VLTopicListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CB825416DA50042E41D /* VLTopicListView.m */; };
+		512A9CE72541A6DB0042E41D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512A9CE62541A6DB0042E41D /* MapKit.framework */; };
+		512A9CEA2541C9A40042E41D /* VLBodyTexToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CE92541C9A40042E41D /* VLBodyTexToolbarView.m */; };
 		512B0341251053DE00447945 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B033F251053DE00447945 /* RootViewController.m */; };
 		512B03462510549B00447945 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B03442510549B00447945 /* XYTransition.m */; };
 		512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B0350251065B300447945 /* UICollectionView+IndexPath.m */; };
@@ -376,6 +378,9 @@
 		512A9CB5254153540042E41D /* VLTopicResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTopicResponse.m; sourceTree = "<group>"; };
 		512A9CB725416DA50042E41D /* VLTopicListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLTopicListView.h; sourceTree = "<group>"; };
 		512A9CB825416DA50042E41D /* VLTopicListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTopicListView.m; sourceTree = "<group>"; };
+		512A9CE62541A6DB0042E41D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		512A9CE82541C9A40042E41D /* VLBodyTexToolbarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLBodyTexToolbarView.h; sourceTree = "<group>"; };
+		512A9CE92541C9A40042E41D /* VLBodyTexToolbarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLBodyTexToolbarView.m; sourceTree = "<group>"; };
 		512B033F251053DE00447945 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		512B0340251053DE00447945 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		512B03432510549B00447945 /* XYTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransition.h; sourceTree = "<group>"; };
@@ -977,7 +982,6 @@
 		51A66CAE2539445D00F34CED /* VLUserHomeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeRequest.m; sourceTree = "<group>"; };
 		51A66CB025394BBB00F34CED /* VLUserHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeHeaderView.h; sourceTree = "<group>"; };
 		51A66CB125394BBB00F34CED /* VLUserHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeHeaderView.m; sourceTree = "<group>"; };
-		51A66CB4253B685800F34CED /* QMUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QMUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51AC9903250F03CB0023D5EA /* YISPlusButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YISPlusButton.h; sourceTree = "<group>"; };
 		51AC9905250F03CB0023D5EA /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		51AC9906250F03CB0023D5EA /* YISVlogTabBarController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YISVlogTabBarController1.m; sourceTree = "<group>"; };
@@ -1058,6 +1062,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				512A9CE72541A6DB0042E41D /* MapKit.framework in Frameworks */,
 				6E4E8D1EA337B0C1F1904A83 /* libPods-VLog.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1068,7 +1073,7 @@
 		1050D16EED33C00374B8BE77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				51A66CB4253B685800F34CED /* QMUIKit.framework */,
+				512A9CE62541A6DB0042E41D /* MapKit.framework */,
 				6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */,
 			);
 			name = Frameworks;
@@ -1944,6 +1949,8 @@
 				518059C5251B91CA00FBC12D /* YSCTagCollectionViewCell.m */,
 				518059C6251B91CA00FBC12D /* YSCVlogPublishView.h */,
 				518059C4251B91CA00FBC12D /* YSCVlogPublishView.m */,
+				512A9CE82541C9A40042E41D /* VLBodyTexToolbarView.h */,
+				512A9CE92541C9A40042E41D /* VLBodyTexToolbarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2963,6 +2970,7 @@
 				51A29C0625203EC1001EF6E9 /* AwemeListCell.m in Sources */,
 				51805B96251B91CC00FBC12D /* HXPhotoEditGraffitiColorView.m in Sources */,
 				51805B47251B91CC00FBC12D /* HXPhotoViewPresentTransition.m in Sources */,
+				512A9CEA2541C9A40042E41D /* VLBodyTexToolbarView.m in Sources */,
 				51805B52251B91CC00FBC12D /* NSDate+HXExtension.m in Sources */,
 				512A9CB0254151DD0042E41D /* VLLocationViewController.m in Sources */,
 				5173E5BC2522D31900E57C71 /* VLCommentTableViewCell.m in Sources */,
@@ -3248,6 +3256,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RJWQ554A37;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VLog/Expand/Tool/AMap",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/VLog/Resource/Supporting/PrefixHeader.pch";
 				INFOPLIST_FILE = VLog/Resource/Supporting/Info.plist;
@@ -3269,6 +3281,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RJWQ554A37;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VLog/Expand/Tool/AMap",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/VLog/Resource/Supporting/PrefixHeader.pch";
 				INFOPLIST_FILE = VLog/Resource/Supporting/Info.plist;

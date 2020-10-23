@@ -13,10 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 @class YSCVlogPublishView;
 @protocol YSCVlogPublishViewDelegate <NSObject>
 
+//- (void)publishView:(YSCVlogPublishView *)publishView didTopicButtonClicked:(UIButton *)button{
+//}
+
 //参与话题
-- (void)publishView:(YSCVlogPublishView *)publishView didTopicButtonClicked:(UIButton *)button;
+- (void)didTopicViewClicked;
 //选择地点
-- (void)publishView:(YSCVlogPublishView *)publishView didLocationButtonClicked:(UIButton *)button;
+- (void)didLocationViewClicked;
 
 @end
 

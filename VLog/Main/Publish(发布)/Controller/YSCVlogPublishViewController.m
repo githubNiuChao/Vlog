@@ -13,7 +13,7 @@
 #import "VLTopicViewController.h"
 #import "VLLocationViewController.h"
 
-static const CGFloat kPhotoViewMargin = 12.0;
+static const CGFloat kPhotoViewMargin = 45.0;
 static const CGFloat kPublishViewHeight = 400.0;
 
 @interface YSCVlogPublishViewController ()
@@ -22,9 +22,9 @@ UIImagePickerControllerDelegate,
 HXPhotoViewCellCustomProtocol,
 YSCVlogPublishViewDelegate
 >
-
-@property (strong, nonatomic) HXPhotoView *photoView;
+@property (strong, nonatomic) UIButton *closeButton;
 @property (strong, nonatomic) UIScrollView *mainScrollView;
+@property (strong, nonatomic) HXPhotoView *photoView;
 @property (strong, nonatomic) HXPhotoManager *manager;
 @property (strong, nonatomic) YSCVlogPublishView *publishView;
 
@@ -41,11 +41,9 @@ YSCVlogPublishViewDelegate
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    //    [self changeStatus];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //    [self changeStatus];
 }
 
 - (void)viewDidLoad {
@@ -63,6 +61,7 @@ YSCVlogPublishViewDelegate
 #endif
     
     [self.view addSubview:self.mainScrollView];
+    [self.mainScrollView addSubview:self.closeButton];
     [self.mainScrollView addSubview:self.photoView];
     [self.mainScrollView addSubview:self.publishView];
     [self.view addSubview:self.publishButton];
@@ -151,19 +150,19 @@ YSCVlogPublishViewDelegate
     //    [self changeStatus];
     
     NSSLog(@"%@",[videos.firstObject videoURL]);
-    VLPublishRequest *requeset = [[VLPublishRequest alloc] initWithVideoUrl:[videos firstObject].videoURL];
-    
-    
-    NSData *videoData = [NSData dataWithContentsOfURL:[videos firstObject].videoURL];
-    [requeset setArgument:videoData forKey:@"load_img"];
-    
-    [requeset nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
-        
-        
-        
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
-        
-    }];
+//    VLPublishRequest *requeset = [[VLPublishRequest alloc] initWithVideoUrl:[videos firstObject].videoURL];
+//
+//
+//    NSData *videoData = [NSData dataWithContentsOfURL:[videos firstObject].videoURL];
+//    [requeset setArgument:videoData forKey:@"load_img"];
+//
+//    [requeset nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+//
+//
+//
+//    } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+//
+//    }];
     
     
     /*
@@ -337,7 +336,7 @@ YSCVlogPublishViewDelegate
 
 - (void)photoView:(HXPhotoView *)photoView updateFrame:(CGRect)frame {
     NSSLog(@"%@",NSStringFromCGRect(frame));
-    self.publishView.frame = CGRectMake(0, CGRectGetMaxY(self.photoView.frame)+kPhotoViewMargin, self.view.hx_w, kPublishViewHeight);
+    self.publishView.frame = CGRectMake(0, CGRectGetMaxY(self.photoView.frame)+10, self.view.hx_w, kPublishViewHeight);
     self.mainScrollView.contentSize = CGSizeMake(self.mainScrollView.frame.size.width, CGRectGetMaxY(frame) + kPhotoViewMargin);
 }
 - (void)photoViewPreviewDismiss:(HXPhotoView *)photoView {
@@ -392,7 +391,8 @@ YSCVlogPublishViewDelegate
 
 
 #pragma mark - <YSCVlogPublishViewDelegate>
-- (void)publishView:(YSCVlogPublishView *)publishView didTopicButtonClicked:(UIButton *)button{
+//选择话题
+- (void)didTopicViewClicked{
     VLTopicViewController *topicListVC = [[VLTopicViewController alloc] init];
     NCWeakSelf(self);
     topicListVC.selectTopicBlock = ^(NSInteger topicid, NSString * _Nonnull topTitle) {
@@ -402,11 +402,24 @@ YSCVlogPublishViewDelegate
     topicListVC.modalPresentationStyle = UIModalPresentationFullScreen;
     topicListVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:topicListVC animated:YES completion:nil];
-    
+}
+//选择地点
+- (void)didLocationViewClicked{
     
 }
-- (void)publishView:(YSCVlogPublishView *)publishView didLocationButtonClicked:(UIButton *)button{
-    
+
+- (UIButton *)closeButton{
+    if (!_closeButton) {
+        _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _closeButton.frame = CGRectMake(kSCREEN_WIDTH - 50, 0.0f, 40.0f, 40.0f);
+          [_closeButton setBackgroundImage:[UIImage imageNamed:@"common_close"] forState:UIControlStateNormal];
+          [_closeButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _closeButton;
+}
+
+- (void)dismiss{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (UIScrollView *)mainScrollView{
@@ -422,7 +435,7 @@ YSCVlogPublishViewDelegate
         CGFloat width = _mainScrollView.frame.size.width;
         _photoView = [HXPhotoView photoManager:self.manager scrollDirection:UICollectionViewScrollDirectionVertical];
         _photoView.frame = CGRectMake(0, kPhotoViewMargin, width, 0);
-        _photoView.collectionView.contentInset = UIEdgeInsetsMake(0, kPhotoViewMargin, 0, kPhotoViewMargin);
+        _photoView.collectionView.contentInset = UIEdgeInsetsMake(0, 10, 0, 10);
         //        photoView.spacing = kPhotoViewMargin;
         _photoView.lineCount = 4;
         _photoView.delegate = self;
@@ -529,7 +542,7 @@ YSCVlogPublishViewDelegate
 - (YSCVlogPublishView *)publishView{
     if (!_publishView) {
         
-        _publishView = [[YSCVlogPublishView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.photoView.frame)+20, self.view.hx_w, kPublishViewHeight)];
+        _publishView = [[YSCVlogPublishView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.photoView.frame), self.view.hx_w, kPublishViewHeight)];
         _publishView.backgroundColor = [UIColor whiteColor];
         _publishView.delegate = self;
     }
