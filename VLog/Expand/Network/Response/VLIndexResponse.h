@@ -15,8 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 VLIndex_Cat_InfoResponse,
 VLVideoInfoModel,
 VLIndex_PageResponse,
-VLIndex_ContextResponse
-;
+VLIndex_ContextResponse;
 @interface VLIndexResponse : NCHBaseRequestResponse
 
 KProStrongType(VLIndex_Cat_InfoResponse,cat_info)

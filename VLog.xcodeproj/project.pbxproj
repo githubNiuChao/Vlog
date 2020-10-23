@@ -14,6 +14,8 @@
 		512A9CB925416DA50042E41D /* VLTopicListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CB825416DA50042E41D /* VLTopicListView.m */; };
 		512A9CE72541A6DB0042E41D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512A9CE62541A6DB0042E41D /* MapKit.framework */; };
 		512A9CEA2541C9A40042E41D /* VLBodyTexToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CE92541C9A40042E41D /* VLBodyTexToolbarView.m */; };
+		512A9CED254262F80042E41D /* VLFollowListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CEC254262F80042E41D /* VLFollowListRequest.m */; };
+		512A9CF02542642E0042E41D /* VLFollowResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CEF2542642E0042E41D /* VLFollowResponse.m */; };
 		512B0341251053DE00447945 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B033F251053DE00447945 /* RootViewController.m */; };
 		512B03462510549B00447945 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B03442510549B00447945 /* XYTransition.m */; };
 		512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B0350251065B300447945 /* UICollectionView+IndexPath.m */; };
@@ -39,7 +41,6 @@
 		5173E5B62522CB2700E57C71 /* VLPhotoDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5B22522CB2700E57C71 /* VLPhotoDetailHeadView.m */; };
 		5173E5BC2522D31900E57C71 /* VLCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5BB2522D31900E57C71 /* VLCommentTableViewCell.m */; };
 		5173E5C02523080F00E57C71 /* VLFollowListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5BE2523080F00E57C71 /* VLFollowListTableViewCell.m */; };
-		5173E5C425231E4A00E57C71 /* VLFollowListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5C325231E4A00E57C71 /* VLFollowListModel.m */; };
 		5173E5C725231EB600E57C71 /* VLFollowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5C625231EB600E57C71 /* VLFollowListViewController.m */; };
 		5173E5CD252334F400E57C71 /* BaseRequestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5CA252334F300E57C71 /* BaseRequestAPI.m */; };
 		5173E5CE252334F400E57C71 /* BaseRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5CB252334F300E57C71 /* BaseRequestService.m */; };
@@ -381,6 +382,10 @@
 		512A9CE62541A6DB0042E41D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		512A9CE82541C9A40042E41D /* VLBodyTexToolbarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLBodyTexToolbarView.h; sourceTree = "<group>"; };
 		512A9CE92541C9A40042E41D /* VLBodyTexToolbarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLBodyTexToolbarView.m; sourceTree = "<group>"; };
+		512A9CEB254262F80042E41D /* VLFollowListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLFollowListRequest.h; sourceTree = "<group>"; };
+		512A9CEC254262F80042E41D /* VLFollowListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLFollowListRequest.m; sourceTree = "<group>"; };
+		512A9CEE2542642E0042E41D /* VLFollowResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLFollowResponse.h; sourceTree = "<group>"; };
+		512A9CEF2542642E0042E41D /* VLFollowResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLFollowResponse.m; sourceTree = "<group>"; };
 		512B033F251053DE00447945 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		512B0340251053DE00447945 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		512B03432510549B00447945 /* XYTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransition.h; sourceTree = "<group>"; };
@@ -431,8 +436,6 @@
 		5173E5BB2522D31900E57C71 /* VLCommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLCommentTableViewCell.m; sourceTree = "<group>"; };
 		5173E5BD2523080F00E57C71 /* VLFollowListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLFollowListTableViewCell.h; sourceTree = "<group>"; };
 		5173E5BE2523080F00E57C71 /* VLFollowListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLFollowListTableViewCell.m; sourceTree = "<group>"; };
-		5173E5C225231E4A00E57C71 /* VLFollowListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLFollowListModel.h; sourceTree = "<group>"; };
-		5173E5C325231E4A00E57C71 /* VLFollowListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLFollowListModel.m; sourceTree = "<group>"; };
 		5173E5C525231EB600E57C71 /* VLFollowListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLFollowListViewController.h; sourceTree = "<group>"; };
 		5173E5C625231EB600E57C71 /* VLFollowListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLFollowListViewController.m; sourceTree = "<group>"; };
 		5173E5C8252334F300E57C71 /* BaseRequestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequestAPI.h; sourceTree = "<group>"; };
@@ -1486,8 +1489,6 @@
 				518058B2251B91C900FBC12D /* PersonModel.m */,
 				5181520B251C421E00F9CCD3 /* VLIndexModel.h */,
 				5181520C251C421E00F9CCD3 /* VLIndexModel.m */,
-				5173E5C225231E4A00E57C71 /* VLFollowListModel.h */,
-				5173E5C325231E4A00E57C71 /* VLFollowListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2163,6 +2164,8 @@
 			children = (
 				51873F27253433DE0070264B /* VLIndexResponse.h */,
 				51873F28253433DE0070264B /* VLIndexResponse.m */,
+				512A9CEE2542642E0042E41D /* VLFollowResponse.h */,
+				512A9CEF2542642E0042E41D /* VLFollowResponse.m */,
 				51A66C9E2537DD3900F34CED /* VLVideoInfoModel.h */,
 				51A66C9F2537DD3900F34CED /* VLVideoInfoModel.m */,
 				51A66CA42539428700F34CED /* VLDetailResponse.h */,
@@ -2611,6 +2614,8 @@
 			children = (
 				51E05A00252462F200FA9744 /* VLIndexRequest.h */,
 				51E05A01252462F200FA9744 /* VLIndexRequest.m */,
+				512A9CEB254262F80042E41D /* VLFollowListRequest.h */,
+				512A9CEC254262F80042E41D /* VLFollowListRequest.m */,
 				51BA07FD2536A369002E481E /* VLPhotoDetailRequest.h */,
 				51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */,
 				51A66CAD2539445D00F34CED /* VLUserHomeRequest.h */,
@@ -2997,6 +3002,7 @@
 				512A9CB6254153540042E41D /* VLTopicResponse.m in Sources */,
 				51805B4E251B91CC00FBC12D /* UIImageView+HXExtension.m in Sources */,
 				51805B7E251B91CC00FBC12D /* HXMECancelBlock.m in Sources */,
+				512A9CF02542642E0042E41D /* VLFollowResponse.m in Sources */,
 				5173E5CD252334F400E57C71 /* BaseRequestAPI.m in Sources */,
 				51E059FC2524620100FA9744 /* NCHBaseRequestResponse.m in Sources */,
 				51A29C1025203EC1001EF6E9 /* ScaleDismissAnimation.m in Sources */,
@@ -3088,7 +3094,6 @@
 				51A29BEC25203EC1001EF6E9 /* CommentResponse.m in Sources */,
 				51805B6C251B91CC00FBC12D /* HXPhotoBottomSelectView.m in Sources */,
 				5181524C251C470C00F9CCD3 /* NCHTableViewController.m in Sources */,
-				5173E5C425231E4A00E57C71 /* VLFollowListModel.m in Sources */,
 				51A29BD225203EC1001EF6E9 /* Aweme.m in Sources */,
 				51805AFA251B91CB00FBC12D /* CLLocation+MPLocation.m in Sources */,
 				51ADE23A25400B6F0081F620 /* VLPublishRequest.m in Sources */,
@@ -3101,6 +3106,7 @@
 				51A29BDB25203EC1001EF6E9 /* WebSocketManager.m in Sources */,
 				51805B69251B91CC00FBC12D /* HXCameraBottomView.m in Sources */,
 				51A29BD625203EC1001EF6E9 /* BaseModel.m in Sources */,
+				512A9CED254262F80042E41D /* VLFollowListRequest.m in Sources */,
 				51805AFF251B91CB00FBC12D /* MPWeakTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

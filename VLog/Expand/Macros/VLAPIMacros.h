@@ -18,6 +18,9 @@
 #pragma mark - 首页
 //首页-发现
 #define API_VLOG_INDEX_FIND @"/user/short-video/index.html?tab_id=3"
+//关注
+#define API_VLOG_INDEX_FOLLOW @"/user/short-video/recommend-list"
+
 //消息
 #define API_VLOG_MESSAGE @"/user/short-video/message.html"
 

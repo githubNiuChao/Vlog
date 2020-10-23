@@ -7,10 +7,12 @@
 //
 
 #import "VLFollowListViewController.h"
-#import "VLIndexRequest.h"
+#import "VLFollowListRequest.h"
+#import "VLFollowResponse.h"
 
 @interface VLFollowListViewController ()
 
+KProNSArray(dataArrray)
 @end
 
 @implementation VLFollowListViewController
@@ -22,21 +24,25 @@
 #pragma mark - Super
 - (void)loadMore:(BOOL)isMore{
     
-    VLIndexRequest *request =  [[VLIndexRequest alloc]init];
+    VLFollowListRequest *request =  [[VLFollowListRequest alloc]init];
     NSLog(@"%@%@",request.baseUrl,request.requestUrl);
-//    [request setArgument:@"asthare" forKey:@"user_name"];
-//    [request setArgument:@"123456" forKey:@"password"];
-    [request setArgument:@"15" forKey:@"video_id"];
+    //    [request setArgument:@"asthare" forKey:@"user_name"];
+    //    [request setArgument:@"123456" forKey:@"password"];
+    //    [request setArgument:@"15" forKey:@"video_id"];
     NCWeakSelf(self);
-    [request startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        
-        [weakself endHeaderFooterRefreshing];
-        
-    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        
-        [weakself endHeaderFooterRefreshing];
+    [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+
+        VLFollowResponse *dataModel = [VLFollowResponse yy_modelWithJSON:baseResponse.data];
+//        weakself._dataArrray =
+
+
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+
+
     }];
 }
+
+
 
 #pragma mark - <JXCategoryListContentViewDelegate>
 - (UIView *)listView {
