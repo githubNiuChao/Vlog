@@ -8,14 +8,12 @@
 
 #import "YSCVlogPublishView.h"
 
+
 #ifndef UIColorHex
 #define UIColorHex(_hex_)   [UIColor jk_colorWithHexString:((__bridge NSString *)CFSTR(#_hex_))]
 #endif
 
 @interface YSCVlogPublishView ()<YYTextViewDelegate,UITextFieldDelegate>
-
-@property (strong, nonatomic) UITextField *titleField;
-@property (strong, nonatomic) YYTextView *bodyText;
 
 @property (strong, nonatomic) UIButton *topicButton;
 @property (strong, nonatomic) UIButton *loctionButon;
@@ -202,83 +200,21 @@
 - (YYTextView *)bodyText{
     if (!_bodyText) {
         _bodyText = [[YYTextView alloc] initWithFrame:CGRectZero];
-        _bodyText.returnKeyType = UIReturnKeyDone;
+        _bodyText.returnKeyType = UIReturnKeyDefault;
         _bodyText.placeholderText = @"添加正文";
         _bodyText.placeholderFont = [UIFont boldSystemFontOfSize:15];
         _bodyText.font = kFontBMedium;
         _bodyText.backgroundColor = [UIColor colorWithWhite:0.98 alpha:1.0];
         _bodyText.layer.cornerRadius = 5.0;
-        //
-        //        NSMutableAttributedString *text = [NSMutableAttributedString new];
-        //        NSArray *tags = @[@"◉red", @"◉orange", @"◉yellow", @"◉green", @"◉blue", @"◉purple", @"◉gray"];
-        //        NSArray *tagStrokeColors = @[
-        //            UIColorHex(fa3f39),
-        //            UIColorHex(f48f25),
-        //            UIColorHex(f1c02c),
-        //            UIColorHex(54bc2e),
-        //            UIColorHex(29a9ee),
-        //            UIColorHex(c171d8),
-        //            UIColorHex(818e91)
-        //        ];
-        //        NSArray *tagFillColors = @[
-        //            UIColorHex(fb6560),
-        //            UIColorHex(f6a550),
-        //            UIColorHex(f3cc56),
-        //            UIColorHex(76c957),
-        //            UIColorHex(53baf1),
-        //            UIColorHex(cd8ddf),
-        //            UIColorHex(a4a4a7)
-        //        ];
-        //
-        //        UIFont *font = [UIFont boldSystemFontOfSize:16];
-        //        for (int i = 0; i < tags.count; i++) {
-        //            NSString *tag = tags[i];
-        //            UIColor *tagStrokeColor = tagStrokeColors[i];
-        //            UIColor *tagFillColor = tagFillColors[i];
-        //            NSMutableAttributedString *tagText = [[NSMutableAttributedString alloc] initWithString:tag];
-        //            [tagText yy_insertString:@"   " atIndex:0];
-        //            [tagText yy_appendString:@"   "];
-        //            tagText.yy_font = font;
-        //            tagText.yy_color = [UIColor whiteColor];
-        //            [tagText yy_setTextBinding:[YYTextBinding bindingWithDeleteConfirm:NO] range:tagText.yy_rangeOfAll];
-        //
-        //            YYTextBorder *border = [YYTextBorder new];
-        //            border.strokeWidth = 1.5;
-        //            border.strokeColor = tagStrokeColor;
-        //            border.fillColor = tagFillColor;
-        //            border.cornerRadius = 100; // a huge value
-        //            border.lineJoin = kCGLineJoinBevel;
-        //
-        //            border.insets = UIEdgeInsetsMake(-2, -5.5, -2, -8);
-        //            [tagText yy_setTextBackgroundBorder:border range:[tagText.string rangeOfString:tag]];
-        //
-        //            [text appendAttributedString:tagText];
-        //        }
-        //        text.yy_lineSpacing = 10;
-        //        text.yy_lineBreakMode = NSLineBreakByWordWrapping;
-        //
-        //        [text yy_appendString:@"\n"];
-        //        [text appendAttributedString:text]; // repeat for test
-        //
-        //        _bodyText = [YYTextView new];
-        //        _bodyText.attributedText = text;
-        //        _bodyText.textColor = [UIColor blackColor];
-        //
-        //        _bodyText.textContainerInset = UIEdgeInsetsMake(10 + 64, 10, 10, 10);
-        //        _bodyText.allowsCopyAttributedString = YES;
-        //        _bodyText.allowsPasteAttributedString = YES;
-        //        _bodyText.delegate = self;
-        ////        if (kiOS7Later) {
-        ////            textView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
-        ////        } else {
-        ////            textView.height -= 64;
-        ////        }
-        //        _bodyText.scrollIndicatorInsets = _bodyText.contentInset;
-        //        _bodyText.selectedRange = NSMakeRange(text.length, 0);
-        //
-        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //            [_bodyText becomeFirstResponder];
-        //        });
+        
+        _bodyText.textContainerInset = UIEdgeInsetsMake(15, 5, 15, 5);
+        _bodyText.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//        _bodyText.extraAccessoryViewHeight = 45;
+        _bodyText.showsVerticalScrollIndicator = NO;
+        _bodyText.alwaysBounceVertical = YES;
+        _bodyText.allowsCopyAttributedString = NO;
+        _bodyText.textParser = [VLTextViewComposeParser new];
+        _bodyText.delegate = self;
     }
     return _bodyText;
 }
@@ -295,7 +231,7 @@
         _titleField.placeholder = @"填写标题会有更多赞哦";
         _titleField.textColor = [UIColor blackColor];
         _titleField.returnKeyType = UIReturnKeyDone;
-        _titleField.delegate = self;
+//        _titleField.delegate = self;
         _titleField.font = kFontBBig;
     }
     return _titleField;

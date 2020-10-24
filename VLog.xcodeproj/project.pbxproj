@@ -351,6 +351,7 @@
 		51ADE28A25410F980081F620 /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE28625410F980081F620 /* YYKVStorage.m */; };
 		51ADE28B25410F980081F620 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE28725410F980081F620 /* YYMemoryCache.m */; };
 		51ADE28E2541360C0081F620 /* YBTagGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE28C2541360C0081F620 /* YBTagGestureRecognizer.m */; };
+		51B1388F25441A3700A915B7 /* VLTextViewComposeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B1388E25441A3700A915B7 /* VLTextViewComposeParser.m */; };
 		51BA07FF2536A369002E481E /* VLPhotoDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */; };
 		51BA08052536A843002E481E /* VLPhotoDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08042536A843002E481E /* VLPhotoDetailManager.m */; };
 		51BA08082536ABF4002E481E /* NCHBaseModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08072536ABF4002E481E /* NCHBaseModelManager.m */; };
@@ -365,6 +366,7 @@
 		51E059FD2524620100FA9744 /* NCHRequestPublicArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E059F62524620000FA9744 /* NCHRequestPublicArgument.m */; };
 		51E059FE2524620100FA9744 /* NCHBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E059FA2524620100FA9744 /* NCHBaseRequest.m */; };
 		51E05A02252462F200FA9744 /* VLIndexRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E05A01252462F200FA9744 /* VLIndexRequest.m */; };
+		51FC064B2543F9CB008C1223 /* VLTagTextViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 51FC064A2543F9CB008C1223 /* VLTagTextViewToolBar.m */; };
 		6E4E8D1EA337B0C1F1904A83 /* libPods-VLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */; };
 /* End PBXBuildFile section */
 
@@ -1037,6 +1039,8 @@
 		51ADE28C2541360C0081F620 /* YBTagGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBTagGestureRecognizer.m; sourceTree = "<group>"; };
 		51ADE28D2541360C0081F620 /* YBTagGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTagGestureRecognizer.h; sourceTree = "<group>"; };
 		51ADE28F254136B30081F620 /* YBTagHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTagHeader.h; sourceTree = "<group>"; };
+		51B1388D25441A3700A915B7 /* VLTextViewComposeParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLTextViewComposeParser.h; sourceTree = "<group>"; };
+		51B1388E25441A3700A915B7 /* VLTextViewComposeParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTextViewComposeParser.m; sourceTree = "<group>"; };
 		51BA07FD2536A369002E481E /* VLPhotoDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailRequest.h; sourceTree = "<group>"; };
 		51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailRequest.m; sourceTree = "<group>"; };
 		51BA08032536A843002E481E /* VLPhotoDetailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailManager.h; sourceTree = "<group>"; };
@@ -1066,6 +1070,8 @@
 		51E059FA2524620100FA9744 /* NCHBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCHBaseRequest.m; sourceTree = "<group>"; };
 		51E05A00252462F200FA9744 /* VLIndexRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLIndexRequest.h; sourceTree = "<group>"; };
 		51E05A01252462F200FA9744 /* VLIndexRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLIndexRequest.m; sourceTree = "<group>"; };
+		51FC06492543F9CB008C1223 /* VLTagTextViewToolBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLTagTextViewToolBar.h; sourceTree = "<group>"; };
+		51FC064A2543F9CB008C1223 /* VLTagTextViewToolBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTagTextViewToolBar.m; sourceTree = "<group>"; };
 		6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VLog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2524,8 +2530,12 @@
 			children = (
 				51BF5F4F25431F550059DA64 /* VLCommentTextView.h */,
 				51BF5F5025431F550059DA64 /* VLCommentTextView.m */,
+				51FC06492543F9CB008C1223 /* VLTagTextViewToolBar.h */,
+				51FC064A2543F9CB008C1223 /* VLTagTextViewToolBar.m */,
 				51BF5F5225432FEA0059DA64 /* VLSendCommentTextView.h */,
 				51BF5F5325432FEA0059DA64 /* VLSendCommentTextView.m */,
+				51B1388D25441A3700A915B7 /* VLTextViewComposeParser.h */,
+				51B1388E25441A3700A915B7 /* VLTextViewComposeParser.m */,
 				512B033E251053DE00447945 /* Base */,
 				51AC9901250F03CB0023D5EA /* TabBarController */,
 				512B0351251065B300447945 /* UICollectionView+IndexPath.h */,
@@ -2851,6 +2861,7 @@
 				51BA08122536D736002E481E /* VLIndexListManager.m in Sources */,
 				51805BB3251B91CC00FBC12D /* YISTagBgView.m in Sources */,
 				51ADE21E253EB1A60081F620 /* VLVideoDetailViewController.m in Sources */,
+				51B1388F25441A3700A915B7 /* VLTextViewComposeParser.m in Sources */,
 				51805B86251B91CC00FBC12D /* HX_PhotoEditBottomView.m in Sources */,
 				51805B7F251B91CC00FBC12D /* HXPhotoEditGraffitiColorModel.m in Sources */,
 				51815253251C470C00F9CCD3 /* NCHItemSection.m in Sources */,
@@ -3065,6 +3076,7 @@
 				51A29BF125203EC1001EF6E9 /* UserResponse.m in Sources */,
 				515FCC812535947E007F964A /* NCHPopView.m in Sources */,
 				51805B2F251B91CC00FBC12D /* PersonModel.m in Sources */,
+				51FC064B2543F9CB008C1223 /* VLTagTextViewToolBar.m in Sources */,
 				51815241251C470C00F9CCD3 /* NCHNavigationBar.m in Sources */,
 				51ADE27A25410F2E0081F620 /* BANetManagerCache.m in Sources */,
 				515FCC842535953A007F964A /* NCHPopViewManager.m in Sources */,

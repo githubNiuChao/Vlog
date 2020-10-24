@@ -17,6 +17,8 @@ NSString * const kVLTagListViewCell   = @"VLTagListViewCell";
 KProStrongType(UIView, headerView)
 KProStrongType(UILabel, tagTitle)
 KProNSArray(dataArray)
+KProBool(isGoods)
+
 @end
 
 @implementation VLTagListView
@@ -39,7 +41,8 @@ KProNSArray(dataArray)
     [self.tableView registerClass:[VLTagListViewCell class] forCellReuseIdentifier:kVLTagListViewCell];
 }
 
-- (void)setInfoData:(NSArray *)dataArray tagInfo:(NSString *)titleInfo{
+- (void)setInfoData:(NSArray *)dataArray tagInfo:(NSString *)titleInfo isGoods:(BOOL)isGoods{
+    _isGoods = isGoods;
     _dataArray = dataArray;
     self.tableView.tableHeaderView = [self createHeaderViewWithTagTitle:titleInfo];
     [self.tableView reloadData];
@@ -77,13 +80,14 @@ KProNSArray(dataArray)
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSObject *model = [self.dataArray objectAtIndex:indexPath.row];
     if ([model isKindOfClass:[VLPublishBrandTagModel class]]) {
-        
-        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(tagListView:didSelectBrandTagModel:)]) {
+            [self.delegate tagListView:self didSelectBrandTagModel:(VLPublishBrandTagModel*)model];
+        }
     }else if([model isKindOfClass:[VLPublishGoodsTagModel class]]){
-        
-        
+        if (self.delegate && [self.dataArray respondsToSelector:@selector(tagListView:didSelectBGoodsTagModel:)]) {
+            [self.delegate tagListView:self didSelectBGoodsTagModel:(VLPublishGoodsTagModel *)model];
+        }
     }
-    
 }
 
 
@@ -105,13 +109,14 @@ KProNSArray(dataArray)
         label.font = kFontBMedium;
         label.textColor = kWhiteColor;
         [_headerView addSubview:label];
-        
+        NCWeakSelf(self);
         [_headerView jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
-            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(tagListView:didSelectCustomizeWithTitle:isGoods:)]) {
+                [self.delegate tagListView:self didSelectCustomizeWithTitle:weakself.tagTitle.text isGoods:weakself.isGoods];
+            }
         }];
     return _headerView;
 }
-
 
 #pragma mark - JXCategoryListContentViewDelegate
 

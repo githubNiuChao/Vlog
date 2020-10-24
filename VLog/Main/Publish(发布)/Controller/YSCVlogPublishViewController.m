@@ -20,7 +20,9 @@ static const CGFloat kPublishViewHeight = 400.0;
 <HXPhotoViewDelegate,
 UIImagePickerControllerDelegate,
 HXPhotoViewCellCustomProtocol,
-YSCVlogPublishViewDelegate
+YSCVlogPublishViewDelegate,
+YYTextKeyboardObserver,
+UITextFieldDelegate
 >
 @property (strong, nonatomic) UIButton *closeButton;
 @property (strong, nonatomic) UIScrollView *mainScrollView;
@@ -29,15 +31,28 @@ YSCVlogPublishViewDelegate
 @property (strong, nonatomic) YSCVlogPublishView *publishView;
 
 @property (strong, nonatomic) UIButton *publishButton;
-
 @property (assign, nonatomic) NSInteger topicId;
 
 @property (assign, nonatomic) BOOL needDeleteItem;
 @property (assign, nonatomic) BOOL showHud;
 
+@property (strong, nonatomic) UIView *toolbar;
+
+
 @end
 
 @implementation YSCVlogPublishViewController
+
+- (instancetype)init {
+    self = [super init];
+    [[YYTextKeyboardManager defaultManager] addObserver:self];
+    return self;
+}
+
+- (void)dealloc {
+    [[YYTextKeyboardManager defaultManager] removeObserver:self];
+}
+
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -65,13 +80,99 @@ YSCVlogPublishViewDelegate
     [self.mainScrollView addSubview:self.photoView];
     [self.mainScrollView addSubview:self.publishView];
     [self.view addSubview:self.publishButton];
+    [self initToolbar];
 }
+
+- (void)initToolbar{
+    if (_toolbar) return;
+    _toolbar = [UIView new];
+    _toolbar.backgroundColor = [UIColor whiteColor];
+    _toolbar.jk_size = CGSizeMake(self.view.jk_width, 45);
+    _toolbar.jk_top = self.view.jk_height;
+    
+    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 0,_toolbar.jk_width,1)];
+    line.backgroundColor = kSysGroupBGColor;
+    [_toolbar addSubview:line];
+    UIButton* tagButton = [[UIButton alloc] initWithFrame:CGRectMake(5, 0, 90, _toolbar.jk_height)];
+    tagButton.titleLabel.font = kFontBMedium;
+    tagButton.adjustsImageWhenHighlighted = NO;
+    [tagButton setTitle:@" 标签" forState:UIControlStateNormal];
+    [tagButton setTitleColor:kGreyColor forState:UIControlStateNormal];
+    [tagButton setImageEdgeInsets:UIEdgeInsetsMake(10,0,10,0)];
+    tagButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [tagButton setImage:kNameImage(@"publish_tagtoolbar_icon") forState:UIControlStateNormal];
+    [tagButton addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_toolbar addSubview:tagButton];
+    UIButton* doneButton = [[UIButton alloc] initWithFrame:CGRectMake(_toolbar.jk_width-60, 0, _toolbar.jk_height, _toolbar.jk_height)];
+    doneButton.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
+    [doneButton setTitle:@"完成" forState:UIControlStateNormal];
+    [doneButton setTitleColor:kCOLOR_THEME forState:UIControlStateNormal];
+    [doneButton addTarget:self action:@selector(doneButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_toolbar addSubview:doneButton];
+    
+    [self.view addSubview:_toolbar];
+}
+
+- (void)tagButtonClick:(UIButton *)button{
+    NSArray *topic = @[@"#冰雪奇缘[品牌]#", @"#Let It Go[品牌]#", @"#纸牌屋[商品]#", @"#北京理想国际大厦[商品]#" , @"#腾讯控股 kh00700[品牌]#"];
+    NSString *topicString = topic[arc4random_uniform((u_int32_t)topic.count)];
+    [self.publishView.bodyText replaceRange:self.publishView.bodyText.selectedTextRange withText:topicString];
+}
+
+- (void)doneButtonClick:(UIButton *)button{
+    [self.publishView.bodyText resignFirstResponder];
+}
+
+#pragma mark @protocol YYTextKeyboardObserver
+- (void)keyboardChangedWithTransition:(YYTextKeyboardTransition)transition {
+    self.toolbar.hidden = [self.publishView.titleField isFirstResponder];
+    CGRect toFrame = [[YYTextKeyboardManager defaultManager] convertRect:transition.toFrame toView:self.view];
+    if (transition.animationDuration == 0) {
+        _toolbar.jk_top = CGRectGetMinY(toFrame)+kSafeHeightBottom;
+    } else {
+        [UIView animateWithDuration:transition.animationDuration delay:0 options:transition.animationOption | UIViewAnimationOptionBeginFromCurrentState animations:^{
+            if (transition.toVisible) {
+                self->_toolbar.jk_bottom = CGRectGetMinY(toFrame);
+            }else{
+                self->_toolbar.jk_bottom = CGRectGetMinY(toFrame)+kSafeHeightBottom;
+            }
+        } completion:NULL];
+    }
+}
+
+
 
 #pragma mark - Action
 //发布
 - (void)actionPublish:(UIButton *)button{
+    NSString *text =  self.publishView.bodyText.text;
     
+    NSArray<NSString *> *array = [text componentsSeparatedByString:@"#"];
+    NSMutableArray *muarr = [[NSMutableArray alloc] init];
     
+    [array enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        if ([obj isKindOfClass:[NSConstantString class]]) {
+            
+            
+        }
+        if ([obj containsString:VLTextViewComposeParserBrandSubKey]) {
+            NSString *string = [[obj componentsSeparatedByString:VLTextViewComposeParserBrandSubKey] firstObject];
+            NSDictionary *dict = @{@"":@""};
+            
+        }else if ([obj containsString:VLTextViewComposeParserGoodsSubKey]){
+            NSString *string = [[obj componentsSeparatedByString:VLTextViewComposeParserGoodsSubKey] firstObject];
+            NSDictionary *dict = @{@"is_tag":@(true),
+            @"name":obj};
+            
+            
+        }else if([obj isKindOfClass:[NSString class]]){
+            NSDictionary *dict = @{@"is_tag":@(false),
+                                   @"name":obj};
+        
+        }
+        
+    }];
     
 }
 
@@ -124,30 +225,12 @@ YSCVlogPublishViewDelegate
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)dealloc {
-    NSSLog(@"dealloc");
-}
-//- (void)didNavBtnClick {
-//    SettingViewController *vc = [[SettingViewController alloc] init];
-//    vc.manager = self.manager;
-//    HXWeakSelf
-//    vc.saveCompletion = ^(HXPhotoManager * _Nonnull manager) {
-//        weakSelf.manager = manager;
-//        [weakSelf.photoView refreshView];
-//    };
-//    [self.navigationController pushViewController:vc animated:YES];
-////    if (self.manager.configuration.specialModeNeedHideVideoSelectBtn && !self.manager.configuration.selectTogether && self.manager.configuration.videoMaxNum == 1) {
-////        if (self.manager.afterSelectedVideoArray.count) {
-////            [self.view hx_showImageHUDText:@"请先删除视频"];
-////            return;
-////        }
-////    }
-////    [self.photoView goPhotoViewController];
-//}
 #pragma mark - HXPhotoViewDelegate
 
 - (void)photoView:(HXPhotoView *)photoView changeComplete:(NSArray<HXPhotoModel *> *)allList photos:(NSArray<HXPhotoModel *> *)photos videos:(NSArray<HXPhotoModel *> *)videos original:(BOOL)isOriginal {
     //    [self changeStatus];
+    
+    
     
     NSSLog(@"%@",[videos.firstObject videoURL]);
 //    VLPublishRequest *requeset = [[VLPublishRequest alloc] initWithVideoUrl:[videos firstObject].videoURL];
@@ -544,6 +627,7 @@ YSCVlogPublishViewDelegate
         
         _publishView = [[YSCVlogPublishView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.photoView.frame), self.view.hx_w, kPublishViewHeight)];
         _publishView.backgroundColor = [UIColor whiteColor];
+        _publishView.titleField.delegate = self;
         _publishView.delegate = self;
     }
     return _publishView;

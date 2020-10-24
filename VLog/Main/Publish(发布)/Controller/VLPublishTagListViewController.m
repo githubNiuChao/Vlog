@@ -18,7 +18,8 @@ static const CGFloat CategoryViewHeight = 40;
 <UISearchBarDelegate,
 JXCategoryListContentViewDelegate,
 JXCategoryListContainerViewDelegate,
-JXCategoryViewDelegate>
+JXCategoryViewDelegate,
+VLTagListViewDelegate>
 
 
 KProStrongType(UISearchBar, searchBar)
@@ -131,18 +132,33 @@ KProStrongType(VLTagListView, goodsList)
         if (weakself.myCategoryView.selectedIndex == 0) {
             VLPublishBrandTagResponse * dataModel = [VLPublishBrandTagResponse yy_modelWithJSON:baseResponse.data];
             weakself.dataArray = [dataModel.list mutableCopy];
-            [weakself.brandList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
+            [weakself.brandList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text isGoods:NO];
         }else{
             VLPublishGoodsTagResponse * dataModel = [VLPublishGoodsTagResponse yy_modelWithJSON:baseResponse.data];
             weakself.dataArray = [dataModel.list mutableCopy];
-            [weakself.goodsList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
+            [weakself.goodsList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text isGoods:YES];
         }
         
     } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
-        
-        [self.goodsList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
     }];
 }
+
+
+#pragma mark - VLTagListViewDelegate
+//品牌
+- (void)tagListView:(VLTagListView *)tagListView didSelectBrandTagModel:(VLPublishBrandTagModel *)brandModel{
+    
+    
+}
+//商品
+- (void)tagListView:(VLTagListView *)tagListView didSelectBGoodsTagModel:(VLPublishGoodsTagModel *)goodsModel{
+    
+}
+//自定义
+- (void)tagListView:(VLTagListView *)tagListView didSelectCustomizeWithTitle:(NSString *)title isGoods:(BOOL)isGoods{
+    
+}
+
 
 
 #pragma mark - JXCategoryViewDelegate
@@ -154,9 +170,11 @@ KProStrongType(VLTagListView, goodsList)
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     if (index == 0) {
         self.brandList = [[VLTagListView alloc] init];
+        self.brandList.delegate = self;
         return self.brandList;
     }else{
         self.goodsList = [[VLTagListView alloc] init];
+        self.goodsList.delegate = self;
         return self.goodsList;
     }
 }

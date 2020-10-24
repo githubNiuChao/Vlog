@@ -14,17 +14,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class VLTagListView;
 @protocol VLTagListViewDelegate <NSObject>
-
+//品牌
 - (void)tagListView:(VLTagListView *)tagListView didSelectBrandTagModel:(VLPublishBrandTagModel *)brandModel;
-
-- (void)tagListView:(VLTagListView *)tagListView didSelectBGoodsTagModel:(VLPublishGoodsTagModel *)brandModel;
-
-- (void)tagListView:(VLTagListView *)tagListView didSelectBGoodsTagModel:(VLPublishGoodsTagModel *)brandModel;
+//商品
+- (void)tagListView:(VLTagListView *)tagListView didSelectBGoodsTagModel:(VLPublishGoodsTagModel *)goodsModel;
+//自定义
+- (void)tagListView:(VLTagListView *)tagListView didSelectCustomizeWithTitle:(NSString *)title isGoods:(BOOL)isGoods;
 
 @end
 
 @interface VLTagListView : NCHRefreshTableViewController<JXCategoryListContentViewDelegate>
-- (void)setInfoData:(NSArray *)dataArray tagInfo:(NSString *)titleInfo;
+
+@property (nonatomic, weak) id<VLTagListViewDelegate> delegate;
+- (void)setInfoData:(NSArray *)dataArray tagInfo:(NSString *)titleInfo isGoods:(BOOL)isGoods;
 
 @end
 

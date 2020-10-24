@@ -5,12 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "publish_tag_icon@2x.png",
+      "filename" : "publish_tag_brandicon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "publish_tag_icon@3x.png",
+      "filename" : "publish_tag_brandicon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

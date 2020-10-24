@@ -84,10 +84,13 @@
 }
 
 
-#pragma TagCollectionViewCellDelegate
+#pragma mark -TagCollectionViewCellDelegate
+//弹出选择标签视图
 - (void)tagCollectionViewCell:(YSCTagCollectionViewCell *)cell didClickImageViewWithTap:(CGPoint)tapPoint{
     
     VLPublishTagListViewController *tagListVC = [[VLPublishTagListViewController alloc] init];
+    tagListVC.tapPoint = tapPoint;
+    tagListVC.path_index = [self.collectionView indexPathForCell:cell].row;
     tagListVC.modalPresentationStyle = UIModalPresentationAutomatic;
     tagListVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:tagListVC animated:YES completion:nil];
@@ -97,7 +100,6 @@
 
 #pragma mark - Action
 - (void)didDoneClick:(UIButton *)button{
-
     if ([self.tagVcDelegate respondsToSelector:@selector(tagViewController:didDoneModeArray:)]) {
         [self.tagVcDelegate tagViewController:self didDoneModeArray:self.modelArray];
     }

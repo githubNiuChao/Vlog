@@ -53,6 +53,8 @@ YSCTagViewControllerDelegate
 @property (strong, nonatomic) UINavigationItem *navItem;
 @property (strong, nonatomic) UIButton *selectBtn;//选择
 @property (strong, nonatomic) UIButton *nextBtn;//下一步
+@property (strong, nonatomic) UIButton *videoBtn;//视频时完成按钮
+
 @property (assign, nonatomic) BOOL isAddInteractiveTransition;
 @property (strong, nonatomic) UIView *dismissTempTopView;
 @property (strong, nonatomic) UIPageControl *bottomPageControl;
@@ -434,6 +436,7 @@ YSCTagViewControllerDelegate
         UIColor *doneBtnDarkBgColor = self.manager.configuration.bottomDoneBtnDarkBgColor ?: [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
         UIColor *doneBgColor = self.manager.configuration.bottomDoneBtnBgColor ?: themeColor;
         self.nextBtn.backgroundColor = [HXPhotoCommon photoCommon].isDark ? doneBtnDarkBgColor : doneBgColor;
+        self.videoBtn.backgroundColor= [HXPhotoCommon photoCommon].isDark ? doneBtnDarkBgColor : doneBgColor;
     }else {
         if (self.exteriorPreviewStyle == HXPhotoViewPreViewShowStyleDefault) {
             [self.navBar setTintColor:themeColor];
@@ -497,11 +500,20 @@ YSCTagViewControllerDelegate
         self.navigationItem.titleView = self.customTitleView;
         if (model.subType == HXPhotoModelMediaSubTypeVideo) {
             self.bottomView.enabled = self.manager.configuration.videoCanEdit;
+            self.navigationItem.rightBarButtonItems =@[[[UIBarButtonItem alloc] initWithCustomView:self.videoBtn],[[UIBarButtonItem alloc] initWithCustomView:self.selectBtn]];
         } else {
             self.bottomView.enabled = self.manager.configuration.photoCanEdit;
+            self.navigationItem.rightBarButtonItems =@[[[UIBarButtonItem alloc] initWithCustomView:self.nextBtn],[[UIBarButtonItem alloc] initWithCustomView:self.selectBtn]];
         }
         self.bottomView.selectCount = [self.manager selectedCount];
-        self.navigationItem.rightBarButtonItems =@[[[UIBarButtonItem alloc] initWithCustomView:self.nextBtn],[[UIBarButtonItem alloc] initWithCustomView:self.selectBtn]];
+        if (model.subType == HXPhotoModelMediaSubTypeVideo) {
+            
+        }else{
+            
+        }
+
+        
+        
         self.selectBtn.selected = model.selected;
         [self.selectBtn setTitle:model.selectIndexStr forState:UIControlStateSelected];
         CGFloat selectTextWidth = [self.selectBtn.titleLabel hx_getTextWidth];
@@ -611,14 +623,16 @@ YSCTagViewControllerDelegate
     vc.modelArray = [self.manager.selectedArray mutableCopy];
     vc.manager = self.manager;
     vc.tagVcDelegate = self;
-    
 //    vc.model = [self.modelArray objectAtIndex:self.currentModelIndex];
 //    vc.avAsset = cell.previewContentView.avAsset;
 //    vc.delegate = self;
 //    vc.outside = self.outside;
 //    self.navigationController.delegate = vc;
     [self.navigationController pushViewController:vc animated:YES];
-    
+}
+
+- (void)didVideoDoneBtnClick:(UIButton *)button{
+    [self photoPreviewBottomViewDidDone:self.bottomView];
 }
 
 #pragma mark -<YSCTagViewControllerDelegate>
@@ -1520,6 +1534,19 @@ YSCTagViewControllerDelegate
     }
     return _nextBtn;
 }
+
+- (UIButton *)videoBtn{
+    if (!_videoBtn) {
+        _videoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_videoBtn setTitle:[NSBundle hx_localizedStringForKey:@"完成"] forState:UIControlStateNormal];
+        _videoBtn.titleLabel.font = [UIFont hx_mediumPingFangOfSize:15];
+        _videoBtn.hx_size = CGSizeMake(65, 18);
+        _videoBtn.layer.cornerRadius = 3;
+        [_videoBtn addTarget:self action:@selector(didVideoDoneBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _videoBtn;
+}
+
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {

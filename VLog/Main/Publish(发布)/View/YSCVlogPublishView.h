@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VLTextViewComposeParser.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) id<YSCVlogPublishViewDelegate> delegate;
 
+@property (strong, nonatomic) UITextField *titleField;
+@property (strong, nonatomic) YYTextView *bodyText;
 - (void)refreshIndfo:(NSString *)title;
 
 @end
