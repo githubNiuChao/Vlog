@@ -51,7 +51,7 @@ KProNSMutableArray(catIdArray)
 - (void)initSubView{
     [self setBackgroundColor:kWhiteColor];
     [self setTranslucentCoverWtih:UIBlurEffectStyleLight];
-    [self initLeftDismissButton:@"niv_back_dark"];
+    [self initLeftFullDismissButton:@"niv_back_dark"];
     [self.view addSubview:self.searchBar];
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(kStatusBarH);

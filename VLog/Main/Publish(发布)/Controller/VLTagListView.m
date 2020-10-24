@@ -75,19 +75,15 @@ KProNSArray(dataArray)
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    VLPublishTagModel *model = [self.dataArray objectAtIndex:indexPath.row];
+    NSObject *model = [self.dataArray objectAtIndex:indexPath.row];
+    if ([model isKindOfClass:[VLPublishBrandTagModel class]]) {
+        
+        
+    }else if([model isKindOfClass:[VLPublishGoodsTagModel class]]){
+        
+        
+    }
     
-    
-    
-//    Comment *comment = _data[indexPath.row];
-//    if(!comment.isTemp && [@"visitor" isEqualToString:comment.user_type] && [MD5_UDID isEqualToString:comment.visitor.udid]) {
-//        MenuPopView *menu = [[MenuPopView alloc] initWithTitles:@[@"删除"]];
-//        __weak __typeof(self) wself = self;
-//        menu.onAction = ^(NSInteger index) {
-//            [wself deleteComment:comment];
-//        };
-//        [menu show];
-//    }
 }
 
 

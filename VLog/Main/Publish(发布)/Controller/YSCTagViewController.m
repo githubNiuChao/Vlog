@@ -76,6 +76,7 @@
     YSCTagCollectionViewCell *cell;
     cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"YSCTagCollectionViewCell" forIndexPath:indexPath];
     cell.model = model;
+    cell.delegate = self;
     return cell;
 }
 
@@ -84,7 +85,6 @@
 
 
 #pragma TagCollectionViewCellDelegate
-
 - (void)tagCollectionViewCell:(YSCTagCollectionViewCell *)cell didClickImageViewWithTap:(CGPoint)tapPoint{
     
     VLPublishTagListViewController *tagListVC = [[VLPublishTagListViewController alloc] init];

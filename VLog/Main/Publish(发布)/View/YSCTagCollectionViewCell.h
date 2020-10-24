@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id< TagCollectionViewCellDelegate> delegate;
 @property (nonatomic, strong) HXPhotoModel *model;
 
-
 //@property (strong, nonatomic) NSMutableArray<YSCTagModel *> *tagMuArrays;
 
 

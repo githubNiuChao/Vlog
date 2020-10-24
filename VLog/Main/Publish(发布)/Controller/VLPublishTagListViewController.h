@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VLPublishTagListViewController : NCHBaseViewController
 
+//@property()
+
 @end
 
 NS_ASSUME_NONNULL_END

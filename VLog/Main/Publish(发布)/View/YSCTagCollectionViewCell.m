@@ -35,7 +35,7 @@
     NCWeakSelf(self);
     [self.imageView jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
         CGPoint point = [gestureRecoginzer locationInView:gestureRecoginzer.view];
-        if (!weakself.delegate && [weakself.delegate respondsToSelector:@selector(tagCollectionViewCell:didClickImageViewWithTap:)]) {
+        if (weakself.delegate && [weakself.delegate respondsToSelector:@selector(tagCollectionViewCell:didClickImageViewWithTap:)]) {
             [self.delegate tagCollectionViewCell:weakself didClickImageViewWithTap:point];
         }
     }];
@@ -45,8 +45,8 @@
     CGPoint point = [gestureRecoginzer locationInView:gestureRecoginzer.view];
     NSString *infoStr = @"点击添加的标签";
     YSCTagModel *tagModel = [[YSCTagModel alloc] init];
-    tagModel.tagInfo = infoStr;
-    tagModel.tagPoint = point;
+//    tagModel.tagInfo = infoStr;
+//    tagModel.tagPoint = point;
     
     YBTagView *tagView = [[YBTagView alloc]initWithPoint:point];
     tagView.tagViewDelegate = self;
@@ -65,8 +65,8 @@
     }
     NSString *infoStr = @"读取数据添加的标签";
     YSCTagModel *tagModel = [[YSCTagModel alloc] init];
-    tagModel.tagInfo = infoStr;
-    tagModel.tagPoint = centerPoint;
+//    tagModel.tagInfo = infoStr;
+//    tagModel.tagPoint = centerPoint;
     
     YBTagView *tagView = [[YBTagView alloc]initWithPoint:centerPoint];
     tagView.tagViewDelegate = self;
@@ -116,7 +116,7 @@
     if ([self.model.tagMuArrays containsObject:tagView.tagModel]) {
         [self.model.tagMuArrays removeObject:tagView.tagModel];
     }
-    tagView.tagModel.tagPoint = center;
+//    tagView.tagModel.tagPoint = center;
     [self.model.tagMuArrays addObject:tagView.tagModel];
     
     HXWeakSelf
@@ -145,7 +145,6 @@
            }
         [weakSelf hideTranshView];
     }
-    
 }
 
 - (void)tagView:(YBTagView *)tagView tagInfoString:(NSString *)string {

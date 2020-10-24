@@ -43,9 +43,8 @@ KProStrongType(VLTagListView, goodsList)
     self.dataArray = [[NSMutableArray alloc] init];
 }
 - (void)initSubView{
-//    [self setBackgroundColor:];
     [self setTranslucentCoverWtih:UIBlurEffectStyleDark];
-    [self initLeftDismissButton:@"niv_back_dark"];
+    [self initLeftCoverDismissButton:@"niv_back_dark"];
     [self.view addSubview:self.searchBar];
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(10);
@@ -132,14 +131,16 @@ KProStrongType(VLTagListView, goodsList)
         if (weakself.myCategoryView.selectedIndex == 0) {
             VLPublishBrandTagResponse * dataModel = [VLPublishBrandTagResponse yy_modelWithJSON:baseResponse.data];
             weakself.dataArray = [dataModel.list mutableCopy];
-            [self.brandList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
+            [weakself.brandList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
         }else{
             VLPublishGoodsTagResponse * dataModel = [VLPublishGoodsTagResponse yy_modelWithJSON:baseResponse.data];
             weakself.dataArray = [dataModel.list mutableCopy];
-            [self.goodsList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
+            [weakself.goodsList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
         }
         
     } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+        
+        [self.goodsList setInfoData:weakself.dataArray tagInfo:weakself.searchBar.searchTextField.text];
     }];
 }
 

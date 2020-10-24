@@ -12,6 +12,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class VLTagListView;
+@protocol VLTagListViewDelegate <NSObject>
+
+- (void)tagListView:(VLTagListView *)tagListView didSelectBrandTagModel:(VLPublishBrandTagModel *)brandModel;
+
+- (void)tagListView:(VLTagListView *)tagListView didSelectBGoodsTagModel:(VLPublishGoodsTagModel *)brandModel;
+
+- (void)tagListView:(VLTagListView *)tagListView didSelectBGoodsTagModel:(VLPublishGoodsTagModel *)brandModel;
+
+@end
 
 @interface VLTagListView : NCHRefreshTableViewController<JXCategoryListContentViewDelegate>
 - (void)setInfoData:(NSArray *)dataArray tagInfo:(NSString *)titleInfo;

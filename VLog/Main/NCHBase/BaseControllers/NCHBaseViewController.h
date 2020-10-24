@@ -50,7 +50,10 @@
 
 - (void) setLeftBarButton:(NSString *)imageName ;
 - (void) initLeftBackButton:(NSString *)imageName ;
-- (void) initLeftDismissButton:(NSString *)imageName ;
+
+- (void) initLeftFullDismissButton:(NSString *)imageName;
+- (void) initLeftCoverDismissButton:(NSString *)imageName;
+
 
 - (void) setBackgroundImage:(NSString *)imageName;
 

@@ -69,13 +69,12 @@
 - (void)addLineLabelWithStr:(NSString *)string  withFrame:(CGRect)frame
 {
     self.textAlignment = NSTextAlignmentCenter;
-    self.textColor = [UIColor whiteColor];
+    self.textColor = [UIColor blackColor];
     self.font = [UIFont boldSystemFontOfSize:12.0];
     self.alpha = 0;
     _selfW = frame.size.width;
     _selfStr = string;
 }
-
 
 
 - (void)delay

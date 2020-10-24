@@ -12,9 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YSCTagModel : NSObject
 
-@property (copy, nonatomic) NSString *tagInfo;
-@property (assign, nonatomic) CGPoint tagPoint;
-@property (assign, nonatomic) NSInteger tagId;
+@property (assign, nonatomic) NSInteger path_index;
+@property (copy, nonatomic) NSString *tag_text;
+@property (assign, nonatomic) NSInteger goods_id;
+@property (assign, nonatomic) NSInteger brand_id;
+@property (assign, nonatomic) NSInteger top;
+@property (assign, nonatomic) NSInteger left;
 
 @end
 

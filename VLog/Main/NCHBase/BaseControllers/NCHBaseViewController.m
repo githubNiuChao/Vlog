@@ -136,9 +136,20 @@
         [self.view bringSubviewToFront:leftButton];
     });
 }
-- (void) initLeftDismissButton:(NSString *)imageName {
+- (void) initLeftFullDismissButton:(NSString *)imageName {
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame = CGRectMake(15.0f, kStatusBarH + 11, 20.0f, 20.0f);
+    [leftButton setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:leftButton];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.view bringSubviewToFront:leftButton];
+    });
+}
+
+- (void) initLeftCoverDismissButton:(NSString *)imageName {
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(15.0f, 20, 20.0f, 20.0f);
     [leftButton setBackgroundImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:leftButton];
