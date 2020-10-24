@@ -15,13 +15,19 @@
 #import "VLUserHomeResponse.h"
 #import "VLUserInfoModel.h"
 
-@interface VLUserHomeViewController () <JXCategoryViewDelegate>
+#import "VLCommentTextView.h"
+#import "VLSendCommentTextView.h"
+
+@interface VLUserHomeViewController () <JXCategoryViewDelegate,VLUserHomeHeaderViewDelegate>
 
 @property (nonatomic, strong) JXPagerView *pagerView;
 @property (nonatomic, strong) JXCategoryTitleView *categoryView;
 @property (nonatomic, strong) NSArray <NSString *> *titles;
 @property (nonatomic, strong) VLUserHomeHeaderView *userHeaderView;
 @property (nonatomic, strong) VLUserHomeResponse *dataModel;
+
+@property (nonatomic, strong) VLCommentTextView *textView;
+//@property (nonatomic, strong) VLSendCommentTextView *textView;
 
 @end
 
@@ -51,12 +57,18 @@
     [self.view addSubview:self.pagerView];
     /*关联*/
     self.categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pagerView.listContainerView;
+    
+    
+    
+    self.textView = [VLCommentTextView new];
+//    _textView.delegate = self;
 }
 
 
 - (VLUserHomeHeaderView *)userHeaderView{
     if (!_userHeaderView) {
         _userHeaderView = [[VLUserHomeHeaderView alloc] initWithFrame:CGRectMake(0, 0,ScreenWidth, TableHeaderViewHeight)];
+        _userHeaderView.delegate = self;
     }
     return _userHeaderView;
 }
@@ -99,23 +111,8 @@
             weakself.dataModel = [VLUserHomeResponse yy_modelWithJSON:baseResponse.data];
             weakself.navigationItem.title = weakself.dataModel.user_info.nickname;
             [weakself.userHeaderView setInfoData:weakself.dataModel];
-//            VLDetailResponse *dataModel = [VLDetailResponse yy_modelWithJSON:baseResponse.data];
-//            NSMutableArray *muArray = [[NSMutableArray alloc] init];
-//            [dataModel.tag_list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                NSArray *modelArray = [NSArray yy_modelArrayWithClass:[VLDetail_TagListResponse class] json:obj];
-//                [muArray addObject:modelArray];
-//            }];
-//            dataModel.tag_list = muArray;
-//            weakself.dataModel = dataModel;
-//
-//            if (weakself.delegagte && [weakself.delegagte respondsToSelector:@selector(requestDataCompleted)]) {
-//                [weakself.delegagte requestDataCompleted];
-//            };
         } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
-
-//            if (weakself.delegagte && [weakself.delegagte respondsToSelector:@selector(requestDataFailedErrorMessage:)]) {
-//                [weakself.delegagte requestDataFailedErrorMessage:baseResponse.errorMessage];
-//            }
+            
         }];
 }
 
@@ -137,6 +134,15 @@
     [super viewDidLayoutSubviews];
     self.pagerView.frame = self.view.bounds;
 }
+
+
+- (void)onUserActionTap:(NSInteger)tag{
+    
+    [self.textView show];
+
+}
+
+
 
 
 #pragma mark - JXPagerViewDelegate

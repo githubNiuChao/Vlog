@@ -90,7 +90,7 @@ KProStrongType(YYLabel,detailLabel);
     self.bgView.alpha = 0;
     self.bgView.transform = CGAffineTransformMakeTranslation(0, 50);
     NCWeakSelf(self);
-    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:1.5 delay:0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^{
         weakself.bgView.alpha = 1;
         weakself.bgView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished) {
@@ -306,6 +306,11 @@ KProStrongType(YYLabel,detailLabel);
     }
     return _topicButton;
 }
+
+
+
+
+
 
 
 - (void)showMessage:(NSString *)msg {

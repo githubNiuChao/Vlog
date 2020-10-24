@@ -46,7 +46,6 @@
 
 @end
 
-
 @interface CommentTextView : UIView
 
 @property (nonatomic, strong) UIView                         *container;

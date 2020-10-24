@@ -67,6 +67,7 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 }
 
 - (void)initCommon{
+    [self initLeftBackButton:@"niv_back_dark"];
     self.manager = [[VLPhotoDetailManager alloc] init];
     self.manager.delegagte = self;
     self.dataArray = [[NSMutableArray alloc] init];
@@ -86,7 +87,6 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
         self.view.layer.masksToBounds = YES;
 //       _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight * 3)];
 //       _tableView.contentInset = UIEdgeInsetsMake(ScreenHeight, 0, ScreenHeight * 1, 0);
-    
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
        _tableView.backgroundColor = ColorClear;
        _tableView.delegate = self;
@@ -124,16 +124,10 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    self.navigationController.navigationBar.translucent = YES;
-//    [self setNavigationBarTitleColor:ColorClear];
-//    [self setNavigationBarBackgroundColor:ColorClear];
-//    [self setStatusBarBackgroundColor:ColorClear];
-//    [self setStatusBarHidden:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-//    self.navigationController.navigationBar.translucent = NO;
 }
 
 -(void)viewDidDisappear:(BOOL)animated {

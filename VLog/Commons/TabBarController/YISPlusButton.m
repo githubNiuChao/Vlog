@@ -67,38 +67,11 @@
 - (void)clickPublish {
     CYLTabBarController *tabBarController = [self cyl_tabBarController];
     UIViewController *viewController = tabBarController.selectedViewController;
-//
-//    SINPublishViewController *publishVc = [[SINPublishViewController alloc] init];
-//
-//// 封装好了, 直接在 block 里边写动画
-////    NCWeakSelf(self);
-//    [PresentAnimator viewController:viewController presentViewController:[[NCHNavigationController alloc] initWithRootViewController:publishVc] presentViewFrame:[UIScreen mainScreen].bounds animated:YES completion:nil animatedDuration:0.5 presentAnimation:^(UIView *presentedView, UIView *containerView, void (^completionHandler)(BOOL finished)) {
-//
-//        containerView.transform = CGAffineTransformMakeTranslation(0, -SCREEN_HEIGHT);
-//        [UIView animateWithDuration:0.5 animations:^{
-//            containerView.transform = CGAffineTransformIdentity;
-//        } completion:^(BOOL finished) {
-//            completionHandler(finished);
-//        }];
-//
-//    } dismissAnimation:^(UIView *dismissView, void (^completionHandler)(BOOL finished)) {
-//
-//        CGAffineTransform transform = CGAffineTransformMakeScale(0.2, 0.2);
-//        [UIView animateWithDuration:1 animations:^{
-//            dismissView.transform = CGAffineTransformRotate(transform, M_PI);
-//        } completion:^(BOOL finished) {
-//            completionHandler(finished);
-//        }];
-//    }];
-    
+
     YSCVlogPublishViewController *publishViewController = [[YSCVlogPublishViewController alloc] init];
-    publishViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    publishViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    publishViewController.modalPresentationStyle = UIModalPresentationAutomatic;
+    publishViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [viewController presentViewController:publishViewController animated:YES completion:nil];
-//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
-//    [self.navigationController pushViewController:viewController animated:YES];
-//    
-//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
 }
 

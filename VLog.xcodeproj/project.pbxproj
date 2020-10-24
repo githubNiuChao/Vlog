@@ -357,6 +357,9 @@
 		51BA08102536D736002E481E /* WaterFallListLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA080A2536D736002E481E /* WaterFallListLogic.m */; };
 		51BA08112536D736002E481E /* PersonListLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA080D2536D736002E481E /* PersonListLogic.m */; };
 		51BA08122536D736002E481E /* VLIndexListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA080F2536D736002E481E /* VLIndexListManager.m */; };
+		51BF5F5125431F550059DA64 /* VLCommentTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BF5F5025431F550059DA64 /* VLCommentTextView.m */; };
+		51BF5F5425432FEA0059DA64 /* VLSendCommentTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BF5F5325432FEA0059DA64 /* VLSendCommentTextView.m */; };
+		51C446152542D50E00F8D65A /* VLPhotoDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C446142542D50E00F8D65A /* VLPhotoDetailBottomView.m */; };
 		51E059FB2524620100FA9744 /* NCHNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E059F42524620000FA9744 /* NCHNetWorkManager.m */; };
 		51E059FC2524620100FA9744 /* NCHBaseRequestResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E059F52524620000FA9744 /* NCHBaseRequestResponse.m */; };
 		51E059FD2524620100FA9744 /* NCHRequestPublicArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 51E059F62524620000FA9744 /* NCHRequestPublicArgument.m */; };
@@ -1046,6 +1049,12 @@
 		51BA080D2536D736002E481E /* PersonListLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonListLogic.m; sourceTree = "<group>"; };
 		51BA080E2536D736002E481E /* WaterFallListLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFallListLogic.h; sourceTree = "<group>"; };
 		51BA080F2536D736002E481E /* VLIndexListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLIndexListManager.m; sourceTree = "<group>"; };
+		51BF5F4F25431F550059DA64 /* VLCommentTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLCommentTextView.h; sourceTree = "<group>"; };
+		51BF5F5025431F550059DA64 /* VLCommentTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLCommentTextView.m; sourceTree = "<group>"; };
+		51BF5F5225432FEA0059DA64 /* VLSendCommentTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLSendCommentTextView.h; sourceTree = "<group>"; };
+		51BF5F5325432FEA0059DA64 /* VLSendCommentTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLSendCommentTextView.m; sourceTree = "<group>"; };
+		51C446132542D50E00F8D65A /* VLPhotoDetailBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailBottomView.h; sourceTree = "<group>"; };
+		51C446142542D50E00F8D65A /* VLPhotoDetailBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailBottomView.m; sourceTree = "<group>"; };
 		51E059F225245E9700FA9744 /* VLAPIMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLAPIMacros.h; sourceTree = "<group>"; };
 		51E059F32524620000FA9744 /* NCHBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCHBaseRequest.h; sourceTree = "<group>"; };
 		51E059F42524620000FA9744 /* NCHNetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NCHNetWorkManager.m; sourceTree = "<group>"; };
@@ -1182,6 +1191,8 @@
 			children = (
 				5173E5B32522CB2700E57C71 /* VLPhotoDetailHeadView.h */,
 				5173E5B22522CB2700E57C71 /* VLPhotoDetailHeadView.m */,
+				51C446132542D50E00F8D65A /* VLPhotoDetailBottomView.h */,
+				51C446142542D50E00F8D65A /* VLPhotoDetailBottomView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2511,6 +2522,10 @@
 		51AC9900250F03CB0023D5EA /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				51BF5F4F25431F550059DA64 /* VLCommentTextView.h */,
+				51BF5F5025431F550059DA64 /* VLCommentTextView.m */,
+				51BF5F5225432FEA0059DA64 /* VLSendCommentTextView.h */,
+				51BF5F5325432FEA0059DA64 /* VLSendCommentTextView.m */,
 				512B033E251053DE00447945 /* Base */,
 				51AC9901250F03CB0023D5EA /* TabBarController */,
 				512B0351251065B300447945 /* UICollectionView+IndexPath.h */,
@@ -2854,6 +2869,7 @@
 				51805B93251B91CC00FBC12D /* HXPhotoEditMosaicView.m in Sources */,
 				51815263251C6F0F00F9CCD3 /* VLIndexViewController.m in Sources */,
 				51BA08082536ABF4002E481E /* NCHBaseModelManager.m in Sources */,
+				51BF5F5125431F550059DA64 /* VLCommentTextView.m in Sources */,
 				51A29C0825203EC1001EF6E9 /* SharePopView.m in Sources */,
 				51A29BFE25203EC1001EF6E9 /* ChatTextView.m in Sources */,
 				51A29C0725203EC1001EF6E9 /* FocusView.m in Sources */,
@@ -2887,6 +2903,7 @@
 				5173E5B52522CB2700E57C71 /* VLPhotoDetailViewController.m in Sources */,
 				5181524B251C470C00F9CCD3 /* NCHRefreshTableViewController.m in Sources */,
 				512B0341251053DE00447945 /* RootViewController.m in Sources */,
+				51BF5F5425432FEA0059DA64 /* VLSendCommentTextView.m in Sources */,
 				51E05A02252462F200FA9744 /* VLIndexRequest.m in Sources */,
 				51805B74251B91CC00FBC12D /* HXPhotoSubViewCell.m in Sources */,
 				51A29BDA25203EC1001EF6E9 /* Visitor.m in Sources */,
@@ -3002,6 +3019,7 @@
 				512A9CB6254153540042E41D /* VLTopicResponse.m in Sources */,
 				51805B4E251B91CC00FBC12D /* UIImageView+HXExtension.m in Sources */,
 				51805B7E251B91CC00FBC12D /* HXMECancelBlock.m in Sources */,
+				51C446152542D50E00F8D65A /* VLPhotoDetailBottomView.m in Sources */,
 				512A9CF02542642E0042E41D /* VLFollowResponse.m in Sources */,
 				5173E5CD252334F400E57C71 /* BaseRequestAPI.m in Sources */,
 				51E059FC2524620100FA9744 /* NCHBaseRequestResponse.m in Sources */,

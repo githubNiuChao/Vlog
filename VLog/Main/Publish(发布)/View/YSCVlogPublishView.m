@@ -12,7 +12,7 @@
 #define UIColorHex(_hex_)   [UIColor jk_colorWithHexString:((__bridge NSString *)CFSTR(#_hex_))]
 #endif
 
-@interface YSCVlogPublishView ()<YYTextViewDelegate>
+@interface YSCVlogPublishView ()<YYTextViewDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) UITextField *titleField;
 @property (strong, nonatomic) YYTextView *bodyText;
@@ -283,11 +283,19 @@
     return _bodyText;
 }
 
+
+//实现UITextField代理方法
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];//取消第一响应者
+    return YES;
+}
 - (UITextField *)titleField{
     if (!_titleField) {
         _titleField = [[UITextField alloc] initWithFrame:CGRectZero];
         _titleField.placeholder = @"填写标题会有更多赞哦";
         _titleField.textColor = [UIColor blackColor];
+        _titleField.returnKeyType = UIReturnKeyDone;
+        _titleField.delegate = self;
         _titleField.font = kFontBBig;
     }
     return _titleField;
