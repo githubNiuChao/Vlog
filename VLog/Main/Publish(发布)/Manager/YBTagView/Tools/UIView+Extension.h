@@ -2,8 +2,8 @@
 //  ViewController.h
 //  block
 //
-//  Created by 王迎博 on 16/3/8.
-//  Copyright © 2016年 练习. All rights reserved.
+//  Created by szy on 2020/9/16.
+//  Copyright © 2020 niuchao. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

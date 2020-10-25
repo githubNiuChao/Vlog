@@ -41,29 +41,28 @@
     }];
 }
 
-- (void)tapAction:(UIGestureRecognizer *)gestureRecoginzer{
-    CGPoint point = [gestureRecoginzer locationInView:gestureRecoginzer.view];
-    NSString *infoStr = @"点击添加的标签";
-    YSCTagModel *tagModel = [[YSCTagModel alloc] init];
-//    tagModel.tagInfo = infoStr;
-//    tagModel.tagPoint = point;
-    
-    YBTagView *tagView = [[YBTagView alloc]initWithPoint:point];
-    tagView.tagViewDelegate = self;
-    [self.imageView addSubview:tagView];
-    tagView.tagArray = @[infoStr];
-    tagView.tagModel = tagModel;
-    
-    [self.model.tagMuArrays addObject:tagModel];
-    [self.pointArray addObject:@(point)];
-}
+//- (void)tapAction:(UIGestureRecognizer *)gestureRecoginzer{
+//    CGPoint point = [gestureRecoginzer locationInView:gestureRecoginzer.view];
+//    NSString *infoStr = @"点击添加的标签";
+//    YSCTagModel *tagModel = [[YSCTagModel alloc] init];
+////    tagModel.tagInfo = infoStr;
+////    tagModel.tagPoint = point;
+//    
+//    YBTagView *tagView = [[YBTagView alloc]initWithPoint:point];
+//    tagView.tagViewDelegate = self;
+//    [self.imageView addSubview:tagView];
+//    tagView.tagArray = @[infoStr];
+//    tagView.tagModel = tagModel;
+//    
+//    [self.model.tagMuArrays addObject:tagModel];
+//    [self.pointArray addObject:@(point)];
+//}
 
-- (void)addTagWithPoint:(CGPoint)centerPoint{
+- (void)addTagWithPoint:(CGPoint)centerPoint titleText:(NSString *)title{
     
     if ([self.pointArray containsObject:@(centerPoint)]) {
         return;
     }
-    NSString *infoStr = @"读取数据添加的标签";
     YSCTagModel *tagModel = [[YSCTagModel alloc] init];
 //    tagModel.tagInfo = infoStr;
 //    tagModel.tagPoint = centerPoint;
@@ -71,7 +70,7 @@
     YBTagView *tagView = [[YBTagView alloc]initWithPoint:centerPoint];
     tagView.tagViewDelegate = self;
     [self.imageView addSubview:tagView];
-    tagView.tagArray = @[infoStr];
+    tagView.tagArray = @[title];
     tagView.tagModel = tagModel;
 
     [self.pointArray addObject:@(centerPoint)];
@@ -116,7 +115,8 @@
     if ([self.model.tagMuArrays containsObject:tagView.tagModel]) {
         [self.model.tagMuArrays removeObject:tagView.tagModel];
     }
-//    tagView.tagModel.tagPoint = center;
+    tagView.tagModel.top = center.y;
+    tagView.tagModel.top = center.x;
     [self.model.tagMuArrays addObject:tagView.tagModel];
     
     HXWeakSelf

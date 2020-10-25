@@ -167,17 +167,18 @@ KProNSMutableArrayType(VLMessageModel, dataArray);
     VLMessageModel *model = [self.dataArray objectAtIndex:indexPath.row];
     cell.messageModel.messageNum = @"0";
     [cell.imageButton setJk_badgeValue:@"0"];
-//    UIViewController *vc = [[NSClassFromString(model.className) alloc] init];
+    UIViewController *vc = [[NSClassFromString(model.className) alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSMutableArray<VLMessageModel *> *)dataArray{
     if (!_dataArray) {
         _dataArray = [[NSMutableArray alloc] init];
         NSArray *imageArray = @[@"message_zan_icon",@"message_guanzhu_icon",@"message_pinglun_icon",@"message_tongzhi_icon",@"message_pengyou_icon"];
-        NSArray *tittleArray = @[@"赞和收藏",@"新增关注",@"收到的评论",@"通知消息",@"发现好友"];
-        NSArray *subTitleArray = @[@"看一看哪些朋友为你点赞和收藏",@"点击查看哪些朋友关注了你",@"看看哪些朋友评论了你的作品",@"查看系统通知消息",@"为你找到几个朋友，快去看看吧"];
-        NSArray *classArray = @[@"",@"",@"",@"",@""];
-        NSArray *messageNumArray = @[@"11",@"22",@"33",@"4",@"5"];
+        NSArray *tittleArray = @[@"赞和收藏",@"新增关注",@"收到的评论",@"通知消息"];
+        NSArray *subTitleArray = @[@"看一看哪些朋友为你点赞和收藏",@"点击查看哪些朋友关注了你",@"看看哪些朋友评论了你的作品",@"查看系统通知消息"];
+        NSArray *classArray = @[@"VLMessageLikeListViewController",@"VLMessageFollowListViewController",@"",@""];
+        NSArray *messageNumArray = @[@"11",@"22",@"33",@"4"];
         [tittleArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             VLMessageModel * model = [[VLMessageModel alloc] init];
             model.titleString = obj;

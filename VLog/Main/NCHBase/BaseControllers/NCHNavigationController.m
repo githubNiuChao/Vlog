@@ -26,6 +26,7 @@
     self.navigationBar.translucent = NO;
 }
 
+
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if (self.childViewControllers.count != 0) {

@@ -352,6 +352,14 @@
 		51ADE28B25410F980081F620 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE28725410F980081F620 /* YYMemoryCache.m */; };
 		51ADE28E2541360C0081F620 /* YBTagGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 51ADE28C2541360C0081F620 /* YBTagGestureRecognizer.m */; };
 		51B1388F25441A3700A915B7 /* VLTextViewComposeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B1388E25441A3700A915B7 /* VLTextViewComposeParser.m */; };
+		51B138922545688100A915B7 /* VLMessageLikeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B138912545688100A915B7 /* VLMessageLikeRequest.m */; };
+		51B13895254568C600A915B7 /* VLMessageFansRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B13894254568C600A915B7 /* VLMessageFansRequest.m */; };
+		51B1389C2545791F00A915B7 /* VLMessageFollowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B1389B2545791F00A915B7 /* VLMessageFollowListViewController.m */; };
+		51B1389F2545794500A915B7 /* VLMessageLikeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B1389E2545794500A915B7 /* VLMessageLikeListViewController.m */; };
+		51B138A225457C0200A915B7 /* VLMessageLikeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B138A125457C0200A915B7 /* VLMessageLikeResponse.m */; };
+		51B138A525457C2200A915B7 /* VLMessageFansResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B138A425457C2200A915B7 /* VLMessageFansResponse.m */; };
+		51B138A825457F6A00A915B7 /* VLMessageLikeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B138A725457F6A00A915B7 /* VLMessageLikeTableViewCell.m */; };
+		51B138AB2545944A00A915B7 /* VLFollowUnFollowRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B138AA2545944A00A915B7 /* VLFollowUnFollowRequest.m */; };
 		51BA07FF2536A369002E481E /* VLPhotoDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */; };
 		51BA08052536A843002E481E /* VLPhotoDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08042536A843002E481E /* VLPhotoDetailManager.m */; };
 		51BA08082536ABF4002E481E /* NCHBaseModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BA08072536ABF4002E481E /* NCHBaseModelManager.m */; };
@@ -1041,6 +1049,22 @@
 		51ADE28F254136B30081F620 /* YBTagHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBTagHeader.h; sourceTree = "<group>"; };
 		51B1388D25441A3700A915B7 /* VLTextViewComposeParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLTextViewComposeParser.h; sourceTree = "<group>"; };
 		51B1388E25441A3700A915B7 /* VLTextViewComposeParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLTextViewComposeParser.m; sourceTree = "<group>"; };
+		51B138902545688100A915B7 /* VLMessageLikeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLMessageLikeRequest.h; sourceTree = "<group>"; };
+		51B138912545688100A915B7 /* VLMessageLikeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLMessageLikeRequest.m; sourceTree = "<group>"; };
+		51B13893254568C600A915B7 /* VLMessageFansRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLMessageFansRequest.h; sourceTree = "<group>"; };
+		51B13894254568C600A915B7 /* VLMessageFansRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLMessageFansRequest.m; sourceTree = "<group>"; };
+		51B1389A2545791F00A915B7 /* VLMessageFollowListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLMessageFollowListViewController.h; sourceTree = "<group>"; };
+		51B1389B2545791F00A915B7 /* VLMessageFollowListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLMessageFollowListViewController.m; sourceTree = "<group>"; };
+		51B1389D2545794400A915B7 /* VLMessageLikeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLMessageLikeListViewController.h; sourceTree = "<group>"; };
+		51B1389E2545794500A915B7 /* VLMessageLikeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLMessageLikeListViewController.m; sourceTree = "<group>"; };
+		51B138A025457C0200A915B7 /* VLMessageLikeResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLMessageLikeResponse.h; sourceTree = "<group>"; };
+		51B138A125457C0200A915B7 /* VLMessageLikeResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLMessageLikeResponse.m; sourceTree = "<group>"; };
+		51B138A325457C2200A915B7 /* VLMessageFansResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLMessageFansResponse.h; sourceTree = "<group>"; };
+		51B138A425457C2200A915B7 /* VLMessageFansResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLMessageFansResponse.m; sourceTree = "<group>"; };
+		51B138A625457F6A00A915B7 /* VLMessageLikeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLMessageLikeTableViewCell.h; sourceTree = "<group>"; };
+		51B138A725457F6A00A915B7 /* VLMessageLikeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLMessageLikeTableViewCell.m; sourceTree = "<group>"; };
+		51B138A92545944A00A915B7 /* VLFollowUnFollowRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLFollowUnFollowRequest.h; sourceTree = "<group>"; };
+		51B138AA2545944A00A915B7 /* VLFollowUnFollowRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLFollowUnFollowRequest.m; sourceTree = "<group>"; };
 		51BA07FD2536A369002E481E /* VLPhotoDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailRequest.h; sourceTree = "<group>"; };
 		51BA07FE2536A369002E481E /* VLPhotoDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailRequest.m; sourceTree = "<group>"; };
 		51BA08032536A843002E481E /* VLPhotoDetailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailManager.h; sourceTree = "<group>"; };
@@ -2195,6 +2219,10 @@
 				51ADE233253FCFBE0081F620 /* VLPublishTagResponse.m */,
 				512A9CB4254153540042E41D /* VLTopicResponse.h */,
 				512A9CB5254153540042E41D /* VLTopicResponse.m */,
+				51B138A025457C0200A915B7 /* VLMessageLikeResponse.h */,
+				51B138A125457C0200A915B7 /* VLMessageLikeResponse.m */,
+				51B138A325457C2200A915B7 /* VLMessageFansResponse.h */,
+				51B138A425457C2200A915B7 /* VLMessageFansResponse.m */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -2568,6 +2596,8 @@
 		51ADE229253F2F210081F620 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51B138A625457F6A00A915B7 /* VLMessageLikeTableViewCell.h */,
+				51B138A725457F6A00A915B7 /* VLMessageLikeTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2584,6 +2614,10 @@
 			children = (
 				51ADE22C253F2F450081F620 /* VLMessageViewController.h */,
 				51ADE22D253F2F450081F620 /* VLMessageViewController.m */,
+				51B1389D2545794400A915B7 /* VLMessageLikeListViewController.h */,
+				51B1389E2545794500A915B7 /* VLMessageLikeListViewController.m */,
+				51B1389A2545791F00A915B7 /* VLMessageFollowListViewController.h */,
+				51B1389B2545791F00A915B7 /* VLMessageFollowListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2621,6 +2655,15 @@
 			path = YYCache;
 			sourceTree = "<group>";
 		};
+		51B1389625456FD200A915B7 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				51B138A92545944A00A915B7 /* VLFollowUnFollowRequest.h */,
+				51B138AA2545944A00A915B7 /* VLFollowUnFollowRequest.m */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
 		51BA08092536D736002E481E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2637,6 +2680,7 @@
 		51E059FF2524628E00FA9744 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				51B1389625456FD200A915B7 /* Action */,
 				51E05A00252462F200FA9744 /* VLIndexRequest.h */,
 				51E05A01252462F200FA9744 /* VLIndexRequest.m */,
 				512A9CEB254262F80042E41D /* VLFollowListRequest.h */,
@@ -2651,6 +2695,10 @@
 				51ADE23925400B6F0081F620 /* VLPublishRequest.m */,
 				512A9CB1254152970042E41D /* VLTopicRequest.h */,
 				512A9CB2254152970042E41D /* VLTopicRequest.m */,
+				51B138902545688100A915B7 /* VLMessageLikeRequest.h */,
+				51B138912545688100A915B7 /* VLMessageLikeRequest.m */,
+				51B13893254568C600A915B7 /* VLMessageFansRequest.h */,
+				51B13894254568C600A915B7 /* VLMessageFansRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2844,6 +2892,7 @@
 				51805B79251B91CC00FBC12D /* HXPhotoPreviewViewCell.m in Sources */,
 				5173E5A82522C4B600E57C71 /* VLIndexListCollectionViewCell.m in Sources */,
 				51A66CAC2539440F00F34CED /* VLUserHomeResponse.m in Sources */,
+				51B138922545688100A915B7 /* VLMessageLikeRequest.m in Sources */,
 				51A29BD125203EC1001EF6E9 /* UIImageView+WebCache.m in Sources */,
 				51A29C0B25203EC1001EF6E9 /* CommentsPopView.m in Sources */,
 				51A29BFD25203EC1001EF6E9 /* EmotionSelector.m in Sources */,
@@ -2855,6 +2904,7 @@
 				51805B11251B91CB00FBC12D /* GCDTimer.m in Sources */,
 				51A29BEA25203EC1001EF6E9 /* GroupChatListResponse.m in Sources */,
 				51805B33251B91CC00FBC12D /* GetWaterFallListAPI.m in Sources */,
+				51B138AB2545944A00A915B7 /* VLFollowUnFollowRequest.m in Sources */,
 				51A29BF825203EC1001EF6E9 /* BaseViewController.m in Sources */,
 				5173E5C02523080F00E57C71 /* VLFollowListTableViewCell.m in Sources */,
 				51815248251C470C00F9CCD3 /* NCHNavigationController.m in Sources */,
@@ -2953,7 +3003,9 @@
 				518059F4251B91CB00FBC12D /* AppDelegate.m in Sources */,
 				51805B99251B91CC00FBC12D /* HXPhotoEdit.m in Sources */,
 				51805B68251B91CC00FBC12D /* HXCollectionView.m in Sources */,
+				51B138A825457F6A00A915B7 /* VLMessageLikeTableViewCell.m in Sources */,
 				51805B95251B91CC00FBC12D /* HXPhotoEditStickerItemView.m in Sources */,
+				51B1389C2545791F00A915B7 /* VLMessageFollowListViewController.m in Sources */,
 				512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */,
 				51A29BF325203EC1001EF6E9 /* WebPImageView.m in Sources */,
 				51A29C1225203EC1001EF6E9 /* HoverViewFlowLayout.m in Sources */,
@@ -2993,6 +3045,7 @@
 				51A29C0525203EC1001EF6E9 /* FavoriteView.m in Sources */,
 				51805B4F251B91CC00FBC12D /* UIFont+HXExtension.m in Sources */,
 				51805B4A251B91CC00FBC12D /* NSString+HXExtension.m in Sources */,
+				51B1389F2545794500A915B7 /* VLMessageLikeListViewController.m in Sources */,
 				51A29BEF25203EC1001EF6E9 /* AwemeResponse.m in Sources */,
 				51805B8B251B91CC00FBC12D /* HXPhotoEditChartletContentViewCell.m in Sources */,
 				512A9CB925416DA50042E41D /* VLTopicListView.m in Sources */,
@@ -3061,6 +3114,7 @@
 				51805B70251B91CC00FBC12D /* HXPreviewLivePhotoView.m in Sources */,
 				51BA07FF2536A369002E481E /* VLPhotoDetailRequest.m in Sources */,
 				51805B6E251B91CC00FBC12D /* HXPreviewContentView.m in Sources */,
+				51B138A525457C2200A915B7 /* VLMessageFansResponse.m in Sources */,
 				51A29BF025203EC1001EF6E9 /* AwemeListResponse.m in Sources */,
 				51805BB2251B91CC00FBC12D /* YBTagLabel.m in Sources */,
 				51805B31251B91CC00FBC12D /* PersonListCollectionViewCell.m in Sources */,
@@ -3080,6 +3134,7 @@
 				51815241251C470C00F9CCD3 /* NCHNavigationBar.m in Sources */,
 				51ADE27A25410F2E0081F620 /* BANetManagerCache.m in Sources */,
 				515FCC842535953A007F964A /* NCHPopViewManager.m in Sources */,
+				51B13895254568C600A915B7 /* VLMessageFansRequest.m in Sources */,
 				51606925251DCB0B0070B9D9 /* VLNestViewController.m in Sources */,
 				51A29BE925203EC1001EF6E9 /* GroupChatResponse.m in Sources */,
 				5181524E251C470C00F9CCD3 /* NCHWebViewController.m in Sources */,
@@ -3138,6 +3193,7 @@
 				51A29BD625203EC1001EF6E9 /* BaseModel.m in Sources */,
 				512A9CED254262F80042E41D /* VLFollowListRequest.m in Sources */,
 				51805AFF251B91CB00FBC12D /* MPWeakTimer.m in Sources */,
+				51B138A225457C0200A915B7 /* VLMessageLikeResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

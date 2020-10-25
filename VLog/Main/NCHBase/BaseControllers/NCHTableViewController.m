@@ -67,6 +67,7 @@
     {
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:self.tableViewStyle];
         tableView.backgroundColor = self.view.backgroundColor;
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.view addSubview:tableView];
         _tableView = tableView;

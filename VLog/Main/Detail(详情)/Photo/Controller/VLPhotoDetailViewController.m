@@ -50,7 +50,6 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 }
 
 - (void)initSubView{
-    
     [self setLeftBarButton:@"niv_back_dark"];
     [self setBackgroundColor:kWhiteColor];
     self.tableView.showsVerticalScrollIndicator = NO;
