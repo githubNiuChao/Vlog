@@ -21,7 +21,9 @@
         NSMutableArray *muArray = [[NSMutableArray alloc] init];
         [dataModel.tag_list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSArray *modelArray = [NSArray yy_modelArrayWithClass:[VLDetail_TagListResponse class] json:obj];
-            [muArray addObject:modelArray];
+            if (!kArrayIsEmpty(modelArray)) {
+                [muArray addObject:modelArray];
+            }
         }];
         dataModel.tag_list = muArray;
         weakself.dataModel = dataModel;

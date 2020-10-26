@@ -49,7 +49,7 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
         _uid = uid;
         
         _awemes = [data mutableCopy];
-//        _data = [[NSMutableArray alloc] initWithObjects:[_awemes objectAtIndex:_currentIndex], nil];
+        //        _data = [[NSMutableArray alloc] initWithObjects:[_awemes objectAtIndex:_currentIndex], nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarTouchBegin) name:@"StatusBarTouchBeginNotification" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationBecomeActive) name:UIApplicationWillEnterForegroundNotification object:nil];
@@ -83,42 +83,42 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 
 
 - (void)initSubView{
-        [self setBackgroundImage:@"img_video_loading"];
-        self.view.layer.masksToBounds = YES;
-//       _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight * 3)];
-//       _tableView.contentInset = UIEdgeInsetsMake(ScreenHeight, 0, ScreenHeight * 1, 0);
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-       _tableView.backgroundColor = ColorClear;
-       _tableView.delegate = self;
-       _tableView.dataSource = self;
-       _tableView.showsVerticalScrollIndicator = NO;
-       _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-       if (@available(iOS 11.0, *)) {
-           _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-       } else {
-           self.automaticallyAdjustsScrollViewInsets = NO;
-       }
-       [self.tableView registerClass:VLVideoListTableViewCell.class forCellReuseIdentifier:kVideoListTableViewCell];
-       
+    [self setBackgroundImage:@"img_video_loading"];
+    self.view.layer.masksToBounds = YES;
+    //       _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight * 3)];
+    //       _tableView.contentInset = UIEdgeInsetsMake(ScreenHeight, 0, ScreenHeight * 1, 0);
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    _tableView.backgroundColor = ColorClear;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.showsVerticalScrollIndicator = NO;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    if (@available(iOS 11.0, *)) {
+        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    [self.tableView registerClass:VLVideoListTableViewCell.class forCellReuseIdentifier:kVideoListTableViewCell];
+    
     [self.view addSubview:self.tableView];
     
-//       _loadMore = [[LoadMoreControl alloc] initWithFrame:CGRectMake(0, 100, ScreenWidth, 50) surplusCount:3];
-//       __weak __typeof(self) wself = self;
-//       [_loadMore setOnLoad:^{
-//           [wself loadData:wself.pageIndex pageSize:wself.pageSize];
-//       }];
-//       [_tableView addSubview:_loadMore];
-       
-       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-           
-//           self.data = self.awemes;
-//           [self.tableView reloadData];
-           
-//           NSIndexPath *curIndexPath = [NSIndexPath indexPathForRow:self.currentIndex inSection:0];
-//           [self.tableView scrollToRowAtIndexPath:curIndexPath atScrollPosition:UITableViewScrollPositionMiddle
-//                                         animated:NO];
-//           [self addObserver:self forKeyPath:@"currentIndex" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
-       });
+    //       _loadMore = [[LoadMoreControl alloc] initWithFrame:CGRectMake(0, 100, ScreenWidth, 50) surplusCount:3];
+    //       __weak __typeof(self) wself = self;
+    //       [_loadMore setOnLoad:^{
+    //           [wself loadData:wself.pageIndex pageSize:wself.pageSize];
+    //       }];
+    //       [_tableView addSubview:_loadMore];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        //           self.data = self.awemes;
+        //           [self.tableView reloadData];
+        
+        //           NSIndexPath *curIndexPath = [NSIndexPath indexPathForRow:self.currentIndex inSection:0];
+        //           [self.tableView scrollToRowAtIndexPath:curIndexPath atScrollPosition:UITableViewScrollPositionMiddle
+        //                                         animated:NO];
+        //           [self addObserver:self forKeyPath:@"currentIndex" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
+    });
 }
 
 
@@ -140,7 +140,7 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     [[AVPlayerManager shareManager] removeAllPlayers];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-//    [self removeObserver:self forKeyPath:@"currentIndex"];
+    //    [self removeObserver:self forKeyPath:@"currentIndex"];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -165,19 +165,19 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     //判断当前cell的视频源是否已经准备播放
     NCWeakSelf(self);
     NCWeakSelf(cell);
-     if(cell.isPlayerReady) {
-         //播放视频
-         [cell replay];
-     }else {
-         [[AVPlayerManager shareManager] pauseAll];
-         //当前cell的视频源还未准备好播放，则实现cell的OnPlayerReady Block 用于等待视频准备好后通知播放
-         cell.onPlayerReady = ^{
-             NSIndexPath *indexPath = [weakself.tableView indexPathForCell:weakcell];
-             if(!weakself.isCurPlayerPause && indexPath && indexPath.row == weakself.currentIndex) {
-                 [weakcell play];
-             }
-         };
-     }
+    if(cell.isPlayerReady) {
+        //播放视频
+        [cell replay];
+    }else {
+        [[AVPlayerManager shareManager] pauseAll];
+        //当前cell的视频源还未准备好播放，则实现cell的OnPlayerReady Block 用于等待视频准备好后通知播放
+        cell.onPlayerReady = ^{
+            NSIndexPath *indexPath = [weakself.tableView indexPathForCell:weakcell];
+            if(!weakself.isCurPlayerPause && indexPath && indexPath.row == weakself.currentIndex) {
+                [weakcell play];
+            }
+        };
+    }
     
     return cell;
 }

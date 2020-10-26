@@ -60,9 +60,9 @@ KProStrongType(UILabel,descLabel)//标签
     
     [self.bgView addSubview:self.avatar];
     [self.avatar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.bgView).offset(20);
+        make.top.equalTo(self.bgView).offset(30);
         make.left.equalTo(self.bgView).offset(15);
-        make.size.mas_equalTo(CGSizeMake(90, 90));
+        make.size.mas_equalTo(CGSizeMake(70, 70));
     }];
     
     UIStackView *stackBgView = [[UIStackView alloc] initWithFrame:CGRectZero];
@@ -86,7 +86,7 @@ KProStrongType(UILabel,descLabel)//标签
     
     [self.bgView addSubview:self.informationButton];
     [self.informationButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(stackBgView.mas_bottom).offset(10);
+        make.top.equalTo(stackBgView.mas_bottom).offset(20);
         make.centerX.equalTo(stackBgView.mas_centerX);
         make.size.mas_equalTo(CGSizeMake(200, 30));
     }];
@@ -94,7 +94,7 @@ KProStrongType(UILabel,descLabel)//标签
     [self.bgView addSubview:self.sexImageView];
     [self.sexImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.avatar.mas_left);
-        make.top.equalTo(self.avatar.mas_bottom).offset(20);
+        make.top.equalTo(self.avatar.mas_bottom).offset(30);
         make.size.mas_equalTo(CGSizeMake(10, 10));
     }];
     
@@ -127,7 +127,7 @@ KProStrongType(UILabel,descLabel)//标签
     [self.bgView addSubview:self.descLabel];
     [self.descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.avatar.mas_left);
-        make.top.equalTo(self.sexImageView.mas_bottom).offset(20);
+        make.top.equalTo(self.sexImageView.mas_bottom).offset(10);
         make.right.equalTo(self.bgView.mas_right).offset(-10);
     }];
 }
@@ -155,7 +155,7 @@ KProStrongType(UILabel,descLabel)//标签
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = kFontBBig;
+    label.font = kFontBMedium;
     label.text = @"";
     label.textColor = kWhiteColor;
     [view addSubview:label];
@@ -182,7 +182,7 @@ KProStrongType(UILabel,descLabel)//标签
 - (UIImageView *)avatar{
     if (!_avatar) {
         _avatar = [[UIImageView alloc] initWithFrame:CGRectZero];
-        kViewRadius(_avatar, 45);
+        kViewRadius(_avatar, 35);
         _avatar.image = kNameImage(@"img_find_default");
     }
     return _avatar;
@@ -195,7 +195,7 @@ KProStrongType(UILabel,descLabel)//标签
         [_informationButton setTitle:@"编辑资料" forState:UIControlStateNormal];
         [_informationButton setTitleColor:kWhiteColor forState:UIControlStateNormal];
 //        [_informationButton addTarget:self action:@selector(actionPublish:) forControlEvents:UIControlEventTouchUpInside];
-        _informationButton.titleLabel.font = kFontBMedium;
+        _informationButton.titleLabel.font = kFontBSmall;
         _informationButton.tag = VLUserHomeHeaderSettingTag;
         [_informationButton addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTapAction:)]];
     }
@@ -253,7 +253,7 @@ KProStrongType(UILabel,descLabel)//标签
     if (!_descLabel) {
         _descLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _descLabel.text = @"本宝宝暂时还没想到个性的签名";
-        _descLabel.font = kFontMedium;
+        _descLabel.font = kFontSmall;
         _descLabel.textColor = kWhiteColor;
     }
     return _descLabel;

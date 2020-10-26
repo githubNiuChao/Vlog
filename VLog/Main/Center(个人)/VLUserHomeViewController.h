@@ -12,7 +12,7 @@
 #import "VLUserHomeListViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-static const CGFloat TableHeaderViewHeight = 220;
+static const CGFloat TableHeaderViewHeight = 180;
 static const CGFloat HeaderInSectionHeight = 50;
 
 @interface VLUserHomeViewController : UIViewController <JXPagerViewDelegate, JXPagerMainTableViewGestureDelegate>

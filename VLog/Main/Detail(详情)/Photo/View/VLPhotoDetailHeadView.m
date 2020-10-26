@@ -27,6 +27,8 @@ KProStrongType(UIButton,topicButton);
 KProStrongType(UIView,bgView);
 KProStrongType(YYLabel,tagLabel);
 KProStrongType(YYLabel,detailLabel);
+KProStrongType(UILabel, dateLabel);
+KProStrongType(UIButton, conmmentButton);
 
 @end
 
@@ -76,14 +78,42 @@ KProStrongType(YYLabel,detailLabel);
     [_tagLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.topicButton.mas_bottom);
         make.left.right.equalTo(self.bgView);
+        
     }];
     
     [self.bgView addSubview:self.detailLabel];
     [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.tagLabel.mas_bottom).offset(SpaceValue);
         make.left.right.equalTo(self.bgView);
-        make.bottom.equalTo(self.bgView.mas_bottom).offset(-SpaceValue);
     }];
+    
+    [self.bgView addSubview:self.dateLabel];
+    [_dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.detailLabel.mas_bottom).offset(5);
+        make.left.equalTo(self.bgView);
+    }];
+    
+    UIView *lineView = [[UIView alloc] init];
+    lineView.backgroundColor = kSysGroupBGColor;
+    [self.bgView addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.dateLabel.mas_bottom).offset(10);
+        make.left.right.equalTo(self);
+        make.height.equalTo(@5);
+    }];
+    
+    [self.bgView addSubview:self.conmmentButton];
+    [_conmmentButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(lineView.mas_bottom).offset(10);
+        make.left.equalTo(self.bgView).offset(30);
+        make.right.equalTo(self.bgView).inset(30);
+        make.bottom.equalTo(self.bgView.mas_bottom).offset(-10);
+    }];
+    
+    
+    
+    
+    
     
 //    _detailLabel.alpha = 0;
 //    _detailLabel.transform = CGAffineTransformMakeTranslation(0, 50);
@@ -113,7 +143,10 @@ KProStrongType(YYLabel,detailLabel);
     }];
     
     self.detailLabel.attributedText = detailLabelAText;
+    
+    
     [self.topicButton setTitle:[NSString stringWithFormat:@"%@ ",dataModel.video_cat_info.cat_name] forState:UIControlStateNormal];
+    
     
     NSMutableArray<VLDetail_TagListResponse*> *muArray = [[NSMutableArray alloc]init];
     [dataModel.tag_list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -131,7 +164,7 @@ KProStrongType(YYLabel,detailLabel);
     CGFloat detailLabelHeight = [self getTextHeight:detailLabelAText andLabel:self.detailLabel];
     CGFloat tagLabelHeight = [self getTextHeight:text andLabel:self.tagLabel];
     
-    self.frame = CGRectMake(0, 0,self.superview.jk_width , TopViewHeight+10+TitleLabelHeight+10+TopicButtonHeight+10+tagLabelHeight+10+detailLabelHeight+10);
+    self.frame = CGRectMake(0, 0,self.superview.jk_width , TopViewHeight+10+TitleLabelHeight+10+TopicButtonHeight+10+tagLabelHeight+10+detailLabelHeight+80);
     
     
 }
@@ -164,7 +197,13 @@ KProStrongType(YYLabel,detailLabel);
 - (NSAttributedString *)appendTagAttributedStringWithInfoModel:(VLDetail_TagListResponse *)infoModel{
     
     NSMutableAttributedString *text = [NSMutableAttributedString new];
-    UIImage *image = [UIImage imageNamed:@"publish_tag_icon"];
+    UIImage *image = [UIImage imageNamed:@"publish_tag_goodsicon"];
+    if (infoModel.goods_id) {
+        image = [UIImage imageNamed:@"publish_tag_goodsicon"];
+    }else if(infoModel.brand_id){
+        image = [UIImage imageNamed:@"publish_tag_brandicon "];
+    }
+    
     NSMutableAttributedString *attachment = [NSMutableAttributedString yy_attachmentStringWithContent:image contentMode:UIViewContentModeCenter attachmentSize:image.size alignToFont:kFontBSmall alignment:YYTextVerticalAlignmentCenter];
     [text appendAttributedString: attachment];
     
@@ -195,9 +234,13 @@ KProStrongType(YYLabel,detailLabel);
 }
 
 - (NSAttributedString *)appendDescTagAttributedStringWithInfoModel:(VLVideoInfo_DescModel *)infoModel{
-    
     NSMutableAttributedString *text = [NSMutableAttributedString new];
-    UIImage *image = [UIImage imageNamed:@"publish_tag_icon"];
+    UIImage *image = [UIImage imageNamed:@"publish_tag_goodsicon"];
+    if ([infoModel.type isEqualToString:@"2"]) {
+        image = [UIImage imageNamed:@"publish_tag_brandicon"];
+    }else if([infoModel.type isEqualToString:@"3"]){
+        image = [UIImage imageNamed:@"publish_tag_goodsicon"];
+    }
     NSMutableAttributedString *attachment = [NSMutableAttributedString yy_attachmentStringWithContent:image contentMode:UIViewContentModeCenter attachmentSize:image.size alignToFont:kFontBSmall alignment:YYTextVerticalAlignmentCenter];
     [text appendAttributedString: attachment];
     
@@ -308,9 +351,27 @@ KProStrongType(YYLabel,detailLabel);
 }
 
 
+- (UILabel *)dateLabel{
+    if (!_dateLabel) {
+        _dateLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _dateLabel.font = kFontSmall;
+        _dateLabel.textColor = kGreyColor;
+        _dateLabel .text = @"10.24";
+    }
+    return _dateLabel;
+}
 
-
-
+- (UIButton *)conmmentButton{
+    if (!_conmmentButton) {
+        _conmmentButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        [_conmmentButton setTitle:@"说点什么吧" forState:UIControlStateNormal];
+        [_conmmentButton setTitleColor:kGreyColor forState:UIControlStateNormal];
+        [_conmmentButton setBackgroundColor:kSysGroupBGColor];
+        _conmmentButton.titleLabel.font =kFontBSmall;
+        kViewRadius(_conmmentButton, 15);
+    }
+    return _conmmentButton;
+}
 
 
 - (void)showMessage:(NSString *)msg {

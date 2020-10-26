@@ -141,7 +141,7 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 
 -(VLPhotoDetailHeadView *)detailHeadView{
     if (!_detailHeadView) {
-        _detailHeadView = [[VLPhotoDetailHeadView alloc] initWithFrame:CGRectMake(0, 0, self.view.jk_width, 900) imageArray:self.videoIndfoModel.video_path];
+        _detailHeadView = [[VLPhotoDetailHeadView alloc] initWithFrame:CGRectMake(0, 0, self.view.jk_width, 1000) imageArray:self.videoIndfoModel.video_path];
         [_detailHeadView setInfo:self.dataModel];
     }
     return _detailHeadView;
