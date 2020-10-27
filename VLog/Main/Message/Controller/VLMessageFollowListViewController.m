@@ -56,10 +56,6 @@
     [self.tableView registerClass:[VLMessageLikeTableViewCell class] forCellReuseIdentifier:NSStringFromClass([VLMessageLikeTableViewCell class])];
 }
 
-- (void)setInfoData:(NSArray *)dataArray tagInfo:(NSString *)titleInfo isGoods:(BOOL)isGoods{
-    
-}
-
 #pragma mark - UITableViewDelegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

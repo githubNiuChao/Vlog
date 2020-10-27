@@ -556,7 +556,6 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     return text;
 }
 
-
 - (NSAttributedString *)appendDescTagAttributedStringWithInfoModel:(VLVideoInfo_DescModel *)infoModel{
     NSMutableAttributedString *text = [NSMutableAttributedString new];
     UIImage *image = [UIImage imageNamed:@"publish_tag_goodsicon"];

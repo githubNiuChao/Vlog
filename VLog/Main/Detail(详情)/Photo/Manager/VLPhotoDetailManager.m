@@ -12,7 +12,11 @@
 
 @implementation VLPhotoDetailManager
 
+
+
+
 -(void)loadDataWithVideoId:(NSString *)videoid{
+    
     VLPhotoDetailRequest *request =  [[VLPhotoDetailRequest alloc]init];
     [request setArgument:videoid forKey:@"video_id"];
     NCWeakSelf(self);

@@ -192,7 +192,7 @@ KProStrongType(UIButton, conmmentButton);
     return text;
 }
 
-- (NSAttributedString *)appendTagAttributedStringWithInfoModel:(VLDetail_TagListResponse *)infoModel{
+- (NSAttributedString *) appendTagAttributedStringWithInfoModel:(VLDetail_TagListResponse *)infoModel{
     
     NSMutableAttributedString *text = [NSMutableAttributedString new];
     UIImage *image = [UIImage imageNamed:@"publish_tag_goodsicon"];
@@ -342,7 +342,7 @@ KProStrongType(UIButton, conmmentButton);
         [_topicButton setTitleColor:kBuleColor forState:UIControlStateNormal];
         [_topicButton setImageEdgeInsets:UIEdgeInsetsMake(5,0,5,0)];
         _topicButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        _topicButton.titleLabel.font = kFontBMedium;
+        _topicButton.titleLabel.font = kFontBSmall;
     }
     return _topicButton;
 }

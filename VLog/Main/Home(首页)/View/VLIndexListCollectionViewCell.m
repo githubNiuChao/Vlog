@@ -16,6 +16,7 @@ KProStrongType(UIImageView, imgHead);//头像
 KProStrongType(UILabel, lblNickName);//昵称
 KProStrongType(UIButton, like);//喜欢
 KProStrongType(UIView, line);//分割线
+KProStrongType(UIButton, locationButton)//距离
 
 //@property (strong, nonatomic) UILabel *juli;//距离
 
@@ -75,25 +76,23 @@ KProStrongType(UIView, line);//分割线
             make.size.mas_equalTo(CGSizeMake(20, 20));
         }];
         
-//        _lblAge=[[UILabel alloc]initWithFrame:CGRectMake(_lblNickName.jk_left, 0, _lblNickName.jk_right, 15)];
-//        _lblAge.textColor=kBlackColor;
-//        _lblAge.font=kFontSmall;
-//        [self addSubview:_lblAge];
+        
+        _locationButton = [[UIButton alloc]initWithFrame:CGRectZero];
+           [_locationButton setImage:kNameImage(@"home_like_n") forState:UIControlStateNormal];
+           [_locationButton setImage:kNameImage(@"home_like_s") forState:UIControlStateSelected];
+        [_locationButton setTitle:@"" forState:UIControlStateNormal];
+           [_locationButton setTitleColor:kBlackColor forState:UIControlStateNormal];
+        
+           [_locationButton addTarget:self action:@selector(likeClicked:) forControlEvents:UIControlEventTouchUpInside];
+           _locationButton.titleLabel.font = kFontSmall;
+           [self addSubview:_locationButton];
+           [_locationButton mas_makeConstraints:^(MASConstraintMaker *make) {
+               make.centerY.equalTo(_imgHead);
+               make.right.equalTo(self).offset(-10);
+               make.size.mas_equalTo(CGSizeMake(20, 20));
+           }];
+        
 
-//        _line2=[[UIView alloc]initWithFrame:CGRectMake(0, _imgHead.jk_bottom+10, frame.size.width, 0.5)];
-//        _line2.backgroundColor=kSysGroupBGColor;
-//        [self addSubview:_line2];
-
-//        _lblFrom=[[UILabel alloc]initWithFrame:CGRectMake(10, 0, frame.size.width-80, 15)];
-//        _lblFrom.textColor=kBlackColor;
-//        _lblFrom.font=kFontSmall;
-//        [self addSubview:_lblFrom];
-
-//        _juli=[[UILabel alloc]initWithFrame:CGRectMake(self.jk_width - 80, 0, 70, 15)];
-//        _juli.textAlignment = NSTextAlignmentRight;
-//        _juli.textColor=kBlackColor;
-//        _juli.font=kFontSmall;
-//        [self addSubview:_juli];
     }
     return self;
 }

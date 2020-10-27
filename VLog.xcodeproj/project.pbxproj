@@ -239,6 +239,7 @@
 		51873F2525342A190070264B /* WMZDialogAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F2325342A180070264B /* WMZDialogAnimation.m */; };
 		51873F29253433DE0070264B /* VLIndexResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F28253433DE0070264B /* VLIndexResponse.m */; };
 		518968D5250CA66100897448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518968D4250CA66100897448 /* Assets.xcassets */; };
+		51A144522548245F005FD0B3 /* DetailAttributedStringHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A144512548245F005FD0B3 /* DetailAttributedStringHandle.m */; };
 		51A29BC925203EC1001EF6E9 /* NSAttributedString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B1125203EC0001EF6E9 /* NSAttributedString+Extension.m */; };
 		51A29BCA25203EC1001EF6E9 /* NSNotification+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B1525203EC0001EF6E9 /* NSNotification+Extension.m */; };
 		51A29BCB25203EC1001EF6E9 /* NSTextAttachment+Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B1725203EC0001EF6E9 /* NSTextAttachment+Emotion.m */; };
@@ -829,6 +830,8 @@
 		51873F28253433DE0070264B /* VLIndexResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLIndexResponse.m; sourceTree = "<group>"; };
 		518968C5250CA65C00897448 /* VLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		518968D4250CA66100897448 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		51A144502548245F005FD0B3 /* DetailAttributedStringHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DetailAttributedStringHandle.h; path = "VLog/Main/Detail(详情)/Comment/DetailAttributedStringHandle.h"; sourceTree = SOURCE_ROOT; };
+		51A144512548245F005FD0B3 /* DetailAttributedStringHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DetailAttributedStringHandle.m; path = "VLog/Main/Detail(详情)/Comment/DetailAttributedStringHandle.m"; sourceTree = SOURCE_ROOT; };
 		51A29B1125203EC0001EF6E9 /* NSAttributedString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Extension.m"; sourceTree = "<group>"; };
 		51A29B1225203EC0001EF6E9 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		51A29B1325203EC0001EF6E9 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
@@ -1181,6 +1184,8 @@
 		5173E5A92522CB1F00E57C71 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				51A144502548245F005FD0B3 /* DetailAttributedStringHandle.h */,
+				51A144512548245F005FD0B3 /* DetailAttributedStringHandle.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -3048,6 +3053,7 @@
 				51ADE22E253F2F450081F620 /* VLMessageViewController.m in Sources */,
 				512B03462510549B00447945 /* XYTransition.m in Sources */,
 				51805B51251B91CC00FBC12D /* UIImage+HXExtension.m in Sources */,
+				51A144522548245F005FD0B3 /* DetailAttributedStringHandle.m in Sources */,
 				51A29BE625203EC1001EF6E9 /* UserRequest.m in Sources */,
 				5181523F251C470C00F9CCD3 /* NCHSettingCell.m in Sources */,
 				51ADE218253D70C40081F620 /* VLUserHomeListViewController.m in Sources */,
