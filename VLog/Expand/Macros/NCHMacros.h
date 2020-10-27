@@ -159,6 +159,7 @@
 #define KProNSInteger(value)             @property (nonatomic, assign) NSInteger value;
 #define KProAssignType(type,name)        @property (nonatomic, assign) type name;
 #define KProCGFloat(value)               @property (nonatomic, assign) CGFloat value;
+
 #define KProDouble(value)                @property (nonatomic, assign) double value;
 #define KProBool(value)                  @property (nonatomic, assign) BOOL value;
 

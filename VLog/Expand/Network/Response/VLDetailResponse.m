@@ -9,7 +9,9 @@
 #import "VLDetailResponse.h"
 
 @implementation VLDetailResponse
-
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"comment_list" : [VLDetailCommentModel class]};
+}
 @end
 
 @implementation VLDetail_TagListResponse

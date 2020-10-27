@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VLDetailCommentModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 @class VLVideoInfoModel;
@@ -28,6 +30,8 @@ KProBool(is_collection)
 KProNSArray(tag_list)
 KProNSArray(img_size_list)
 KProStrongType(VLIndex_ContextResponse,context)
+KProNSArrayType(VLDetailCommentModel, comment_list)
+
 @end
 
 @interface VLDetail_TagListResponse : NSObject

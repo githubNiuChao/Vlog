@@ -107,11 +107,8 @@ KProStrongType(UIButton, conmmentButton);
         make.top.equalTo(lineView.mas_bottom).offset(10);
         make.left.equalTo(self.bgView).offset(30);
         make.right.equalTo(self.bgView).inset(30);
-        make.bottom.equalTo(self.bgView.mas_bottom).offset(-10);
+        make.bottom.equalTo(self.bgView.mas_bottom).offset(0);
     }];
-    
-    
-    
     
     
     
@@ -129,9 +126,9 @@ KProStrongType(UIButton, conmmentButton);
 }
 
 - (void)setInfo:(VLDetailResponse *)dataModel{
+    //标题
     self.titleLabel.attributedText = [self appendAttributedString:dataModel.video_info.video_title font:kFontBBig];
-    
-//    NSAttributedString *detailLabelAText =[self appendAttributedString:dataModel.video_info.video_desc font:kFontBMedium];
+    //正文
     NSMutableAttributedString *detailLabelAText = [NSMutableAttributedString new];
     NCWeakSelf(self);
     [dataModel.video_info.video_desc enumerateObjectsUsingBlock:^(VLVideoInfo_DescModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -141,13 +138,12 @@ KProStrongType(UIButton, conmmentButton);
             [detailLabelAText appendAttributedString:[weakself appendAttributedString:obj.name font:kFontBMedium]];
         }
     }];
-    
     self.detailLabel.attributedText = detailLabelAText;
     
-    
+    //话题
     [self.topicButton setTitle:[NSString stringWithFormat:@"%@ ",dataModel.video_cat_info.cat_name] forState:UIControlStateNormal];
     
-    
+    //标签
     NSMutableArray<VLDetail_TagListResponse*> *muArray = [[NSMutableArray alloc]init];
     [dataModel.tag_list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         for (VLDetail_TagListResponse *tagmModel in obj) {
@@ -155,7 +151,6 @@ KProStrongType(UIButton, conmmentButton);
         }
     }];
     NSMutableAttributedString *text = [NSMutableAttributedString new];
-//    NCWeakSelf(self);
     [muArray enumerateObjectsUsingBlock:^(VLDetail_TagListResponse * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [text appendAttributedString:[weakself appendTagAttributedStringWithInfoModel:obj]];
     }];
@@ -164,9 +159,10 @@ KProStrongType(UIButton, conmmentButton);
     CGFloat detailLabelHeight = [self getTextHeight:detailLabelAText andLabel:self.detailLabel];
     CGFloat tagLabelHeight = [self getTextHeight:text andLabel:self.tagLabel];
     
+    //发布时间
+    self.dateLabel.text = [NSDate formatTime:[dataModel.video_info.publish_time longLongValue]];
+    
     self.frame = CGRectMake(0, 0,self.superview.jk_width , TopViewHeight+10+TitleLabelHeight+10+TopicButtonHeight+10+tagLabelHeight+10+detailLabelHeight+80);
-    
-    
 }
 
 -(CGFloat)getTextHeight:(NSAttributedString *)text andLabel:(YYLabel *)lable
@@ -354,9 +350,9 @@ KProStrongType(UIButton, conmmentButton);
 - (UILabel *)dateLabel{
     if (!_dateLabel) {
         _dateLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _dateLabel.font = kFontSmall;
+        _dateLabel.font = kFontBSmall;
         _dateLabel.textColor = kGreyColor;
-        _dateLabel .text = @"10.24";
+        _dateLabel.text = @"10.24";
     }
     return _dateLabel;
 }
@@ -372,6 +368,9 @@ KProStrongType(UIButton, conmmentButton);
     }
     return _conmmentButton;
 }
+
+
+
 
 
 - (void)showMessage:(NSString *)msg {

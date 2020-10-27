@@ -39,11 +39,15 @@
 		5173E5A82522C4B600E57C71 /* VLIndexListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5A72522C4B600E57C71 /* VLIndexListCollectionViewCell.m */; };
 		5173E5B52522CB2700E57C71 /* VLPhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5AF2522CB2700E57C71 /* VLPhotoDetailViewController.m */; };
 		5173E5B62522CB2700E57C71 /* VLPhotoDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5B22522CB2700E57C71 /* VLPhotoDetailHeadView.m */; };
-		5173E5BC2522D31900E57C71 /* VLCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5BB2522D31900E57C71 /* VLCommentTableViewCell.m */; };
 		5173E5C02523080F00E57C71 /* VLFollowListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5BE2523080F00E57C71 /* VLFollowListTableViewCell.m */; };
 		5173E5C725231EB600E57C71 /* VLFollowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5C625231EB600E57C71 /* VLFollowListViewController.m */; };
 		5173E5CD252334F400E57C71 /* BaseRequestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5CA252334F300E57C71 /* BaseRequestAPI.m */; };
 		5173E5CE252334F400E57C71 /* BaseRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5173E5CB252334F300E57C71 /* BaseRequestService.m */; };
+		517E40FB2547A798007DBBC2 /* UITableView+HYBCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E40EF2547A797007DBBC2 /* UITableView+HYBCacheHeight.m */; };
+		517E40FC2547A798007DBBC2 /* VLDetailCommentSubCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E40F12547A798007DBBC2 /* VLDetailCommentSubCell.m */; };
+		517E40FD2547A798007DBBC2 /* VLDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E40F22547A798007DBBC2 /* VLDetailCommentCell.m */; };
+		517E40FE2547A798007DBBC2 /* VLDetailCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E40F62547A798007DBBC2 /* VLDetailCommentModel.m */; };
+		517E40FF2547A798007DBBC2 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E40F82547A798007DBBC2 /* UITableViewCell+HYBMasonryAutoCellHeight.m */; };
 		518059F4251B91CB00FBC12D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 518055CD251B91C700FBC12D /* AppDelegate.m */; };
 		518059F5251B91CB00FBC12D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 518055CF251B91C700FBC12D /* LaunchScreen.storyboard */; };
 		518059F6251B91CB00FBC12D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 518055D1251B91C700FBC12D /* Main.storyboard */; };
@@ -445,8 +449,6 @@
 		5173E5AF2522CB2700E57C71 /* VLPhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailViewController.m; sourceTree = "<group>"; };
 		5173E5B22522CB2700E57C71 /* VLPhotoDetailHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailHeadView.m; sourceTree = "<group>"; };
 		5173E5B32522CB2700E57C71 /* VLPhotoDetailHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailHeadView.h; sourceTree = "<group>"; };
-		5173E5BA2522D31900E57C71 /* VLCommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLCommentTableViewCell.h; sourceTree = "<group>"; };
-		5173E5BB2522D31900E57C71 /* VLCommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLCommentTableViewCell.m; sourceTree = "<group>"; };
 		5173E5BD2523080F00E57C71 /* VLFollowListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLFollowListTableViewCell.h; sourceTree = "<group>"; };
 		5173E5BE2523080F00E57C71 /* VLFollowListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLFollowListTableViewCell.m; sourceTree = "<group>"; };
 		5173E5C525231EB600E57C71 /* VLFollowListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLFollowListViewController.h; sourceTree = "<group>"; };
@@ -455,6 +457,16 @@
 		5173E5CA252334F300E57C71 /* BaseRequestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequestAPI.m; sourceTree = "<group>"; };
 		5173E5CB252334F300E57C71 /* BaseRequestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequestService.m; sourceTree = "<group>"; };
 		5173E5CC252334F300E57C71 /* BaseRequestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequestService.h; sourceTree = "<group>"; };
+		517E40EF2547A797007DBBC2 /* UITableView+HYBCacheHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HYBCacheHeight.m"; sourceTree = "<group>"; };
+		517E40F02547A798007DBBC2 /* VLDetailCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLDetailCommentModel.h; sourceTree = "<group>"; };
+		517E40F12547A798007DBBC2 /* VLDetailCommentSubCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLDetailCommentSubCell.m; sourceTree = "<group>"; };
+		517E40F22547A798007DBBC2 /* VLDetailCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLDetailCommentCell.m; sourceTree = "<group>"; };
+		517E40F42547A798007DBBC2 /* UITableViewCell+HYBMasonryAutoCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+HYBMasonryAutoCellHeight.h"; sourceTree = "<group>"; };
+		517E40F52547A798007DBBC2 /* VLDetailCommentSubCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLDetailCommentSubCell.h; sourceTree = "<group>"; };
+		517E40F62547A798007DBBC2 /* VLDetailCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLDetailCommentModel.m; sourceTree = "<group>"; };
+		517E40F72547A798007DBBC2 /* UITableView+HYBCacheHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HYBCacheHeight.h"; sourceTree = "<group>"; };
+		517E40F82547A798007DBBC2 /* UITableViewCell+HYBMasonryAutoCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+HYBMasonryAutoCellHeight.m"; sourceTree = "<group>"; };
+		517E40FA2547A798007DBBC2 /* VLDetailCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLDetailCommentCell.h; sourceTree = "<group>"; };
 		518055CC251B91C700FBC12D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		518055CD251B91C700FBC12D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		518055D0251B91C700FBC12D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1247,6 +1259,23 @@
 				51E059F62524620000FA9744 /* NCHRequestPublicArgument.m */,
 			);
 			path = BaseNetwork;
+			sourceTree = "<group>";
+		};
+		517E40EE2547A797007DBBC2 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				517E40F72547A798007DBBC2 /* UITableView+HYBCacheHeight.h */,
+				517E40EF2547A797007DBBC2 /* UITableView+HYBCacheHeight.m */,
+				517E40F42547A798007DBBC2 /* UITableViewCell+HYBMasonryAutoCellHeight.h */,
+				517E40F82547A798007DBBC2 /* UITableViewCell+HYBMasonryAutoCellHeight.m */,
+				517E40FA2547A798007DBBC2 /* VLDetailCommentCell.h */,
+				517E40F22547A798007DBBC2 /* VLDetailCommentCell.m */,
+				517E40F02547A798007DBBC2 /* VLDetailCommentModel.h */,
+				517E40F62547A798007DBBC2 /* VLDetailCommentModel.m */,
+				517E40F52547A798007DBBC2 /* VLDetailCommentSubCell.h */,
+				517E40F12547A798007DBBC2 /* VLDetailCommentSubCell.m */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		518055CA251B91C700FBC12D /* Resource */ = {
@@ -2057,10 +2086,9 @@
 		518151FB251C3B6600F9CCD3 /* Detail(详情) */ = {
 			isa = PBXGroup;
 			children = (
+				517E40EE2547A797007DBBC2 /* Comment */,
 				518151FC251C3B6600F9CCD3 /* Video */,
 				518151FD251C3B6600F9CCD3 /* Photo */,
-				5173E5BA2522D31900E57C71 /* VLCommentTableViewCell.h */,
-				5173E5BB2522D31900E57C71 /* VLCommentTableViewCell.m */,
 			);
 			path = "Detail(详情)";
 			sourceTree = "<group>";
@@ -2873,6 +2901,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51805B02251B91CB00FBC12D /* MPMemoryHelper.m in Sources */,
+				517E40FB2547A798007DBBC2 /* UITableView+HYBCacheHeight.m in Sources */,
 				51805BAF251B91CC00FBC12D /* YBCenterView.m in Sources */,
 				51A29C0025203EC1001EF6E9 /* SystemMessageCell.m in Sources */,
 				51805B24251B91CB00FBC12D /* UIDevice+FCUUID.m in Sources */,
@@ -2935,11 +2964,13 @@
 				51A29BFE25203EC1001EF6E9 /* ChatTextView.m in Sources */,
 				51A29C0725203EC1001EF6E9 /* FocusView.m in Sources */,
 				51A29C1625203EC1001EF6E9 /* SlideTabBar.m in Sources */,
+				517E40FE2547A798007DBBC2 /* VLDetailCommentModel.m in Sources */,
 				51805B5B251B91CC00FBC12D /* HXPhoto3DTouchViewController.m in Sources */,
 				51339CAB253053430039A025 /* JXPagerListContainerView.m in Sources */,
 				51A29BE425203EC1001EF6E9 /* DeleteGroupChatRequest.m in Sources */,
 				51A29BFB25203EC1001EF6E9 /* PhotoSelector.m in Sources */,
 				51606928251DCC990070B9D9 /* VLNestSubjectViewController.m in Sources */,
+				517E40FD2547A798007DBBC2 /* VLDetailCommentCell.m in Sources */,
 				51339CAC253053430039A025 /* JXPagerMainTableView.m in Sources */,
 				51A29BE825203EC1001EF6E9 /* WebCacheHelpler.m in Sources */,
 				51805B81251B91CC00FBC12D /* HXPhotoClippingView.m in Sources */,
@@ -2976,6 +3007,7 @@
 				51BA08102536D736002E481E /* WaterFallListLogic.m in Sources */,
 				51A29BDC25203EC1001EF6E9 /* NetworkHelper.m in Sources */,
 				51A29C1425203EC1001EF6E9 /* UserInfoHeader.m in Sources */,
+				517E40FC2547A798007DBBC2 /* VLDetailCommentSubCell.m in Sources */,
 				51805B53251B91CC00FBC12D /* UIColor+HXExtension.m in Sources */,
 				51ADE215253D5DAE0081F620 /* VLUserHomeViewController.m in Sources */,
 				51ADE23725400B200081F620 /* VLPublishManager.m in Sources */,
@@ -3059,7 +3091,6 @@
 				512A9CEA2541C9A40042E41D /* VLBodyTexToolbarView.m in Sources */,
 				51805B52251B91CC00FBC12D /* NSDate+HXExtension.m in Sources */,
 				512A9CB0254151DD0042E41D /* VLLocationViewController.m in Sources */,
-				5173E5BC2522D31900E57C71 /* VLCommentTableViewCell.m in Sources */,
 				51815243251C470C00F9CCD3 /* NCHAutoRefreshFooter.m in Sources */,
 				51AC9914250F03CC0023D5EA /* YISPlusButton.m in Sources */,
 				51AC9912250F03CC0023D5EA /* YISVlogTabBarController1.m in Sources */,
@@ -3120,6 +3151,7 @@
 				51805B31251B91CC00FBC12D /* PersonListCollectionViewCell.m in Sources */,
 				51A29C0925203EC1001EF6E9 /* AVPlayerView.m in Sources */,
 				51805B15251B91CB00FBC12D /* Reachability.m in Sources */,
+				517E40FF2547A798007DBBC2 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
 				51805B2D251B91CC00FBC12D /* YISIndexViewController.m in Sources */,
 				51BA08052536A843002E481E /* VLPhotoDetailManager.m in Sources */,
 				51A29C1325203EC1001EF6E9 /* UserHomePageController.m in Sources */,
