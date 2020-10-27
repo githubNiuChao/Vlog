@@ -142,7 +142,6 @@ KProStrongType(VLDetailCommentModel, currentCommentModel)
 //回复评论
 - (void)detailCommentCellModel:(VLDetailCommentModel *)cellModel replyCommentWith:(VLDetailCommentModel *)subCellModel atIndexPath:(NSIndexPath *)indexPath{
     [self.textView showWtihTitle:subCellModel.nickname];
-    
 }
 
 - (void)reloadCellHeightForModel:(VLDetailCommentModel *)model atIndexPath:(NSIndexPath *)indexPath {
@@ -151,7 +150,7 @@ KProStrongType(VLDetailCommentModel, currentCommentModel)
 
 #pragma mark - VLPhotoDetailBottomViewDelegate
 - (void)photoDetailBottomViewShowComment:(VLPhotoDetailBottomView *)bottomView{
-    [self.textView showWtihTitle:@"说点什么…"];
+    [self.textView showWtihTitle:@""];
     
 }
 

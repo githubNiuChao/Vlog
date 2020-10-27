@@ -257,7 +257,6 @@ KProStrongType(UIButton, conmmentButton);
         [highlight setColor:[UIColor colorWithRed:1.000 green:0.795 blue:0.014 alpha:1.000]];
         NCWeakSelf(self);
         highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
-//            [_self showMessage:[NSString stringWithFormat:@"Tap: %@",[text.string substringWithRange:range]]];
             [weakself actiondidTagClickWithInfoModel:infoModel];
         };
         [one yy_setTextHighlight:highlight range:one.yy_rangeOfAll];
@@ -269,7 +268,7 @@ KProStrongType(UIButton, conmmentButton);
 }
 
 
-- (void)actiondidTagClickWithInfoModel:(VLDetail_TagListResponse *)infoModel{
+- (void)actiondidTagClickWithInfoModel:(VLVideoInfo_DescModel *)infoModel{
     
     
 }

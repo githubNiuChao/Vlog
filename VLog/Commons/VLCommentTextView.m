@@ -137,6 +137,10 @@ static const CGFloat kCommentTextViewTopBottomInset          = 15;
     return YES;
 }
 
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    [self dismiss];
+}
+
 //handle guesture tap
 - (void)handleGuesture:(UITapGestureRecognizer *)sender {
     CGPoint point = [sender locationInView:_textView];
@@ -158,6 +162,7 @@ static const CGFloat kCommentTextViewTopBottomInset          = 15;
 //update method
 - (void)showWtihTitle:(NSString *)title{
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    window.backgroundColor = kColorBlackAlpha60;
     [window addSubview:self];
     [self.textView becomeFirstResponder];
     self.placeholderLabel.text = [NSString stringWithFormat:@"回复：%@",title];

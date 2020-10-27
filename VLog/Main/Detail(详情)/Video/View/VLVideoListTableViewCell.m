@@ -27,7 +27,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 @property (nonatomic ,strong) CAGradientLayer          *gradientLayer;
 @property (nonatomic ,strong) UIImageView              *pauseIcon;
 @property (nonatomic, strong) UIView                   *playerStatusBar;
-@property (nonatomic ,strong) UIImageView              *musicIcon;
+//@property (nonatomic ,strong) UIImageView              *musicIcon;
 @property (nonatomic, strong) UITapGestureRecognizer   *singleTapGesture;
 @property (nonatomic, assign) NSTimeInterval           lastTapTime;
 @property (nonatomic, assign) CGPoint                  lastTapPoint;
@@ -87,16 +87,11 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [_playerStatusBar setHidden:YES];
     [_container addSubview:_playerStatusBar];
     
-    //init aweme message
-    _musicIcon = [[UIImageView alloc]init];
-    _musicIcon.contentMode = UIViewContentModeCenter;
-    _musicIcon.image = [UIImage imageNamed:@"icon_home_musicnote3"];
-    [_container addSubview:_musicIcon];
-    
-    _musicName = [[CircleTextView alloc]init];
-    _musicName.textColor = ColorWhite;
-    _musicName.font = MediumFont;
-    [_container addSubview:_musicName];
+//
+//    _musicName = [[CircleTextView alloc]init];
+//    _musicName.textColor = ColorWhite;
+//    _musicName.font = MediumFont;
+//    [_container addSubview:_musicName];
     
     
     _desc = [[UILabel alloc]init];
@@ -105,18 +100,33 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     _desc.font = MediumBoldFont;
     [_container addSubview:_desc];
     
+    _tagLabel = [[YYLabel alloc] init];
+        _tagLabel.textColor = kBlackColor;
+        _tagLabel.font = kFontBSmall;
+        _tagLabel.backgroundColor = kWhiteColor;
+        _tagLabel.textAlignment = NSTextAlignmentLeft;
+        _tagLabel.textVerticalAlignment = YYTextVerticalAlignmentCenter;
+        _tagLabel.numberOfLines = 0;
+    [_container addSubview:_tagLabel];
+    
+    
+    _topicButton = [[UIButton alloc] initWithFrame:CGRectZero];
+     kViewRadius(_topicButton, 30/2);
+     _topicButton.backgroundColor = [UIColor colorWithWhite:0.95 alpha:0.8];
+     [_topicButton setImage:kNameImage(@"detail_topic_icon") forState:UIControlStateNormal];
+     [_topicButton setTitle:@"" forState:UIControlStateNormal];
+     [_topicButton setTitleColor:kBuleColor forState:UIControlStateNormal];
+     [_topicButton setImageEdgeInsets:UIEdgeInsetsMake(5,0,5,0)];
+     _topicButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+     _topicButton.titleLabel.font = kFontBMedium;
+    
+    [_container addSubview:_topicButton];
     
     _nickName = [[UILabel alloc]init];
     _nickName.textColor = ColorWhite;
     _nickName.font = BigBoldFont;
     [_container addSubview:_nickName];
-    
-    
-    //init music alum view
-//    _musicAlum = [MusicAlbumView new];
-//    [_container addSubview:_musicAlum];
-    
-    //init share、comment、like action view
+
     _share = [[UIImageView alloc]init];
     _share.contentMode = UIViewContentModeCenter;
     _share.image = [UIImage imageNamed:@"icon_home_share"];
@@ -125,11 +135,11 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [_share addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)]];
     [_container addSubview:_share];
     
-    _shareNum = [[UILabel alloc]init];
-    _shareNum.text = @"0";
-    _shareNum.textColor = ColorWhite;
-    _shareNum.font = SmallFont;
-    [_container addSubview:_shareNum];
+    _collectNum = [[UILabel alloc]init];
+    _collectNum.text = @"收藏";
+    _collectNum.textColor = ColorWhite;
+    _collectNum.font = SmallFont;
+    [_container addSubview:_collectNum];
     
     _comment = [[UIImageView alloc]init];
     _comment.contentMode = UIViewContentModeCenter;
@@ -140,7 +150,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [_container addSubview:_comment];
     
     _commentNum = [[UILabel alloc]init];
-    _commentNum.text = @"0";
+    _commentNum.text = @"评论";
     _commentNum.textColor = ColorWhite;
     _commentNum.font = SmallFont;
     [_container addSubview:_commentNum];
@@ -149,10 +159,20 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [_container addSubview:_favorite];
     
     _favoriteNum = [[UILabel alloc]init];
-    _favoriteNum.text = @"0";
+     [_favoriteNum setText:@"赞"];
     _favoriteNum.textColor = ColorWhite;
     _favoriteNum.font = SmallFont;
     [_container addSubview:_favoriteNum];
+    
+    _collect = [[UIButton alloc] initWithFrame:CGRectZero];
+    [_collect setImage:kNameImage(@"detail_collect_n") forState:UIControlStateNormal];
+    [_collect setImage:kNameImage(@"detail_collect_s") forState:UIControlStateSelected];
+    [_collect setTitleColor:kGreyColor forState:UIControlStateNormal];
+    _collect.selected = self.detailModel.is_collection;
+    _collect.titleLabel.font = kFontBBig;
+    [_collect addTarget:self action:@selector(collectClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_container addSubview:_collect];
+    
     
     //init avatar
     CGFloat avatarRadius = 25;
@@ -178,32 +198,32 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         make.width.height.mas_equalTo(100);
     }];
 
-    //make constraintes
     [_playerStatusBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self);
         make.bottom.equalTo(self).inset(49.5f + SafeAreaBottomHeight);
         make.width.mas_equalTo(1.0f);
         make.height.mas_equalTo(0.5f);
     }];
-    
-    [_musicIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self);
-        make.bottom.equalTo(self).inset(60 + SafeAreaBottomHeight);
-        make.width.mas_equalTo(30);
-        make.height.mas_equalTo(25);
-    }];
 
-    [_musicName mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.musicIcon.mas_right);
-        make.centerY.equalTo(self.musicIcon);
-        make.width.mas_equalTo(ScreenWidth/2);
-        make.height.mas_equalTo(24);
+    
+    [_topicButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.playerStatusBar.mas_top).offset(-20);
+        make.left.equalTo(self).offset(10);
+        make.height.equalTo(@(30));
     }];
+    
+    [_tagLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.topicButton.mas_bottom);
+        make.left.right.equalTo(self).offset(10);
+        
+    }];
+    
     [_desc mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(10);
-        make.bottom.equalTo(self.musicIcon.mas_top);
+        make.bottom.equalTo(self.tagLabel.mas_top).offset(-30);
         make.width.mas_lessThanOrEqualTo(ScreenWidth/5*3);
     }];
+    
     [_avatar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(10);
         make.bottom.equalTo(self.desc.mas_top).inset(20);
@@ -216,18 +236,18 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         make.width.mas_lessThanOrEqualTo(ScreenWidth/4*3 + 30);
     }];
 
-    [_share mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.musicName);
+    [_collect mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.playerStatusBar.mas_top).offset(-30);
         make.right.equalTo(self).inset(10);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(45);
     }];
-    [_shareNum mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.share.mas_bottom);
-        make.centerX.equalTo(self.share);
+    [_collectNum mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.collect.mas_bottom);
+        make.centerX.equalTo(self.collect);
     }];
     [_comment mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.share.mas_top).inset(25);
+        make.bottom.equalTo(self.collect.mas_top).inset(25);
         make.right.equalTo(self).inset(10);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(45);
@@ -264,8 +284,6 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     
     [_hoverTextView.textView setText:@""];
     [_avatar setImage:[UIImage imageNamed:@"img_find_default"]];
-    
-//    [_musicAlum resetView];
     [_favorite resetView];
     [_focus resetView];
 }
@@ -440,10 +458,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
             break;
         case AVPlayerItemStatusReadyToPlay:
             [self startLoadingPlayItemAnim:NO];
-            
             _isPlayerReady = YES;
-//            [_musicAlum startAnimation:_aweme.rate];
-            
             if(_onPlayerReady) {
                 _onPlayerReady();
             }
@@ -463,23 +478,22 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     
     [_nickName setText:[NSString stringWithFormat:@"@%@",detailModel.current_user.nickname]];
     [_desc setText:detailModel.video_info.video_title];
-    [_musicName setText:[NSString stringWithFormat:@"%@ - %@", @"云音乐", @"牛超"]];
-    [_favoriteNum setText:@"赞"];
-    [_commentNum setText:@"评论"];
-    [_shareNum setText:@"收藏"];
     [_avatar sd_setImageWithURL:[NSURL URLWithString:detailModel.current_user.headimg] placeholderImage:kNameImage(@"img_find_default")];
-
-    __weak __typeof(self) wself = self;
-//    [_musicAlum.album setImageWithURL:[NSURL URLWithString:aweme.music.cover_thumb.url_list.firstObject] completedBlock:^(UIImage *image, NSError *error) {
-//        if(!error) {
-//            wself.musicAlum.album.image = [image drawCircleImage];
-//        }
-//    }];
-//    [_avatar setImageWithURL:[NSURL URLWithString:aweme.author.avatar_thumb.url_list.firstObject] completedBlock:^(UIImage *image, NSError *error) {
-//        if(!error) {
-//            wself.avatar.image = [image drawCircleImage];
-//        }
-//    }];
+    
+    NSMutableAttributedString *detailLabelAText = [NSMutableAttributedString new];
+    NCWeakSelf(self);
+    [detailModel.video_info.video_desc enumerateObjectsUsingBlock:^(VLVideoInfo_DescModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.is_tag) {
+            [detailLabelAText appendAttributedString:[weakself appendDescTagAttributedStringWithInfoModel:obj]];
+        }else{
+            [detailLabelAText appendAttributedString:[weakself appendAttributedString:obj.name font:kFontBMedium]];
+        }
+    }];
+    self.tagLabel.attributedText = detailLabelAText;
+    CGFloat detailLabelHeight = [self getTextHeight:detailLabelAText andLabel:self.tagLabel];
+    [self.tagLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(detailLabelHeight));
+    }];
     
 }
 
@@ -507,5 +521,84 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 //    NSString *playUrl = [NetworkHelper isWifiStatus] ? _aweme.video.play_addr.url_list.firstObject : _aweme.video.play_addr_lowbr.url_list.firstObject;
     [_playerView startDownloadTask:[[NSURL alloc] initWithString:[self.detailModel.video_info.video_path firstObject]] isBackground:NO];
 }
+
+
+
+
+
+
+
+
+#pragma mark - NSAttributedString
+-(CGFloat)getTextHeight:(NSAttributedString *)text andLabel:(YYLabel *)lable
+{
+    CGSize introSize = CGSizeMake(self.jk_width-10, CGFLOAT_MAX);
+    YYTextLayout *layout = [YYTextLayout layoutWithContainerSize:introSize text:text];
+    lable.textLayout = layout;
+    CGFloat introHeight = layout.textBoundingSize.height;
+    return introHeight;
+}
+
+
+- (NSAttributedString *)appendAttributedString:(NSString *)string font:(UIFont *)font{
+    NSMutableAttributedString *text = [NSMutableAttributedString new];
+    {
+        NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithString:string];
+        one.yy_font = font;
+        one.yy_color = kBlackColor;
+        YYTextShadow *shadow = [YYTextShadow new];
+        shadow.color = [UIColor colorWithWhite:0.000 alpha:0.5];
+        shadow.offset = CGSizeMake(0, 1);
+        shadow.radius = 5;
+        one.yy_textShadow = shadow;
+        [text appendAttributedString:one];
+    }
+    return text;
+}
+
+
+- (NSAttributedString *)appendDescTagAttributedStringWithInfoModel:(VLVideoInfo_DescModel *)infoModel{
+    NSMutableAttributedString *text = [NSMutableAttributedString new];
+    UIImage *image = [UIImage imageNamed:@"publish_tag_goodsicon"];
+    if ([infoModel.type isEqualToString:@"2"]) {
+        image = [UIImage imageNamed:@"publish_tag_brandicon"];
+    }else if([infoModel.type isEqualToString:@"3"]){
+        image = [UIImage imageNamed:@"publish_tag_goodsicon"];
+    }
+    NSMutableAttributedString *attachment = [NSMutableAttributedString yy_attachmentStringWithContent:image contentMode:UIViewContentModeCenter attachmentSize:image.size alignToFont:kFontBSmall alignment:YYTextVerticalAlignmentCenter];
+    [text appendAttributedString: attachment];
+    
+    {
+        NSMutableAttributedString *one = [[NSMutableAttributedString alloc] initWithString:infoModel.name];
+        one.yy_font = kFontBMedium;
+        one.yy_color = kBuleColor;
+        
+        YYTextShadow *shadow = [YYTextShadow new];
+        shadow.color = [UIColor colorWithWhite:0.0 alpha:0.5];
+        shadow.offset = CGSizeMake(0, 1);
+        shadow.radius = 5;
+        one.yy_textShadow = shadow;
+    
+        YYTextHighlight *highlight = [YYTextHighlight new];
+        [highlight setColor:[UIColor colorWithRed:1.000 green:0.795 blue:0.014 alpha:1.000]];
+        NCWeakSelf(self);
+        highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
+            [weakself actiondidTagClickWithInfoModel:infoModel];
+        };
+        [one yy_setTextHighlight:highlight range:one.yy_rangeOfAll];
+        
+        [text appendAttributedString:one];
+        [text appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"  "]];
+    }
+    return text;
+}
+
+
+- (void)actiondidTagClickWithInfoModel:(VLVideoInfo_DescModel *)infoModel{
+    
+    
+}
+
+
 
 @end

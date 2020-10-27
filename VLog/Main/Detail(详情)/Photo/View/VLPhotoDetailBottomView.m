@@ -147,7 +147,7 @@ KProStrongType(VLDetailResponse,infoModel);
     if (!_commentButton) {
         _commentButton = [[UIButton alloc] initWithFrame:CGRectZero];
         [_commentButton setImage:kNameImage(@"detail_comment_icon") forState:UIControlStateNormal];
-        [_commentButton setTitle:[NSString stringWithFormat:@"%ld",self.infoModel.comment_list.count] forState:UIControlStateNormal];
+        [_commentButton setTitle:self.infoModel.comment_count forState:UIControlStateNormal];
          [_commentButton setTitleColor:kGreyColor forState:UIControlStateNormal];
         [_commentButton jk_setImagePosition:LXMImagePositionLeft spacing:10];
         _commentButton.titleLabel.font = kFontBBig;
@@ -163,10 +163,8 @@ KProStrongType(VLDetailResponse,infoModel);
     NSInteger count = [self.collectButton.titleLabel.text integerValue];
     count = self.collectButton.selected?(count+1):(count-1);
     [self.collectButton setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
-
     
 }
-
 
 - (void)likeClick:(UIButton *)button{
     self.likeButton.selected = !button.selected;

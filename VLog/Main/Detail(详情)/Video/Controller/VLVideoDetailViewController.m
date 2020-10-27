@@ -27,7 +27,9 @@ NSString * const kVideoListTableViewCell   = @"VideoListTableViewCell";
 
 //@property (nonatomic, strong) NSMutableArray<VLVideoInfoModel *>           *data;
 @property (nonatomic, strong) NSMutableArray<VLVideoInfoModel *>           *awemes;
-@property (nonatomic, strong) LoadMoreControl                      *loadMore;
+//@property (nonatomic, strong) LoadMoreControl                      *loadMore;
+
+@property (nonatomic, strong) UIView                   *playerStatusBar;
 
 
 
@@ -50,8 +52,7 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
         
         _awemes = [data mutableCopy];
         //        _data = [[NSMutableArray alloc] initWithObjects:[_awemes objectAtIndex:_currentIndex], nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarTouchBegin) name:@"StatusBarTouchBeginNotification" object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarTouchBegin) name:@"StatusBarTouchBeginNotification" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationBecomeActive) name:UIApplicationWillEnterForegroundNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name: UIApplicationDidEnterBackgroundNotification object:nil];
     }
@@ -60,21 +61,24 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initCommon];
     [self initSubView];
+    [self initCommon];
     self.fd_prefersNavigationBarHidden = YES;
     
 }
 
 - (void)initCommon{
-    [self initLeftBackButton:@"niv_back_dark"];
+    [self initLeftBackButton:@"niv_back_white"];
     self.manager = [[VLPhotoDetailManager alloc] init];
     self.manager.delegagte = self;
     self.dataArray = [[NSMutableArray alloc] init];
+    //读数据
+    [self startLoadingPlayItemAnim:YES];
     [self.manager loadDataWithVideoId:self.video_id];
 }
 
 - (void)requestDataCompleted{
+    [self startLoadingPlayItemAnim:NO];
     self.dataModel = self.manager.dataModel;
     self.videoIndfoModel = self.manager.dataModel.video_info;
     [self.dataArray addObject:self.dataModel];
@@ -85,8 +89,6 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 - (void)initSubView{
     [self setBackgroundImage:@"img_video_loading"];
     self.view.layer.masksToBounds = YES;
-    //       _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -ScreenHeight, ScreenWidth, ScreenHeight * 3)];
-    //       _tableView.contentInset = UIEdgeInsetsMake(ScreenHeight, 0, ScreenHeight * 1, 0);
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     _tableView.backgroundColor = ColorClear;
     _tableView.delegate = self;
@@ -99,26 +101,19 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     [self.tableView registerClass:VLVideoListTableViewCell.class forCellReuseIdentifier:kVideoListTableViewCell];
-    
     [self.view addSubview:self.tableView];
+
+    _playerStatusBar = [[UIView alloc]init];
+    _playerStatusBar.backgroundColor = ColorWhite;
+    [_playerStatusBar setHidden:YES];
+    [self.view addSubview:_playerStatusBar];
+    [_playerStatusBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.bottom.equalTo(self.view).inset(49.5f + SafeAreaBottomHeight);
+         make.width.mas_equalTo(1.0f);
+         make.height.mas_equalTo(0.5f);
+     }];
     
-    //       _loadMore = [[LoadMoreControl alloc] initWithFrame:CGRectMake(0, 100, ScreenWidth, 50) surplusCount:3];
-    //       __weak __typeof(self) wself = self;
-    //       [_loadMore setOnLoad:^{
-    //           [wself loadData:wself.pageIndex pageSize:wself.pageSize];
-    //       }];
-    //       [_tableView addSubview:_loadMore];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        //           self.data = self.awemes;
-        //           [self.tableView reloadData];
-        
-        //           NSIndexPath *curIndexPath = [NSIndexPath indexPathForRow:self.currentIndex inSection:0];
-        //           [self.tableView scrollToRowAtIndexPath:curIndexPath atScrollPosition:UITableViewScrollPositionMiddle
-        //                                         animated:NO];
-        //           [self addObserver:self forKeyPath:@"currentIndex" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
-    });
 }
 
 
@@ -141,7 +136,6 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     //    [self removeObserver:self forKeyPath:@"currentIndex"];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -209,38 +203,38 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 //}
 
 #pragma KVO
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    //观察currentIndex变化
-    if ([keyPath isEqualToString:@"currentIndex"]) {
-        //设置用于标记当前视频是否播放的BOOL值为NO
-        _isCurPlayerPause = NO;
-        //获取当前显示的cell
-        VLVideoListTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_currentIndex inSection:0]];
-        [cell startDownloadHighPriorityTask];
-        __weak typeof (cell) wcell = cell;
-        __weak typeof (self) wself = self;
-        //判断当前cell的视频源是否已经准备播放
-        if(cell.isPlayerReady) {
-            //播放视频
-            [cell replay];
-        }else {
-            [[AVPlayerManager shareManager] pauseAll];
-            //当前cell的视频源还未准备好播放，则实现cell的OnPlayerReady Block 用于等待视频准备好后通知播放
-            cell.onPlayerReady = ^{
-                NSIndexPath *indexPath = [wself.tableView indexPathForCell:wcell];
-                if(!wself.isCurPlayerPause && indexPath && indexPath.row == wself.currentIndex) {
-                    [wcell play];
-                }
-            };
-        }
-    } else {
-        return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
-}
+//-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+//    //观察currentIndex变化
+//    if ([keyPath isEqualToString:@"currentIndex"]) {
+//        //设置用于标记当前视频是否播放的BOOL值为NO
+//        _isCurPlayerPause = NO;
+//        //获取当前显示的cell
+//        VLVideoListTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_currentIndex inSection:0]];
+//        [cell startDownloadHighPriorityTask];
+//        __weak typeof (cell) wcell = cell;
+//        __weak typeof (self) wself = self;
+//        //判断当前cell的视频源是否已经准备播放
+//        if(cell.isPlayerReady) {
+//            //播放视频
+//            [cell replay];
+//        }else {
+//            [[AVPlayerManager shareManager] pauseAll];
+//            //当前cell的视频源还未准备好播放，则实现cell的OnPlayerReady Block 用于等待视频准备好后通知播放
+//            cell.onPlayerReady = ^{
+//                NSIndexPath *indexPath = [wself.tableView indexPathForCell:wcell];
+//                if(!wself.isCurPlayerPause && indexPath && indexPath.row == wself.currentIndex) {
+//                    [wcell play];
+//                }
+//            };
+//        }
+//    } else {
+//        return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+//    }
+//}
 
-- (void)statusBarTouchBegin {
-    _currentIndex = 0;
-}
+//- (void)statusBarTouchBegin {
+//    _currentIndex = 0;
+//}
 
 - (void)applicationBecomeActive {
     VLVideoListTableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndex inSection:0]];
@@ -308,6 +302,37 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
 //        }];
 //    }
 //}
+
+//加载动画
+-(void)startLoadingPlayItemAnim:(BOOL)isStart {
+    if (isStart) {
+        _playerStatusBar.backgroundColor = ColorWhite;
+        [_playerStatusBar setHidden:NO];
+        [_playerStatusBar.layer removeAllAnimations];
+        
+        CAAnimationGroup *animationGroup = [[CAAnimationGroup alloc]init];
+        animationGroup.duration = 0.5;
+        animationGroup.beginTime = CACurrentMediaTime() + 0.5;
+        animationGroup.repeatCount = MAXFLOAT;
+        animationGroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        
+        CABasicAnimation * scaleAnimation = [CABasicAnimation animation];
+        scaleAnimation.keyPath = @"transform.scale.x";
+        scaleAnimation.fromValue = @(1.0f);
+        scaleAnimation.toValue = @(1.0f * ScreenWidth);
+        
+        CABasicAnimation * alphaAnimation = [CABasicAnimation animation];
+        alphaAnimation.keyPath = @"opacity";
+        alphaAnimation.fromValue = @(1.0f);
+        alphaAnimation.toValue = @(0.5f);
+        [animationGroup setAnimations:@[scaleAnimation, alphaAnimation]];
+        [self.playerStatusBar.layer addAnimation:animationGroup forKey:nil];
+    } else {
+        [self.playerStatusBar.layer removeAllAnimations];
+        [self.playerStatusBar setHidden:YES];
+    }
+}
+
 
 - (void)dealloc {
     NSLog(@"======== dealloc =======");
