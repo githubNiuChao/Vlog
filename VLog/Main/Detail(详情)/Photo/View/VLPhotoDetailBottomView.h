@@ -8,17 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+#import "VLDetailResponse.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class VLPhotoDetailBottomView;
 @protocol VLPhotoDetailBottomViewDelegate <NSObject>
 
-- (void)detailHeadView:(VLPhotoDetailBottomView *)detailHeadView;
+- (void)photoDetailBottomViewShowComment:(VLPhotoDetailBottomView *)bottomView;
+
+
 @end
 
 @interface VLPhotoDetailBottomView : UIView
-
 @property (nonatomic,weak) id<VLPhotoDetailBottomViewDelegate> delegate;
+- (instancetype)initWithFrame:(CGRect)frame infoModel:(VLDetailResponse *)infoModel;
 
 @end
 

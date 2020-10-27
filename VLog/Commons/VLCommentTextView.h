@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UITextView                     *textView;
 @property (nonatomic, strong) id<VLCommentTextViewDelegate>    delegate;
 
-- (void)show;
+- (void)showWtihTitle:(NSString *)title;
 - (void)dismiss;
 
 @end

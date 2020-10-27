@@ -144,7 +144,8 @@
     manager.enableAutoToolbar = [self textViewControllerEnableAutoToolbar:self];
     manager.shouldPlayInputClicks = YES;
     manager.shouldShowToolbarPlaceholder = YES;
- 
+//    manager.toolbarTintColor = kCOLOR_THEME;
+    
     [self requiredTextFields];
     [self initReturnKeyHandler];;
 }

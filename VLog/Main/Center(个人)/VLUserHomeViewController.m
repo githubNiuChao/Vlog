@@ -58,8 +58,6 @@
     /*关联*/
     self.categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pagerView.listContainerView;
     
-    
-    
     self.textView = [VLCommentTextView new];
 //    _textView.delegate = self;
 }
@@ -135,11 +133,9 @@
     self.pagerView.frame = self.view.bounds;
 }
 
-
 - (void)onUserActionTap:(NSInteger)tag{
     
-    [self.textView show];
-
+    [self.textView showWtihTitle:@"8888"];
 }
 
 

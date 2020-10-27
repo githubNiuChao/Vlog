@@ -108,6 +108,8 @@ KProStrongType(UIButton, conmmentButton);
         make.left.equalTo(self.bgView).offset(30);
         make.right.equalTo(self.bgView).inset(30);
         make.bottom.equalTo(self.bgView.mas_bottom).offset(0);
+        make.height.equalTo(@30);
+        
     }];
     
     
