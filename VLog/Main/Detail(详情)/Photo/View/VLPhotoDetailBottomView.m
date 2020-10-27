@@ -91,14 +91,23 @@ KProStrongType(VLDetailResponse,infoModel);
         make.centerY.equalTo(self.textBGButton);
         make.size.mas_equalTo(CGSizeMake(subWidth, subHeight));
     }];
-    
+}
+
+
+- (void)publishComment{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(photoDetailBottomViewShowComment:)]) {
+        [self.delegate photoDetailBottomViewShowComment:self];
+    }
     
 }
+
 - (UIButton *)textBGButton{
     if (!_textBGButton) {
         _textBGButton = [[UIButton alloc] initWithFrame:CGRectZero];
         kViewRadius(_textBGButton, 15);
         [_textBGButton setBackgroundColor:kSysGroupBGColor];
+        
+        [_textBGButton addTarget:self action:@selector(publishComment) forControlEvents:UIControlEventTouchUpInside];
     }
     return _textBGButton;;
 }
@@ -143,6 +152,8 @@ KProStrongType(VLDetailResponse,infoModel);
         [_commentButton jk_setImagePosition:LXMImagePositionLeft spacing:10];
         _commentButton.titleLabel.font = kFontBBig;
         [_commentButton setTitleColor:kGreyColor forState:UIControlStateNormal];
+        [_commentButton addTarget:self action:@selector(publishComment) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     return _commentButton;
 }
@@ -152,18 +163,16 @@ KProStrongType(VLDetailResponse,infoModel);
     NSInteger count = [self.collectButton.titleLabel.text integerValue];
     count = self.collectButton.selected?(count+1):(count-1);
     [self.collectButton setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
-    
-    
+
     
 }
+
+
 - (void)likeClick:(UIButton *)button{
     self.likeButton.selected = !button.selected;
     NSInteger count = [self.likeButton.titleLabel.text integerValue];
        count = self.likeButton.selected?(count+1):(count-1);
        [self.likeButton setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
-    
-    
-    
 }
 
 @end

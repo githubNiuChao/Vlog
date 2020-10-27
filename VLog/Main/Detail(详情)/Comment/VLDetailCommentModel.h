@@ -6,10 +6,6 @@
 //  Copyright © 2020 niuchao. All rights reserved.
 //
 
-#define kProNSString(str)                @property (nonatomic, copy) NSString *str;
-#define KProNSArrayType(type,arr)        @property (nonatomic, strong) NSArray <type * >*arr;
-#define KProNSMutableArrayType(type,arr) @property (nonatomic, strong) NSMutableArray <type * >*arr;
-
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -28,7 +24,7 @@ kProNSString(audit_text)
 kProNSString(headimg)
 kProNSString(nickname)
 kProNSString(reply_user)
-KProNSArrayType(VLDetailCommentModel,children)
+KProNSMutableArrayType(VLDetailCommentModel,children)
 
 // 因为评论是动态的，因此要标识是否要更新缓存
 @property (nonatomic, assign) BOOL shouldUpdateCache;

@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)photoDetailBottomViewShowComment:(VLPhotoDetailBottomView *)bottomView;
 
-
 @end
 
 @interface VLPhotoDetailBottomView : UIView

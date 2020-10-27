@@ -111,7 +111,6 @@
 
 - (void)configCellWithModel:(VLDetailCommentModel*)model {
     
-    
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:model.headimg] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
      self.content.text = model.content;
      self.nickName.text= model.nickname;
@@ -131,15 +130,5 @@
     }
   self.content.attributedText = text;
 }
-
-//- (NSString *)ConvertStrToTime:(NSString *)timeStr{
-//    long long time=[timeStr longLongValue];
-//    NSDate *date = [[NSDate alloc]initWithTimeIntervalSince1970:time];
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-//    [formatter setDateFormat:@"MM-dd HH:mm:ss"];
-//    NSString*timeString=[formatter stringFromDate:date];
-//    return timeString;
-//}
-
 
 @end

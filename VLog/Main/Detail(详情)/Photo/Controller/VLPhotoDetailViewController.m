@@ -41,6 +41,9 @@ KProStrongType(VLDetailResponse, dataModel)
 KProStrongType(VLVideoInfoModel, videoIndfoModel)
 KProStrongType(VLCommentTextView, textView)
 
+//准备回复的Model
+KProStrongType(VLDetailCommentModel, currentCommentModel)
+
 @property (nonatomic, strong) NSMutableArray<VLDetailCommentModel*> *commentListData;
 
 @end
@@ -131,17 +134,22 @@ KProStrongType(VLCommentTextView, textView)
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
     VLDetailCommentModel *model = [self.commentListData objectAtIndex:indexPath.row];
     [self.textView showWtihTitle:model.nickname];
 }
 
-#pragma mark - CellDelegate
-- (void)reloadCellHeightForModel:(VLDetailCommentModel *)model atIndexPath:(NSIndexPath *)indexPath {
-  [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];    
+#pragma mark - VLDetailCommentCellDelegate
+//回复评论
+- (void)detailCommentCellModel:(VLDetailCommentModel *)cellModel replyCommentWith:(VLDetailCommentModel *)subCellModel atIndexPath:(NSIndexPath *)indexPath{
+    [self.textView showWtihTitle:subCellModel.nickname];
     
 }
 
+- (void)reloadCellHeightForModel:(VLDetailCommentModel *)model atIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+#pragma mark - VLPhotoDetailBottomViewDelegate
 - (void)photoDetailBottomViewShowComment:(VLPhotoDetailBottomView *)bottomView{
     [self.textView showWtihTitle:@"说点什么…"];
     

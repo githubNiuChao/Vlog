@@ -190,20 +190,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     
     // 添加一条数据
-    VLDetailCommentModel *Model = [[VLDetailCommentModel alloc] init];
-    Model.nickname = @"标哥的技术博客";
-    Model.content = @"由标哥的技术博客出品，学习如何在cell中嵌套使用tableview并自动计算行高。同时演示如何通过HYBMasonryAutoCellHeight自动计算行高，关注博客：http://www.henishuo.com";
-    Model.headimg = @"header";
-    Model.reply_user = @"傻逼";
-    Model.comment_id = [NSString stringWithFormat:@"%ld",indexPath.row+1000];
-    //    [self.testModel.children addObject:Model];
+//    VLDetailCommentModel *Model = [[VLDetailCommentModel alloc] init];
+//    Model.nickname = @"标哥的技术博客";
+//    Model.content = @"由标哥的技术博客出品，学习如何在cell中嵌套使用tableview并自动计算行高。同时演示如何通过HYBMasonryAutoCellHeight自动计算行高，关注博客：http://www.henishuo.com";
+//    Model.headimg = @"header";
+//    Model.reply_user = @"傻逼";
+//    Model.comment_id = [NSString stringWithFormat:@"%ld",indexPath.row+1000];
+//
+//    [self.testModel.children addObject:Model];
     
-    if ([self.delegate respondsToSelector:@selector(reloadCellHeightForModel:atIndexPath:)]) {
-        self.testModel.shouldUpdateCache = YES;
-        [self.delegate reloadCellHeightForModel:self.testModel atIndexPath:self.indexPath];
+//    if ([self.delegate respondsToSelector:@selector(reloadCellHeightForModel:atIndexPath:)]) {
+//        self.testModel.shouldUpdateCache = YES;
+//        [self.delegate reloadCellHeightForModel:self.testModel atIndexPath:self.indexPath];
+//    }
+    
+    VLDetailCommentModel *subModel = [self.testModel.children objectAtIndex:indexPath.row];
+    if (self.delegate &&[self.delegate respondsToSelector:@selector(detailCommentCellModel:replyCommentWith:atIndexPath:)]) {
+        [self.delegate detailCommentCellModel:self.testModel replyCommentWith:subModel atIndexPath:self.indexPath];
     }
+    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -212,7 +220,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //        [self.testModel.children removeObjectAtIndex:indexPath.row];
+                [self.testModel.children removeObjectAtIndex:indexPath.row];
         if ([self.delegate respondsToSelector:@selector(reloadCellHeightForModel:atIndexPath:)]) {
             self.testModel.shouldUpdateCache = YES;
             [self.delegate reloadCellHeightForModel:self.testModel atIndexPath:self.indexPath];
