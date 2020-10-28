@@ -64,10 +64,6 @@ typedef void(^WebDownloaderCancelBlock)(void);
 
 @end
 
-
-
-
-
 //自定义用于下载网络资源的NSOperation任务
 @interface WebDownloadOperation : NSOperation <NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 @property (strong, nonatomic) NSURLSession             *session;

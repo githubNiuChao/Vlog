@@ -8,7 +8,7 @@
 
 #import "WebSocketManager.h"
 #import "SocketRocket.h"
-#import "NetworkHelper.h"
+//#import "NetworkHelper.h"
 
 //赋值消息通知常量名称
 NSString *const WebSocketDidReceiveMessageNotification = @"WebSocketDidReceiveMessageNotification";
@@ -38,25 +38,25 @@ NSInteger const MaxReConnectTime = 5;
     self = [super init];
     if(self) {
         //将http scheme改为ws scheme
-        NSURLComponents *components = [[NSURLComponents alloc] initWithURL:[NSURL URLWithString:[BaseUrl stringByAppendingString:@"/groupchat"]] resolvingAgainstBaseURL:NO];
-        components.scheme = @"ws";
-        NSURL *url = [components URL];
+//        NSURLComponents *components = [[NSURLComponents alloc] initWithURL:[NSURL URLWithString:[BaseUrl stringByAppendingString:@"/groupchat"]] resolvingAgainstBaseURL:NO];
+//        components.scheme = @"ws";
+//        NSURL *url = [components URL];
         //初始化Websocket连接请求
-        _request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
+//        _request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
         //连接参数为udid
         [_request addValue:UDID forHTTPHeaderField:@"udid"];
         _reOpenCount = 0;
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNetworkStatusChange:) name:NetworkStatesChangeNotification object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onNetworkStatusChange:) name:NetworkStatesChangeNotification object:nil];
     }
     return self;
 }
 
 //网络状态发送变化，判断是否重新连接
 -(void)onNetworkStatusChange:(NSNotification *)notification {
-    if(_webSocket != nil && ![NetworkHelper isNotReachableStatus:[NetworkHelper networkStatus]] && [self isClosed]) {
-        [self reConnect];
-    }
+//    if(_webSocket != nil && ![NetworkHelper isNotReachableStatus:[NetworkHelper networkStatus]] && [self isClosed]) {
+//        [self reConnect];
+//    }
 }
 
 //断开连接
@@ -94,20 +94,20 @@ NSInteger const MaxReConnectTime = 5;
 
 //开启多次重新连接
 - (void)startReconnect {
-    if(![NetworkHelper isNotReachableStatus:[NetworkHelper networkStatus]]) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if(![self isClosed]) {
-                self.reOpenCount = 0;
-                return;
-            }
-            if(self.reOpenCount >= MaxReConnectTime) {
-                self.reOpenCount = 0;
-                return;
-            }
-            [self reConnect];
-            self.reOpenCount++;
-        });
-    }
+//    if(![NetworkHelper isNotReachableStatus:[NetworkHelper networkStatus]]) {
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            if(![self isClosed]) {
+//                self.reOpenCount = 0;
+//                return;
+//            }
+//            if(self.reOpenCount >= MaxReConnectTime) {
+//                self.reOpenCount = 0;
+//                return;
+//            }
+//            [self reConnect];
+//            self.reOpenCount++;
+//        });
+//    }
 }
 
 //发送消息

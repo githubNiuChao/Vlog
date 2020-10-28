@@ -7,16 +7,13 @@
 //
 
 #import "VLVideoListTableViewCell.h"
-#import "Aweme.h"
 #import "AVPlayerView.h"
 #import "HoverTextView.h"
 #import "CircleTextView.h"
 #import "FocusView.h"
-#import "MusicAlbumView.h"
 #import "FavoriteView.h"
 #import "CommentsPopView.h"
 #import "SharePopView.h"
-#import "NetworkHelper.h"
 
 static const NSInteger kAwemeListLikeCommentTag = 0x01;
 static const NSInteger kAwemeListLikeShareTag   = 0x02;
@@ -27,7 +24,6 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 @property (nonatomic ,strong) CAGradientLayer          *gradientLayer;
 @property (nonatomic ,strong) UIImageView              *pauseIcon;
 @property (nonatomic, strong) UIView                   *playerStatusBar;
-//@property (nonatomic ,strong) UIImageView              *musicIcon;
 @property (nonatomic, strong) UITapGestureRecognizer   *singleTapGesture;
 @property (nonatomic, assign) NSTimeInterval           lastTapTime;
 @property (nonatomic, assign) CGPoint                  lastTapPoint;
@@ -86,14 +82,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     _playerStatusBar.backgroundColor = ColorWhite;
     [_playerStatusBar setHidden:YES];
     [_container addSubview:_playerStatusBar];
-    
-//
-//    _musicName = [[CircleTextView alloc]init];
-//    _musicName.textColor = ColorWhite;
-//    _musicName.font = MediumFont;
-//    [_container addSubview:_musicName];
-    
-    
+        
     _desc = [[UILabel alloc]init];
     _desc.numberOfLines = 0;
     _desc.textColor = ColorWhiteAlpha80;
@@ -299,16 +288,16 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 //SendTextDelegate delegate
 - (void)onSendText:(NSString *)text {
     __weak __typeof(self) wself = self;
-    PostCommentRequest *request = [PostCommentRequest new];
-//    request.aweme_id = _aweme.aweme_id;
-    request.udid = UDID;
-    request.text = text;
-    [NetworkHelper postWithUrlPath:PostComentPath request:request success:^(id data) {
-        [UIWindow showTips:@"评论成功"];
-    } failure:^(NSError *error) {
-        wself.hoverTextView.textView.text = text;
-        [UIWindow showTips:@"评论失败"];
-    }];
+//    PostCommentRequest *request = [PostCommentRequest new];
+////    request.aweme_id = _aweme.aweme_id;
+//    request.udid = UDID;
+//    request.text = text;
+//    [NetworkHelper postWithUrlPath:PostComentPath request:request success:^(id data) {
+//        [UIWindow showTips:@"评论成功"];
+//    } failure:^(NSError *error) {
+//        wself.hoverTextView.textView.text = text;
+//        [UIWindow showTips:@"评论失败"];
+//    }];
 }
 
 //HoverTextViewDelegate delegate

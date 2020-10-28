@@ -134,7 +134,9 @@ KProNSMutableArrayType(VLMessageModel, dataArray);
 }
 
 - (void)initCommon{
+    [self setBackgroundColor:kWhiteColor];
     [self setNavigationBarTitle:@"消息"];
+    
 }
 
 - (void)initSubView{

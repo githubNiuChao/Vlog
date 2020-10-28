@@ -14,9 +14,6 @@
 #import "VLDetailCommentModel.h"
 #import "UITableViewCell+HYBMasonryAutoCellHeight.h"
 
-#import "CommentListRequest.h"
-#import "NetworkHelper.h"
-
 #import "VLPhotoDetailRequest.h"
 #import "VLPhotoDetailManager.h"
 #import "VLDetailResponse.h"
@@ -31,7 +28,6 @@ static NSString * const kVLDetailCommentCell     = @"VLVLDetailCommentCell";
 @interface VLPhotoDetailViewController ()<NCHBaseModelManagerDelegate,VLDetailCommentCellDelegate,VLPhotoDetailBottomViewDelegate>
 
 kProNSString(awemeId);
-KProNSMutableArrayType(Comment,data);
 KProAssignType(NSInteger,pageIndex);
 KProAssignType(NSInteger,pageSize);
 KProStrongType(VLPhotoDetailHeadView,detailHeadView);
@@ -66,7 +62,6 @@ KProStrongType(VLDetailCommentModel, currentCommentModel)
 - (void)initCommon{
     _pageIndex = 0;
     _pageSize = 20;
-    _data = [NSMutableArray array];
     self.manager = [[VLPhotoDetailManager alloc] init];
     self.manager.delegagte = self;
 }

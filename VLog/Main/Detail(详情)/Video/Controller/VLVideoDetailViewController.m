@@ -10,8 +10,6 @@
 #import <AVKit/AVKit.h>
 #import "VLVideoListTableViewCell.h"
 #import "AVPlayerView.h"
-#import "NetworkHelper.h"
-#import "LoadMoreControl.h"
 #import "AVPlayerManager.h"
 
 #import "VLPhotoDetailManager.h"
@@ -27,8 +25,6 @@ NSString * const kVideoListTableViewCell   = @"VideoListTableViewCell";
 
 //@property (nonatomic, strong) NSMutableArray<VLVideoInfoModel *>           *data;
 @property (nonatomic, strong) NSMutableArray<VLVideoInfoModel *>           *awemes;
-//@property (nonatomic, strong) LoadMoreControl                      *loadMore;
-
 @property (nonatomic, strong) UIView                   *playerStatusBar;
 
 
@@ -51,8 +47,6 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
         _uid = uid;
         
         _awemes = [data mutableCopy];
-        //        _data = [[NSMutableArray alloc] initWithObjects:[_awemes objectAtIndex:_currentIndex], nil];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusBarTouchBegin) name:@"StatusBarTouchBeginNotification" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationBecomeActive) name:UIApplicationWillEnterForegroundNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name: UIApplicationDidEnterBackgroundNotification object:nil];
     }
@@ -249,59 +243,7 @@ KProStrongType(VLVideoInfoModel, videoIndfoModel)
     [cell.playerView pause];
 }
 
-#pragma load data
-//- (void)loadData:(NSInteger)pageIndex pageSize:(NSInteger)pageSize {
-//    __weak __typeof(self) wself = self;
-//    AwemeListRequest *request = [AwemeListRequest new];
-//    request.page = pageIndex;
-//    request.size = pageSize;
-//    request.uid = _uid;
-//        [NetworkHelper getWithUrlPath:FindAwemePostByPagePath request:request success:^(id data) {
-//            AwemeListResponse *response = [[AwemeListResponse alloc] initWithDictionary:data error:nil];
-//            NSArray<Aweme *> *array = response.data;
-//            if(array.count > 0) {
-//                wself.pageIndex++;
-//                [wself.tableView beginUpdates];
-//                [wself.data addObjectsFromArray:array];
-//                NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray array];
-//                for(NSInteger row = wself.data.count - array.count; row<wself.data.count; row++) {
-//                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-//                    [indexPaths addObject:indexPath];
-//                }
-//                [wself.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:NO];
-//                [wself.tableView endUpdates];
-//
-//                [wself.loadMore endLoading];
-//            }else {
-//                [wself.loadMore loadingAll];
-//            }
-//        } failure:^(NSError *error) {
-//            [wself.loadMore loadingFailed];
-//        }];
-//    }else {
-//        [NetworkHelper getWithUrlPath:FindAwemeFavoriteByPagePath request:request success:^(id data) {
-//            AwemeListResponse *response = [[AwemeListResponse alloc] initWithDictionary:data error:nil];
-//            NSArray<Aweme *> *array = response.data;
-//            if(array.count > 0) {
-//                wself.pageIndex++;
-//                [wself.tableView beginUpdates];
-//                [wself.data addObjectsFromArray:array];
-//                NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray array];
-//                for(NSInteger row = wself.data.count - array.count; row<wself.data.count; row++) {
-//                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-//                    [indexPaths addObject:indexPath];
-//                }
-//                [wself.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:NO];
-//                [wself.tableView endUpdates];
-//                [wself.loadMore endLoading];
-//            }else {
-//                [wself.loadMore loadingAll];
-//            }
-//        } failure:^(NSError *error) {
-//            [wself.loadMore loadingFailed];
-//        }];
-//    }
-//}
+
 
 //加载动画
 -(void)startLoadingPlayItemAnim:(BOOL)isStart {

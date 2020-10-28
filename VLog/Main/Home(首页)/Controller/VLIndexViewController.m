@@ -11,9 +11,6 @@
 #import "VLIndexListCollectionViewCell.h"
 #import "VLPhotoDetailViewController.h"
 #import "VLVideoDetailViewController.h"
-#import "AwemeListController.h"
-
-
 
 @interface VLIndexViewController ()
 <

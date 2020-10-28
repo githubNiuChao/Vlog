@@ -11,7 +11,6 @@
 #import "VLIndexListCollectionViewCell.h"
 #import "VLPhotoDetailViewController.h"
 #import "VLVideoDetailViewController.h"
-#import "AwemeListController.h"
 
 @interface VLUserHomeListViewController ()
 <
@@ -81,15 +80,7 @@ NCHVerticalFlowLayoutDelegate
         videoDetailVC.video_id = listModel.video_id;
         [self.navigationController pushViewController:videoDetailVC animated:YES];
     }
-    
-    
-//    NSMutableArray *muarr = [[NSMutableArray alloc]init];
-//    [muarr addObject:[self.manager.dataArray lastObject]];
-//    [muarr addObject:[self.manager.dataArray lastObject]];
-//    [muarr addObject:[self.manager.dataArray lastObject]];
-//    [muarr addObject:[self.manager.dataArray lastObject]];
-//    [muarr addObject:[self.manager.dataArray lastObject]];
-//
+
 
 }
 

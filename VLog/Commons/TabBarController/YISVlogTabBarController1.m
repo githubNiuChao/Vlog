@@ -9,7 +9,6 @@
 #import "YISVlogTabBarController1.h"
 #import "NCHNavigationController.h"
 #import "VLNestViewController.h"
-#import "UserHomePageController.h"
 #import "YISIndexViewController.h"
 #import "YISPlusButton.h"
 #import "VLMessageViewController.h"
@@ -55,7 +54,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
 - (NSArray *)viewControllersForTabBar {
     NCHNavigationController *one = [[NCHNavigationController alloc] initWithRootViewController:[[VLNestViewController alloc] init]];
       
-    UINavigationController *two = [[UINavigationController alloc] initWithRootViewController:[[UserHomePageController alloc] init]];
+    UINavigationController *two = [[UINavigationController alloc] initWithRootViewController:[[VLNestViewController alloc] init]];
       
     NCHNavigationController *four = [[NCHNavigationController alloc] initWithRootViewController:[[VLMessageViewController alloc] init]];
       

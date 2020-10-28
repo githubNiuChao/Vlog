@@ -13,13 +13,6 @@
 
 @property (nonatomic, strong) NSArray *dataArray;
 
-
-//navsubView
-@property (nonatomic, strong) UIImageView *headImage;
-@property (nonatomic, strong) UILabel *namelabel;
-@property (nonatomic, strong) UIButton *followButton;
-@property (nonatomic, strong) UIButton *shareButton;
-
 @end
 
 @implementation VLMessageLikeListViewController
@@ -42,8 +35,6 @@
     [self endHeaderFooterRefreshing];
     [self.tableView reloadData];
     
-    self.namelabel.text = @"我是傻逼少时诵诗书所所所";
-    
     NCWeakSelf(self);
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
         
@@ -60,60 +51,11 @@
 }
 
 - (void)initSubView{
-    [self setNavigationsSubViews];
     [self setLeftBarButton:@"niv_back_dark"];
-    
-//    [self setNavigationBarTitle:@"赞和收藏"];
+    [self setNavigationBarTitle:@"赞和收藏"];
     [self setBackgroundColor:kWhiteColor];
     [self.tableView registerClass:[VLMessageLikeTableViewCell class] forCellReuseIdentifier:NSStringFromClass([VLMessageLikeTableViewCell class])];
 }
-
-- (void)setNavigationsSubViews{
-    
-    //    [self addNavigationItemWithTitles:(NSArray *) isLeft:(BOOL) target:(id) action:(SEL) tags:(NSArray *)];
-    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"niv_back_dark"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
-    self.headImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    kViewRadius(_headImage, 15);
-    self.headImage.image = [UIImage jk_imageWithColor:kOrangeColor];
-//    self.headImage.alignmentRectInsetsOverride = UIEdgeInsetsMake(0, 10, 0, -(10));
-//      self.headImage.translatesAutoresizingMaskIntoConstraints = NO;
-//      [self.headImage.widthAnchor constraintEqualToConstant:30].active = YES;
-//      [self.headImage.heightAnchor constraintEqualToConstant:30].active = YES;
-    
-
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    negativeSpacer.width = 10;
-    UIBarButtonItem * item1 = [[UIBarButtonItem alloc] initWithCustomView:self.headImage];
-    self.namelabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 20)];
-    self.namelabel.font = kFontBSmall;
-    self.namelabel.textColor = kBlackColor;
-    self.namelabel.text = @"你是傻逼吗";
-    UIBarButtonItem * item2 = [[UIBarButtonItem alloc] initWithCustomView:self.namelabel];
-    self.navigationItem.leftBarButtonItems = @[leftButton,item1,item2];
-    
-    
-    _followButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 20)];
-    [_followButton setTitle:@"关注" forState:UIControlStateNormal];
-    [_followButton setTitle:@"已关注" forState:UIControlStateSelected];
-    _followButton.titleLabel.font = kFontBSmall;
-    [_followButton setTitleColor:kCOLOR_THEME forState:UIControlStateNormal];
-    [_followButton setTitleColor:kGreyColor forState:UIControlStateSelected];
-    kViewBorderRadius(_followButton, 12.5, 1.0, kCOLOR_THEME);
-    
-    [_followButton addTarget:self action:@selector(followClicked:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem * item3 = [[UIBarButtonItem alloc] initWithCustomView:_followButton];
-    _shareButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30,30)];
-    [_shareButton setImageEdgeInsets:UIEdgeInsetsMake(3,0,3,0)];
-    _shareButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [_shareButton setImage:kNameImage(@"detail_share_icon") forState:UIControlStateNormal];
-    [_shareButton addTarget:self action:@selector(shareClick:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem * item4 = [[UIBarButtonItem alloc] initWithCustomView:_shareButton];
-    self.navigationItem.rightBarButtonItems = @[item4,item3];
-    //    [self addNavigationItemWithImageNames:@[@"",@""] isLeft:NO target:self action:@selector(right.) tags:<#(NSArray *)#>]
-    
-    
-}
-
 
 //
 //- (void)setNavigationItemWithFreeBuyEnable:(BOOL)freeBuyEnable {

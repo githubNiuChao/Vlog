@@ -127,22 +127,22 @@ block();\
 dispatch_async(dispatch_get_main_queue(), block);\
 }
 
-//visitor
-#define writeVisitor(visitor)\
-({\
-NSDictionary *dic = [visitor toDictionary];\
-NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];\
-[defaults setObject:dic forKey:@"visitor"];\
-[defaults synchronize];\
-})
+////visitor
+//#define writeVisitor(visitor)\
+//({\
+//NSDictionary *dic = [visitor toDictionary];\
+//NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];\
+//[defaults setObject:dic forKey:@"visitor"];\
+//[defaults synchronize];\
+//})
 
 
-#define readVisitor()\
-({\
-NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];\
-NSDictionary *dic = [defaults objectForKey:@"visitor"];\
-Visitor *visitor = [[Visitor alloc] initWithDictionary:dic error:nil];\
-(visitor);\
-})
+//#define readVisitor()\
+//({\
+//NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];\
+//NSDictionary *dic = [defaults objectForKey:@"visitor"];\
+//Visitor *visitor = [[Visitor alloc] initWithDictionary:dic error:nil];\
+//(visitor);\
+//})
 
 #endif /* CenterMacro_h */

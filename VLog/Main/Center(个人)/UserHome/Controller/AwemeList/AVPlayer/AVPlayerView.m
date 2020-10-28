@@ -7,7 +7,6 @@
 //
 
 #import "AVPlayerView.h"
-#import "NetworkHelper.h"
 #import "AVPlayerManager.h"
 
 @interface AVPlayerView () <NSURLSessionTaskDelegate, NSURLSessionDataDelegate,  AVAssetResourceLoaderDelegate>

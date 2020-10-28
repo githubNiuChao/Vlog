@@ -7,7 +7,6 @@
 //
 
 #import "MusicAlbumView.h"
-#import "Aweme.h"
 
 @interface MusicAlbumView ()
 

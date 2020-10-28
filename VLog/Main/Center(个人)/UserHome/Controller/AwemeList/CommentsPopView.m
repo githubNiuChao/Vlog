@@ -9,8 +9,6 @@
 #import "CommentsPopView.h"
 #import "MenuPopView.h"
 #import "LoadMoreControl.h"
-#import "NetworkHelper.h"
-#import "Comment.h"
 
 NSString * const kCommentListCell     = @"CommentListCell";
 NSString * const kCommentHeaderCell   = @"CommentHeaderCell";
@@ -19,7 +17,7 @@ NSString * const kCommentFooterCell   = @"CommentFooterCell";
 @interface CommentsPopView () <UITableViewDelegate,UITableViewDataSource, UIGestureRecognizerDelegate,UIScrollViewDelegate, CommentTextViewDelegate>
 
 @property (nonatomic, assign) NSString                         *awemeId;
-@property (nonatomic, strong) Visitor                          *vistor;
+//@property (nonatomic, strong) Visitor                          *vistor;
 
 @property (nonatomic, assign) NSInteger                        pageIndex;
 @property (nonatomic, assign) NSInteger                        pageSize;
@@ -44,7 +42,7 @@ NSString * const kCommentFooterCell   = @"CommentFooterCell";
         [self addGestureRecognizer:tapGestureRecognizer];
         
         _awemeId = awemeId;
-        _vistor = readVisitor();
+//        _vistor = readVisitor();
         
         _pageIndex = 0;
         _pageSize = 20;
@@ -121,31 +119,31 @@ NSString * const kCommentFooterCell   = @"CommentFooterCell";
 // comment textView delegate
 -(void)onSendText:(NSString *)text {
     __weak __typeof(self) wself = self;
-    PostCommentRequest *request = [PostCommentRequest new];
-    request.aweme_id = _awemeId;
-    request.udid = UDID;
-    request.text = text;
-    __block NSURLSessionDataTask *task = [NetworkHelper postWithUrlPath:PostComentPath request:request success:^(id data) {
-        CommentResponse *response = [[CommentResponse alloc] initWithDictionary:data error:nil];
-        Comment *comment = response.data;
-        for(NSInteger i = wself.data.count-1; i>=0; i--) {
-            if(wself.data[i].taskId == task.taskIdentifier) {
-                wself.data[i] = comment;
-                break;
-            }
-        }
-        [UIWindow showTips:@"评论成功"];
-    } failure:^(NSError *error) {
-        [UIWindow showTips:@"评论失败"];
-    }];
-    
-    Comment *comment = [[Comment alloc] init:_awemeId text:text taskId:task.taskIdentifier];
-    comment.user_type = @"visitor";
-    comment.visitor = _vistor;
+//    PostCommentRequest *request = [PostCommentRequest new];
+//    request.aweme_id = _awemeId;
+//    request.udid = UDID;
+//    request.text = text;
+//    __block NSURLSessionDataTask *task = [NetworkHelper postWithUrlPath:PostComentPath request:request success:^(id data) {
+//        CommentResponse *response = [[CommentResponse alloc] initWithDictionary:data error:nil];
+//        Comment *comment = response.data;
+//        for(NSInteger i = wself.data.count-1; i>=0; i--) {
+//            if(wself.data[i].taskId == task.taskIdentifier) {
+//                wself.data[i] = comment;
+//                break;
+//            }
+//        }
+//        [UIWindow showTips:@"评论成功"];
+//    } failure:^(NSError *error) {
+//        [UIWindow showTips:@"评论失败"];
+//    }];
+//
+//    Comment *comment = [[Comment alloc] init:_awemeId text:text taskId:task.taskIdentifier];
+//    comment.user_type = @"visitor";
+//    comment.visitor = _vistor;
     
     [UIView setAnimationsEnabled:NO];
     [_tableView beginUpdates];
-    [_data insertObject:comment atIndex:0];
+//    [_data insertObject:comment atIndex:0];
     [_tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     [_tableView endUpdates];
     [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
@@ -172,33 +170,33 @@ NSString * const kCommentFooterCell   = @"CommentFooterCell";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    Comment *comment = _data[indexPath.row];
-    if(!comment.isTemp && [@"visitor" isEqualToString:comment.user_type] && [MD5_UDID isEqualToString:comment.visitor.udid]) {
-        MenuPopView *menu = [[MenuPopView alloc] initWithTitles:@[@"删除"]];
-        __weak __typeof(self) wself = self;
-        menu.onAction = ^(NSInteger index) {
-            [wself deleteComment:comment];
-        };
-        [menu show];
-    }
+//    Comment *comment = _data[indexPath.row];
+//    if(!comment.isTemp && [@"visitor" isEqualToString:comment.user_type] && [MD5_UDID isEqualToString:comment.visitor.udid]) {
+//        MenuPopView *menu = [[MenuPopView alloc] initWithTitles:@[@"删除"]];
+//        __weak __typeof(self) wself = self;
+//        menu.onAction = ^(NSInteger index) {
+//            [wself deleteComment:comment];
+//        };
+//        [menu show];
+//    }
 }
 
 //delete comment
 - (void)deleteComment:(Comment *)comment {
     __weak __typeof(self) wself = self;
-    DeleteCommentRequest *request = [DeleteCommentRequest new];
-    request.cid = comment.cid;
-    request.udid = UDID;
-    [NetworkHelper deleteWithUrlPath:DeleteComentByIdPath request:request success:^(id data) {
-        NSInteger index = [wself.data indexOfObject:comment];
-        [wself.tableView beginUpdates];
-        [wself.data removeObjectAtIndex:index];
-        [wself.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
-        [wself.tableView endUpdates];
-        [UIWindow showTips:@"评论删除成功"];
-    } failure:^(NSError *error) {
-        [UIWindow showTips:@"评论删除失败"];
-    }];
+//    DeleteCommentRequest *request = [DeleteCommentRequest new];
+//    request.cid = comment.cid;
+//    request.udid = UDID;
+//    [NetworkHelper deleteWithUrlPath:DeleteComentByIdPath request:request success:^(id data) {
+//        NSInteger index = [wself.data indexOfObject:comment];
+//        [wself.tableView beginUpdates];
+//        [wself.data removeObjectAtIndex:index];
+//        [wself.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
+//        [wself.tableView endUpdates];
+//        [UIWindow showTips:@"评论删除成功"];
+//    } failure:^(NSError *error) {
+//        [UIWindow showTips:@"评论删除失败"];
+//    }];
 }
 
 //guesture
@@ -257,36 +255,36 @@ NSString * const kCommentFooterCell   = @"CommentFooterCell";
 //load data
 - (void)loadData:(NSInteger)pageIndex pageSize:(NSInteger)pageSize {
     __weak __typeof(self) wself = self;
-    CommentListRequest *request = [CommentListRequest new];
-    request.page = pageIndex;
-    request.size = pageSize;
-    request.aweme_id = _awemeId;
-    [NetworkHelper getWithUrlPath:FindComentByPagePath request:request success:^(id data) {
-        CommentListResponse *response = [[CommentListResponse alloc] initWithDictionary:data error:nil];
-        NSArray<Comment *> *array = response.data;
-        
-        wself.pageIndex++;
-        
-        [UIView setAnimationsEnabled:NO];
-        [wself.tableView beginUpdates];
-        [wself.data addObjectsFromArray:array];
-        NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray array];
-        for(NSInteger row = wself.data.count - array.count; row<wself.data.count; row++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
-            [indexPaths addObject:indexPath];
-        }
-        [wself.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-        [wself.tableView endUpdates];
-        [UIView setAnimationsEnabled:YES];
-        
-        [wself.loadMore endLoading];
-        if(!response.has_more) {
-            [wself.loadMore loadingAll];
-        }
-        wself.label.text = [NSString stringWithFormat:@"%ld条评论",(long)response.total_count];
-    } failure:^(NSError *error) {
-        [wself.loadMore loadingFailed];
-    }];
+//    CommentListRequest *request = [CommentListRequest new];
+//    request.page = pageIndex;
+//    request.size = pageSize;
+//    request.aweme_id = _awemeId;
+//    [NetworkHelper getWithUrlPath:FindComentByPagePath request:request success:^(id data) {
+//        CommentListResponse *response = [[CommentListResponse alloc] initWithDictionary:data error:nil];
+//        NSArray<Comment *> *array = response.data;
+//
+//        wself.pageIndex++;
+//
+//        [UIView setAnimationsEnabled:NO];
+//        [wself.tableView beginUpdates];
+//        [wself.data addObjectsFromArray:array];
+//        NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray array];
+//        for(NSInteger row = wself.data.count - array.count; row<wself.data.count; row++) {
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+//            [indexPaths addObject:indexPath];
+//        }
+//        [wself.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+//        [wself.tableView endUpdates];
+//        [UIView setAnimationsEnabled:YES];
+//
+//        [wself.loadMore endLoading];
+//        if(!response.has_more) {
+//            [wself.loadMore loadingAll];
+//        }
+//        wself.label.text = [NSString stringWithFormat:@"%ld条评论",(long)response.total_count];
+//    } failure:^(NSError *error) {
+//        [wself.loadMore loadingFailed];
+//    }];
 }
 
 //UIScrollViewDelegate Delegate
@@ -392,31 +390,31 @@ NSString * const kCommentFooterCell   = @"CommentFooterCell";
 
 -(void)initData:(Comment *)comment {
     NSURL *avatarUrl;
-    if([@"user" isEqualToString:comment.user_type]) {
-        avatarUrl = [NSURL URLWithString:comment.user.avatar_thumb.url_list.firstObject];
-        _nickName.text = comment.user.nickname;
-    }else {
-        avatarUrl = [NSURL URLWithString:comment.visitor.avatar_thumbnail.url];
-        _nickName.text = [comment.visitor formatUDID];
-    }
-    
-    __weak __typeof(self) wself = self;
-    [_avatar setImageWithURL:avatarUrl completedBlock:^(UIImage *image, NSError *error) {
-        image = [image drawCircleImage];
-        wself.avatar.image = image;
-    }];
-    _content.text = comment.text;
-    _date.text = [NSDate formatTime:comment.create_time];
-    _likeNum.text = [NSString formatCount:comment.digg_count];
+//    if([@"user" isEqualToString:comment.user_type]) {
+//        avatarUrl = [NSURL URLWithString:comment.user.avatar_thumb.url_list.firstObject];
+//        _nickName.text = comment.user.nickname;
+//    }else {
+//        avatarUrl = [NSURL URLWithString:comment.visitor.avatar_thumbnail.url];
+//        _nickName.text = [comment.visitor formatUDID];
+//    }
+//
+//    __weak __typeof(self) wself = self;
+//    [_avatar setImageWithURL:avatarUrl completedBlock:^(UIImage *image, NSError *error) {
+//        image = [image drawCircleImage];
+//        wself.avatar.image = image;
+//    }];
+//    _content.text = comment.text;
+//    _date.text = [NSDate formatTime:comment.create_time];
+//    _likeNum.text = [NSString formatCount:comment.digg_count];
     
 }
 
-+(CGFloat)cellHeight:(Comment *)comment {
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:comment.text];
-    [attributedString addAttribute:NSFontAttributeName value:MediumFont range:NSMakeRange(0, attributedString.length)];
-    CGSize size = [attributedString multiLineSize:MaxContentWidth];
-    return size.height + 30 + SmallFont.lineHeight * 2;
-}
+//+(CGFloat)cellHeight:(Comment *)comment {
+//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:comment.text];
+//    [attributedString addAttribute:NSFontAttributeName value:MediumFont range:NSMakeRange(0, attributedString.length)];
+//    CGSize size = [attributedString multiLineSize:MaxContentWidth];
+//    return size.height + 30 + SmallFont.lineHeight * 2;
+//}
 @end
 
 
