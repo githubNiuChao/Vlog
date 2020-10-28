@@ -7,7 +7,6 @@
 //
 
 #import "VLIndexListManager.h"
-#import "VLIndexModel.h"
 #import "VLIndexRequest.h"
 
 @interface VLIndexListManager()

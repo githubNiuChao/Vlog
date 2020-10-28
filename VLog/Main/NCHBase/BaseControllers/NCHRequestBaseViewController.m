@@ -41,7 +41,7 @@
 {
     if(_reachHost == nil)
     {
-        _reachHost = [Reachability reachabilityWithHostName:kURL_Reachability__Address];
+        _reachHost = [Reachability reachabilityWithHostName:@"www.baidu.com"];
         NCWeakSelf(self);
         [_reachHost setUnreachableBlock:^(Reachability * reachability){
             dispatch_async(dispatch_get_main_queue(), ^{

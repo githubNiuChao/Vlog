@@ -7,7 +7,6 @@
 //
 
 #import "VLUserHomeListManager.h"
-#import "VLIndexModel.h"
 #import "VLUserHomeRequest.h"
 
 @implementation VLUserHomeListManager
