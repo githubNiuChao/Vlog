@@ -41,7 +41,7 @@ NCHVerticalFlowLayoutDelegate
     self.collectionView.frame = self.view.bounds;
 }
 #pragma mark - Super
--(void)loadMore:(BOOL)isMore{
+- (void)loadMore:(BOOL)isMore{
     self.manager.page = isMore? self.manager.page+=1:1;
     [self.manager loadDataWithCatId:self.catId];
 }

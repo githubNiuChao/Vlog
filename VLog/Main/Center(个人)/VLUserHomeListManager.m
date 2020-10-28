@@ -21,7 +21,6 @@
 
 #pragma mark ————— 拉取数据 —————
 -(void)loadDataWithCatId:(NSInteger)catId{
-//    http://m.68shop.me/user/short-video/user.html?page%5Bcur_page%5D=2&page%5Bpage_size%5D=10&showloading=false&go=2
     VLUserHomeRequest *request =  [[VLUserHomeRequest alloc]init];
       NSLog(@"%@%@",request.baseUrl,request.requestUrl);
     [request setArgument:@(self.page) forKey:@"page[cur_page]"];
@@ -29,7 +28,6 @@
     if (catId!=0) {
         [request setArgument:[NSString stringWithFormat:@"%ld",catId] forKey:@"tab_id"];
     }
-    
     NCWeakSelf(self);
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
         VLUserHomeResponse *dataModel = [VLUserHomeResponse yy_modelWithJSON:baseResponse.data];
