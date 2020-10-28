@@ -134,9 +134,9 @@ static const NSInteger kFavoriteViewLikeAfterTag   = 0x02;
     }
 }
 
-- (void)resetView {
-    [_favoriteBefore setHidden:NO];
-    [_favoriteAfter setHidden:YES];
+- (void)resetViewWithIsLike:(BOOL)islike{
+    [_favoriteBefore setHidden:islike];
+    [_favoriteAfter setHidden:!islike];
     [self.layer removeAllAnimations];
 }
 

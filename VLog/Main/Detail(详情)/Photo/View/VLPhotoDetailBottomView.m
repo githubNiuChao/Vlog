@@ -7,6 +7,8 @@
 //
 
 #import "VLPhotoDetailBottomView.h"
+#import "VLLikeUnLikeRequest.h"
+
 
 @interface VLPhotoDetailBottomView ()
 KProStrongType(UIButton,textBGButton);
@@ -164,6 +166,10 @@ KProStrongType(VLDetailResponse,infoModel);
     count = self.collectButton.selected?(count+1):(count-1);
     [self.collectButton setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
     
+    VLLikeUnLikeRequest *request = [[VLLikeUnLikeRequest alloc] initWithIsLikeRequest:NO];
+    [request likeOrCollectRequestWhitID:self.infoModel.video_info.video_id isLikeCollect:self.collectButton.selected];
+    
+    
 }
 
 - (void)likeClick:(UIButton *)button{
@@ -171,6 +177,9 @@ KProStrongType(VLDetailResponse,infoModel);
     NSInteger count = [self.likeButton.titleLabel.text integerValue];
        count = self.likeButton.selected?(count+1):(count-1);
        [self.likeButton setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
+    
+    VLLikeUnLikeRequest *request = [[VLLikeUnLikeRequest alloc] initWithIsLikeRequest:YES];
+    [request likeOrCollectRequestWhitID:self.infoModel.video_info.video_id isLikeCollect:self.likeButton.selected];
 }
 
 @end

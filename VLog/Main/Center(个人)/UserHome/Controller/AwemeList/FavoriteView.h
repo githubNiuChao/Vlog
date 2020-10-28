@@ -13,6 +13,6 @@
 @property (nonatomic, strong) UIImageView      *favoriteBefore;
 @property (nonatomic, strong) UIImageView      *favoriteAfter;
 
-- (void)resetView;
+- (void)resetViewWithIsLike:(BOOL)islike;
 
 @end

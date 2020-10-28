@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "VLDetailResponse.h"
+#import "VLVideoInfoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

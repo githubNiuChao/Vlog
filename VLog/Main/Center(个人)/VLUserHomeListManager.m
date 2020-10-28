@@ -21,13 +21,11 @@
 
 #pragma mark ————— 拉取数据 —————
 -(void)loadDataWithCatId:(NSInteger)catId{
-    
+//    http://m.68shop.me/user/short-video/user.html?page%5Bcur_page%5D=2&page%5Bpage_size%5D=10&showloading=false&go=2
     VLUserHomeRequest *request =  [[VLUserHomeRequest alloc]init];
       NSLog(@"%@%@",request.baseUrl,request.requestUrl);
-      //        [request setArgument:@"asthare" forKey:@"user_name"];
-      //        [request setArgument:@"123456" forKey:@"password"];
-      //        [request setArgument:@"15" forKey:@"video_id"];
-//    [request setArgument:[NSString stringWithFormat:@"%ld",catId] forKey:@"cat_id"];
+    [request setArgument:@(self.page) forKey:@"page[cur_page]"];
+//    [request setArgument:@(10) forKey:@"page[page_size]"];
     if (catId!=0) {
         [request setArgument:[NSString stringWithFormat:@"%ld",catId] forKey:@"tab_id"];
     }
@@ -35,7 +33,12 @@
     NCWeakSelf(self);
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
         VLUserHomeResponse *dataModel = [VLUserHomeResponse yy_modelWithJSON:baseResponse.data];
-        weakself.dataArray = dataModel.list;
+        
+        if (weakself.page!=1){
+            [weakself.dataArray addObjectsFromArray:dataModel.list];
+        }else{
+            weakself.dataArray = [dataModel.list mutableCopy];
+        }
         if (weakself.delegagte && [self.delegagte respondsToSelector:@selector(requestDataCompleted)]) {
             [weakself.delegagte requestDataCompleted];
         }

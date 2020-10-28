@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VLUserHomeListManager : NCHBaseModelManager
-@property (nonatomic,strong) NSArray<VLVideoInfoModel*> * dataArray;//数据源
+@property (nonatomic,strong) NSMutableArray<VLVideoInfoModel*> * dataArray;//数据源
 /**拉取数据*/
 -(void)loadDataWithCatId:(NSInteger)catId;
 

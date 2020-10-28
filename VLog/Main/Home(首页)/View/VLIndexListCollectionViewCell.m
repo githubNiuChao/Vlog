@@ -7,6 +7,7 @@
 //
 
 #import "VLIndexListCollectionViewCell.h"
+#import "VLLikeUnLikeRequest.h"
 
 @interface VLIndexListCollectionViewCell ()
 
@@ -100,9 +101,15 @@ KProStrongType(UIButton, locationButton)//距离
 }
 
 - (void)likeClicked:(UIButton *)button{
+    
     _like.selected = !_like.selected;
     _listModel.is_like = _like.selected;
+    
+    VLLikeUnLikeRequest *requset = [[VLLikeUnLikeRequest alloc]initWithIsLikeRequest:YES];
+    [requset likeOrCollectRequestWhitID:self.listModel.video_id isLikeCollect:_like.selected];
+    
 }
+
 
 -(void)setListModel:(VLVideoInfoModel *)listModel{
     _listModel = listModel;

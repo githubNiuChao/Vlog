@@ -74,16 +74,6 @@ NCHVerticalFlowLayoutDelegate
     VLVideoInfoModel *listModel = self.manager.dataArray[indexPath.row];
     photoDetaiVC.video_id = listModel.video_id;
     [self.navigationController pushViewController:photoDetaiVC animated:YES];
-    
-//    NSMutableArray *muarr = [[NSMutableArray alloc]init];
-//    [muarr addObject:[self.manager.dataArray lastObject]];
-//    [muarr addObject:[self.manager.dataArray lastObject]];
-//    [muarr addObject:[self.manager.dataArray lastObject]];
-//    [muarr addObject:[self.manager.dataArray lastObject]];
-//    [muarr addObject:[self.manager.dataArray lastObject]];
-//
-//    VLVideoDetailViewController *videoDetailVC = [[VLVideoDetailViewController alloc] initWithVideoData:muarr currentIndex:1 pageIndex:1 pageSize:10 uid:@"1"];
-//    [self.navigationController pushViewController:videoDetailVC animated:YES];
 }
 
 

@@ -11,6 +11,7 @@
 #import "VLIndexListCollectionViewCell.h"
 #import "VLPhotoDetailViewController.h"
 #import "VLVideoDetailViewController.h"
+#import "VLLikeUnLikeRequest.h"
 
 @interface VLUserHomeListViewController ()
 <
@@ -32,6 +33,8 @@ NCHVerticalFlowLayoutDelegate
     self.manager = [[VLUserHomeListManager alloc] init];
     self.manager.delegagte = self;
     [self.collectionView registerClass:[VLIndexListCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([VLIndexListCollectionViewCell class])];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadMore:) name:VLRefreshLikeCollectListNotification object:nil];
 }
 
 - (void)viewDidLayoutSubviews{
@@ -39,7 +42,7 @@ NCHVerticalFlowLayoutDelegate
 }
 #pragma mark - Super
 -(void)loadMore:(BOOL)isMore{
-    self.manager.page = isMore? self.manager.page+=1:0;
+    self.manager.page = isMore? self.manager.page+=1:1;
     [self.manager loadDataWithCatId:self.catId];
 }
 

@@ -273,7 +273,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     
     [_hoverTextView.textView setText:@""];
     [_avatar setImage:[UIImage imageNamed:@"img_find_default"]];
-    [_favorite resetView];
+    [_favorite resetViewWithIsLike:NO];
     [_focus resetView];
 }
 

@@ -72,6 +72,15 @@
     //    [self addNavigationItemWithImageNames:@[@"",@""] isLeft:NO target:self action:@selector(right.) tags:<#(NSArray *)#>]
 }
 
+
+- (void)homeClicked:(UIButton*)button{
+    
+}
+
+- (void)moreClick:(UIButton*)button{
+    
+}
+
 - (void)initSubView{
     [self userHeaderView];
     [self.view addSubview:self.pagerView];
