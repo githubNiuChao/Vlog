@@ -20,6 +20,7 @@
 #import "VLPhotoDetailRequest.h"
 #import "VLPhotoDetailManager.h"
 #import "VLDetailResponse.h"
+#import "VLUserInfoModel.h"
 #import "VLIndexResponse.h"
 #import "VLCommentTextView.h"
 
@@ -39,7 +40,14 @@ KProStrongType(VLPhotoDetailBottomView,bottomView);
 KProStrongType(VLPhotoDetailManager, manager)
 KProStrongType(VLDetailResponse, dataModel)
 KProStrongType(VLVideoInfoModel, videoIndfoModel)
+KProStrongType(VLUserInfoModel, currentUserInfoModel)
 KProStrongType(VLCommentTextView, textView)
+
+//navsubView
+@property (nonatomic, strong) UIImageView *headImage;
+@property (nonatomic, strong) UILabel *namelabel;
+@property (nonatomic, strong) UIButton *followButton;
+@property (nonatomic, strong) UIButton *shareButton;
 
 //准备回复的Model
 KProStrongType(VLDetailCommentModel, currentCommentModel)
@@ -64,7 +72,7 @@ KProStrongType(VLDetailCommentModel, currentCommentModel)
 }
 
 - (void)initSubView{
-    [self setLeftBarButton:@"niv_back_dark"];
+    [self setNavigationsSubViews];
     [self setBackgroundColor:kWhiteColor];
     
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -91,6 +99,10 @@ KProStrongType(VLDetailCommentModel, currentCommentModel)
     self.dataModel = self.manager.dataModel;
     self.commentListData = [self.dataModel.comment_list mutableCopy];
     self.videoIndfoModel = self.manager.dataModel.video_info;
+    self.currentUserInfoModel = self.manager.dataModel.user_info;
+    
+    [self.headImage sd_setImageWithURL:[NSURL URLWithString:self.currentUserInfoModel.headimg] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
+    self.namelabel.text = self.currentUserInfoModel.nickname;
     self.tableView.tableHeaderView = self.detailHeadView;
     [self.tableView reloadData];
     
@@ -169,5 +181,68 @@ KProStrongType(VLDetailCommentModel, currentCommentModel)
     }
     return _bottomView;
 }
+
+
+
+- (void)setNavigationsSubViews{
+    
+    //    [self addNavigationItemWithTitles:(NSArray *) isLeft:(BOOL) target:(id) action:(SEL) tags:(NSArray *)];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"niv_back_dark"] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    leftButton.tintColor = kBlackColor;
+    self.headImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    kViewRadius(_headImage, 15);
+//    self.headImage.image = [UIImage jk_imageWithColor:kOrangeColor];
+//    self.headImage.alignmentRectInsetsOverride = UIEdgeInsetsMake(0, 10, 0, -(10));
+//      self.headImage.translatesAutoresizingMaskIntoConstraints = NO;
+//      [self.headImage.widthAnchor constraintEqualToConstant:30].active = YES;
+//      [self.headImage.heightAnchor constraintEqualToConstant:30].active = YES;
+    
+
+    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    negativeSpacer.width = 10;
+    UIBarButtonItem * item1 = [[UIBarButtonItem alloc] initWithCustomView:self.headImage];
+    self.namelabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 20)];
+    self.namelabel.font = kFontBSmall;
+    self.namelabel.textColor = kBlackColor;
+    self.namelabel.text = @"";
+    UIBarButtonItem * item2 = [[UIBarButtonItem alloc] initWithCustomView:self.namelabel];
+    self.navigationItem.leftBarButtonItems = @[leftButton,item1,item2];
+    
+    
+    _followButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 20)];
+    [_followButton setTitle:@"关注" forState:UIControlStateNormal];
+    [_followButton setTitle:@"已关注" forState:UIControlStateSelected];
+    _followButton.titleLabel.font = kFontBSmall;
+    [_followButton setTitleColor:kCOLOR_THEME forState:UIControlStateNormal];
+    [_followButton setTitleColor:kGreyColor forState:UIControlStateSelected];
+    kViewBorderRadius(_followButton, 12.5, 1.0, kCOLOR_THEME);
+    
+    [_followButton addTarget:self action:@selector(followClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem * item3 = [[UIBarButtonItem alloc] initWithCustomView:_followButton];
+    _shareButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30,30)];
+    [_shareButton setImageEdgeInsets:UIEdgeInsetsMake(3,0,3,0)];
+    _shareButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [_shareButton setImage:kNameImage(@"detail_share_icon") forState:UIControlStateNormal];
+    [_shareButton addTarget:self action:@selector(shareClick:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem * item4 = [[UIBarButtonItem alloc] initWithCustomView:_shareButton];
+    self.navigationItem.rightBarButtonItems = @[item4,item3];
+    //    [self addNavigationItemWithImageNames:@[@"",@""] isLeft:NO target:self action:@selector(right.) tags:<#(NSArray *)#>]
+
+}
+
+
+- (void)followClicked:(UIButton *)button{
+    self.followButton.selected = !button.selected;
+    if (_followButton.selected) {
+        kViewBorderRadius(_followButton, 12.5, 1.0, kGreyColor);
+    }else{
+        kViewBorderRadius(_followButton, 12.5, 1.0, kCOLOR_THEME);
+    }
+}
+
+- (void)shareClick:(UIButton *)button{
+    
+}
+
 
 @end

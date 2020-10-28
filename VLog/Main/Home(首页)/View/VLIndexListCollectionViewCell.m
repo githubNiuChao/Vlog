@@ -47,11 +47,11 @@ KProStrongType(UIButton, locationButton)//距离
         _lblHobby.textColor=kHexColor(1f1f1f);
         _lblHobby.font= kFontBSmall;
         [self addSubview:_lblHobby];
-
+        
         _line=[[UIView alloc]initWithFrame:CGRectMake(0, _lblHobby.jk_bottom+10, frame.size.width, 0.5)];
         _line.backgroundColor= kSysGroupBGColor;
         [self addSubview:_line];
-
+        
         _imgHead=[[UIImageView alloc]initWithFrame:CGRectMake(10, _line.jk_bottom+10, 30, 30)];
         kViewRadius(_imgHead, 15);
         _imgHead.contentMode=UIViewContentModeScaleAspectFill;
@@ -62,7 +62,7 @@ KProStrongType(UIButton, locationButton)//距离
         _lblNickName.textColor=kBlackColor;
         _lblNickName.font= kFontSmall;
         [self addSubview:_lblNickName];
-
+        
         _like = [[UIButton alloc]initWithFrame:CGRectZero];
         [_like setImage:kNameImage(@"home_like_n") forState:UIControlStateNormal];
         [_like setImage:kNameImage(@"home_like_s") forState:UIControlStateSelected];
@@ -78,21 +78,23 @@ KProStrongType(UIButton, locationButton)//距离
         
         
         _locationButton = [[UIButton alloc]initWithFrame:CGRectZero];
-           [_locationButton setImage:kNameImage(@"home_like_n") forState:UIControlStateNormal];
-           [_locationButton setImage:kNameImage(@"home_like_s") forState:UIControlStateSelected];
-        [_locationButton setTitle:@"" forState:UIControlStateNormal];
-           [_locationButton setTitleColor:kBlackColor forState:UIControlStateNormal];
-        
-           [_locationButton addTarget:self action:@selector(likeClicked:) forControlEvents:UIControlEventTouchUpInside];
-           _locationButton.titleLabel.font = kFontSmall;
-           [self addSubview:_locationButton];
-           [_locationButton mas_makeConstraints:^(MASConstraintMaker *make) {
-               make.centerY.equalTo(_imgHead);
-               make.right.equalTo(self).offset(-10);
-               make.size.mas_equalTo(CGSizeMake(20, 20));
-           }];
-        
+        [_locationButton setImage:kNameImage(@"home_loction_icon") forState:UIControlStateNormal];
+        [_locationButton setTitle:@"2KM" forState:UIControlStateNormal];
+        [_locationButton setTitleColor:kGreyColor forState:UIControlStateNormal];
 
+        [_locationButton setImageEdgeInsets:UIEdgeInsetsMake(2,0,2,0)];
+        [_locationButton jk_setImagePosition:LXMImagePositionLeft spacing:-2];
+        _locationButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _locationButton.titleLabel.font = kFontSmall;
+        _locationButton.hidden = !self.isLoction;
+        [self addSubview:_locationButton];
+        [_locationButton sizeToFit];
+        [_locationButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(_imgHead);
+            make.right.equalTo(self).offset(-5);
+            make.height.equalTo(@20);
+//            make.size.mas_equalTo(CGSizeMake(80, 20));
+        }];
     }
     return self;
 }

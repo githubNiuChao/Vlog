@@ -52,11 +52,32 @@
     self.titles = @[@"笔记", @"赞过", @"收藏"];
 }
 
+- (void)setNavigationsSubViews{
+    
+    UIButton *homeButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [homeButton setImageEdgeInsets:UIEdgeInsetsMake(3,0,3,0)];
+    homeButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [homeButton setImage:kNameImage(@"user_home_icon") forState:UIControlStateNormal];
+    [homeButton addTarget:self action:@selector(homeClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:homeButton];
+    
+    UIButton *moreButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30,30)];
+    [moreButton setImageEdgeInsets:UIEdgeInsetsMake(3,0,3,0)];
+    moreButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [moreButton setImage:kNameImage(@"user_more_icon") forState:UIControlStateNormal];
+    [moreButton addTarget:self action:@selector(moreClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
+//    self.navigationItem.rightBarButtonItems = @[item4,item3];
+    //    [self addNavigationItemWithImageNames:@[@"",@""] isLeft:NO target:self action:@selector(right.) tags:<#(NSArray *)#>]
+}
+
 - (void)initSubView{
     [self userHeaderView];
     [self.view addSubview:self.pagerView];
     /*关联*/
     self.categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pagerView.listContainerView;
+    [self setNavigationsSubViews];
     
     self.textView = [VLCommentTextView new];
 //    _textView.delegate = self;
@@ -137,9 +158,6 @@
     
     [self.textView showWtihTitle:@"8888"];
 }
-
-
-
 
 #pragma mark - JXPagerViewDelegate
 

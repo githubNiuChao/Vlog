@@ -28,7 +28,7 @@
     self.myCategoryView.cellSpacing = 30;
     self.myCategoryView.titleColor = [UIColor grayColor];
     self.myCategoryView.titleSelectedColor = [UIColor blackColor];
-    self.myCategoryView.titleFont = [UIFont boldSystemFontOfSize:20];
+    self.myCategoryView.titleFont = [UIFont boldSystemFontOfSize:18];
     self.myCategoryView.titleLabelZoomEnabled = YES;
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc ]init];
     self.myCategoryView.indicators = @[lineView];

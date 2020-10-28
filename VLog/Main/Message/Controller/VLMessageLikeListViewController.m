@@ -114,19 +114,6 @@
     
 }
 
-- (void)followClicked:(UIButton *)button{
-    self.followButton.selected = !button.selected;
-    if (_followButton.selected) {
-        kViewBorderRadius(_followButton, 12.5, 1.0, kGreyColor);
-    }else{
-        kViewBorderRadius(_followButton, 12.5, 1.0, kCOLOR_THEME);
-    }
-}
-
-- (void)shareClick:(UIButton *)button{
-    
-}
-
 
 //
 //- (void)setNavigationItemWithFreeBuyEnable:(BOOL)freeBuyEnable {

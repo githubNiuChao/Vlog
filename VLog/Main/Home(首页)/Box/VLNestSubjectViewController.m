@@ -51,8 +51,8 @@ static const CGFloat CategoryViewHeight = 40;
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    _myCategoryView.frame = CGRectMake(0, 0, kSCREEN_WIDTH - 50, CategoryViewHeight);
-    _catSelector.frame = CGRectMake(kSCREEN_WIDTH - 50, 0, 50, CategoryViewHeight);
+    _myCategoryView.frame = CGRectMake(0, 0, kSCREEN_WIDTH - 30, CategoryViewHeight);
+    _catSelector.frame = CGRectMake(kSCREEN_WIDTH-30, 10, 20, CategoryViewHeight-20);
     _listContainerView.frame = CGRectMake(0, CategoryViewHeight, kSCREEN_WIDTH, self.view.jk_height-kTabbarH);
 }
 
@@ -147,7 +147,8 @@ static const CGFloat CategoryViewHeight = 40;
 - (UIButton *)catSelector{
     if (!_catSelector) {
         _catSelector = [[UIButton alloc]init];
-        _catSelector.backgroundColor = kOrangeColor;
+        [_catSelector setImage:kNameImage(@"home_topiclist_down") forState:UIControlStateNormal];
+        [_catSelector setImage:kNameImage(@"home_topiclist_up") forState:UIControlStateSelected];
         [_catSelector addTarget:self action:@selector(actionCatSelectorClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _catSelector;
@@ -156,7 +157,7 @@ static const CGFloat CategoryViewHeight = 40;
 - (void)initPopView{
     
     UIView *view = [[UIView alloc] init];
-    view.backgroundColor = kOrangeColor;
+    view.backgroundColor = kWhiteColor;
     view.frame = CGRectMake(0, 0, kSCREEN_WIDTH,(kSCREEN_WIDTH)/2.0);
     _popView = [NCHPopView initWithCustomView:view
                                    parentView:_listContainerView

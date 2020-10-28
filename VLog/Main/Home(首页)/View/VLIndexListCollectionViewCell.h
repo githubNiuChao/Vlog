@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) VLVideoInfoModel *listModel;
 @property (strong, nonatomic) UIImageView *imgView;
 
+KProBool(isLoction);
+
 @end
 
 NS_ASSUME_NONNULL_END
