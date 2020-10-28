@@ -52,6 +52,7 @@
 		517481832549453700F0E002 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 517481752549453600F0E002 /* UIWindow+Extension.m */; };
 		517481842549453700F0E002 /* NSAttributedString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 517481792549453700F0E002 /* NSAttributedString+Extension.m */; };
 		517481852549453700F0E002 /* NSTextAttachment+Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5174817A2549453700F0E002 /* NSTextAttachment+Emotion.m */; };
+		517489392549BDA600F0E002 /* VLPhotoDetailHeadICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517489382549BDA600F0E002 /* VLPhotoDetailHeadICollectionViewCell.m */; };
 		517E40FB2547A798007DBBC2 /* UITableView+HYBCacheHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E40EF2547A797007DBBC2 /* UITableView+HYBCacheHeight.m */; };
 		517E40FC2547A798007DBBC2 /* VLDetailCommentSubCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E40F12547A798007DBBC2 /* VLDetailCommentSubCell.m */; };
 		517E40FD2547A798007DBBC2 /* VLDetailCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 517E40F22547A798007DBBC2 /* VLDetailCommentCell.m */; };
@@ -237,9 +238,6 @@
 		51A144522548245F005FD0B3 /* DetailAttributedStringHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A144512548245F005FD0B3 /* DetailAttributedStringHandle.m */; };
 		51A29BDB25203EC1001EF6E9 /* WebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B3725203EC1001EF6E9 /* WebSocketManager.m */; };
 		51A29BE825203EC1001EF6E9 /* WebCacheHelpler.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B5125203EC1001EF6E9 /* WebCacheHelpler.m */; };
-		51A29BF225203EC1001EF6E9 /* WebPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B6B25203EC1001EF6E9 /* WebPImage.m */; };
-		51A29BF325203EC1001EF6E9 /* WebPImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B6C25203EC1001EF6E9 /* WebPImageView.m */; };
-		51A29BF425203EC1001EF6E9 /* WebPQueueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B6D25203EC1001EF6E9 /* WebPQueueManager.m */; };
 		51A29BF625203EC1001EF6E9 /* MenuPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B7125203EC1001EF6E9 /* MenuPopView.m */; };
 		51A29BF725203EC1001EF6E9 /* LoadMoreControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B7225203EC1001EF6E9 /* LoadMoreControl.m */; };
 		51A29BF825203EC1001EF6E9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B7525203EC1001EF6E9 /* BaseViewController.m */; };
@@ -404,6 +402,8 @@
 		517481792549453700F0E002 /* NSAttributedString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Extension.m"; sourceTree = "<group>"; };
 		5174817A2549453700F0E002 /* NSTextAttachment+Emotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextAttachment+Emotion.m"; sourceTree = "<group>"; };
 		5174817B2549453700F0E002 /* NSTextAttachment+Emotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextAttachment+Emotion.h"; sourceTree = "<group>"; };
+		517489372549BDA600F0E002 /* VLPhotoDetailHeadICollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLPhotoDetailHeadICollectionViewCell.h; sourceTree = "<group>"; };
+		517489382549BDA600F0E002 /* VLPhotoDetailHeadICollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLPhotoDetailHeadICollectionViewCell.m; sourceTree = "<group>"; };
 		517E40EF2547A797007DBBC2 /* UITableView+HYBCacheHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HYBCacheHeight.m"; sourceTree = "<group>"; };
 		517E40F02547A798007DBBC2 /* VLDetailCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLDetailCommentModel.h; sourceTree = "<group>"; };
 		517E40F12547A798007DBBC2 /* VLDetailCommentSubCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLDetailCommentSubCell.m; sourceTree = "<group>"; };
@@ -749,12 +749,6 @@
 		51A29B3825203EC1001EF6E9 /* WebCacheHelpler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebCacheHelpler.h; sourceTree = "<group>"; };
 		51A29B5125203EC1001EF6E9 /* WebCacheHelpler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebCacheHelpler.m; sourceTree = "<group>"; };
 		51A29B6525203EC1001EF6E9 /* WebSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketManager.h; sourceTree = "<group>"; };
-		51A29B6825203EC1001EF6E9 /* WebPImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPImage.h; sourceTree = "<group>"; };
-		51A29B6925203EC1001EF6E9 /* WebPImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPImageView.h; sourceTree = "<group>"; };
-		51A29B6A25203EC1001EF6E9 /* WebPQueueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebPQueueManager.h; sourceTree = "<group>"; };
-		51A29B6B25203EC1001EF6E9 /* WebPImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPImage.m; sourceTree = "<group>"; };
-		51A29B6C25203EC1001EF6E9 /* WebPImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPImageView.m; sourceTree = "<group>"; };
-		51A29B6D25203EC1001EF6E9 /* WebPQueueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPQueueManager.m; sourceTree = "<group>"; };
 		51A29B7125203EC1001EF6E9 /* MenuPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuPopView.m; sourceTree = "<group>"; };
 		51A29B7225203EC1001EF6E9 /* LoadMoreControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreControl.m; sourceTree = "<group>"; };
 		51A29B7325203EC1001EF6E9 /* RefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshControl.h; sourceTree = "<group>"; };
@@ -1026,6 +1020,8 @@
 				5173E5B22522CB2700E57C71 /* VLPhotoDetailHeadView.m */,
 				51C446132542D50E00F8D65A /* VLPhotoDetailBottomView.h */,
 				51C446142542D50E00F8D65A /* VLPhotoDetailBottomView.m */,
+				517489372549BDA600F0E002 /* VLPhotoDetailHeadICollectionViewCell.h */,
+				517489382549BDA600F0E002 /* VLPhotoDetailHeadICollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1396,20 +1392,20 @@
 		518058D1251B91C900FBC12D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				518058D5251B91C900FBC12D /* YSCTagViewController.h */,
-				518058D2251B91C900FBC12D /* YSCTagViewController.m */,
+				512A9CAE254151DD0042E41D /* VLLocationViewController.h */,
+				512A9CAF254151DD0042E41D /* VLLocationViewController.m */,
 				51ADE222253EBACC0081F620 /* VLPublishTagListViewController.h */,
 				51ADE223253EBACC0081F620 /* VLPublishTagListViewController.m */,
 				51ADE225253ED9230081F620 /* VLTagListView.h */,
 				51ADE226253ED9230081F620 /* VLTagListView.m */,
-				518058D4251B91C900FBC12D /* YSCVlogPublishViewController.h */,
-				518058D3251B91C900FBC12D /* YSCVlogPublishViewController.m */,
-				512A9CAB254151A80042E41D /* VLTopicViewController.h */,
-				512A9CAC254151A80042E41D /* VLTopicViewController.m */,
 				512A9CB725416DA50042E41D /* VLTopicListView.h */,
 				512A9CB825416DA50042E41D /* VLTopicListView.m */,
-				512A9CAE254151DD0042E41D /* VLLocationViewController.h */,
-				512A9CAF254151DD0042E41D /* VLLocationViewController.m */,
+				512A9CAB254151A80042E41D /* VLTopicViewController.h */,
+				512A9CAC254151A80042E41D /* VLTopicViewController.m */,
+				518058D5251B91C900FBC12D /* YSCTagViewController.h */,
+				518058D2251B91C900FBC12D /* YSCTagViewController.m */,
+				518058D4251B91C900FBC12D /* YSCVlogPublishViewController.h */,
+				518058D3251B91C900FBC12D /* YSCVlogPublishViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2036,7 +2032,6 @@
 				51A29C2425204156001EF6E9 /* CenterMacro.h */,
 				51A29B7025203EC1001EF6E9 /* Controller */,
 				51A29B3625203EC1001EF6E9 /* Network */,
-				51A29B6725203EC1001EF6E9 /* WebP */,
 			);
 			path = UserHome;
 			sourceTree = "<group>";
@@ -2050,19 +2045,6 @@
 				51A29B3725203EC1001EF6E9 /* WebSocketManager.m */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		51A29B6725203EC1001EF6E9 /* WebP */ = {
-			isa = PBXGroup;
-			children = (
-				51A29B6825203EC1001EF6E9 /* WebPImage.h */,
-				51A29B6B25203EC1001EF6E9 /* WebPImage.m */,
-				51A29B6925203EC1001EF6E9 /* WebPImageView.h */,
-				51A29B6C25203EC1001EF6E9 /* WebPImageView.m */,
-				51A29B6A25203EC1001EF6E9 /* WebPQueueManager.h */,
-				51A29B6D25203EC1001EF6E9 /* WebPQueueManager.m */,
-			);
-			path = WebP;
 			sourceTree = "<group>";
 		};
 		51A29B7025203EC1001EF6E9 /* Controller */ = {
@@ -2519,7 +2501,6 @@
 				51BF5F5425432FEA0059DA64 /* VLSendCommentTextView.m in Sources */,
 				51E05A02252462F200FA9744 /* VLIndexRequest.m in Sources */,
 				51805B74251B91CC00FBC12D /* HXPhotoSubViewCell.m in Sources */,
-				51A29BF425203EC1001EF6E9 /* WebPQueueManager.m in Sources */,
 				51805B7D251B91CC00FBC12D /* HXPhotoEditChartletModel.m in Sources */,
 				51805B43251B91CC00FBC12D /* YSCVlogPublishViewController.m in Sources */,
 				51805B92251B91CC00FBC12D /* HXPhotoEditGridView.m in Sources */,
@@ -2529,6 +2510,7 @@
 				51ADE23725400B200081F620 /* VLPublishManager.m in Sources */,
 				5134C872253C2D5E00FE5528 /* VLVideoListTableViewCell.m in Sources */,
 				515FCC8B25359704007F964A /* NCHTimer.m in Sources */,
+				517489392549BDA600F0E002 /* VLPhotoDetailHeadICollectionViewCell.m in Sources */,
 				51805B57251B91CC00FBC12D /* HXPhotoCommon.m in Sources */,
 				51805BCB251B9F8600FBC12D /* MPRequstFailedHelper.m in Sources */,
 				51805B65251B91CC00FBC12D /* HXAlbumModel.m in Sources */,
@@ -2549,7 +2531,6 @@
 				51805B95251B91CC00FBC12D /* HXPhotoEditStickerItemView.m in Sources */,
 				51B1389C2545791F00A915B7 /* VLMessageFollowListViewController.m in Sources */,
 				512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */,
-				51A29BF325203EC1001EF6E9 /* WebPImageView.m in Sources */,
 				51805B59251B91CC00FBC12D /* HXPhotoManager.m in Sources */,
 				51ADE22E253F2F450081F620 /* VLMessageViewController.m in Sources */,
 				512B03462510549B00447945 /* XYTransition.m in Sources */,
@@ -2597,7 +2578,6 @@
 				51805BAC251B91CC00FBC12D /* YBBranchLayer.m in Sources */,
 				51ADE234253FCFBE0081F620 /* VLPublishTagResponse.m in Sources */,
 				51339CAF253053430039A025 /* JXPagerListRefreshView.m in Sources */,
-				51A29BF225203EC1001EF6E9 /* WebPImage.m in Sources */,
 				51ADE28B25410F980081F620 /* YYMemoryCache.m in Sources */,
 				51805B88251B91CC00FBC12D /* HXPhotoEditStickerItem.m in Sources */,
 				51805B22251B91CB00FBC12D /* FCUUID.m in Sources */,

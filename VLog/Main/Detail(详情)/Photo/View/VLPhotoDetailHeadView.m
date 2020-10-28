@@ -11,14 +11,14 @@
 #import <YYText/YYLabel.h>
 #import "VLVideoInfoModel.h"
 #import "VLIndexResponse.h"
-
+#import "VLPhotoDetailHeadICollectionViewCell.h"
 
 static CGFloat const SpaceValue = 10;
 static CGFloat const TopViewHeight = 450;
 static CGFloat const TitleLabelHeight = 40;
 static CGFloat const TopicButtonHeight = 30;
 
-@interface VLPhotoDetailHeadView ()<SDCycleScrollViewDelegate>
+@interface VLPhotoDetailHeadView ()<SDCycleScrollViewDelegate,VLPhotoDetailHeadICollectionViewCellDelegate>
 
 KProStrongType(SDCycleScrollView,cycleScrollView);
 KProStrongType(NSArray,imageArrays);
@@ -30,6 +30,9 @@ KProStrongType(YYLabel,detailLabel);
 KProStrongType(UILabel, dateLabel);
 KProStrongType(UIButton, conmmentButton);
 
+
+KProNSMutableArrayType(VLDetail_TagListResponse, taglistArray);
+
 @end
 
 @implementation VLPhotoDetailHeadView
@@ -40,6 +43,7 @@ KProStrongType(UIButton, conmmentButton);
     if (self) {
         self.backgroundColor = kWhiteColor;
         self.imageArrays = array;
+        self.taglistArray = [[NSMutableArray alloc] init];
         [self setupView];
     }
     return self;
@@ -146,14 +150,14 @@ KProStrongType(UIButton, conmmentButton);
     [self.topicButton setTitle:[NSString stringWithFormat:@"%@ ",dataModel.video_cat_info.cat_name] forState:UIControlStateNormal];
     
     //标签
-    NSMutableArray<VLDetail_TagListResponse*> *muArray = [[NSMutableArray alloc]init];
+    self.taglistArray = [[NSMutableArray alloc]init];
     [dataModel.tag_list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         for (VLDetail_TagListResponse *tagmModel in obj) {
-            [muArray addObject:tagmModel];
+            [self.taglistArray addObject:tagmModel];
         }
     }];
     NSMutableAttributedString *text = [NSMutableAttributedString new];
-    [muArray enumerateObjectsUsingBlock:^(VLDetail_TagListResponse * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.taglistArray enumerateObjectsUsingBlock:^(VLDetail_TagListResponse * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [text appendAttributedString:[weakself appendTagAttributedStringWithInfoModel:obj]];
     }];
     self.tagLabel.attributedText = text;
@@ -290,6 +294,7 @@ KProStrongType(UIButton, conmmentButton);
 - (SDCycleScrollView *)cycleScrollView{
     if (!_cycleScrollView) {
         _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.jk_width, TopViewHeight) delegate:self placeholderImage:[UIImage new]];
+        _cycleScrollView.delegate = self;
         _cycleScrollView.autoScroll = NO;
         kViewRadius(_cycleScrollView, 5);
         _cycleScrollView.imageURLStringsGroup = self.imageArrays;
@@ -301,6 +306,28 @@ KProStrongType(UIButton, conmmentButton);
     }
     return _cycleScrollView;
 }
+
+- (Class)customCollectionViewCellClassForCycleScrollView:(SDCycleScrollView *)view{
+    return [VLPhotoDetailHeadICollectionViewCell class];
+}
+/** 如果你自定义了cell样式，请在实现此代理方法为你的cell填充数据以及其它一系列设置 */
+- (void)setupCustomCell:(UICollectionViewCell *)cell forIndex:(NSInteger)index cycleScrollView:(SDCycleScrollView *)view{
+    VLPhotoDetailHeadICollectionViewCell *customCell = (VLPhotoDetailHeadICollectionViewCell *)cell;
+    customCell.delegate = self;
+    [self.taglistArray enumerateObjectsUsingBlock:^(VLDetail_TagListResponse * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.path_index == index) {
+            [customCell addTagWithPointWithTagModel:obj];
+        }
+    }];
+}
+#pragma mark - VLPhotoDetailHeadICollectionViewCellDelegate
+- (void)photoDetailHeadICollectionViewCell:(VLPhotoDetailHeadICollectionViewCell *)cell didClickTagForViewModel:(VLDetail_TagListResponse *)tagListModel{
+    
+    if (self.delegate &&[self.dateLabel respondsToSelector:@selector(detailHeadView:didClickTagForViewModel:)]) {
+        [self.delegate detailHeadView:self didClickTagForViewModel:tagListModel];
+    }
+}
+
 
 - (YYLabel *)titleLabel{
     if (!_titleLabel) {
@@ -371,32 +398,5 @@ KProStrongType(UIButton, conmmentButton);
 }
 
 
-
-
-
-- (void)showMessage:(NSString *)msg {
-    CGFloat padding = 10;
-    
-    YYLabel *label = [YYLabel new];
-    label.text = msg;
-    label.font = [UIFont systemFontOfSize:16];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor whiteColor];
-    label.backgroundColor = [UIColor colorWithRed:0.033 green:0.685 blue:0.978 alpha:0.730];
-    label.jk_width = self.jk_width;
-    label.textContainerInset = UIEdgeInsetsMake(padding, padding, padding, padding);
-    label.jk_height = 80+ 2 * padding;
-    label.jk_bottom = 64;
-    [self addSubview:label];
-    [UIView animateWithDuration:0.3 animations:^{
-        label.jk_top = 64;
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.2 delay:2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            label.jk_bottom = 64;
-        } completion:^(BOOL finished) {
-            [label removeFromSuperview];
-        }];
-    }];
-}
 
 @end

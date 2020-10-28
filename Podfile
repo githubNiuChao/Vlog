@@ -9,19 +9,19 @@ target 'VLog' do
   pod 'AFNetworking'
   pod 'YTKNetwork'
   #字典转模型
-  pod 'MJExtension'
-  pod 'JSONModel'
+#  pod 'MJExtension'
+#  pod 'JSONModel'
   # 下拉刷新
   pod 'MJRefresh'
   # 图片加载
   pod 'SDWebImage'
-  pod 'libwebp'
+#  pod 'libwebp'
   #用于适配
   pod 'Masonry'
   # YYKit
   pod 'YYImage'
   pod 'YYText'
-  pod 'YYAsyncLayer'
+#  pod 'YYAsyncLayer'
   pod 'YYModel'
   # 蒙版
   pod 'MBProgressHUD'
@@ -34,7 +34,7 @@ target 'VLog' do
   # 全局滑动
   pod 'FDFullscreenPopGesture'
   # 照片
-  pod 'TZImagePickerController'
+#  pod 'TZImagePickerController'
 
   # TabBar
   pod 'CYLTabBarController', '~> 1.29.0'

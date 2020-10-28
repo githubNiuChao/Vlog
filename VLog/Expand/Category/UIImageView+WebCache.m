@@ -8,7 +8,7 @@
 
 #import "UIImageView+WebCache.h"
 #import "objc/runtime.h"
-#import "WebPImage.h"
+//#import "WebPImage.h"
 
 @implementation UIImageView (WebCache)
 
@@ -56,27 +56,27 @@
     objc_setAssociatedObject(self, &loadOperationKey, operation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)setWebPImageWithURL:(NSURL *)imageURL progressBlock:(WebImageProgressBlock)progressBlock completedBlock:(WebImageCompletedBlock)completedBlock {
-    [self cancelOperation];
-    WebCombineOperation *operation = [[WebDownloader sharedDownloader] downloadWithURL:imageURL progressBlock:^(NSInteger receivedSize, NSInteger expectedSize, NSData *data) {
-        NSString *percentStr = [NSString stringWithFormat:@"%.1fw",(CGFloat)receivedSize/(CGFloat)expectedSize];
-        CGFloat percent = [percentStr floatValue];
-        dispatch_main_sync_safe(^{
-            progressBlock(percent);
-        });
-    } completedBlock:^(NSData *data, NSError *error, BOOL finished) {
-        WebPImage *image = nil;
-        if (finished) {
-            image = [[WebPImage alloc] initWithData:data];
-        }
-        dispatch_main_sync_safe(^{
-            completedBlock(image, error);
-        });
-    } cancelBlock:^{
-        
-    }];
-    objc_setAssociatedObject(self, &loadOperationKey, operation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
+//- (void)setWebPImageWithURL:(NSURL *)imageURL progressBlock:(WebImageProgressBlock)progressBlock completedBlock:(WebImageCompletedBlock)completedBlock {
+//    [self cancelOperation];
+//    WebCombineOperation *operation = [[WebDownloader sharedDownloader] downloadWithURL:imageURL progressBlock:^(NSInteger receivedSize, NSInteger expectedSize, NSData *data) {
+//        NSString *percentStr = [NSString stringWithFormat:@"%.1fw",(CGFloat)receivedSize/(CGFloat)expectedSize];
+//        CGFloat percent = [percentStr floatValue];
+//        dispatch_main_sync_safe(^{
+//            progressBlock(percent);
+//        });
+//    } completedBlock:^(NSData *data, NSError *error, BOOL finished) {
+//        WebPImage *image = nil;
+//        if (finished) {
+//            image = [[WebPImage alloc] initWithData:data];
+//        }
+//        dispatch_main_sync_safe(^{
+//            completedBlock(image, error);
+//        });
+//    } cancelBlock:^{
+//        
+//    }];
+//    objc_setAssociatedObject(self, &loadOperationKey, operation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
 
 - (void)cancelOperation {
     WebCombineOperation *operation = objc_getAssociatedObject(self, &loadOperationKey);

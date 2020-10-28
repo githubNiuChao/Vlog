@@ -106,15 +106,15 @@ static const CGFloat CategoryViewHeight = 40;
     return self.tittleArray.count;
 }
 
-- (void)listContainerViewDidScroll:(UIScrollView *)scrollView{
-    
-    
-}
+//- (void)listContainerViewDidScroll:(UIScrollView *)scrollView{
+//    
+//    
+//}
 
 #pragma mark -Action
 - (void)actionCatSelectorClick:(UIButton *)buttton{
     
-    NSInteger current = self.listContainerView.
+//    NSInteger current = self.listContainerView.
 //    self.listContainerView.validListDict[]
     
     buttton.selected = !buttton.selected;

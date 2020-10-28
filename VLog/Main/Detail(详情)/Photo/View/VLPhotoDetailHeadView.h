@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @class VLPhotoDetailHeadView;
 @protocol VLPhotoDetailHeadViewDelegate <NSObject>
 - (void)detailHeadView:(VLPhotoDetailHeadView *)detailHeadView;
+
+//点击标签
+- (void)detailHeadView:(VLPhotoDetailHeadView *)detailHeadView didClickTagForViewModel:(VLDetail_TagListResponse *)tagListModel;
+
 @end
 
 @interface VLPhotoDetailHeadView : UIView 

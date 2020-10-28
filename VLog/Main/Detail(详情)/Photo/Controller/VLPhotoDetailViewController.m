@@ -25,7 +25,7 @@
 static CGFloat kBottomViewHeight     = 50;
 static NSString * const kVLDetailCommentCell     = @"VLVLDetailCommentCell";
 
-@interface VLPhotoDetailViewController ()<NCHBaseModelManagerDelegate,VLDetailCommentCellDelegate,VLPhotoDetailBottomViewDelegate>
+@interface VLPhotoDetailViewController ()<NCHBaseModelManagerDelegate,VLDetailCommentCellDelegate,VLPhotoDetailHeadViewDelegate,VLPhotoDetailBottomViewDelegate>
 
 kProNSString(awemeId);
 KProAssignType(NSInteger,pageIndex);
@@ -155,18 +155,26 @@ KProStrongType(VLDetailCommentModel, currentCommentModel)
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
-#pragma mark - VLPhotoDetailBottomViewDelegate
-- (void)photoDetailBottomViewShowComment:(VLPhotoDetailBottomView *)bottomView{
-    [self.textView showWtihTitle:@""];
-    
-}
+
+
+
+
 
 -(VLPhotoDetailHeadView *)detailHeadView{
     if (!_detailHeadView) {
         _detailHeadView = [[VLPhotoDetailHeadView alloc] initWithFrame:CGRectMake(0, 0, self.view.jk_width, 1000) imageArray:self.videoIndfoModel.video_path];
+        _detailHeadView.delegate = self;
         [_detailHeadView setInfo:self.dataModel];
     }
     return _detailHeadView;
+}
+
+#pragma mark - VLPhotoDetailHeadViewDelegate
+
+- (void)detailHeadView:(VLPhotoDetailHeadView *)detailHeadView didClickTagForViewModel:(VLDetail_TagListResponse *)tagListModel{
+    
+    
+    
 }
 
 - (VLPhotoDetailBottomView *)bottomView{
@@ -177,7 +185,10 @@ KProStrongType(VLDetailCommentModel, currentCommentModel)
     return _bottomView;
 }
 
-
+#pragma mark - VLPhotoDetailBottomViewDelegate
+- (void)photoDetailBottomViewShowComment:(VLPhotoDetailBottomView *)bottomView{
+    [self.textView showWtihTitle:@""];
+}
 
 - (void)setNavigationsSubViews{
     
