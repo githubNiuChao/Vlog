@@ -183,7 +183,7 @@ KProStrongType(UILabel,descLabel)//标签
     if (!_avatar) {
         _avatar = [[UIImageView alloc] initWithFrame:CGRectZero];
         kViewRadius(_avatar, 35);
-        _avatar.image = kNameImage(@"img_find_default");
+        _avatar.image = kNameImage(@"user_avatar_default");
     }
     return _avatar;
 }
@@ -266,7 +266,7 @@ KProStrongType(UILabel,descLabel)//标签
         weakself.bottomBackground.image = image;
     }];
     
-//    [self.avatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://68test.oss-cn-beijing.aliyuncs.com/images/746%@",userHomeModel.user_info.headimg]] placeholderImage:kNameImage(@"img_find_default")];
+//    [self.avatar sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://68test.oss-cn-beijing.aliyuncs.com/images/746%@",userHomeModel.user_info.headimg]] placeholderImage:kNameImage(@"user_avatar_default")];
     self.follow.text = userHomeModel.follow_count;
     self.fans.text = userHomeModel.fans_count;
     self.like.text = userHomeModel.like_collection_count;

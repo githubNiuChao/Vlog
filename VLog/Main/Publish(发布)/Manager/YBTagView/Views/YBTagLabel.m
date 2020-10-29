@@ -69,7 +69,8 @@
 - (void)addLineLabelWithStr:(NSString *)string  withFrame:(CGRect)frame
 {
     self.textAlignment = NSTextAlignmentCenter;
-    self.textColor = [UIColor blackColor];
+    self.textColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor colorWithWhite:0.6 alpha:0.6];
     self.font = [UIFont boldSystemFontOfSize:12.0];
     self.alpha = 0;
     _selfW = frame.size.width;

@@ -48,6 +48,13 @@
 {
     UIImageView *imageView = [[UIImageView alloc] init];
     _imageView = imageView;
+    _imageView.frame = self.bounds;
+    _imageView.userInteractionEnabled = YES;
+    CGFloat titleLabelW = self.sd_width;
+    CGFloat titleLabelH = _titleLabelHeight;
+    CGFloat titleLabelX = 0;
+    CGFloat titleLabelY = self.sd_height - titleLabelH;
+    _titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW, titleLabelH);
     [self.contentView addSubview:imageView];
 }
 
@@ -78,16 +85,16 @@
 {
     [super layoutSubviews];
     
-    if (self.onlyDisplayText) {
-        _titleLabel.frame = self.bounds;
-    } else {
-        _imageView.frame = self.bounds;
-        CGFloat titleLabelW = self.sd_width;
-        CGFloat titleLabelH = _titleLabelHeight;
-        CGFloat titleLabelX = 0;
-        CGFloat titleLabelY = self.sd_height - titleLabelH;
-        _titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW, titleLabelH);
-    }
+//    if (self.onlyDisplayText) {
+//        _titleLabel.frame = self.bounds;
+//    } else {
+//        _imageView.frame = self.bounds;
+//        CGFloat titleLabelW = self.sd_width;
+//        CGFloat titleLabelH = _titleLabelHeight;
+//        CGFloat titleLabelX = 0;
+//        CGFloat titleLabelY = self.sd_height - titleLabelH;
+//        _titleLabel.frame = CGRectMake(titleLabelX, titleLabelY, titleLabelW, titleLabelH);
+//    }
 }
 
 
@@ -106,9 +113,10 @@
     YBTagView *tagView = [[YBTagView alloc]initWithPoint:centerPoint];
     tagView.isPanGestureOnTagViewed = NO;
     tagView.tagViewDelegate = self;
+    /*****一点要先添加TagView再加数组******/
+    [self.imageView addSubview:tagView];
     tagView.tagArray = @[tagListModel.tag_text];
     tagView.tagModel = tagListModel;
-    [self.imageView addSubview:tagView];
     [self.tagViewarray addObject:@(tagListModel.tag_id)];
 
 //    [self.pointArray addObject:@(centerPoint)];

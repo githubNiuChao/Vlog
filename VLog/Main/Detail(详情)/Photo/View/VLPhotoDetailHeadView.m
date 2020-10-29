@@ -313,6 +313,8 @@ KProNSMutableArrayType(VLDetail_TagListResponse, taglistArray);
 /** 如果你自定义了cell样式，请在实现此代理方法为你的cell填充数据以及其它一系列设置 */
 - (void)setupCustomCell:(UICollectionViewCell *)cell forIndex:(NSInteger)index cycleScrollView:(SDCycleScrollView *)view{
     VLPhotoDetailHeadICollectionViewCell *customCell = (VLPhotoDetailHeadICollectionViewCell *)cell;
+    [customCell.imageView sd_setImageWithURL:[NSURL URLWithString:[self.imageArrays objectAtIndex:index]] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
+    
     customCell.delegate = self;
     [self.taglistArray enumerateObjectsUsingBlock:^(VLDetail_TagListResponse * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.path_index == index) {
@@ -323,7 +325,7 @@ KProNSMutableArrayType(VLDetail_TagListResponse, taglistArray);
 #pragma mark - VLPhotoDetailHeadICollectionViewCellDelegate
 - (void)photoDetailHeadICollectionViewCell:(VLPhotoDetailHeadICollectionViewCell *)cell didClickTagForViewModel:(VLDetail_TagListResponse *)tagListModel{
     
-    if (self.delegate &&[self.dateLabel respondsToSelector:@selector(detailHeadView:didClickTagForViewModel:)]) {
+    if (self.delegate &&[self.delegate respondsToSelector:@selector(detailHeadView:didClickTagForViewModel:)]) {
         [self.delegate detailHeadView:self didClickTagForViewModel:tagListModel];
     }
 }

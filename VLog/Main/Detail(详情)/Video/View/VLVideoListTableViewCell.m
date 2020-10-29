@@ -166,7 +166,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     //init avatar
     CGFloat avatarRadius = 25;
     _avatar = [[UIImageView alloc] init];
-    _avatar.image = [UIImage imageNamed:@"img_find_default"];
+    _avatar.image = [UIImage imageNamed:@"user_avatar_default"];
     _avatar.layer.cornerRadius = avatarRadius;
     _avatar.layer.borderColor = ColorWhiteAlpha80.CGColor;
     _avatar.layer.borderWidth = 1;
@@ -272,7 +272,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [_pauseIcon setHidden:YES];
     
     [_hoverTextView.textView setText:@""];
-    [_avatar setImage:[UIImage imageNamed:@"img_find_default"]];
+    [_avatar setImage:[UIImage imageNamed:@"user_avatar_default"]];
     [_favorite resetViewWithIsLike:NO];
     [_focus resetView];
 }
@@ -467,7 +467,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     
     [_nickName setText:[NSString stringWithFormat:@"@%@",detailModel.current_user.nickname]];
     [_desc setText:detailModel.video_info.video_title];
-    [_avatar sd_setImageWithURL:[NSURL URLWithString:detailModel.current_user.headimg] placeholderImage:kNameImage(@"img_find_default")];
+    [_avatar sd_setImageWithURL:[NSURL URLWithString:detailModel.current_user.headimg] placeholderImage:kNameImage(@"user_avatar_default")];
     
     NSMutableAttributedString *detailLabelAText = [NSMutableAttributedString new];
     NCWeakSelf(self);

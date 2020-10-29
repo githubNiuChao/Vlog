@@ -156,10 +156,6 @@ KProStrongType(VLDetailCommentModel, currentCommentModel)
 }
 
 
-
-
-
-
 -(VLPhotoDetailHeadView *)detailHeadView{
     if (!_detailHeadView) {
         _detailHeadView = [[VLPhotoDetailHeadView alloc] initWithFrame:CGRectMake(0, 0, self.view.jk_width, 1000) imageArray:self.videoIndfoModel.video_path];

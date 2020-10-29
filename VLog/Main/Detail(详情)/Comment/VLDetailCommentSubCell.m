@@ -40,7 +40,7 @@
 - (void)initSubView{
       
     _avatar = [[UIImageView alloc] init];
-    _avatar.image = [UIImage imageNamed:@"img_find_default"];
+    _avatar.image = [UIImage imageNamed:@"user_avatar_default"];
     _avatar.clipsToBounds = YES;
     _avatar.layer.cornerRadius = 14;
     [self.contentView addSubview:_avatar];

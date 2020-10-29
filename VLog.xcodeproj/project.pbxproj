@@ -16,7 +16,6 @@
 		512A9CEA2541C9A40042E41D /* VLBodyTexToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CE92541C9A40042E41D /* VLBodyTexToolbarView.m */; };
 		512A9CED254262F80042E41D /* VLFollowListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CEC254262F80042E41D /* VLFollowListRequest.m */; };
 		512A9CF02542642E0042E41D /* VLFollowResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 512A9CEF2542642E0042E41D /* VLFollowResponse.m */; };
-		512B0341251053DE00447945 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B033F251053DE00447945 /* RootViewController.m */; };
 		512B03462510549B00447945 /* XYTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B03442510549B00447945 /* XYTransition.m */; };
 		512B0352251065B300447945 /* UICollectionView+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 512B0350251065B300447945 /* UICollectionView+IndexPath.m */; };
 		51339CAB253053430039A025 /* JXPagerListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339C9C253053430039A025 /* JXPagerListContainerView.m */; };
@@ -26,8 +25,6 @@
 		51339CAF253053430039A025 /* JXPagerListRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339CA4253053430039A025 /* JXPagerListRefreshView.m */; };
 		5134C872253C2D5E00FE5528 /* VLVideoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5134C871253C2D5E00FE5528 /* VLVideoListTableViewCell.m */; };
 		514875D9251F1416003B7F11 /* NCHMacroTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 514875D8251F1416003B7F11 /* NCHMacroTools.m */; };
-		515E777D25218D470020F3EF /* home_like_s.png in Resources */ = {isa = PBXBuildFile; fileRef = 515E777B25218D470020F3EF /* home_like_s.png */; };
-		515E777E25218D470020F3EF /* home_like_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 515E777C25218D470020F3EF /* home_like_n.png */; };
 		515FCC812535947E007F964A /* NCHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 515FCC802535947E007F964A /* NCHPopView.m */; };
 		515FCC842535953A007F964A /* NCHPopViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 515FCC832535953A007F964A /* NCHPopViewManager.m */; };
 		515FCC882535967C007F964A /* UIView+NCHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 515FCC872535967C007F964A /* UIView+NCHView.m */; };
@@ -330,8 +327,6 @@
 		512A9CEC254262F80042E41D /* VLFollowListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLFollowListRequest.m; sourceTree = "<group>"; };
 		512A9CEE2542642E0042E41D /* VLFollowResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLFollowResponse.h; sourceTree = "<group>"; };
 		512A9CEF2542642E0042E41D /* VLFollowResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLFollowResponse.m; sourceTree = "<group>"; };
-		512B033F251053DE00447945 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		512B0340251053DE00447945 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		512B03432510549B00447945 /* XYTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransition.h; sourceTree = "<group>"; };
 		512B03442510549B00447945 /* XYTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTransition.m; sourceTree = "<group>"; };
 		512B03452510549B00447945 /* XYTransitionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTransitionProtocol.h; sourceTree = "<group>"; };
@@ -351,8 +346,6 @@
 		5134C871253C2D5E00FE5528 /* VLVideoListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLVideoListTableViewCell.m; sourceTree = "<group>"; };
 		514875D7251F1416003B7F11 /* NCHMacroTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHMacroTools.h; sourceTree = "<group>"; };
 		514875D8251F1416003B7F11 /* NCHMacroTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHMacroTools.m; sourceTree = "<group>"; };
-		515E777B25218D470020F3EF /* home_like_s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_like_s.png; sourceTree = "<group>"; };
-		515E777C25218D470020F3EF /* home_like_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_like_n.png; sourceTree = "<group>"; };
 		515FCC7F2535947E007F964A /* NCHPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHPopView.h; sourceTree = "<group>"; };
 		515FCC802535947E007F964A /* NCHPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHPopView.m; sourceTree = "<group>"; };
 		515FCC822535953A007F964A /* NCHPopViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHPopViewManager.h; sourceTree = "<group>"; };
@@ -916,15 +909,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		512B033E251053DE00447945 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				512B0340251053DE00447945 /* RootViewController.h */,
-				512B033F251053DE00447945 /* RootViewController.m */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
 		512B03422510549B00447945 /* XYTransition */ = {
 			isa = PBXGroup;
 			children = (
@@ -950,15 +934,6 @@
 				51339C9E253053430039A025 /* JXPagerView.m */,
 			);
 			path = JXPagerView;
-			sourceTree = "<group>";
-		};
-		515E777A25218D470020F3EF /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				515E777B25218D470020F3EF /* home_like_s.png */,
-				515E777C25218D470020F3EF /* home_like_n.png */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		5173E5A92522CB1F00E57C71 /* Manager */ = {
@@ -1068,7 +1043,6 @@
 		518055CA251B91C700FBC12D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				515E777A25218D470020F3EF /* Assets */,
 				518055CB251B91C700FBC12D /* AppDelegate */,
 				518055CE251B91C700FBC12D /* Supporting */,
 			);
@@ -2121,7 +2095,6 @@
 				51BF5F5325432FEA0059DA64 /* VLSendCommentTextView.m */,
 				51B1388D25441A3700A915B7 /* VLTextViewComposeParser.h */,
 				51B1388E25441A3700A915B7 /* VLTextViewComposeParser.m */,
-				512B033E251053DE00447945 /* Base */,
 				51AC9901250F03CB0023D5EA /* TabBarController */,
 				512B0351251065B300447945 /* UICollectionView+IndexPath.h */,
 				512B0350251065B300447945 /* UICollectionView+IndexPath.m */,
@@ -2334,7 +2307,6 @@
 				51805B3D251B91CC00FBC12D /* 6.jpg in Resources */,
 				51805B35251B91CC00FBC12D /* 9.jpg in Resources */,
 				51805BA1251B91CC00FBC12D /* HXCameraBottomView.xib in Resources */,
-				515E777D25218D470020F3EF /* home_like_s.png in Resources */,
 				51805BA4251B91CC00FBC12D /* HXPhotoEditClippingToolBar.xib in Resources */,
 				51805B34251B91CC00FBC12D /* 8.jpg in Resources */,
 				51805B9F251B91CC00FBC12D /* IMG_0168.GIF in Resources */,
@@ -2344,7 +2316,6 @@
 				51805B3F251B91CC00FBC12D /* 3.jpg in Resources */,
 				51805B41251B91CC00FBC12D /* 0.jpg in Resources */,
 				51805BA9251B91CC00FBC12D /* HX_PhotoEditBottomView.xib in Resources */,
-				515E777E25218D470020F3EF /* home_like_n.png in Resources */,
 				518059F8251B91CB00FBC12D /* Info.plist in Resources */,
 				51805B9A251B91CC00FBC12D /* Localizable.strings in Resources */,
 				51805BA7251B91CC00FBC12D /* images.xcassets in Resources */,
@@ -2497,7 +2468,6 @@
 				51A29C292520625B001EF6E9 /* SRWebSocket.m in Sources */,
 				5173E5B52522CB2700E57C71 /* VLPhotoDetailViewController.m in Sources */,
 				5181524B251C470C00F9CCD3 /* NCHRefreshTableViewController.m in Sources */,
-				512B0341251053DE00447945 /* RootViewController.m in Sources */,
 				51BF5F5425432FEA0059DA64 /* VLSendCommentTextView.m in Sources */,
 				51E05A02252462F200FA9744 /* VLIndexRequest.m in Sources */,
 				51805B74251B91CC00FBC12D /* HXPhotoSubViewCell.m in Sources */,
