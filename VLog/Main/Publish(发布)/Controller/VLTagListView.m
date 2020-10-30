@@ -78,13 +78,14 @@ KProBool(isGoods)
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     NSObject *model = [self.dataArray objectAtIndex:indexPath.row];
     if ([model isKindOfClass:[VLPublishBrandTagModel class]]) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(tagListView:didSelectBrandTagModel:)]) {
             [self.delegate tagListView:self didSelectBrandTagModel:(VLPublishBrandTagModel*)model];
         }
     }else if([model isKindOfClass:[VLPublishGoodsTagModel class]]){
-        if (self.delegate && [self.dataArray respondsToSelector:@selector(tagListView:didSelectBGoodsTagModel:)]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(tagListView:didSelectBGoodsTagModel:)]) {
             [self.delegate tagListView:self didSelectBGoodsTagModel:(VLPublishGoodsTagModel *)model];
         }
     }

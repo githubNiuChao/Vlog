@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) HXPhotoModel *model;
 
 //添加标签视图
-- (void)addTagWithPoint:(CGPoint)centerPoint titleText:(NSString *)title;
+- (void)addTagWithPusblishTagModel:(YSCTagModel *)tagModel;
 
 
 @end

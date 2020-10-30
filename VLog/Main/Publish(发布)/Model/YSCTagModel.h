@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
 NS_ASSUME_NONNULL_BEGIN
-//用于上传的标签数据
+
+//用于上传的标签数据模型
 @interface YSCTagModel : NSObject
 @property (assign, nonatomic) NSInteger path_index;
 @property (copy, nonatomic) NSString *tag_text;

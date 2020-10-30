@@ -12,6 +12,7 @@
 #import "VLPublishTagRequest.h"
 #import "VLPublishTagResponse.h"
 
+
 static const CGFloat CategoryViewHeight = 40;
 
 @interface VLPublishTagListViewController ()
@@ -147,8 +148,18 @@ KProStrongType(VLTagListView, goodsList)
 #pragma mark - VLTagListViewDelegate
 //品牌
 - (void)tagListView:(VLTagListView *)tagListView didSelectBrandTagModel:(VLPublishBrandTagModel *)brandModel{
+    YSCTagModel *model = [[YSCTagModel alloc] init];
+    model.path_index = self.path_index;
+    model.brand_id = [brandModel.brand_id integerValue];
+    model.tag_text = brandModel.brand_name;
+    model.top = self.tapPoint.y;
+    model.left = self.tapPoint.x;
     
+    if (self.delegate && [self.delegate respondsToSelector:@selector(publishTagListViewController:pusblishTagModel:)]) {
+        [self.delegate publishTagListViewController:self pusblishTagModel:model];
+    }
     
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 //商品
 - (void)tagListView:(VLTagListView *)tagListView didSelectBGoodsTagModel:(VLPublishGoodsTagModel *)goodsModel{
@@ -163,7 +174,6 @@ KProStrongType(VLTagListView, goodsList)
 
 #pragma mark - JXCategoryViewDelegate
 - (void)categoryView:(JXCategoryBaseView *)categoryView didSelectedItemAtIndex:(NSInteger)index {
-    
 }
 
 #pragma mark - JXCategoryListContainerViewDelegate

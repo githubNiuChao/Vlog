@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VLDetailResponse.h"
+#import "YSCTagModel.h"
 
 #define TagViewW  150 //标签底部view的宽
 #define TagViewH  100 //标签底部view的高
@@ -48,7 +49,10 @@ typedef void(^myBlock)(NSString *str);
 
 @property (nonatomic, copy) myBlock block;
 
+//详情接收的标签Model
 @property (nonatomic, strong) VLDetail_TagListResponse *tagModel;
+//用于发布的标签Model
+@property (nonatomic, strong) YSCTagModel *pusblishTagModel;
 
 /**
  *  根据点来确定加上的标签页

@@ -15,7 +15,7 @@
 @property (strong, nonatomic) HXPreviewImageView *imageView;
 @property (strong, nonatomic) HXPhotoEditStickerTrashView *transhView;
 
-@property (strong, nonatomic) NSMutableArray *pointArray;
+//@property (strong, nonatomic) NSMutableArray *modelArray;
 
 @end
 
@@ -30,7 +30,7 @@
 }
 
 - (void)setup{
-    self.pointArray = [[NSMutableArray alloc] init];
+//    self.modelArray = [[NSMutableArray alloc] init];
     [self.contentView addSubview:self.imageView];
     NCWeakSelf(self);
     [self.imageView jk_addTapActionWithBlock:^(UIGestureRecognizer *gestureRecoginzer) {
@@ -58,33 +58,34 @@
 //    [self.pointArray addObject:@(point)];
 //}
 
-- (void)addTagWithPoint:(CGPoint)centerPoint titleText:(NSString *)title{
+- (void)addTagWithPusblishTagModel:(YSCTagModel *)tagModel{
     
-    if ([self.pointArray containsObject:@(centerPoint)]) {
-        return;
-    }
-    YSCTagModel *tagModel = [[YSCTagModel alloc] init];
-//    tagModel.tagInfo = infoStr;
-//    tagModel.tagPoint = centerPoint;
-    
-    YBTagView *tagView = [[YBTagView alloc]initWithPoint:centerPoint];
+    [self.model.tagMuArrays addObject:tagModel];
+    [self cellAddTagWithPusblishTagModel:tagModel];
+}
+
+- (void)cellAddTagWithPusblishTagModel:(YSCTagModel *)tagModel{
+    CGPoint centerpoint = CGPointMake(tagModel.left, tagModel.top);
+    YBTagView *tagView = [[YBTagView alloc]initWithPoint:centerpoint];
     tagView.tagViewDelegate = self;
     [self.imageView addSubview:tagView];
-    tagView.tagArray = @[title];
-    tagView.tagModel = tagModel;
-
-    [self.pointArray addObject:@(centerPoint)];
+    tagView.tagArray = @[tagModel.tag_text];
+    tagView.pusblishTagModel = tagModel;
 }
 
 - (void)deleteTagWithTagView:(YBTagView *)tagView{
     [tagView removeFromSuperview];
-    if ([self.model.tagMuArrays containsObject:tagView.tagModel]) {
-        [self.model.tagMuArrays removeObject:tagView.tagModel];
+    if ([self.model.tagMuArrays containsObject:tagView.pusblishTagModel]) {
+        [self.model.tagMuArrays removeObject:tagView.pusblishTagModel];
     }
-    
-    if ([self.pointArray containsObject:@(tagView.selfCenter)]) {
-        [self.pointArray removeObject:@(tagView.selfCenter)];
-    }
+//
+//    if ([self.modelArray containsObject:tagView.pusblishTagModel]) {
+//        [self.modelArray removeObject:tagView.pusblishTagModel];
+//    }
+//
+//    if ([self.pointArray containsObject:@(tagView.selfCenter)]) {
+//        [self.pointArray removeObject:@(tagView.selfCenter)];
+//    }
 }
 
 - (void)setModel:(HXPhotoModel *)model{
@@ -97,28 +98,32 @@
     self.imageView.center = CGPointMake(width / 2, height / 2);
     self.imageView.model = model;
     
+    for (UIView *view in self.imageView.subviews) {
+        if ([view isKindOfClass:[YBTagView class]]) {
+            [view removeFromSuperview];
+        }
+    }
+    
     if (!_model.tagMuArrays) {
         _model.tagMuArrays = [[NSMutableArray alloc] init];
     }else{
-//        if (_model.tagMuArrays.count) {
-//            HXWeakSelf
-//            [_model.tagMuArrays enumerateObjectsUsingBlock:^(YSCTagModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                [weakSelf addTagWithPoint:obj.tagPoint];
-//            }];
-//        }
-    }
+        NCWeakSelf(self);
+            [_model.tagMuArrays enumerateObjectsUsingBlock:^(YSCTagModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    [weakself cellAddTagWithPusblishTagModel:obj];
+            }];
+        }
 }
 
 #pragma mark -YBTagViewDelegate
 - (void)tagView:(YBTagView *)tagView panGesture:(UIPanGestureRecognizer *)panGestureRecognizer tagCenter:(CGPoint)center{
-//    NSLog(@"拖动了标签%@",NSStringFromCGPoint(center));
-    if ([self.model.tagMuArrays containsObject:tagView.tagModel]) {
-        [self.model.tagMuArrays removeObject:tagView.tagModel];
-    }
-    tagView.tagModel.top = center.y;
-    tagView.tagModel.top = center.x;
-    [self.model.tagMuArrays addObject:tagView.tagModel];
+    NSLog(@"拖动了标签%@",NSStringFromCGPoint(center));
     
+    [self.model.tagMuArrays enumerateObjectsUsingBlock:^(YSCTagModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (tagView.pusblishTagModel == obj ) {
+            obj.left = center.x;
+            obj.top = center.y;
+        }
+    }];
     HXWeakSelf
     if (panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
         

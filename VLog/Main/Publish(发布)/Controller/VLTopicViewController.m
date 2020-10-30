@@ -47,7 +47,6 @@ KProNSMutableArray(catIdArray)
     [self loadData];
 }
 
-
 - (void)initSubView{
     [self setBackgroundColor:kWhiteColor];
     [self setTranslucentCoverWtih:UIBlurEffectStyleLight];

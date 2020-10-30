@@ -12,7 +12,7 @@
 #import "VLPublishTagListViewController.h"
 
 
-@interface YSCTagViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,TagCollectionViewCellDelegate>
+@interface YSCTagViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,TagCollectionViewCellDelegate,VLPublishTagListViewControllerDelegate>
 
 @property (strong, nonatomic) UICollectionViewFlowLayout *flowLayout;
 @property (strong, nonatomic) HXPhotoModel *currentModel;
@@ -89,6 +89,7 @@
 - (void)tagCollectionViewCell:(YSCTagCollectionViewCell *)cell didClickImageViewWithTap:(CGPoint)tapPoint{
     
     VLPublishTagListViewController *tagListVC = [[VLPublishTagListViewController alloc] init];
+    tagListVC.delegate = self;
     tagListVC.tapPoint = tapPoint;
     tagListVC.path_index = [self.collectionView indexPathForCell:cell].row;
     tagListVC.modalPresentationStyle = UIModalPresentationAutomatic;
@@ -96,7 +97,16 @@
     [self presentViewController:tagListVC animated:YES completion:nil];
 }
 
-
+#pragma mark -VLPublishTagListViewControllerDelegate
+- (void)publishTagListViewController:(VLPublishTagListViewController *)vc pusblishTagModel:(YSCTagModel *)tagModel
+{
+    [self.collectionView layoutIfNeeded];
+    
+    NSIndexPath *indexpath  = [NSIndexPath indexPathForRow:tagModel.path_index inSection:0];
+    YSCTagCollectionViewCell *cell = (YSCTagCollectionViewCell *) [self.collectionView cellForItemAtIndexPath:indexpath];
+    [cell addTagWithPusblishTagModel:tagModel];
+    
+}
 
 #pragma mark - Action
 - (void)didDoneClick:(UIButton *)button{
