@@ -25,10 +25,8 @@
 
 - (NSString *)requestUrl{
     if (self.isLike) {
-        
     return API_VLOG_LIKE_ACTION;
     }else{
-        
     return API_VLOG_UNLIKE_ACTION;
     }
 }

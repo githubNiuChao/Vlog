@@ -158,16 +158,36 @@ KProStrongType(VLTagListView, goodsList)
     if (self.delegate && [self.delegate respondsToSelector:@selector(publishTagListViewController:pusblishTagModel:)]) {
         [self.delegate publishTagListViewController:self pusblishTagModel:model];
     }
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 //商品
 - (void)tagListView:(VLTagListView *)tagListView didSelectBGoodsTagModel:(VLPublishGoodsTagModel *)goodsModel{
+ 
+    YSCTagModel *model = [[YSCTagModel alloc] init];
+    model.path_index = self.path_index;
+    model.goods_id = [goodsModel.goods_id integerValue];
+    model.tag_text = goodsModel.goods_name;
+    model.top = self.tapPoint.y;
+    model.left = self.tapPoint.x;
+    
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(publishTagListViewController:pusblishTagModel:)]) {
+        [self.delegate publishTagListViewController:self pusblishTagModel:model];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 //自定义
 - (void)tagListView:(VLTagListView *)tagListView didSelectCustomizeWithTitle:(NSString *)title isGoods:(BOOL)isGoods{
-    
+    YSCTagModel *model = [[YSCTagModel alloc] init];
+    model.path_index = self.path_index;
+    model.tag_text = title;
+    model.top = self.tapPoint.y;
+    model.left = self.tapPoint.x;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(publishTagListViewController:pusblishTagModel:)]) {
+        [self.delegate publishTagListViewController:self pusblishTagModel:model];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

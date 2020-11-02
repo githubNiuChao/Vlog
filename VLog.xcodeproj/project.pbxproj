@@ -1360,7 +1360,8 @@
 				518059BF251B91CA00FBC12D /* Model */,
 				518059C2251B91CA00FBC12D /* View */,
 			);
-			path = "Publish(发布)";
+			name = "Publish(发布)";
+			path = "../../Publish(发布)";
 			sourceTree = "<group>";
 		};
 		518058D1251B91C900FBC12D /* Controller */ = {
