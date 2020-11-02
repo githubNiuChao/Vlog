@@ -7,8 +7,8 @@
 //
 
 #import "NCHRefreshTableViewController.h"
-#import "VLMessageFansRequest.h"
-#import "VLMessageFansResponse.h"
+#import "VLUserHomeFansListRequest.h"
+#import "VLUserHomeFansListResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

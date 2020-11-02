@@ -18,6 +18,9 @@
 #import "VLCommentTextView.h"
 #import "VLSendCommentTextView.h"
 
+#import "VLUserHomeFollowListViewController.h"
+#import "VLUserHomeFansListViewController.h"
+
 @interface VLUserHomeViewController () <JXCategoryViewDelegate,VLUserHomeHeaderViewDelegate>
 
 @property (nonatomic, strong) JXPagerView *pagerView;
@@ -165,7 +168,29 @@
 
 - (void)onUserActionTap:(NSInteger)tag{
     
-    [self.textView showWtihTitle:@"8888"];
+    
+
+    switch (tag) {
+        case VLUserHomeHeaderFollowTag:{//关注列表
+            VLUserHomeFollowListViewController *followVc = [[VLUserHomeFollowListViewController alloc] init];
+            [self.navigationController pushViewController:followVc animated:YES];
+        }break;
+        case VLUserHomeHeaderFansTag:{//粉丝列表
+            VLUserHomeFansListViewController *fansVc = [[VLUserHomeFansListViewController alloc]init];
+            [self.navigationController pushViewController:fansVc animated:YES];
+        }break;
+        case VLUserHomeHeaderLikeTag:{//获赞与收藏
+
+        }break;
+        case VLUserHomeHeaderSettingTag:{//编辑资料
+
+        }break;
+
+        default:
+            break;
+    }
+    
+//    [self.textView showWtihTitle:@"8888"];
 }
 
 #pragma mark - JXPagerViewDelegate

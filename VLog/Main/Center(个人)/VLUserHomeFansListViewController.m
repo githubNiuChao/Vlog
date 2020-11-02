@@ -7,7 +7,6 @@
 //
 
 #import "VLUserHomeFansListViewController.h"
-#import "VLUserHomeFansListRequest.h"
 #import "VLUserHomeFansTableViewCell.h"
 
 
@@ -40,9 +39,8 @@
     NCWeakSelf(self);
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
         
-        VLMessageFansResponse *model = [VLMessageFansResponse yy_modelWithJSON:baseResponse.data];
-        
-        weakself.dataArray = @[@"",@"",@"",@""];
+        VLUserHomeFansListResponse *model = [VLUserHomeFansListResponse yy_modelWithJSON:baseResponse.data];
+        weakself.dataArray = model.list;
         [weakself endHeaderFooterRefreshing];
         [weakself.tableView reloadData];
     } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
@@ -52,7 +50,7 @@
 
 - (void)initSubView{
     [self setLeftBarButton:@"niv_back_dark"];
-    [self setNavigationBarTitle:@"新增关注"];
+    [self setNavigationBarTitle:@"我的粉丝"];
     [self setBackgroundColor:kWhiteColor];
     [self.tableView registerClass:[VLUserHomeFansTableViewCell class] forCellReuseIdentifier:NSStringFromClass([VLUserHomeFansTableViewCell class])];
 }

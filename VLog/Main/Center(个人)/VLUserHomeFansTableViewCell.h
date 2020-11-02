@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VLFollowUnFollowRequest.h"
-#import "VLUserHomeFansListRequest.h"
+#import "VLUserHomeFansListResponse.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 KProStrongType(UIButton, followButton)
 
-
+KProStrongType(VLUserHomeFansListModel, fansModel)
 @end
 
 NS_ASSUME_NONNULL_END

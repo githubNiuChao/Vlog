@@ -17,7 +17,6 @@ static const NSInteger VLUserHomeHeaderFollowTag = 0x02;
 static const NSInteger VLUserHomeHeaderFansTag = 0x03;
 static const NSInteger VLUserHomeHeaderLikeTag = 0x04;
 static const NSInteger VLUserHomeHeaderSettingTag = 0x05;
-static const NSInteger VLUserHomeHeaderGithubTag = 0x06;
 
 @protocol VLUserHomeHeaderViewDelegate
 

@@ -37,5 +37,10 @@
 #import "MBProgressHUD+NCH.h"
 
 #import <YYModel/YYModel.h>
+
+
+
+#import "VLIndexResponse.h"
+
 //#import <QMUIKit/QMUIKit.h>
 #endif /* PrefixHeader_pch */

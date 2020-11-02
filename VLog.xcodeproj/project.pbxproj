@@ -234,6 +234,8 @@
 		51862037254F94ED007291CD /* VLUserHomeFansTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51862036254F94ED007291CD /* VLUserHomeFansTableViewCell.m */; };
 		5186203A254F980F007291CD /* VLUserHomeFansListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51862039254F980F007291CD /* VLUserHomeFansListRequest.m */; };
 		5186203D254F9836007291CD /* VLUserHomeFollowListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5186203C254F9836007291CD /* VLUserHomeFollowListRequest.m */; };
+		51862040254FA504007291CD /* VLUserHomeFansListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5186203F254FA504007291CD /* VLUserHomeFansListResponse.m */; };
+		51862043254FA55F007291CD /* VLUserHomeFollowListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51862042254FA55F007291CD /* VLUserHomeFollowListResponse.m */; };
 		51873F2525342A190070264B /* WMZDialogAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F2325342A180070264B /* WMZDialogAnimation.m */; };
 		51873F29253433DE0070264B /* VLIndexResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F28253433DE0070264B /* VLIndexResponse.m */; };
 		518968D5250CA66100897448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518968D4250CA66100897448 /* Assets.xcassets */; };
@@ -745,6 +747,10 @@
 		51862039254F980F007291CD /* VLUserHomeFansListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeFansListRequest.m; sourceTree = "<group>"; };
 		5186203B254F9835007291CD /* VLUserHomeFollowListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeFollowListRequest.h; sourceTree = "<group>"; };
 		5186203C254F9836007291CD /* VLUserHomeFollowListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeFollowListRequest.m; sourceTree = "<group>"; };
+		5186203E254FA504007291CD /* VLUserHomeFansListResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeFansListResponse.h; sourceTree = "<group>"; };
+		5186203F254FA504007291CD /* VLUserHomeFansListResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeFansListResponse.m; sourceTree = "<group>"; };
+		51862041254FA55F007291CD /* VLUserHomeFollowListResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeFollowListResponse.h; sourceTree = "<group>"; };
+		51862042254FA55F007291CD /* VLUserHomeFollowListResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeFollowListResponse.m; sourceTree = "<group>"; };
 		51873F2325342A180070264B /* WMZDialogAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZDialogAnimation.m; sourceTree = "<group>"; };
 		51873F2425342A190070264B /* WMZDialogAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZDialogAnimation.h; sourceTree = "<group>"; };
 		51873F27253433DE0070264B /* VLIndexResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLIndexResponse.h; sourceTree = "<group>"; };
@@ -1987,6 +1993,10 @@
 				51B138A125457C0200A915B7 /* VLMessageLikeResponse.m */,
 				51B138A325457C2200A915B7 /* VLMessageFansResponse.h */,
 				51B138A425457C2200A915B7 /* VLMessageFansResponse.m */,
+				5186203E254FA504007291CD /* VLUserHomeFansListResponse.h */,
+				5186203F254FA504007291CD /* VLUserHomeFansListResponse.m */,
+				51862041254FA55F007291CD /* VLUserHomeFollowListResponse.h */,
+				51862042254FA55F007291CD /* VLUserHomeFollowListResponse.m */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -2427,6 +2437,7 @@
 				51805B5A251B91CC00FBC12D /* HXCustomCameraViewController.m in Sources */,
 				51805BAD251B91CC00FBC12D /* UIView+Extension.m in Sources */,
 				51ADE27E25410F2E0081F620 /* BADataEntity.m in Sources */,
+				51862040254FA504007291CD /* VLUserHomeFansListResponse.m in Sources */,
 				51805B76251B91CC00FBC12D /* HXCustomPreviewView.m in Sources */,
 				51805B64251B91CC00FBC12D /* HXCustomAssetModel.m in Sources */,
 				51805B8D251B91CC00FBC12D /* HXPhotoEditSplashMaskLayer.m in Sources */,
@@ -2461,6 +2472,7 @@
 				518059F7251B91CB00FBC12D /* main.m in Sources */,
 				51805B84251B91CC00FBC12D /* HXPhotoEditSplashView.m in Sources */,
 				51ADE28825410F980081F620 /* YYDiskCache.m in Sources */,
+				51862043254FA55F007291CD /* VLUserHomeFollowListResponse.m in Sources */,
 				51805B93251B91CC00FBC12D /* HXPhotoEditMosaicView.m in Sources */,
 				51815263251C6F0F00F9CCD3 /* VLIndexViewController.m in Sources */,
 				51BA08082536ABF4002E481E /* NCHBaseModelManager.m in Sources */,
