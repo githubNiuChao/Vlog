@@ -229,6 +229,11 @@
 		51815256251C487600F9CCD3 /* MBProgressHUD+NCH.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815255251C487600F9CCD3 /* MBProgressHUD+NCH.m */; };
 		51815259251C4CB700F9CCD3 /* NSObject+YYAddForKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815258251C4CB600F9CCD3 /* NSObject+YYAddForKVO.m */; };
 		51815263251C6F0F00F9CCD3 /* VLIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51815262251C6F0F00F9CCD3 /* VLIndexViewController.m */; };
+		51862031254F93C4007291CD /* VLUserHomeFansListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51862030254F93C4007291CD /* VLUserHomeFansListViewController.m */; };
+		51862034254F940F007291CD /* VLUserHomeFollowListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51862033254F940F007291CD /* VLUserHomeFollowListViewController.m */; };
+		51862037254F94ED007291CD /* VLUserHomeFansTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51862036254F94ED007291CD /* VLUserHomeFansTableViewCell.m */; };
+		5186203A254F980F007291CD /* VLUserHomeFansListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 51862039254F980F007291CD /* VLUserHomeFansListRequest.m */; };
+		5186203D254F9836007291CD /* VLUserHomeFollowListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5186203C254F9836007291CD /* VLUserHomeFollowListRequest.m */; };
 		51873F2525342A190070264B /* WMZDialogAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F2325342A180070264B /* WMZDialogAnimation.m */; };
 		51873F29253433DE0070264B /* VLIndexResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F28253433DE0070264B /* VLIndexResponse.m */; };
 		518968D5250CA66100897448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518968D4250CA66100897448 /* Assets.xcassets */; };
@@ -730,6 +735,16 @@
 		5181525D251C508900F9CCD3 /* YYCategoriesMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCategoriesMacro.h; sourceTree = "<group>"; };
 		51815261251C6F0F00F9CCD3 /* VLIndexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLIndexViewController.h; sourceTree = "<group>"; };
 		51815262251C6F0F00F9CCD3 /* VLIndexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLIndexViewController.m; sourceTree = "<group>"; };
+		5186202F254F93C4007291CD /* VLUserHomeFansListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeFansListViewController.h; sourceTree = "<group>"; };
+		51862030254F93C4007291CD /* VLUserHomeFansListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeFansListViewController.m; sourceTree = "<group>"; };
+		51862032254F940F007291CD /* VLUserHomeFollowListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeFollowListViewController.h; sourceTree = "<group>"; };
+		51862033254F940F007291CD /* VLUserHomeFollowListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeFollowListViewController.m; sourceTree = "<group>"; };
+		51862035254F94ED007291CD /* VLUserHomeFansTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeFansTableViewCell.h; sourceTree = "<group>"; };
+		51862036254F94ED007291CD /* VLUserHomeFansTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeFansTableViewCell.m; sourceTree = "<group>"; };
+		51862038254F980F007291CD /* VLUserHomeFansListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeFansListRequest.h; sourceTree = "<group>"; };
+		51862039254F980F007291CD /* VLUserHomeFansListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeFansListRequest.m; sourceTree = "<group>"; };
+		5186203B254F9835007291CD /* VLUserHomeFollowListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLUserHomeFollowListRequest.h; sourceTree = "<group>"; };
+		5186203C254F9836007291CD /* VLUserHomeFollowListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLUserHomeFollowListRequest.m; sourceTree = "<group>"; };
 		51873F2325342A180070264B /* WMZDialogAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMZDialogAnimation.m; sourceTree = "<group>"; };
 		51873F2425342A190070264B /* WMZDialogAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZDialogAnimation.h; sourceTree = "<group>"; };
 		51873F27253433DE0070264B /* VLIndexResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLIndexResponse.h; sourceTree = "<group>"; };
@@ -1335,6 +1350,12 @@
 				51ADE21A253D726E0081F620 /* VLUserHomeListManager.m */,
 				51A66CB025394BBB00F34CED /* VLUserHomeHeaderView.h */,
 				51A66CB125394BBB00F34CED /* VLUserHomeHeaderView.m */,
+				5186202F254F93C4007291CD /* VLUserHomeFansListViewController.h */,
+				51862030254F93C4007291CD /* VLUserHomeFansListViewController.m */,
+				51862032254F940F007291CD /* VLUserHomeFollowListViewController.h */,
+				51862033254F940F007291CD /* VLUserHomeFollowListViewController.m */,
+				51862035254F94ED007291CD /* VLUserHomeFansTableViewCell.h */,
+				51862036254F94ED007291CD /* VLUserHomeFansTableViewCell.m */,
 				51339C9A253053430039A025 /* JXPagerView */,
 				51A29B0D25203EC0001EF6E9 /* UserHome */,
 			);
@@ -2228,6 +2249,10 @@
 				51B138912545688100A915B7 /* VLMessageLikeRequest.m */,
 				51B13893254568C600A915B7 /* VLMessageFansRequest.h */,
 				51B13894254568C600A915B7 /* VLMessageFansRequest.m */,
+				51862038254F980F007291CD /* VLUserHomeFansListRequest.h */,
+				51862039254F980F007291CD /* VLUserHomeFansListRequest.m */,
+				5186203B254F9835007291CD /* VLUserHomeFollowListRequest.h */,
+				5186203C254F9836007291CD /* VLUserHomeFollowListRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2442,6 +2467,7 @@
 				51BF5F5125431F550059DA64 /* VLCommentTextView.m in Sources */,
 				51A29C0825203EC1001EF6E9 /* SharePopView.m in Sources */,
 				51A29C0725203EC1001EF6E9 /* FocusView.m in Sources */,
+				5186203D254F9836007291CD /* VLUserHomeFollowListRequest.m in Sources */,
 				517E40FE2547A798007DBBC2 /* VLDetailCommentModel.m in Sources */,
 				51805B5B251B91CC00FBC12D /* HXPhoto3DTouchViewController.m in Sources */,
 				51339CAB253053430039A025 /* JXPagerListContainerView.m in Sources */,
@@ -2463,6 +2489,7 @@
 				51805B8A251B91CC00FBC12D /* HXPhotoEditStickerView.m in Sources */,
 				5160692B251DD0580070B9D9 /* VLBaseListViewController.m in Sources */,
 				51815252251C470C00F9CCD3 /* NCHWordArrowItem.m in Sources */,
+				51862037254F94ED007291CD /* VLUserHomeFansTableViewCell.m in Sources */,
 				5181524F251C470C00F9CCD3 /* NCHCollectionViewController.m in Sources */,
 				51805B6B251B91CC00FBC12D /* HXPhotoCustomNavigationBar.m in Sources */,
 				51805B4B251B91CC00FBC12D /* UIViewController+HXExtension.m in Sources */,
@@ -2570,10 +2597,12 @@
 				51805B94251B91CC00FBC12D /* HXPhotoEditGraffitiColorViewCell.m in Sources */,
 				5173E5CE252334F400E57C71 /* BaseRequestService.m in Sources */,
 				515FCC882535967C007F964A /* UIView+NCHView.m in Sources */,
+				51862034254F940F007291CD /* VLUserHomeFollowListViewController.m in Sources */,
 				51805B7B251B91CC00FBC12D /* HXPhotoEditConfiguration.m in Sources */,
 				51815256251C487600F9CCD3 /* MBProgressHUD+NCH.m in Sources */,
 				5173E5B62522CB2700E57C71 /* VLPhotoDetailHeadView.m in Sources */,
 				51815245251C470C00F9CCD3 /* NCHHorizontalFlowLayout.m in Sources */,
+				51862031254F93C4007291CD /* VLUserHomeFansListViewController.m in Sources */,
 				51805B82251B91CC00FBC12D /* HXPhotoEditStickerTrashView.m in Sources */,
 				51805BB1251B91CC00FBC12D /* YBTagView.m in Sources */,
 				51805B67251B91CC00FBC12D /* HXPhotoPreviewLivePhotoCell.m in Sources */,
@@ -2620,6 +2649,7 @@
 				514875D9251F1416003B7F11 /* NCHMacroTools.m in Sources */,
 				51ADE27D25410F2E0081F620 /* UIImage+CompressImage.m in Sources */,
 				512A9CAD254151A80042E41D /* VLTopicViewController.m in Sources */,
+				5186203A254F980F007291CD /* VLUserHomeFansListRequest.m in Sources */,
 				51A29C1125203EC1001EF6E9 /* CircleProgressView.m in Sources */,
 				51805B5F251B91CC00FBC12D /* HXCustomCameraController.m in Sources */,
 				5174817C2549453700F0E002 /* NSString+Extension.m in Sources */,

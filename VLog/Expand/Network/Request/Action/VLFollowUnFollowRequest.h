@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 KProBool(isFolleow)
 
+- (void)followRequestWhitID:(NSString *)userId isFollow:(BOOL)isFollow;
+
 @end
 
 NS_ASSUME_NONNULL_END

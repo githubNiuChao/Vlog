@@ -23,4 +23,15 @@
 }
 
 
+- (void)followRequestWhitID:(NSString *)userId isFollow:(BOOL)isFollow{
+     self.isFolleow = isFollow;
+     [self nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+         [UIWindow showTips:@"操作成功"];
+         
+//         [[NSNotificationCenter defaultCenter] postNotificationName:VLRefreshLikeCollectListNotification object:nil userInfo:nil];
+     } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+         [UIWindow showTips:@"操作失败"];
+     }];
+}
+
 @end
