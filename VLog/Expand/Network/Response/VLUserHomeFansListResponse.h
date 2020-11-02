@@ -29,6 +29,7 @@ kProNSString(headimg)
 kProNSString(fans_count)
 kProNSString(video_count)
 KProBool(is_follow)
+
 @end
 
 

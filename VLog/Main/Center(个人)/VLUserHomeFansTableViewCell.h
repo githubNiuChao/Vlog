@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 KProStrongType(UIButton, followButton)
 
-KProStrongType(VLUserHomeFansListModel, fansModel)
+KProStrongType(, fansModel)
 @end
 
 NS_ASSUME_NONNULL_END

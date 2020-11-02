@@ -132,7 +132,9 @@ KProStrongType(UILabel, subTitleLabel)
     
 }
 
-
+- (void)setFansModel:(int *)fansModel{
+    
+}
 
 
 
