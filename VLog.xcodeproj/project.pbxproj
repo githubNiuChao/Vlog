@@ -973,24 +973,24 @@
 		510E6B0B254FCD8A0018F4A6 /* HXPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				510E6B0C254FCD8A0018F4A6 /* HXPhotoConfiguration.m */,
-				510E6B0D254FCD8A0018F4A6 /* TransitionAnimation */,
-				510E6B18254FCD8A0018F4A6 /* Category */,
-				510E6B33254FCD8A0018F4A6 /* HXPhotoCommon.m */,
-				510E6B34254FCD8A0018F4A6 /* HXPhotoTypes.h */,
-				510E6B35254FCD8A0018F4A6 /* HXPhotoTools.m */,
-				510E6B36254FCD8A0018F4A6 /* HXPhotoManager.m */,
-				510E6B37254FCD8A0018F4A6 /* HXPhotoDefine.h */,
-				510E6B38254FCD8A0018F4A6 /* Controller */,
-				510E6B4B254FCD8A0018F4A6 /* HXPhotoConfiguration.h */,
-				510E6B4C254FCD8A0018F4A6 /* Model */,
-				510E6B55254FCD8A0018F4A6 /* HXPhotoPicker.h */,
-				510E6B56254FCD8A0018F4A6 /* View */,
-				510E6B81254FCD8B0018F4A6 /* HXPhotoTools.h */,
-				510E6B82254FCD8B0018F4A6 /* HXPhotoEdit */,
-				510E6BC4254FCD8B0018F4A6 /* HXPhotoCommon.h */,
 				510E6BC5254FCD8B0018F4A6 /* Assets */,
+				510E6B18254FCD8A0018F4A6 /* Category */,
+				510E6B38254FCD8A0018F4A6 /* Controller */,
+				510E6BC4254FCD8B0018F4A6 /* HXPhotoCommon.h */,
+				510E6B33254FCD8A0018F4A6 /* HXPhotoCommon.m */,
+				510E6B4B254FCD8A0018F4A6 /* HXPhotoConfiguration.h */,
+				510E6B0C254FCD8A0018F4A6 /* HXPhotoConfiguration.m */,
+				510E6B37254FCD8A0018F4A6 /* HXPhotoDefine.h */,
+				510E6B82254FCD8B0018F4A6 /* HXPhotoEdit */,
 				510E6BDB254FCD8B0018F4A6 /* HXPhotoManager.h */,
+				510E6B36254FCD8A0018F4A6 /* HXPhotoManager.m */,
+				510E6B55254FCD8A0018F4A6 /* HXPhotoPicker.h */,
+				510E6B81254FCD8B0018F4A6 /* HXPhotoTools.h */,
+				510E6B35254FCD8A0018F4A6 /* HXPhotoTools.m */,
+				510E6B34254FCD8A0018F4A6 /* HXPhotoTypes.h */,
+				510E6B4C254FCD8A0018F4A6 /* Model */,
+				510E6B0D254FCD8A0018F4A6 /* TransitionAnimation */,
+				510E6B56254FCD8A0018F4A6 /* View */,
 			);
 			path = HXPhotoPicker;
 			sourceTree = "<group>";
@@ -1480,7 +1480,6 @@
 			isa = PBXGroup;
 			children = (
 				518055D7251B91C700FBC12D /* Category */,
-				51805809251B91C900FBC12D /* Controls */,
 				51805824251B91C900FBC12D /* Macros */,
 				518057F0251B91C900FBC12D /* Network */,
 				51805828251B91C900FBC12D /* Tool */,
@@ -1525,37 +1524,6 @@
 				51E059FF2524628E00FA9744 /* Request */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		51805809251B91C900FBC12D /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				5180580A251B91C900FBC12D /* CustomButton */,
-				5180580D251B91C900FBC12D /* CustomTagView */,
-				51805818251B91C900FBC12D /* CustomCell */,
-			);
-			path = Controls;
-			sourceTree = "<group>";
-		};
-		5180580A251B91C900FBC12D /* CustomButton */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomButton;
-			sourceTree = "<group>";
-		};
-		5180580D251B91C900FBC12D /* CustomTagView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomTagView;
-			sourceTree = "<group>";
-		};
-		51805818251B91C900FBC12D /* CustomCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		51805824251B91C900FBC12D /* Macros */ = {
