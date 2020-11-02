@@ -31,11 +31,7 @@
 
 - (void)loadMore:(BOOL)isMore{
     VLUserHomeFansListRequest *request = [[VLUserHomeFansListRequest alloc] init];
-    
-     self.dataArray = @[@"",@"",@"",@""];
-       [self endHeaderFooterRefreshing];
-       [self.tableView reloadData];
-    
+
     NCWeakSelf(self);
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
         
@@ -70,8 +66,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VLUserHomeFansTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([VLUserHomeFansTableViewCell class])];
-    NSObject *model = [self.dataArray objectAtIndex:indexPath.row];
-    
+    VLUserHomeFansListModel *model = [self.dataArray objectAtIndex:indexPath.row];
+    cell.fansModel = model;
     return cell;
 }
 

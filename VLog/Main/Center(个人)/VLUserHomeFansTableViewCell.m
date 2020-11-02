@@ -24,7 +24,7 @@ KProStrongType(UILabel, subTitleLabel)
     if(self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self initSubView];
-        }
+    }
     return self;
 }
 
@@ -72,7 +72,6 @@ KProStrongType(UILabel, subTitleLabel)
 - (UIImageView *)titleImageView{
     if (!_titleImageView) {
         _titleImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _titleImageView.image = kNameImage(@"5.jpg");
         kViewRadius(_titleImageView, 25);
     }
     return _titleImageView;
@@ -82,8 +81,8 @@ KProStrongType(UILabel, subTitleLabel)
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _titleLabel.textColor = kBlackColor;
-        _titleLabel.font = kFontBMedium;
-        _titleLabel.text = @"龙龙 收藏了你的笔记";
+        _titleLabel.font = kFontBBig;
+        _titleLabel.text = @"";
     }
     return _titleLabel;
 }
@@ -92,7 +91,7 @@ KProStrongType(UILabel, subTitleLabel)
         _subTitleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _subTitleLabel.textColor = kGreyColor;
         _subTitleLabel.font = kFontBSmall;
-        _subTitleLabel.text = @"刚刚";
+        _subTitleLabel.text = @"";
     }
     return _subTitleLabel;
 }
@@ -117,10 +116,10 @@ KProStrongType(UILabel, subTitleLabel)
     _followButton.selected = !button.selected;
     
     if (_followButton.selected) {
-            kViewBorderRadius(_followButton, 12.5, 1.0, kGreyColor);
-        }else{
-            kViewBorderRadius(_followButton, 12.5, 1.0, kCOLOR_THEME);
-        }
+        kViewBorderRadius(_followButton, 12.5, 1.0, kGreyColor);
+    }else{
+        kViewBorderRadius(_followButton, 12.5, 1.0, kCOLOR_THEME);
+    }
     VLFollowUnFollowRequest *request = [[VLFollowUnFollowRequest alloc] init];
     request.isFolleow = !_followButton.selected;
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
@@ -131,11 +130,46 @@ KProStrongType(UILabel, subTitleLabel)
     }];
     
 }
-
-- (void)setFansModel:(int *)fansModel{
+//关注列表
+- (void)setFollowModel:(VLUserHomeFansListModel *)followModel{
+    _followModel = followModel;
+    self.followButton.selected = YES;
+    if (_followButton.selected) {
+        kViewBorderRadius(_followButton, 12.5, 1.0, kGreyColor);
+    }else{
+        kViewBorderRadius(_followButton, 12.5, 1.0, kCOLOR_THEME);
+    }
     
+    if (followModel.nickname.length) {
+        self.titleLabel.text = followModel.nickname;
+    }else{
+        self.titleLabel.text = followModel.user_name;
+    }
+    
+    self.subTitleLabel.text = [NSString stringWithFormat:@"笔记·%@ | 粉丝·%@",followModel.video_count,followModel.fans_count];
+    [self.titleImageView sd_setImageWithURL:[NSURL URLWithString:followModel.headimg] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
 }
 
+
+- (void)setFansModel:(VLUserHomeFansListModel *)fansModel{
+    _fansModel = fansModel;
+    self.followButton.selected = fansModel.is_follow;
+    if (_followButton.selected) {
+        kViewBorderRadius(_followButton, 12.5, 1.0, kGreyColor);
+    }else{
+        kViewBorderRadius(_followButton, 12.5, 1.0, kCOLOR_THEME);
+    }
+    
+    if (fansModel.nickname.length) {
+        self.titleLabel.text = fansModel.nickname;
+    }else{
+        self.titleLabel.text = fansModel.user_name;
+    }
+
+    self.subTitleLabel.text = [NSString stringWithFormat:@"笔记·%@ | 粉丝·%@",fansModel.video_count,fansModel.fans_count];
+    [self.titleImageView sd_setImageWithURL:[NSURL URLWithString:fansModel.headimg] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
+    
+}
 
 
 //- (void)setLieModel:(VLMessageLikeResponse *)lieModel{

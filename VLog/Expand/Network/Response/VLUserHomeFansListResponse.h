@@ -7,12 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
 NS_ASSUME_NONNULL_BEGIN
 
 @class VLUserHomeFansListModel;
-
 @interface VLUserHomeFansListResponse : NSObject
 KProNSArrayType(VLUserHomeFansListModel,list)
 KProStrongType(VLIndex_PageResponse,page)
