@@ -128,7 +128,6 @@
 }
 
 
-
 - (void)configCellWithModel:(VLDetailCommentModel *)model indexPath:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
     

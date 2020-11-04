@@ -8,13 +8,19 @@
 
 #import "NCHBaseViewController.h"
 #import "YSCTagModel.h"
+#import "VLVideoInfoModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class VLPublishTagListViewController;
 @protocol VLPublishTagListViewControllerDelegate <NSObject>
-
+//用于图片标签
 - (void)publishTagListViewController:(VLPublishTagListViewController *)vc pusblishTagModel:(YSCTagModel*)tagModel;
+
+
+//用于正文标签
+- (void)publishTagListViewController:(VLPublishTagListViewController *)vc pusblishDescTagModel:(VLVideoInfo_DescModel*)descModel;
 
 @end
 

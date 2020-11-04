@@ -158,6 +158,18 @@ KProStrongType(VLTagListView, goodsList)
     if (self.delegate && [self.delegate respondsToSelector:@selector(publishTagListViewController:pusblishTagModel:)]) {
         [self.delegate publishTagListViewController:self pusblishTagModel:model];
     }
+    
+    
+    VLVideoInfo_DescModel *descModel = [[VLVideoInfo_DescModel alloc] init];
+    descModel.is_tag = YES;
+    descModel.name = brandModel.brand_name;
+    descModel.tagId = brandModel.brand_id;
+    descModel.type  = @"2";
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(publishTagListViewController:pusblishDescTagModel:)]) {
+        [self.delegate publishTagListViewController:self pusblishDescTagModel:descModel];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 //商品
@@ -174,6 +186,19 @@ KProStrongType(VLTagListView, goodsList)
     if (self.delegate && [self.delegate respondsToSelector:@selector(publishTagListViewController:pusblishTagModel:)]) {
         [self.delegate publishTagListViewController:self pusblishTagModel:model];
     }
+    
+    
+    VLVideoInfo_DescModel *descModel = [[VLVideoInfo_DescModel alloc] init];
+    descModel.is_tag = YES;
+    descModel.name = goodsModel.goods_name;
+    descModel.tagId = goodsModel.goods_id;
+    descModel.type  = @"3";
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(publishTagListViewController:pusblishDescTagModel:)]) {
+        [self.delegate publishTagListViewController:self pusblishDescTagModel:descModel];
+    }
+    
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -187,6 +212,21 @@ KProStrongType(VLTagListView, goodsList)
     if (self.delegate && [self.delegate respondsToSelector:@selector(publishTagListViewController:pusblishTagModel:)]) {
         [self.delegate publishTagListViewController:self pusblishTagModel:model];
     }
+    
+    
+    VLVideoInfo_DescModel *descModel = [[VLVideoInfo_DescModel alloc] init];
+    descModel.is_tag = YES;
+    descModel.name = title;
+    if (isGoods) {
+        descModel.type  = @"3";
+    }else{
+        descModel.type  = @"2";
+    }
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(publishTagListViewController:pusblishDescTagModel:)]) {
+        [self.delegate publishTagListViewController:self pusblishDescTagModel:descModel];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
