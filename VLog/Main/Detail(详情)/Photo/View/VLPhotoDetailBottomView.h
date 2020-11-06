@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface VLPhotoDetailBottomView : UIView
+KProStrongType(UIButton,commentButton);
 @property (nonatomic,weak) id<VLPhotoDetailBottomViewDelegate> delegate;
 - (instancetype)initWithFrame:(CGRect)frame infoModel:(VLDetailResponse *)infoModel;
 

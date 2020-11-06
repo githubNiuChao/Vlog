@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NCHBaseRequestResponse : NSObject <NCHBaseRequestResponse>
 /**  code  */
-@property (nonatomic, copy) NSString *code;
+@property (nonatomic, assign) NSInteger code;
 /**  数据  */
 @property (nonatomic, copy) id data;
 /**  消息内容  */

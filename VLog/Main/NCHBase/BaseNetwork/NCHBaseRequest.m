@@ -70,14 +70,19 @@ NSString * const NCHRequestHeaderField_UserAgent_Key = @"User-Agent";
 
 ///封装请求
 - (void)nch_startWithCompletionBlockWithSuccess:(NCHBaseRequestCompletionBlock)success failure:(NCHBaseRequestCompletionBlock)failure{
-    NSLog(@"Request:--------------%@%@",self.baseUrl,self.requestUrl);
-    NSLog(@"RequestArgument:--------------%@",self.requestArgument);
+    NSLog(@"Request:👍👍👍👍👍👍👍👍👍%@%@",self.baseUrl,self.requestUrl);
+    NSLog(@"RequestArgument:👍👍👍👍👍👍👍👍👍%@",self.requestArgument);
     
     [self startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NCHBaseRequestResponse *baseRespose = [NCHBaseRequestResponse yy_modelWithJSON:request.responseObject];
+        if (baseRespose.code != 0) {
+            [UIWindow showTips:baseRespose.message];
+        }
         success(request,baseRespose);
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NCHBaseRequestResponse *baseRespose = [NCHBaseRequestResponse yy_modelWithJSON:request.responseObject];
+        NCHBaseRequestResponse *baseRespose = [[NCHBaseRequestResponse alloc]init];;
+        baseRespose.message = @"请求失败";
+        [UIWindow showTips:baseRespose.message];
         failure(request,baseRespose);
     }];
 }

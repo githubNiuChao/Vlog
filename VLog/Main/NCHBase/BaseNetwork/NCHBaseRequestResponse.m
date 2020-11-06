@@ -9,16 +9,16 @@
 #import "NCHBaseRequestResponse.h"
 #import "NCHBaseRequest.h"
 
-//*********************** 状态码,这个是跟后台讨论 ***********************
-typedef NSString *NCHResponseCode NS_EXTENSIBLE_STRING_ENUM;
+//*********************** 状态码,这个是需要跟后台讨论 ***********************
+typedef NSInteger NCHResponseCode;
 // 请求成功 code
-static NCHResponseCode const kPublicResponseSuccessCode = @"0";
+static NCHResponseCode const kPublicResponseSuccessCode = 0;
 // token失效 code
-static NCHResponseCode const kPublicResponseTokenInvalidCode = @"111111";
+static NCHResponseCode const kPublicResponseTokenInvalidCode = 111111;
 // 版本失效 code
-static NCHResponseCode const kPublicResponseVersonInvalidCode = @"222222";
+static NCHResponseCode const kPublicResponseVersonInvalidCode = 222222;
 // 服务器500错误
-static NCHResponseCode const kPublicResponseServerNotResponseCode = @"500";
+static NCHResponseCode const kPublicResponseServerNotResponseCode = 500;
 
 @implementation NCHBaseRequestResponse
 
@@ -49,22 +49,22 @@ static NCHResponseCode const kPublicResponseServerNotResponseCode = @"500";
 /**  是否请求成功  */
 - (BOOL)isRequestSuccess
 {
-    return [self.code isEqualToString:kPublicResponseSuccessCode];
+    return (self.code == kPublicResponseSuccessCode);
 }
 /**  是否token失效  */
 - (BOOL)isTokenInvalid
 {
-    return [self.code isEqualToString:kPublicResponseTokenInvalidCode];
+    return (self.code == kPublicResponseTokenInvalidCode);
 }
 /**  是否版本失效  */
 - (BOOL)isVersonInvalid
 {
-    return [self.code isEqualToString:kPublicResponseTokenInvalidCode];
+    return (self.code == kPublicResponseVersonInvalidCode);
 }
 /**  是否服务器500错误  */
 - (BOOL)isServerNotResponse
 {
-    return [self.code isEqualToString:kPublicResponseServerNotResponseCode];
+    return (self.code == kPublicResponseServerNotResponseCode);
 }
 
 @end

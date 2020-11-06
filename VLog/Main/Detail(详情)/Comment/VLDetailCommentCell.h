@@ -8,6 +8,7 @@
 
 
 #import <UIKit/UIKit.h>
+#import "VLUserInfoModel.h"
 
 @class VLDetailCommentModel;
 @class VLDetailCommentCell;
@@ -25,6 +26,9 @@
 
 @property (nonatomic, weak) id<VLDetailCommentCellDelegate> delegate;
 
+KProStrongType(VLUserInfoModel, loginUserInfoModel)//登陆作者
+
+@property (nonatomic, strong) VLDetailCommentModel *testModel;
 - (void)configCellWithModel:(VLDetailCommentModel *)model indexPath:(NSIndexPath *)indexPath;
 
 @end

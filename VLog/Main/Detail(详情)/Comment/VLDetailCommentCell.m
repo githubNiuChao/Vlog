@@ -12,21 +12,25 @@
 #import <Masonry.h>
 #import "VLDetailCommentSubCell.h"
 #import "VLDetailCommentModel.h"
+#import "VLPublishCommentRequest.h"
+
+#import "VLPhotoDetailManager.h"
+#import "VLLikeCommentRequest.h"
 
 @interface VLDetailCommentCell () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) VLDetailCommentModel *testModel;
 @property (nonatomic, strong) NSIndexPath *indexPath;
 
 
 
 @property (nonatomic, strong) UIImageView        *avatar;
-@property (nonatomic, strong) UIImageView        *likeIcon;
+@property (nonatomic, strong) UIButton           *likeIcon;
 @property (nonatomic, strong) UILabel            *nickName;
 @property (nonatomic, strong) UILabel            *extraTag;
 @property (nonatomic, strong) UILabel            *content;
 @property (nonatomic, strong) UILabel            *likeNum;
 @property (nonatomic, strong) UILabel            *date;
+@property (nonatomic, strong) UILabel            *authorLabel;
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
@@ -54,8 +58,10 @@
     _avatar.layer.cornerRadius = 14;
     [self.contentView addSubview:_avatar];
     
-    _likeIcon = [[UIImageView alloc] init];
-    _likeIcon.image = [UIImage imageNamed:@"home_like_n"];
+    _likeIcon = [[UIButton alloc] init];
+    [_likeIcon setBackgroundImage:[UIImage imageNamed:@"home_like_n"] forState:UIControlStateNormal];
+    [_likeIcon setBackgroundImage:[UIImage imageNamed:@"home_like_s"] forState:UIControlStateSelected];
+    [_likeIcon addTarget:self action:@selector(actionLikeComment:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:_likeIcon];
     
     _nickName = [[UILabel alloc] init];
@@ -73,27 +79,44 @@
     _date = [[UILabel alloc] init];
     _date.numberOfLines = 1;
     _date.textColor = [UIColor grayColor];
-    _date.font = [UIFont systemFontOfSize:12];
+    _date.font = [UIFont systemFontOfSize:11];
     [self.contentView addSubview:_date];
     
     _likeNum = [[UILabel alloc] init];
     _likeNum.numberOfLines = 1;
     _likeNum.textColor = [UIColor grayColor];
-    _likeNum.font = [UIFont systemFontOfSize:12];
+    _likeNum.font = [UIFont systemFontOfSize:11];
     [self.contentView addSubview:_likeNum];
     
+    _authorLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    _authorLabel.text = @"作者";
+    _authorLabel.hidden = YES;
+    _authorLabel.backgroundColor = kSysGroupBGColor;
+    _authorLabel.font = kFontBSmall;
+    _authorLabel.textColor = [UIColor grayColor];
+    _authorLabel.textAlignment = NSTextAlignmentCenter;
+    
+    kViewRadius(_authorLabel, 10);
+    [self.contentView addSubview:_authorLabel];
     
     [_avatar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.contentView).offset(15);
+        make.top.equalTo(self.contentView).offset(5);
+        make.left.equalTo(self.contentView).offset(15);
         make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
     
     [_nickName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.avatar);
         make.left.equalTo(self.avatar.mas_right).offset(10);
-        make.right.equalTo(self.contentView).offset(-35);
+//        make.right.equalTo(self.contentView).offset(-35);
     }];
     
+    [_authorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.nickName.mas_right).offset(10);
+        make.centerY.equalTo(self.nickName.mas_centerY);
+        make.size.mas_equalTo(CGSizeMake(40, 20));
+    }];
+
     [_likeIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.avatar);
         make.right.equalTo(self.contentView).offset(-15);
@@ -102,11 +125,12 @@
     
     [_content mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.nickName.mas_bottom).offset(10);
-        make.left.right.equalTo(self.nickName);
+        make.right.equalTo(self.contentView.mas_right).inset(20);
+        make.left.equalTo(self.nickName);
     }];
     [_date mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.content.mas_bottom).offset(5);
-        make.left.right.equalTo(self.nickName);
+        make.left.equalTo(self.nickName);
     }];
     [_likeNum mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.likeIcon);
@@ -130,6 +154,8 @@
 
 - (void)configCellWithModel:(VLDetailCommentModel *)model indexPath:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
+    model.is_author = (self.loginUserInfoModel.user_id == [model.user_id integerValue]);
+    self.authorLabel.hidden = !model.is_author;
     
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:model.headimg] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
     self.content.text = model.content;
@@ -137,6 +163,7 @@
     self.date.text = [NSDate formatTime:[model.add_time longLongValue]];
     self.testModel = model;
     CGFloat tableViewHeight = 0;
+
     for (VLDetailCommentModel *commentModel in model.children) {
         CGFloat cellHeight = [VLDetailCommentSubCell hyb_heightForTableView:self.tableView config:^(UITableViewCell *sourceCell) {
             VLDetailCommentSubCell *cell = (VLDetailCommentSubCell *)sourceCell;
@@ -147,6 +174,10 @@
                      kHYBRecalculateForStateKey : @(NO)};
         }];
         tableViewHeight += cellHeight;
+    }
+    
+    if (kArrayIsEmpty(model.children)) {
+        model.children = [[NSMutableArray alloc] init];
     }
     
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -164,6 +195,7 @@
         cell = [[VLDetailCommentSubCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     VLDetailCommentModel *model = [self.testModel.children objectAtIndex:indexPath.row];
+    cell.loginUserInfoModel = self.loginUserInfoModel;
     [cell configCellWithModel:model];
     
     return cell;
@@ -210,16 +242,17 @@
     if (self.delegate &&[self.delegate respondsToSelector:@selector(detailCommentCellModel:replyCommentWith:atIndexPath:)]) {
         [self.delegate detailCommentCellModel:self.testModel replyCommentWith:subModel atIndexPath:self.indexPath];
     }
-    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    VLDetailCommentSubCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    return cell.subModel.is_author;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-                [self.testModel.children removeObjectAtIndex:indexPath.row];
+            [VLPhotoDetailManager deleteCommentWithCommentModel:[self.testModel.children objectAtIndex:indexPath.row]];
+            [self.testModel.children removeObjectAtIndex:indexPath.row];
         if ([self.delegate respondsToSelector:@selector(reloadCellHeightForModel:atIndexPath:)]) {
             self.testModel.shouldUpdateCache = YES;
             [self.delegate reloadCellHeightForModel:self.testModel atIndexPath:self.indexPath];
@@ -227,13 +260,17 @@
     }
 }
 
-//- (NSString *)ConvertStrToTime:(NSString *)timeStr{
-//    long long time=[timeStr longLongValue];
-//    NSDate *date = [[NSDate alloc]initWithTimeIntervalSince1970:time];
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-//    [formatter setDateFormat:@"MM-dd HH:mm:ss"];
-//    NSString*timeString=[formatter stringFromDate:date];
-//    return timeString;
-//}
+
+- (void)actionLikeComment:(UIButton *)button{
+    self.likeIcon.selected = !button.selected;
+    if (self.likeIcon.selected) {
+        self.likeNum.text =[NSString stringWithFormat:@"%ld", [self.likeNum.text integerValue]+1];
+    }else{
+        self.likeNum.text =[NSString stringWithFormat:@"%ld", [self.likeNum.text integerValue]-1];
+    }
+    
+    [VLPhotoDetailManager likeCommentWithCommentModel:self.testModel isLike:self.likeIcon.selected];
+    
+}
 
 @end

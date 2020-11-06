@@ -23,8 +23,12 @@ kProNSString(audit_status)
 kProNSString(audit_text)
 kProNSString(headimg)
 kProNSString(nickname)
+KProBool(is_like)
+kProNSString(like_count)
 kProNSString(reply_user)
 KProNSMutableArrayType(VLDetailCommentModel,children)
+
+KProBool(is_author)
 
 // 因为评论是动态的，因此要标识是否要更新缓存
 @property (nonatomic, assign) BOOL shouldUpdateCache;

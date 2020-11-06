@@ -14,7 +14,6 @@
 KProStrongType(UIButton,textBGButton);
 KProStrongType(UIButton,likeButton);
 KProStrongType(UIButton,collectButton);
-KProStrongType(UIButton,commentButton);
 
 KProStrongType(VLDetailResponse,infoModel);
 

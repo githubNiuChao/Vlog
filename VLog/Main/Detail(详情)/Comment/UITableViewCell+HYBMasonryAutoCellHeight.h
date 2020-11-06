@@ -17,22 +17,16 @@ typedef void(^HYBCellBlock)(UITableViewCell *sourceCell);
 typedef NSDictionary *(^HYBCacheHeight)();
 
 /**
- *	@author 黄仪标, 16-01-22 21:01:09
- *
  *	唯一键，通常是数据模型的id，保证唯一
  */
 FOUNDATION_EXTERN NSString *const kHYBCacheUniqueKey;
 
 /**
- *	@author 黄仪标, 16-01-22 21:01:57
- *
  *	对于同一个model，如果有不同状态，而且不同状态下高度不一样，那么也需要指定
  */
 FOUNDATION_EXTERN NSString *const kHYBCacheStateKey;
 
 /**
- *	@author 黄仪标, 16-01-22 21:01:47
- *
  *	用于指定更新某种状态的缓存，比如当评论时，增加了一条评论，此时该状态的高度若已经缓存过，则需要指定来更新缓存
  */
 FOUNDATION_EXTERN NSString *const kHYBRecalculateForStateKey;
@@ -86,8 +80,6 @@ FOUNDATION_EXTERN NSString *const kHYBRecalculateForStateKey;
 + (CGFloat)hyb_heightForTableView:(UITableView *)tableView config:(HYBCellBlock)config;
 
 /**
- *	@author 黄仪标, 16-01-22 23:01:56
- *
  *	此API会缓存行高
  *
  *	@param tableView 必传，为哪个tableView缓存行高

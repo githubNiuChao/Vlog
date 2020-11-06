@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 KProStrongType(VLVideoInfoModel,video_info)
 KProStrongType(VLIndex_Cat_InfoResponse,video_cat_info)
-KProStrongType(VLUserInfoModel,user_info)
-KProStrongType(VLUserInfoModel,current_user)
+KProStrongType(VLUserInfoModel,user_info)//视频作者内容
+KProStrongType(VLUserInfoModel,current_user)//登陆作者内容
 KProBool(is_follow)
 kProNSString(like_count)
 kProNSString(collection_count)

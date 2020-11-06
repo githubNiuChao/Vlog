@@ -15,7 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 KProStrongType(VLDetailResponse,dataModel)
 
--(void)loadDataWithVideoId:(NSString *)videoid;
+- (void)loadDataWithVideoId:(NSString *)videoid;
+
+
+//删除评论
++ (void)deleteCommentWithCommentModel:(VLDetailCommentModel *)commentModel;
+
+///点赞或取消点赞评论
++ (void)likeCommentWithCommentModel:(VLDetailCommentModel *)commentModel isLike:(BOOL)isLike;
 
 @end
 

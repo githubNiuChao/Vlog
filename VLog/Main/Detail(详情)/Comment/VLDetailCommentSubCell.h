@@ -8,10 +8,15 @@
 
 
 #import <UIKit/UIKit.h>
+#import "VLUserInfoModel.h"
 
 @class VLDetailCommentModel;
 
 @interface VLDetailCommentSubCell : UITableViewCell
+
+KProStrongType(VLUserInfoModel, loginUserInfoModel)//登陆作者
+
+@property (nonatomic, strong) VLDetailCommentModel *subModel;
 
 - (void)configCellWithModel:(VLDetailCommentModel *)model;
 

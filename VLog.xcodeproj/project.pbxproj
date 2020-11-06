@@ -145,6 +145,7 @@
 		51339CAF253053430039A025 /* JXPagerListRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51339CA4253053430039A025 /* JXPagerListRefreshView.m */; };
 		5134C872253C2D5E00FE5528 /* VLVideoListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5134C871253C2D5E00FE5528 /* VLVideoListTableViewCell.m */; };
 		514875D9251F1416003B7F11 /* NCHMacroTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 514875D8251F1416003B7F11 /* NCHMacroTools.m */; };
+		514A8F1125529659008B0181 /* VLLikeCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 514A8F1025529659008B0181 /* VLLikeCommentRequest.m */; };
 		515FCC812535947E007F964A /* NCHPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 515FCC802535947E007F964A /* NCHPopView.m */; };
 		515FCC842535953A007F964A /* NCHPopViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 515FCC832535953A007F964A /* NCHPopViewManager.m */; };
 		515FCC882535967C007F964A /* UIView+NCHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 515FCC872535967C007F964A /* UIView+NCHView.m */; };
@@ -242,6 +243,7 @@
 		51873F2525342A190070264B /* WMZDialogAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F2325342A180070264B /* WMZDialogAnimation.m */; };
 		51873F29253433DE0070264B /* VLIndexResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F28253433DE0070264B /* VLIndexResponse.m */; };
 		518968D5250CA66100897448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518968D4250CA66100897448 /* Assets.xcassets */; };
+		518F8CDA25539E1300E9041F /* VLPublishCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 518F8CD925539E1200E9041F /* VLPublishCommentRequest.m */; };
 		51A144522548245F005FD0B3 /* DetailAttributedStringHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A144512548245F005FD0B3 /* DetailAttributedStringHandle.m */; };
 		51A29BDB25203EC1001EF6E9 /* WebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B3725203EC1001EF6E9 /* WebSocketManager.m */; };
 		51A29BE825203EC1001EF6E9 /* WebCacheHelpler.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B5125203EC1001EF6E9 /* WebCacheHelpler.m */; };
@@ -585,6 +587,8 @@
 		5134C871253C2D5E00FE5528 /* VLVideoListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLVideoListTableViewCell.m; sourceTree = "<group>"; };
 		514875D7251F1416003B7F11 /* NCHMacroTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHMacroTools.h; sourceTree = "<group>"; };
 		514875D8251F1416003B7F11 /* NCHMacroTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHMacroTools.m; sourceTree = "<group>"; };
+		514A8F0F25529659008B0181 /* VLLikeCommentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VLLikeCommentRequest.h; sourceTree = "<group>"; };
+		514A8F1025529659008B0181 /* VLLikeCommentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLLikeCommentRequest.m; sourceTree = "<group>"; };
 		515FCC7F2535947E007F964A /* NCHPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHPopView.h; sourceTree = "<group>"; };
 		515FCC802535947E007F964A /* NCHPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NCHPopView.m; sourceTree = "<group>"; };
 		515FCC822535953A007F964A /* NCHPopViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NCHPopViewManager.h; sourceTree = "<group>"; };
@@ -763,6 +767,8 @@
 		51873F28253433DE0070264B /* VLIndexResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VLIndexResponse.m; sourceTree = "<group>"; };
 		518968C5250CA65C00897448 /* VLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		518968D4250CA66100897448 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		518F8CD825539E1200E9041F /* VLPublishCommentRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLPublishCommentRequest.h; sourceTree = "<group>"; };
+		518F8CD925539E1200E9041F /* VLPublishCommentRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLPublishCommentRequest.m; sourceTree = "<group>"; };
 		51A144502548245F005FD0B3 /* DetailAttributedStringHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DetailAttributedStringHandle.h; path = "VLog/Main/Detail(详情)/Comment/DetailAttributedStringHandle.h"; sourceTree = SOURCE_ROOT; };
 		51A144512548245F005FD0B3 /* DetailAttributedStringHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DetailAttributedStringHandle.m; path = "VLog/Main/Detail(详情)/Comment/DetailAttributedStringHandle.m"; sourceTree = SOURCE_ROOT; };
 		51A29B3725203EC1001EF6E9 /* WebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSocketManager.m; sourceTree = "<group>"; };
@@ -2134,10 +2140,14 @@
 		51B1389625456FD200A915B7 /* Action */ = {
 			isa = PBXGroup;
 			children = (
+				518F8CD825539E1200E9041F /* VLPublishCommentRequest.h */,
+				518F8CD925539E1200E9041F /* VLPublishCommentRequest.m */,
 				51B138A92545944A00A915B7 /* VLFollowUnFollowRequest.h */,
 				51B138AA2545944A00A915B7 /* VLFollowUnFollowRequest.m */,
 				51E3EEDC25493BEF0094A9DA /* VLLikeUnLikeRequest.h */,
 				51E3EEDD25493BEF0094A9DA /* VLLikeUnLikeRequest.m */,
+				514A8F0F25529659008B0181 /* VLLikeCommentRequest.h */,
+				514A8F1025529659008B0181 /* VLLikeCommentRequest.m */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -2547,6 +2557,7 @@
 				51805B15251B91CB00FBC12D /* Reachability.m in Sources */,
 				517E40FF2547A798007DBBC2 /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
 				51805B2D251B91CC00FBC12D /* YISIndexViewController.m in Sources */,
+				518F8CDA25539E1300E9041F /* VLPublishCommentRequest.m in Sources */,
 				51E3EEDE25493BEF0094A9DA /* VLLikeUnLikeRequest.m in Sources */,
 				51BA08052536A843002E481E /* VLPhotoDetailManager.m in Sources */,
 				51E059FB2524620100FA9744 /* NCHNetWorkManager.m in Sources */,
@@ -2556,6 +2567,7 @@
 				515FCC812535947E007F964A /* NCHPopView.m in Sources */,
 				51FC064B2543F9CB008C1223 /* VLTagTextViewToolBar.m in Sources */,
 				510E6C10254FCD8B0018F4A6 /* UIImageView+HXExtension.m in Sources */,
+				514A8F1125529659008B0181 /* VLLikeCommentRequest.m in Sources */,
 				51815241251C470C00F9CCD3 /* NCHNavigationBar.m in Sources */,
 				51ADE27A25410F2E0081F620 /* BANetManagerCache.m in Sources */,
 				515FCC842535953A007F964A /* NCHPopViewManager.m in Sources */,
