@@ -244,7 +244,6 @@
 		51873F29253433DE0070264B /* VLIndexResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 51873F28253433DE0070264B /* VLIndexResponse.m */; };
 		518968D5250CA66100897448 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518968D4250CA66100897448 /* Assets.xcassets */; };
 		518F8CDA25539E1300E9041F /* VLPublishCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 518F8CD925539E1200E9041F /* VLPublishCommentRequest.m */; };
-		51A144522548245F005FD0B3 /* DetailAttributedStringHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A144512548245F005FD0B3 /* DetailAttributedStringHandle.m */; };
 		51A29BDB25203EC1001EF6E9 /* WebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B3725203EC1001EF6E9 /* WebSocketManager.m */; };
 		51A29BE825203EC1001EF6E9 /* WebCacheHelpler.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B5125203EC1001EF6E9 /* WebCacheHelpler.m */; };
 		51A29BF625203EC1001EF6E9 /* MenuPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A29B7125203EC1001EF6E9 /* MenuPopView.m */; };
@@ -2479,7 +2478,6 @@
 				51ADE22E253F2F450081F620 /* VLMessageViewController.m in Sources */,
 				510E6C48254FCD8B0018F4A6 /* HX_PhotoEditBottomView.m in Sources */,
 				512B03462510549B00447945 /* XYTransition.m in Sources */,
-				51A144522548245F005FD0B3 /* DetailAttributedStringHandle.m in Sources */,
 				510E6C22254FCD8B0018F4A6 /* HXCustomNavigationController.m in Sources */,
 				510E6C34254FCD8B0018F4A6 /* HXPhotoView.m in Sources */,
 				510E6C51254FCD8B0018F4A6 /* HXPhotoEditDrawView.m in Sources */,
