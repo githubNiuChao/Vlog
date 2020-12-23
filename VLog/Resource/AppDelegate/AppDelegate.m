@@ -20,7 +20,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
 
@@ -33,11 +32,6 @@
     
     //网络启动
     [NCHNetWorkManager sharedInstance];
-//    [NCHNetWorkManager configureNetwork];
-//    [NetworkHelper startListening];
-//    [[WebSocketManager shareManager] connect];
-    
-    
     [AVPlayerManager setAudioMode];
     
     [self requestPermission];
