@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 #import <Photos/Photos.h>
 #import "YISVlogTabBarController1.h"
-//#import "NetworkHelper.h"
-//#import "WebSocketManager.h"
 #import "AVPlayerManager.h"
 #import "NCHNetWorkManager.h"
 
@@ -50,7 +48,6 @@
 
 - (void)requestPermission {
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        //process photo library request status.
     }];
 }
 
