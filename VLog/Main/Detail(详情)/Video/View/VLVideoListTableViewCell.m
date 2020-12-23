@@ -14,6 +14,8 @@
 #import "FavoriteView.h"
 #import "CommentsPopView.h"
 #import "SharePopView.h"
+#import "VLPublishCommentRequest.h"
+
 
 static const NSInteger kAwemeListLikeCommentTag = 0x01;
 static const NSInteger kAwemeListLikeShareTag   = 0x02;
@@ -27,6 +29,13 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 @property (nonatomic, strong) UITapGestureRecognizer   *singleTapGesture;
 @property (nonatomic, assign) NSTimeInterval           lastTapTime;
 @property (nonatomic, assign) CGPoint                  lastTapPoint;
+
+
+
+
+@property (nonatomic, strong) NSMutableArray<VLDetailCommentModel*> *commentListData;//评论列表数据
+KProStrongType(VLUserInfoModel, videoUserInfoModel)//视频作者
+KProStrongType(VLUserInfoModel, loginUserInfoModel)//登陆作者
 
 @end
 
@@ -97,7 +106,6 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
         _tagLabel.textVerticalAlignment = YYTextVerticalAlignmentCenter;
         _tagLabel.numberOfLines = 0;
     [_container addSubview:_tagLabel];
-    
     
     _topicButton = [[UIButton alloc] initWithFrame:CGRectZero];
      kViewRadius(_topicButton, 30/2);
@@ -177,7 +185,7 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [_container addSubview:_focus];
     
     [_playerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
+        make.edges.equalTo(self.contentView);
     }];
     [_container mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
@@ -204,7 +212,6 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [_tagLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.topicButton.mas_bottom);
         make.left.right.equalTo(self).offset(10);
-        
     }];
     
     [_desc mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -285,19 +292,63 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     [CATransaction commit];
 }
 
+
+// update method
+- (void)initData:(VLDetailResponse *)detailModel {
+    self.detailModel = detailModel;
+    self.commentListData = [self.detailModel.comment_list mutableCopy];
+    self.videoUserInfoModel = self.detailModel.user_info;
+    self.loginUserInfoModel = self.detailModel.current_user;
+    
+    [_nickName setText:[NSString stringWithFormat:@"@%@",self.videoUserInfoModel.nickname]];
+    [_desc setText:self.detailModel.video_info.video_title];
+    
+    [_avatar sd_setImageWithURL:[NSURL URLWithString:self.videoUserInfoModel.headimg] placeholderImage:kNameImage(@"user_avatar_default")];
+    NSMutableAttributedString *detailLabelAText = [NSMutableAttributedString new];
+    NCWeakSelf(self);
+    [self.detailModel.video_info.video_desc enumerateObjectsUsingBlock:^(VLVideoInfo_DescModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.is_tag) {
+            [detailLabelAText appendAttributedString:[weakself appendDescTagAttributedStringWithInfoModel:obj]];
+        }else{
+            [detailLabelAText appendAttributedString:[weakself appendAttributedString:obj.name font:kFontBMedium]];
+        }
+    }];
+    self.tagLabel.attributedText = detailLabelAText;
+    CGFloat detailLabelHeight = [self getTextHeight:detailLabelAText andLabel:self.tagLabel];
+    [self.tagLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(detailLabelHeight));
+    }];
+    
+}
+
+
 //SendTextDelegate delegate
 - (void)onSendText:(NSString *)text {
-    __weak __typeof(self) wself = self;
-//    PostCommentRequest *request = [PostCommentRequest new];
-////    request.aweme_id = _aweme.aweme_id;
-//    request.udid = UDID;
-//    request.text = text;
-//    [NetworkHelper postWithUrlPath:PostComentPath request:request success:^(id data) {
-//        [UIWindow showTips:@"评论成功"];
-//    } failure:^(NSError *error) {
-//        wself.hoverTextView.textView.text = text;
-//        [UIWindow showTips:@"评论失败"];
-//    }];
+    
+    VLPublishCommentRequest *commentRequest = [[VLPublishCommentRequest alloc] init];
+    commentRequest.isAdd = YES;
+    [commentRequest setArgument:@"0" forKey:@"parent_id"];
+    [commentRequest setArgument:@"0" forKey:@"reply_id"];
+    [commentRequest setArgument:self.detailModel.video_info.video_id forKey:@"video_id"];
+    [commentRequest setArgument:text forKey:@"content"];
+    
+    [commentRequest nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+        
+        if (baseResponse.code == 0) {
+            [UIWindow showTips:@"评论发表成功"];
+            
+            VLDetailCommentModel *model = [VLDetailCommentModel yy_modelWithJSON:[request.responseJSONObject objectForKey:@"comment_info"]];
+            model.headimg = self.loginUserInfoModel.headimg;
+            model.nickname = self.loginUserInfoModel.nickname;
+            
+            [self.commentListData insertObject:model atIndex:0];
+        }else{
+            [UIWindow showTips:@"评论发表失败"];
+        }
+        
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
+        [UIWindow showTips:@"评论发表失败"];
+    }];
 }
 
 //HoverTextViewDelegate delegate
@@ -309,7 +360,8 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 - (void)handleGesture:(UITapGestureRecognizer *)sender {
     switch (sender.view.tag) {
         case kAwemeListLikeCommentTag: {
-            CommentsPopView *popView = [[CommentsPopView alloc] initWithAwemeId:@"1"];
+            CommentsPopView *popView = [[CommentsPopView alloc] initWithCommentListData:self.commentListData loginUserInfoModel:self.loginUserInfoModel];
+            popView.videoUserInfoModel = self.videoUserInfoModel;
             [popView show];
             break;
         }
@@ -340,7 +392,6 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
             break;
         }
     }
-    
 }
 
 - (void)singleTapAction {
@@ -461,31 +512,6 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
     }
 }
 
-// update method
-- (void)initData:(VLDetailResponse *)detailModel {
-    _detailModel = detailModel;
-    
-    [_nickName setText:[NSString stringWithFormat:@"@%@",detailModel.current_user.nickname]];
-    [_desc setText:detailModel.video_info.video_title];
-    [_avatar sd_setImageWithURL:[NSURL URLWithString:detailModel.current_user.headimg] placeholderImage:kNameImage(@"user_avatar_default")];
-    
-    NSMutableAttributedString *detailLabelAText = [NSMutableAttributedString new];
-    NCWeakSelf(self);
-    [detailModel.video_info.video_desc enumerateObjectsUsingBlock:^(VLVideoInfo_DescModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.is_tag) {
-            [detailLabelAText appendAttributedString:[weakself appendDescTagAttributedStringWithInfoModel:obj]];
-        }else{
-            [detailLabelAText appendAttributedString:[weakself appendAttributedString:obj.name font:kFontBMedium]];
-        }
-    }];
-    self.tagLabel.attributedText = detailLabelAText;
-    CGFloat detailLabelHeight = [self getTextHeight:detailLabelAText andLabel:self.tagLabel];
-    [self.tagLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(detailLabelHeight));
-    }];
-    
-}
-
 - (void)play {
     [_playerView play];
     [_pauseIcon setHidden:YES];
@@ -510,7 +536,6 @@ static const NSInteger kAwemeListLikeShareTag   = 0x02;
 //    NSString *playUrl = [NetworkHelper isWifiStatus] ? _aweme.video.play_addr.url_list.firstObject : _aweme.video.play_addr_lowbr.url_list.firstObject;
     [_playerView startDownloadTask:[[NSURL alloc] initWithString:[self.detailModel.video_info.video_path firstObject]] isBackground:NO];
 }
-
 
 
 

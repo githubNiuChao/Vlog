@@ -108,7 +108,6 @@
     [_nickName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.avatar);
         make.left.equalTo(self.avatar.mas_right).offset(10);
-//        make.right.equalTo(self.contentView).offset(-35);
     }];
     
     [_authorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -157,11 +156,13 @@
     model.is_author = (self.loginUserInfoModel.user_id == [model.user_id integerValue]);
     self.authorLabel.hidden = !model.is_author;
     
+    self.testModel = model;
+    
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:model.headimg] placeholderImage:[UIImage jk_imageWithColor:kOrangeColor]];
     self.content.text = model.content;
     self.nickName.text= model.nickname;
     self.date.text = [NSDate formatTime:[model.add_time longLongValue]];
-    self.testModel = model;
+ 
     CGFloat tableViewHeight = 0;
 
     for (VLDetailCommentModel *commentModel in model.children) {

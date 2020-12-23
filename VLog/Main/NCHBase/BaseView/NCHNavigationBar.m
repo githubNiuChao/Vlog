@@ -217,10 +217,10 @@
     /** 导航条的高度 */
     
     if ([self.dataSource respondsToSelector:@selector(NCHNavigationHeight:)]) {
-        self.jk_size = CGSizeMake(kSCREEN_WIDTH, [self.dataSource NCHNavigationHeight:self]);
+        self.jk_size = CGSizeMake(kkSCREEN_WIDTH, [self.dataSource NCHNavigationHeight:self]);
     }else
     {
-        self.jk_size = CGSizeMake(kSCREEN_WIDTH, kDefaultNavBarHeight);
+        self.jk_size = CGSizeMake(kkSCREEN_WIDTH, kDefaultNavBarHeight);
     }
     
     /** 是否显示底部黑线 */

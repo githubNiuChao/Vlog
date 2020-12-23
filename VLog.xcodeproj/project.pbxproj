@@ -7,6 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5105CA5D255D78C20083E9B8 /* JobsSearchResultDataListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA2A255D78C20083E9B8 /* JobsSearchResultDataListView.m */; };
+		5105CA5E255D78C20083E9B8 /* JobsSearchResultDataListTBV.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA2B255D78C20083E9B8 /* JobsSearchResultDataListTBV.m */; };
+		5105CA5F255D78C20083E9B8 /* JobsSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA2C255D78C20083E9B8 /* JobsSearchBar.m */; };
+		5105CA60255D78C20083E9B8 /* 方式1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA32255D78C20083E9B8 /* 方式1.png */; };
+		5105CA61255D78C20083E9B8 /* JobsSearchShowHotwordsTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA33255D78C20083E9B8 /* JobsSearchShowHotwordsTBVCell.m */; };
+		5105CA62255D78C20083E9B8 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA35255D78C20083E9B8 /* TableViewCell.m */; };
+		5105CA63255D78C20083E9B8 /* DataCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA36255D78C20083E9B8 /* DataCollectionViewCell.m */; };
+		5105CA64255D78C20083E9B8 /* 方式2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA37255D78C20083E9B8 /* 方式2.png */; };
+		5105CA65255D78C20083E9B8 /* JobsSearchResultDataListTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA3B255D78C20083E9B8 /* JobsSearchResultDataListTBVCell.m */; };
+		5105CA66255D78C20083E9B8 /* JobsSearchShowHistoryDataTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA3F255D78C20083E9B8 /* JobsSearchShowHistoryDataTBVCell.m */; };
+		5105CA67255D78C20083E9B8 /* JobsSearchTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA42255D78C20083E9B8 /* JobsSearchTableViewHeaderView.m */; };
+		5105CA68255D78C20083E9B8 /* 垃圾箱.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA44255D78C20083E9B8 /* 垃圾箱.png */; };
+		5105CA69255D78C20083E9B8 /* JobsSearchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA46255D78C20083E9B8 /* JobsSearchTableView.m */; };
+		5105CA6A255D78C20083E9B8 /* JobsSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA49255D78C20083E9B8 /* JobsSearchVC.m */; };
+		5105CA6B255D78C20083E9B8 /* 假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA4A255D78C20083E9B8 /* 假数据.json */; };
+		5105CA6C255D78C20083E9B8 /* Telegram.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA4C255D78C20083E9B8 /* Telegram.bundle */; };
+		5105CA6D255D78C30083E9B8 /* 放大镜.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA4D255D78C20083E9B8 /* 放大镜.png */; };
+		5105CA6E255D78C30083E9B8 /* 时钟.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA4E255D78C20083E9B8 /* 时钟.png */; };
+		5105CA6F255D78C30083E9B8 /* 扫描.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA4F255D78C20083E9B8 /* 扫描.png */; };
+		5105CA70255D78C30083E9B8 /* nodata.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA50255D78C20083E9B8 /* nodata.png */; };
+		5105CA71255D78C30083E9B8 /* 删除.png in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA51255D78C20083E9B8 /* 删除.png */; };
+		5105CA72255D78C30083E9B8 /* ViewController@4.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA53255D78C20083E9B8 /* ViewController@4.m */; };
+		5105CA73255D78C30083E9B8 /* ViewController@3.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA55255D78C20083E9B8 /* ViewController@3.m */; };
+		5105CA74255D78C30083E9B8 /* ViewController@2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA58255D78C20083E9B8 /* ViewController@2.m */; };
+		5105CA75255D78C30083E9B8 /* ViewController@1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA5A255D78C20083E9B8 /* ViewController@1.m */; };
+		5105CA76255D78C30083E9B8 /* ViewController@5.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA5B255D78C20083E9B8 /* ViewController@5.m */; };
+		5105CA87255D79520083E9B8 /* HQTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA7A255D79520083E9B8 /* HQTextField.m */; };
+		5105CA88255D79520083E9B8 /* CJTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA7C255D79520083E9B8 /* CJTextField.m */; };
+		5105CA89255D79520083E9B8 /* ZYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA7F255D79520083E9B8 /* ZYTextField.m */; };
+		5105CA8A255D79520083E9B8 /* ZYTextField.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5105CA80255D79520083E9B8 /* ZYTextField.bundle */; };
+		5105CA8B255D79520083E9B8 /* ZYTextField+HistoryDataList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA81255D79520083E9B8 /* ZYTextField+HistoryDataList.m */; };
+		5105CA8C255D79520083E9B8 /* UITextField+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA86255D79520083E9B8 /* UITextField+Extend.m */; };
+		5105CA95255D82A70083E9B8 /* ViewForTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA90255D82A70083E9B8 /* ViewForTableViewHeader.m */; };
+		5105CA96255D82A70083E9B8 /* ViewForTableViewFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA93255D82A70083E9B8 /* ViewForTableViewFooter.m */; };
+		5105CA9A255D84050083E9B8 /* TBVCell_style_02.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA98255D84050083E9B8 /* TBVCell_style_02.m */; };
+		5105CA9E255D84370083E9B8 /* TBVCell_style_01.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CA9C255D84360083E9B8 /* TBVCell_style_01.m */; };
+		5105CAA2255D84B30083E9B8 /* HotLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5105CAA1255D84B30083E9B8 /* HotLabel.m */; };
 		510E6BFE254FCD8B0018F4A6 /* VLTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 510E6AFC254FCD8A0018F4A6 /* VLTopicViewController.m */; };
 		510E6BFF254FCD8B0018F4A6 /* YSCTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 510E6AFF254FCD8A0018F4A6 /* YSCTagViewController.m */; };
 		510E6C00254FCD8B0018F4A6 /* YSCVlogPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 510E6B00254FCD8A0018F4A6 /* YSCVlogPublishViewController.m */; };
@@ -316,6 +353,70 @@
 /* Begin PBXFileReference section */
 		1DBC088DDB5B05DAF9266763 /* Pods-VLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLog.release.xcconfig"; path = "Target Support Files/Pods-VLog/Pods-VLog.release.xcconfig"; sourceTree = "<group>"; };
 		38B77A7DBA94D170E173CE2D /* Pods-VLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VLog.debug.xcconfig"; path = "Target Support Files/Pods-VLog/Pods-VLog.debug.xcconfig"; sourceTree = "<group>"; };
+		5105CA2A255D78C20083E9B8 /* JobsSearchResultDataListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSearchResultDataListView.m; sourceTree = "<group>"; };
+		5105CA2B255D78C20083E9B8 /* JobsSearchResultDataListTBV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSearchResultDataListTBV.m; sourceTree = "<group>"; };
+		5105CA2C255D78C20083E9B8 /* JobsSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSearchBar.m; sourceTree = "<group>"; };
+		5105CA2D255D78C20083E9B8 /* JobsSearchResultDataListTBV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSearchResultDataListTBV.h; sourceTree = "<group>"; };
+		5105CA31255D78C20083E9B8 /* JobsSearchShowHotwordsTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSearchShowHotwordsTBVCell.h; sourceTree = "<group>"; };
+		5105CA32255D78C20083E9B8 /* 方式1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "方式1.png"; sourceTree = "<group>"; };
+		5105CA33255D78C20083E9B8 /* JobsSearchShowHotwordsTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSearchShowHotwordsTBVCell.m; sourceTree = "<group>"; };
+		5105CA35255D78C20083E9B8 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		5105CA36255D78C20083E9B8 /* DataCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCollectionViewCell.m; sourceTree = "<group>"; };
+		5105CA37255D78C20083E9B8 /* 方式2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "方式2.png"; sourceTree = "<group>"; };
+		5105CA38255D78C20083E9B8 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		5105CA39255D78C20083E9B8 /* DataCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCollectionViewCell.h; sourceTree = "<group>"; };
+		5105CA3B255D78C20083E9B8 /* JobsSearchResultDataListTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSearchResultDataListTBVCell.m; sourceTree = "<group>"; };
+		5105CA3C255D78C20083E9B8 /* JobsSearchResultDataListTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSearchResultDataListTBVCell.h; sourceTree = "<group>"; };
+		5105CA3E255D78C20083E9B8 /* JobsSearchShowHistoryDataTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSearchShowHistoryDataTBVCell.h; sourceTree = "<group>"; };
+		5105CA3F255D78C20083E9B8 /* JobsSearchShowHistoryDataTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSearchShowHistoryDataTBVCell.m; sourceTree = "<group>"; };
+		5105CA40255D78C20083E9B8 /* JobsSearchResultDataListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSearchResultDataListView.h; sourceTree = "<group>"; };
+		5105CA42255D78C20083E9B8 /* JobsSearchTableViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSearchTableViewHeaderView.m; sourceTree = "<group>"; };
+		5105CA43255D78C20083E9B8 /* JobsSearchTableViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSearchTableViewHeaderView.h; sourceTree = "<group>"; };
+		5105CA44255D78C20083E9B8 /* 垃圾箱.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "垃圾箱.png"; sourceTree = "<group>"; };
+		5105CA46255D78C20083E9B8 /* JobsSearchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSearchTableView.m; sourceTree = "<group>"; };
+		5105CA47255D78C20083E9B8 /* JobsSearchTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSearchTableView.h; sourceTree = "<group>"; };
+		5105CA48255D78C20083E9B8 /* JobsSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSearchBar.h; sourceTree = "<group>"; };
+		5105CA49255D78C20083E9B8 /* JobsSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSearchVC.m; sourceTree = "<group>"; };
+		5105CA4A255D78C20083E9B8 /* 假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "假数据.json"; sourceTree = "<group>"; };
+		5105CA4C255D78C20083E9B8 /* Telegram.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Telegram.bundle; sourceTree = "<group>"; };
+		5105CA4D255D78C20083E9B8 /* 放大镜.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "放大镜.png"; sourceTree = "<group>"; };
+		5105CA4E255D78C20083E9B8 /* 时钟.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "时钟.png"; sourceTree = "<group>"; };
+		5105CA4F255D78C20083E9B8 /* 扫描.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "扫描.png"; sourceTree = "<group>"; };
+		5105CA50255D78C20083E9B8 /* nodata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nodata.png; sourceTree = "<group>"; };
+		5105CA51255D78C20083E9B8 /* 删除.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除.png"; sourceTree = "<group>"; };
+		5105CA52255D78C20083E9B8 /* JobsSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSearchVC.h; sourceTree = "<group>"; };
+		5105CA53255D78C20083E9B8 /* ViewController@4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController@4.m"; sourceTree = "<group>"; };
+		5105CA54255D78C20083E9B8 /* ViewController@2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController@2.h"; sourceTree = "<group>"; };
+		5105CA55255D78C20083E9B8 /* ViewController@3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController@3.m"; sourceTree = "<group>"; };
+		5105CA56255D78C20083E9B8 /* ViewController@5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController@5.h"; sourceTree = "<group>"; };
+		5105CA57255D78C20083E9B8 /* ViewController@1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController@1.h"; sourceTree = "<group>"; };
+		5105CA58255D78C20083E9B8 /* ViewController@2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController@2.m"; sourceTree = "<group>"; };
+		5105CA59255D78C20083E9B8 /* ViewController@4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController@4.h"; sourceTree = "<group>"; };
+		5105CA5A255D78C20083E9B8 /* ViewController@1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController@1.m"; sourceTree = "<group>"; };
+		5105CA5B255D78C20083E9B8 /* ViewController@5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController@5.m"; sourceTree = "<group>"; };
+		5105CA5C255D78C20083E9B8 /* ViewController@3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController@3.h"; sourceTree = "<group>"; };
+		5105CA79255D79520083E9B8 /* HQTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQTextField.h; sourceTree = "<group>"; };
+		5105CA7A255D79520083E9B8 /* HQTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQTextField.m; sourceTree = "<group>"; };
+		5105CA7C255D79520083E9B8 /* CJTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJTextField.m; sourceTree = "<group>"; };
+		5105CA7D255D79520083E9B8 /* CJTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJTextField.h; sourceTree = "<group>"; };
+		5105CA7F255D79520083E9B8 /* ZYTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTextField.m; sourceTree = "<group>"; };
+		5105CA80255D79520083E9B8 /* ZYTextField.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZYTextField.bundle; sourceTree = "<group>"; };
+		5105CA81255D79520083E9B8 /* ZYTextField+HistoryDataList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZYTextField+HistoryDataList.m"; sourceTree = "<group>"; };
+		5105CA82255D79520083E9B8 /* ZYTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTextField.h; sourceTree = "<group>"; };
+		5105CA83255D79520083E9B8 /* ZYTextField+HistoryDataList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ZYTextField+HistoryDataList.h"; sourceTree = "<group>"; };
+		5105CA85255D79520083E9B8 /* UITextField+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extend.h"; sourceTree = "<group>"; };
+		5105CA86255D79520083E9B8 /* UITextField+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extend.m"; sourceTree = "<group>"; };
+		5105CA8D255D7DE60083E9B8 /* AABlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABlock.h; sourceTree = "<group>"; };
+		5105CA90255D82A70083E9B8 /* ViewForTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewForTableViewHeader.m; sourceTree = "<group>"; };
+		5105CA91255D82A70083E9B8 /* ViewForTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewForTableViewHeader.h; sourceTree = "<group>"; };
+		5105CA93255D82A70083E9B8 /* ViewForTableViewFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewForTableViewFooter.m; sourceTree = "<group>"; };
+		5105CA94255D82A70083E9B8 /* ViewForTableViewFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewForTableViewFooter.h; sourceTree = "<group>"; };
+		5105CA98255D84050083E9B8 /* TBVCell_style_02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBVCell_style_02.m; sourceTree = "<group>"; };
+		5105CA99255D84050083E9B8 /* TBVCell_style_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBVCell_style_02.h; sourceTree = "<group>"; };
+		5105CA9C255D84360083E9B8 /* TBVCell_style_01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBVCell_style_01.m; sourceTree = "<group>"; };
+		5105CA9D255D84360083E9B8 /* TBVCell_style_01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBVCell_style_01.h; sourceTree = "<group>"; };
+		5105CAA0255D84B30083E9B8 /* HotLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotLabel.h; sourceTree = "<group>"; };
+		5105CAA1255D84B30083E9B8 /* HotLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotLabel.m; sourceTree = "<group>"; };
 		510E6AFB254FCD8A0018F4A6 /* VLPublishTagListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLPublishTagListViewController.h; sourceTree = "<group>"; };
 		510E6AFC254FCD8A0018F4A6 /* VLTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLTopicViewController.m; sourceTree = "<group>"; };
 		510E6AFD254FCD8A0018F4A6 /* VLLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLocationViewController.h; sourceTree = "<group>"; };
@@ -928,6 +1029,253 @@
 				6CA4F4BAEDBE87CB1E416261 /* libPods-VLog.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5105CA27255D78C20083E9B8 /* 🇨🇳ServiceLogic */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA9F255D84B30083E9B8 /* HotLabel */,
+				5105CA9B255D84360083E9B8 /* TBVCell_style_01 */,
+				5105CA97255D84050083E9B8 /* TBVCell_style_02 */,
+				5105CA8E255D82A70083E9B8 /* UITableViewHeaderFooterView */,
+				5105CA8D255D7DE60083E9B8 /* AABlock.h */,
+				5105CA77255D79520083E9B8 /* UITextField */,
+				5105CA28255D78C20083E9B8 /* 自定义搜索控制器 */,
+				5105CA53255D78C20083E9B8 /* ViewController@4.m */,
+				5105CA54255D78C20083E9B8 /* ViewController@2.h */,
+				5105CA55255D78C20083E9B8 /* ViewController@3.m */,
+				5105CA56255D78C20083E9B8 /* ViewController@5.h */,
+				5105CA57255D78C20083E9B8 /* ViewController@1.h */,
+				5105CA58255D78C20083E9B8 /* ViewController@2.m */,
+				5105CA59255D78C20083E9B8 /* ViewController@4.h */,
+				5105CA5A255D78C20083E9B8 /* ViewController@1.m */,
+				5105CA5B255D78C20083E9B8 /* ViewController@5.m */,
+				5105CA5C255D78C20083E9B8 /* ViewController@3.h */,
+			);
+			path = "🇨🇳ServiceLogic";
+			sourceTree = "<group>";
+		};
+		5105CA28255D78C20083E9B8 /* 自定义搜索控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA29255D78C20083E9B8 /* 视图部分 */,
+				5105CA49255D78C20083E9B8 /* JobsSearchVC.m */,
+				5105CA4A255D78C20083E9B8 /* 假数据.json */,
+				5105CA4B255D78C20083E9B8 /* 图片资源 */,
+				5105CA52255D78C20083E9B8 /* JobsSearchVC.h */,
+			);
+			path = "自定义搜索控制器";
+			sourceTree = "<group>";
+		};
+		5105CA29255D78C20083E9B8 /* 视图部分 */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA2E255D78C20083E9B8 /* Cell */,
+				5105CA48255D78C20083E9B8 /* JobsSearchBar.h */,
+				5105CA2C255D78C20083E9B8 /* JobsSearchBar.m */,
+				5105CA41255D78C20083E9B8 /* JobsSearchHeaderFooterView */,
+				5105CA2D255D78C20083E9B8 /* JobsSearchResultDataListTBV.h */,
+				5105CA2B255D78C20083E9B8 /* JobsSearchResultDataListTBV.m */,
+				5105CA40255D78C20083E9B8 /* JobsSearchResultDataListView.h */,
+				5105CA2A255D78C20083E9B8 /* JobsSearchResultDataListView.m */,
+				5105CA45255D78C20083E9B8 /* JobsSearchTableView */,
+			);
+			path = "视图部分";
+			sourceTree = "<group>";
+		};
+		5105CA2E255D78C20083E9B8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA2F255D78C20083E9B8 /* 热门搜索Cell */,
+				5105CA3A255D78C20083E9B8 /* 逐字搜索返回数据结果下拉列表Cell */,
+				5105CA3D255D78C20083E9B8 /* 搜索历史Cell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5105CA2F255D78C20083E9B8 /* 热门搜索Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA30255D78C20083E9B8 /* 方式1 */,
+				5105CA34255D78C20083E9B8 /* 方式2 */,
+			);
+			path = "热门搜索Cell";
+			sourceTree = "<group>";
+		};
+		5105CA30255D78C20083E9B8 /* 方式1 */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA31255D78C20083E9B8 /* JobsSearchShowHotwordsTBVCell.h */,
+				5105CA32255D78C20083E9B8 /* 方式1.png */,
+				5105CA33255D78C20083E9B8 /* JobsSearchShowHotwordsTBVCell.m */,
+			);
+			path = "方式1";
+			sourceTree = "<group>";
+		};
+		5105CA34255D78C20083E9B8 /* 方式2 */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA35255D78C20083E9B8 /* TableViewCell.m */,
+				5105CA36255D78C20083E9B8 /* DataCollectionViewCell.m */,
+				5105CA37255D78C20083E9B8 /* 方式2.png */,
+				5105CA38255D78C20083E9B8 /* TableViewCell.h */,
+				5105CA39255D78C20083E9B8 /* DataCollectionViewCell.h */,
+			);
+			path = "方式2";
+			sourceTree = "<group>";
+		};
+		5105CA3A255D78C20083E9B8 /* 逐字搜索返回数据结果下拉列表Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA3B255D78C20083E9B8 /* JobsSearchResultDataListTBVCell.m */,
+				5105CA3C255D78C20083E9B8 /* JobsSearchResultDataListTBVCell.h */,
+			);
+			path = "逐字搜索返回数据结果下拉列表Cell";
+			sourceTree = "<group>";
+		};
+		5105CA3D255D78C20083E9B8 /* 搜索历史Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA3E255D78C20083E9B8 /* JobsSearchShowHistoryDataTBVCell.h */,
+				5105CA3F255D78C20083E9B8 /* JobsSearchShowHistoryDataTBVCell.m */,
+			);
+			path = "搜索历史Cell";
+			sourceTree = "<group>";
+		};
+		5105CA41255D78C20083E9B8 /* JobsSearchHeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA42255D78C20083E9B8 /* JobsSearchTableViewHeaderView.m */,
+				5105CA43255D78C20083E9B8 /* JobsSearchTableViewHeaderView.h */,
+				5105CA44255D78C20083E9B8 /* 垃圾箱.png */,
+			);
+			path = JobsSearchHeaderFooterView;
+			sourceTree = "<group>";
+		};
+		5105CA45255D78C20083E9B8 /* JobsSearchTableView */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA46255D78C20083E9B8 /* JobsSearchTableView.m */,
+				5105CA47255D78C20083E9B8 /* JobsSearchTableView.h */,
+			);
+			path = JobsSearchTableView;
+			sourceTree = "<group>";
+		};
+		5105CA4B255D78C20083E9B8 /* 图片资源 */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA4C255D78C20083E9B8 /* Telegram.bundle */,
+				5105CA4D255D78C20083E9B8 /* 放大镜.png */,
+				5105CA4E255D78C20083E9B8 /* 时钟.png */,
+				5105CA4F255D78C20083E9B8 /* 扫描.png */,
+				5105CA50255D78C20083E9B8 /* nodata.png */,
+				5105CA51255D78C20083E9B8 /* 删除.png */,
+			);
+			path = "图片资源";
+			sourceTree = "<group>";
+		};
+		5105CA77255D79520083E9B8 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA78255D79520083E9B8 /* HQTextField */,
+				5105CA7B255D79520083E9B8 /* CJTextField */,
+				5105CA7E255D79520083E9B8 /* ZYTextField */,
+				5105CA84255D79520083E9B8 /* UITextField+Extend */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		5105CA78255D79520083E9B8 /* HQTextField */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA79255D79520083E9B8 /* HQTextField.h */,
+				5105CA7A255D79520083E9B8 /* HQTextField.m */,
+			);
+			path = HQTextField;
+			sourceTree = "<group>";
+		};
+		5105CA7B255D79520083E9B8 /* CJTextField */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA7C255D79520083E9B8 /* CJTextField.m */,
+				5105CA7D255D79520083E9B8 /* CJTextField.h */,
+			);
+			path = CJTextField;
+			sourceTree = "<group>";
+		};
+		5105CA7E255D79520083E9B8 /* ZYTextField */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA80255D79520083E9B8 /* ZYTextField.bundle */,
+				5105CA82255D79520083E9B8 /* ZYTextField.h */,
+				5105CA7F255D79520083E9B8 /* ZYTextField.m */,
+				5105CA83255D79520083E9B8 /* ZYTextField+HistoryDataList.h */,
+				5105CA81255D79520083E9B8 /* ZYTextField+HistoryDataList.m */,
+			);
+			path = ZYTextField;
+			sourceTree = "<group>";
+		};
+		5105CA84255D79520083E9B8 /* UITextField+Extend */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA85255D79520083E9B8 /* UITextField+Extend.h */,
+				5105CA86255D79520083E9B8 /* UITextField+Extend.m */,
+			);
+			path = "UITextField+Extend";
+			sourceTree = "<group>";
+		};
+		5105CA8E255D82A70083E9B8 /* UITableViewHeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA8F255D82A70083E9B8 /* ViewForTableViewHeader */,
+				5105CA92255D82A70083E9B8 /* ViewForTableViewFooter */,
+			);
+			path = UITableViewHeaderFooterView;
+			sourceTree = "<group>";
+		};
+		5105CA8F255D82A70083E9B8 /* ViewForTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA90255D82A70083E9B8 /* ViewForTableViewHeader.m */,
+				5105CA91255D82A70083E9B8 /* ViewForTableViewHeader.h */,
+			);
+			path = ViewForTableViewHeader;
+			sourceTree = "<group>";
+		};
+		5105CA92255D82A70083E9B8 /* ViewForTableViewFooter */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA93255D82A70083E9B8 /* ViewForTableViewFooter.m */,
+				5105CA94255D82A70083E9B8 /* ViewForTableViewFooter.h */,
+			);
+			path = ViewForTableViewFooter;
+			sourceTree = "<group>";
+		};
+		5105CA97255D84050083E9B8 /* TBVCell_style_02 */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA98255D84050083E9B8 /* TBVCell_style_02.m */,
+				5105CA99255D84050083E9B8 /* TBVCell_style_02.h */,
+			);
+			path = TBVCell_style_02;
+			sourceTree = "<group>";
+		};
+		5105CA9B255D84360083E9B8 /* TBVCell_style_01 */ = {
+			isa = PBXGroup;
+			children = (
+				5105CA9C255D84360083E9B8 /* TBVCell_style_01.m */,
+				5105CA9D255D84360083E9B8 /* TBVCell_style_01.h */,
+			);
+			path = TBVCell_style_01;
+			sourceTree = "<group>";
+		};
+		5105CA9F255D84B30083E9B8 /* HotLabel */ = {
+			isa = PBXGroup;
+			children = (
+				5105CAA0255D84B30083E9B8 /* HotLabel.h */,
+				5105CAA1255D84B30083E9B8 /* HotLabel.m */,
+			);
+			path = HotLabel;
 			sourceTree = "<group>";
 		};
 		510E6AF9254FCD8A0018F4A6 /* Publish(发布) */ = {
@@ -1921,6 +2269,7 @@
 		518968C7250CA65C00897448 /* VLog */ = {
 			isa = PBXGroup;
 			children = (
+				5105CA27255D78C20083E9B8 /* 🇨🇳ServiceLogic */,
 				518968D4250CA66100897448 /* Assets.xcassets */,
 				51AC9900250F03CB0023D5EA /* Commons */,
 				518055D6251B91C700FBC12D /* Expand */,
@@ -2251,18 +2600,25 @@
 				51805B34251B91CC00FBC12D /* 8.jpg in Resources */,
 				51805B36251B91CC00FBC12D /* 12.jpg in Resources */,
 				510E6C72254FCD8B0018F4A6 /* yuandian.png in Resources */,
+				5105CA6D255D78C30083E9B8 /* 放大镜.png in Resources */,
+				5105CA68255D78C20083E9B8 /* 垃圾箱.png in Resources */,
 				510E6C67254FCD8B0018F4A6 /* HXPhotoEditGraffitiColorViewCell.xib in Resources */,
 				510E6C5C254FCD8B0018F4A6 /* Localizable.strings in Resources */,
 				51805B3F251B91CC00FBC12D /* 3.jpg in Resources */,
 				510E6C64254FCD8B0018F4A6 /* HXPhotoEditChartletListView.xib in Resources */,
 				51805B41251B91CC00FBC12D /* 0.jpg in Resources */,
+				5105CA6E255D78C30083E9B8 /* 时钟.png in Resources */,
+				5105CA6C255D78C20083E9B8 /* Telegram.bundle in Resources */,
 				518059F8251B91CB00FBC12D /* Info.plist in Resources */,
 				51805B3A251B91CC00FBC12D /* 4.jpg in Resources */,
 				510E6C65254FCD8B0018F4A6 /* HXPhotoEditChartletContentViewCell.xib in Resources */,
 				510E6C6B254FCD8B0018F4A6 /* HX_PhotoEditBottomView.xib in Resources */,
+				5105CA70255D78C30083E9B8 /* nodata.png in Resources */,
 				51805B3C251B91CC00FBC12D /* 7.jpg in Resources */,
 				510E6C68254FCD8B0018F4A6 /* HXPhotoEditMosaicView.xib in Resources */,
 				510E6C6A254FCD8B0018F4A6 /* HXPhotoEditTextView.xib in Resources */,
+				5105CA60255D78C20083E9B8 /* 方式1.png in Resources */,
+				5105CA8A255D79520083E9B8 /* ZYTextField.bundle in Resources */,
 				510E6C69254FCD8B0018F4A6 /* images.xcassets in Resources */,
 				510E6C66254FCD8B0018F4A6 /* HXPhotoEditClippingToolBar.xib in Resources */,
 				51805B38251B91CC00FBC12D /* 11.jpg in Resources */,
@@ -2271,13 +2627,17 @@
 				51805B37251B91CC00FBC12D /* 13.jpg in Resources */,
 				51805AFC251B91CB00FBC12D /* addressData.plist in Resources */,
 				51805B3B251B91CC00FBC12D /* 5.jpg in Resources */,
+				5105CA71255D78C30083E9B8 /* 删除.png in Resources */,
 				51805B39251B91CC00FBC12D /* 10.jpg in Resources */,
 				518968D5250CA66100897448 /* Assets.xcassets in Resources */,
 				51805B40251B91CC00FBC12D /* 1.jpg in Resources */,
 				510E6C5E254FCD8B0018F4A6 /* HXPhotoEditGraffitiColorView.xib in Resources */,
+				5105CA64255D78C20083E9B8 /* 方式2.png in Resources */,
 				510E6C5F254FCD8B0018F4A6 /* HXPhotoEditGraffitiColorSizeView.xib in Resources */,
+				5105CA6B255D78C20083E9B8 /* 假数据.json in Resources */,
 				518059F5251B91CB00FBC12D /* LaunchScreen.storyboard in Resources */,
 				510E6C60254FCD8B0018F4A6 /* LocalSampleVideo.mp4 in Resources */,
+				5105CA6F255D78C30083E9B8 /* 扫描.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2337,6 +2697,7 @@
 				51ADE27E25410F2E0081F620 /* BADataEntity.m in Sources */,
 				510E6C55254FCD8B0018F4A6 /* HXPhotoEditMosaicView.m in Sources */,
 				510E6C30254FCD8B0018F4A6 /* HXPreviewContentView.m in Sources */,
+				5105CA76255D78C30083E9B8 /* ViewController@5.m in Sources */,
 				51862040254FA504007291CD /* VLUserHomeFansListResponse.m in Sources */,
 				510E6C0B254FCD8B0018F4A6 /* HXPhotoViewTransition.m in Sources */,
 				510E6C6C254FCD8B0018F4A6 /* YBTagGestureRecognizer.m in Sources */,
@@ -2355,6 +2716,7 @@
 				51805AF9251B91CB00FBC12D /* MPLocationConverter.m in Sources */,
 				5181524D251C470C00F9CCD3 /* NCHNavUIBaseViewController.m in Sources */,
 				5160692E251DD32A0070B9D9 /* VLBaseContentViewController.m in Sources */,
+				5105CA8C255D79520083E9B8 /* UITextField+Extend.m in Sources */,
 				51B138AB2545944A00A915B7 /* VLFollowUnFollowRequest.m in Sources */,
 				510E6C07254FCD8B0018F4A6 /* HXPhotoEditTransition.m in Sources */,
 				51A29BF825203EC1001EF6E9 /* BaseViewController.m in Sources */,
@@ -2363,6 +2725,8 @@
 				51BA08122536D736002E481E /* VLIndexListManager.m in Sources */,
 				51ADE21E253EB1A60081F620 /* VLVideoDetailViewController.m in Sources */,
 				51B1388F25441A3700A915B7 /* VLTextViewComposeParser.m in Sources */,
+				5105CA87255D79520083E9B8 /* HQTextField.m in Sources */,
+				5105CA5F255D78C20083E9B8 /* JobsSearchBar.m in Sources */,
 				51815253251C470C00F9CCD3 /* NCHItemSection.m in Sources */,
 				510E6C4F254FCD8B0018F4A6 /* HXPhotoEditSplashMaskLayer.m in Sources */,
 				51815244251C470C00F9CCD3 /* NCHNormalRefreshHeader.m in Sources */,
@@ -2371,6 +2735,7 @@
 				5181524A251C470C00F9CCD3 /* NCHBaseViewController.m in Sources */,
 				518059F7251B91CB00FBC12D /* main.m in Sources */,
 				51ADE28825410F980081F620 /* YYDiskCache.m in Sources */,
+				5105CA9E255D84370083E9B8 /* TBVCell_style_01.m in Sources */,
 				51862043254FA55F007291CD /* VLUserHomeFollowListResponse.m in Sources */,
 				510E6C78254FCD8B0018F4A6 /* YSCTagCollectionViewCell.m in Sources */,
 				510E6C1E254FCD8B0018F4A6 /* HXAlbumListViewController.m in Sources */,
@@ -2381,6 +2746,7 @@
 				510E6C02254FCD8B0018F4A6 /* VLPublishTagListViewController.m in Sources */,
 				510E6C09254FCD8B0018F4A6 /* HXPhotoViewPresentTransition.m in Sources */,
 				510E6C14254FCD8B0018F4A6 /* NSDate+HXExtension.m in Sources */,
+				5105CA6A255D78C20083E9B8 /* JobsSearchVC.m in Sources */,
 				51A29C0825203EC1001EF6E9 /* SharePopView.m in Sources */,
 				51A29C0725203EC1001EF6E9 /* FocusView.m in Sources */,
 				510E6C37254FCD8B0018F4A6 /* HXAlbumlistView.m in Sources */,
@@ -2402,6 +2768,7 @@
 				51606928251DCC990070B9D9 /* VLNestSubjectViewController.m in Sources */,
 				517E40FD2547A798007DBBC2 /* VLDetailCommentCell.m in Sources */,
 				51339CAC253053430039A025 /* JXPagerMainTableView.m in Sources */,
+				5105CA5D255D78C20083E9B8 /* JobsSearchResultDataListView.m in Sources */,
 				51A29BE825203EC1001EF6E9 /* WebCacheHelpler.m in Sources */,
 				510E6C0D254FCD8B0018F4A6 /* UIViewController+HXExtension.m in Sources */,
 				510E6C38254FCD8B0018F4A6 /* HXCustomPreviewView.m in Sources */,
@@ -2437,19 +2804,23 @@
 				51873F29253433DE0070264B /* VLIndexResponse.m in Sources */,
 				510E6C20254FCD8B0018F4A6 /* HXPhotoViewController.m in Sources */,
 				510E6C05254FCD8B0018F4A6 /* VLPublishManager.m in Sources */,
+				5105CA74255D78C30083E9B8 /* ViewController@2.m in Sources */,
 				510E6C17254FCD8B0018F4A6 /* UIButton+HXExtension.m in Sources */,
 				51ADE21B253D726E0081F620 /* VLUserHomeListManager.m in Sources */,
 				51339CAE253053430039A025 /* JXPagerSmoothView.m in Sources */,
 				51A29BF725203EC1001EF6E9 /* LoadMoreControl.m in Sources */,
+				5105CA8B255D79520083E9B8 /* ZYTextField+HistoryDataList.m in Sources */,
 				51AC9911250F03CC0023D5EA /* UIView+Frame.m in Sources */,
 				510E6C0C254FCD8B0018F4A6 /* NSString+HXExtension.m in Sources */,
 				518059F4251B91CB00FBC12D /* AppDelegate.m in Sources */,
 				510E6C4A254FCD8B0018F4A6 /* HXPhotoEditStickerItem.m in Sources */,
 				510E6C5B254FCD8B0018F4A6 /* HXPhotoEdit.m in Sources */,
+				5105CA5E255D78C20083E9B8 /* JobsSearchResultDataListTBV.m in Sources */,
 				510E6C49254FCD8B0018F4A6 /* HXPhotoEditGridMaskLayer.m in Sources */,
 				51B138A825457F6A00A915B7 /* VLMessageLikeTableViewCell.m in Sources */,
 				510E6C73254FCD8B0018F4A6 /* YBTagView.m in Sources */,
 				51B1389C2545791F00A915B7 /* VLMessageFollowListViewController.m in Sources */,
+				5105CA95255D82A70083E9B8 /* ViewForTableViewHeader.m in Sources */,
 				510E6C16254FCD8B0018F4A6 /* NSTimer+HXExtension.m in Sources */,
 				510E6C2C254FCD8B0018F4A6 /* HXPhotoPreviewVideoViewCell.m in Sources */,
 				510E6C57254FCD8B0018F4A6 /* HXPhotoEditStickerItemView.m in Sources */,
@@ -2470,6 +2841,7 @@
 				510E6C1F254FCD8B0018F4A6 /* HXPhotoPreviewViewController.m in Sources */,
 				51E059FD2524620100FA9744 /* NCHRequestPublicArgument.m in Sources */,
 				51815246251C470C00F9CCD3 /* NCHTextViewController.m in Sources */,
+				5105CA96255D82A70083E9B8 /* ViewForTableViewFooter.m in Sources */,
 				51A29C0A25203EC1001EF6E9 /* AVPlayerManager.m in Sources */,
 				51805B00251B91CB00FBC12D /* UITapImageView.m in Sources */,
 				510E6C0F254FCD8B0018F4A6 /* NSBundle+HXPhotoPicker.m in Sources */,
@@ -2479,6 +2851,7 @@
 				510E6C13254FCD8B0018F4A6 /* UIImage+HXExtension.m in Sources */,
 				510E6C6E254FCD8B0018F4A6 /* YBBranchLayer.m in Sources */,
 				51A29C0525203EC1001EF6E9 /* FavoriteView.m in Sources */,
+				5105CA89255D79520083E9B8 /* ZYTextField.m in Sources */,
 				51B1389F2545794500A915B7 /* VLMessageLikeListViewController.m in Sources */,
 				517481812549453700F0E002 /* CADisplayLink+Tool.m in Sources */,
 				51ADE27C25410F2E0081F620 /* BANetManager.m in Sources */,
@@ -2503,14 +2876,18 @@
 				51C446152542D50E00F8D65A /* VLPhotoDetailBottomView.m in Sources */,
 				512A9CF02542642E0042E41D /* VLFollowResponse.m in Sources */,
 				5173E5CD252334F400E57C71 /* BaseRequestAPI.m in Sources */,
+				5105CA73255D78C30083E9B8 /* ViewController@3.m in Sources */,
 				517481852549453700F0E002 /* NSTextAttachment+Emotion.m in Sources */,
 				51E059FC2524620100FA9744 /* NCHBaseRequestResponse.m in Sources */,
 				51815242251C470C00F9CCD3 /* NCHElementsFlowLayout.m in Sources */,
 				510E6C3C254FCD8B0018F4A6 /* HXPhotoPreviewImageViewCell.m in Sources */,
+				5105CA63255D78C20083E9B8 /* DataCollectionViewCell.m in Sources */,
 				510E6C31254FCD8B0018F4A6 /* HXPhotoViewFlowLayout.m in Sources */,
 				51A29C1725203EC1001EF6E9 /* RefreshControl.m in Sources */,
 				510E6C41254FCD8B0018F4A6 /* HXPhotoEditGraffitiColorModel.m in Sources */,
+				5105CA9A255D84050083E9B8 /* TBVCell_style_02.m in Sources */,
 				5173E5CE252334F400E57C71 /* BaseRequestService.m in Sources */,
+				5105CA72255D78C30083E9B8 /* ViewController@4.m in Sources */,
 				515FCC882535967C007F964A /* UIView+NCHView.m in Sources */,
 				510E6C4B254FCD8B0018F4A6 /* HXPhotoEditGraffitiColorSizeView.m in Sources */,
 				51862034254F940F007291CD /* VLUserHomeFollowListViewController.m in Sources */,
@@ -2521,15 +2898,19 @@
 				51862031254F93C4007291CD /* VLUserHomeFansListViewController.m in Sources */,
 				51A66CA92539434000F34CED /* VLUserInfoModel.m in Sources */,
 				510E6C29254FCD8B0018F4A6 /* HXPhotoPreviewLivePhotoCell.m in Sources */,
+				5105CA75255D78C30083E9B8 /* ViewController@1.m in Sources */,
+				5105CA69255D78C20083E9B8 /* JobsSearchTableView.m in Sources */,
 				5173E5C725231EB600E57C71 /* VLFollowListViewController.m in Sources */,
 				51873F2525342A190070264B /* WMZDialogAnimation.m in Sources */,
 				51A29C1825203EC1001EF6E9 /* PhotoView.m in Sources */,
+				5105CA88255D79520083E9B8 /* CJTextField.m in Sources */,
 				510E6C53254FCD8B0018F4A6 /* HXPhotoEditChartletPreviewView.m in Sources */,
 				510E6BFF254FCD8B0018F4A6 /* YSCTagViewController.m in Sources */,
 				51A29C0425203EC1001EF6E9 /* MusicAlbumView.m in Sources */,
 				51BA07FF2536A369002E481E /* VLPhotoDetailRequest.m in Sources */,
 				517481842549453700F0E002 /* NSAttributedString+Extension.m in Sources */,
 				510E6C06254FCD8B0018F4A6 /* HXPhotoConfiguration.m in Sources */,
+				5105CA65255D78C20083E9B8 /* JobsSearchResultDataListTBVCell.m in Sources */,
 				51B138A525457C2200A915B7 /* VLMessageFansResponse.m in Sources */,
 				51A29C0925203EC1001EF6E9 /* AVPlayerView.m in Sources */,
 				51805B15251B91CB00FBC12D /* Reachability.m in Sources */,
@@ -2541,7 +2922,10 @@
 				51E059FB2524620100FA9744 /* NCHNetWorkManager.m in Sources */,
 				51815247251C470C00F9CCD3 /* NCHStaticTableViewController.m in Sources */,
 				510E6C74254FCD8B0018F4A6 /* YBTagLabel.m in Sources */,
+				5105CAA2255D84B30083E9B8 /* HotLabel.m in Sources */,
 				51A29BF625203EC1001EF6E9 /* MenuPopView.m in Sources */,
+				5105CA62255D78C20083E9B8 /* TableViewCell.m in Sources */,
+				5105CA66255D78C20083E9B8 /* JobsSearchShowHistoryDataTBVCell.m in Sources */,
 				515FCC812535947E007F964A /* NCHPopView.m in Sources */,
 				51FC064B2543F9CB008C1223 /* VLTagTextViewToolBar.m in Sources */,
 				510E6C10254FCD8B0018F4A6 /* UIImageView+HXExtension.m in Sources */,
@@ -2568,6 +2952,7 @@
 				5174817C2549453700F0E002 /* NSString+Extension.m in Sources */,
 				510E6C3B254FCD8B0018F4A6 /* HXPhotoPreviewViewCell.m in Sources */,
 				51A29C0D25203EC1001EF6E9 /* HoverTextView.m in Sources */,
+				5105CA61255D78C20083E9B8 /* JobsSearchShowHotwordsTBVCell.m in Sources */,
 				51ADE231253FCA110081F620 /* VLPublishTagRequest.m in Sources */,
 				510E6C70254FCD8B0018F4A6 /* YBTagStyle.m in Sources */,
 				51805B23251B91CB00FBC12D /* UICKeyChainStore.m in Sources */,
@@ -2579,6 +2964,7 @@
 				51805B14251B91CB00FBC12D /* MPFileManager.m in Sources */,
 				5181524C251C470C00F9CCD3 /* NCHTableViewController.m in Sources */,
 				510E6C4D254FCD8B0018F4A6 /* HXPhotoEditChartletContentViewCell.m in Sources */,
+				5105CA67255D78C20083E9B8 /* JobsSearchTableViewHeaderView.m in Sources */,
 				510E6C2F254FCD8B0018F4A6 /* HXPreviewImageView.m in Sources */,
 				51805AFA251B91CB00FBC12D /* CLLocation+MPLocation.m in Sources */,
 				51ADE23A25400B6F0081F620 /* VLPublishRequest.m in Sources */,

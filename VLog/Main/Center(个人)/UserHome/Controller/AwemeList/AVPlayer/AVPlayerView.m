@@ -44,7 +44,7 @@
         _player = [AVPlayer new];
         //添加视频播放器图形化载体AVPlayerLayer
         _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_player];
-        _playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        _playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
         [self.layer addSublayer:_playerLayer];
         
         //初始化取消视频加载的队列

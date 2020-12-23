@@ -31,10 +31,6 @@
 - (void)loadMore:(BOOL)isMore{
     VLMessageLikeRequest *request = [[VLMessageLikeRequest alloc] init];
     
-//    self.dataArray = @[@"",@"",@"",@""];
-//    [self endHeaderFooterRefreshing];
-//    [self.tableView reloadData];
-    
     NCWeakSelf(self);
     [request nch_startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request, NCHBaseRequestResponse * _Nonnull baseResponse) {
         

@@ -182,9 +182,9 @@ KProNSArrayType(VLFollowListModel, dataArray)
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    _myCategoryView.frame = CGRectMake(0, 0, kSCREEN_WIDTH - 50, CategoryViewHeight);
-    _catSelector.frame = CGRectMake(kSCREEN_WIDTH - 50, 0, 50, CategoryViewHeight);
-    _listContainerView.frame = CGRectMake(0, CategoryViewHeight, kSCREEN_WIDTH, self.view.jk_height-kTabbarH);
+    _myCategoryView.frame = CGRectMake(0, 0, kkSCREEN_WIDTH - 50, CategoryViewHeight);
+    _catSelector.frame = CGRectMake(kkSCREEN_WIDTH - 50, 0, 50, CategoryViewHeight);
+    _listContainerView.frame = CGRectMake(0, CategoryViewHeight, kkSCREEN_WIDTH, self.view.jk_height-kTabbarH);
 }
 
 - (void)loadCategorySubViewData{
@@ -273,7 +273,7 @@ KProNSArrayType(VLFollowListModel, dataArray)
     
     UIView *view = [[UIView alloc] init];
     view.backgroundColor = kOrangeColor;
-    view.frame = CGRectMake(0, 0, kSCREEN_WIDTH,(kSCREEN_WIDTH)/2.0);
+    view.frame = CGRectMake(0, 0, kkSCREEN_WIDTH,(kkSCREEN_WIDTH)/2.0);
     _popView = [NCHPopView initWithCustomView:view
                                    parentView:_listContainerView
                                      popStyle:NCHPopStyleSmoothFromTop

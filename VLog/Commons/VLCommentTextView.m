@@ -55,11 +55,6 @@ static const CGFloat kCommentTextViewTopBottomInset          = 15;
         _placeholderLabel.frame = CGRectMake(kCommentTextViewLeftInset, 0, ScreenWidth - kCommentTextViewLeftInset - kCommentTextViewRightInset, 50);
         [_textView addSubview:_placeholderLabel];
         
-//        _atImageView = [[UIImageView alloc] init];
-//        _atImageView.contentMode = UIViewContentModeCenter;
-//        _atImageView.image = [UIImage imageNamed:@"iconWhiteaBefore"];
-//        [_textView addSubview:_atImageView];
-        
         
         [_container addSubview:_textView];
         _textView.delegate = self;
@@ -72,7 +67,6 @@ static const CGFloat kCommentTextViewTopBottomInset          = 15;
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-//    _atImageView.frame = CGRectMake(ScreenWidth - 50, 0, 50, 50);
     UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:self.bounds byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(10.0f, 10.0f)];
     CAShapeLayer* shape = [[CAShapeLayer alloc] init];
     [shape setPath:rounded.CGPath];

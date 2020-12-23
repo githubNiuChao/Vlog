@@ -101,14 +101,18 @@
 // 颜色
 #pragma mark - ------------颜色---------------
 //主题色
-#define kCOLOR_THEME kHexColor(E7414D)
+#define kCOLOR_THEME KHEXCOLOR(0XE7414D)
 // rgba颜色
 #define kRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define kRGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 // 随机色
 #define kRandomColor  [UIColor colorWithRed:(arc4random_uniform(256))/255.0 green:arc4random_uniform(256)/255.0 blue:(arc4random_uniform(256))/255.0 alpha:1.0]
 //16进制颜色
-#define kHexColor(_hex_)  [UIColor jk_colorWithHexString:((__bridge NSString *)CFSTR(#_hex_))]
+//#define kKHEXCOLOR(_hex_)  [UIColor jk_colorWithHexString:((__bridge NSString *)CFSTR(#_hex_))]
+///十六进制颜色
+#define KHEXCOLOR(hexValue)  [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:1]
+#define COLOR_HEX(hexValue, al)  [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:al]
+
 
 #define kSysBGColor   [UIColor systemBackgroundColor]
 #define kSysGroupBGColor   [UIColor systemGroupedBackgroundColor]
@@ -405,5 +409,16 @@ description:__VA_ARGS__];                             \
 } while(0)
 //---------------------打印日志--------------------------
 
+
+
+#pragma mark ======================================== UserDefault ========================================
+#define SetUserDefaultKeyWithValue(key,value) [[NSUserDefaults standardUserDefaults] setValue:value forKey:key]
+#define SetUserDefaultKeyWithObject(key,object) [[NSUserDefaults standardUserDefaults] setObject:object forKey:key]
+#define SetUserBoolKeyWithObject(key,object) [[NSUserDefaults standardUserDefaults] setBool:object forKey:key]
+#define GetUserDefaultValueForKey(key) [[NSUserDefaults standardUserDefaults] valueForKey:key]
+#define GetUserDefaultObjForKey(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
+#define GetUserDefaultBoolForKey(key) [[NSUserDefaults standardUserDefaults] boolForKey:key]
+#define DeleUserDefaultWithKey(key) [[NSUserDefaults standardUserDefaults] removeObjectForKey:key]
+#define UserDefaultSynchronize  [[NSUserDefaults standardUserDefaults] synchronize]
 
 #endif /* NCHMacros_h */
